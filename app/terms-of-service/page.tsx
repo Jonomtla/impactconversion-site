@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/motion/Reveal";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import TermsForm from "./TermsForm";
 
 export const metadata = {
@@ -130,6 +131,7 @@ export default function TermsOfServicePage() {
       <main id="main">
         <section className="bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
           <div className="mx-auto max-w-3xl px-6">
+            <Breadcrumbs items={[{ label: "Terms of engagement" }]} />
             <Reveal>
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
                 Legal

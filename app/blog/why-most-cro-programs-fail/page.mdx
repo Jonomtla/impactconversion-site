@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = {
   title: "Why most CRO programs fail in the first 90 days",
@@ -13,6 +14,12 @@ export const metadata = {
 <main id="main">
   <article className="bg-cream pt-32 pb-20 md:pt-40">
     <div className="mx-auto max-w-3xl px-6">
+      <Breadcrumbs
+        items={[
+          { label: "Blog", href: "/blog" },
+          { label: "Why most CRO programs fail" },
+        ]}
+      />
       <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
         Methodology · April 2026
       </p>

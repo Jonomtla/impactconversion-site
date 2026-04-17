@@ -7,6 +7,7 @@ import CTA from "@/components/CTA";
 import Reveal from "@/components/motion/Reveal";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import CountUp from "@/components/CountUp";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { caseStudies, getCaseStudy } from "@/lib/case-studies";
 
 export function generateStaticParams() {
@@ -52,23 +53,14 @@ export default async function CaseStudyPage({
             }}
           />
           <div className="relative mx-auto max-w-5xl px-6">
+            <Breadcrumbs
+              items={[
+                { label: "Case studies", href: "/case-studies" },
+                { label: study.name },
+              ]}
+            />
             <Reveal>
-              <Link
-                href="/case-studies"
-                className="inline-flex items-center gap-2 text-sm font-medium text-purple-2 hover:text-cream transition-colors"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M19 12H5M12 19l-7-7 7-7"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                All case studies
-              </Link>
-              <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-text-inv-muted">
+              <div className="flex flex-wrap items-center gap-3 text-sm text-text-inv-muted">
                 <span className="rounded-full bg-purple/20 px-3 py-1 font-semibold uppercase tracking-wider text-purple-2">
                   {study.industry}
                 </span>

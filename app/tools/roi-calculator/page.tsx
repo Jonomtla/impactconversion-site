@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/motion/Reveal";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import Calculator from "@/components/tools/roi-calculator/Calculator";
 
 export const metadata = {
@@ -18,6 +19,12 @@ export default function RoiCalculatorPage() {
       <main id="main">
         <section className="bg-ink text-cream pt-32 pb-12 md:pt-40 md:pb-16">
           <div className="mx-auto max-w-4xl px-6">
+            <Breadcrumbs
+              items={[
+                { label: "Tools", href: "/tools" },
+                { label: "CRO ROI Calculator" },
+              ]}
+            />
             <Reveal>
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
                 Free tool

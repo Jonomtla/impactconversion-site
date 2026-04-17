@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import Reveal from "@/components/motion/Reveal";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { caseStudies } from "@/lib/case-studies";
 
 export const metadata = {
@@ -31,6 +32,9 @@ export default function CaseStudiesPage() {
             }}
           />
           <div className="relative mx-auto max-w-4xl px-6 text-center">
+            <div className="mx-auto inline-block text-left">
+              <Breadcrumbs items={[{ label: "Case studies" }]} />
+            </div>
             <Reveal>
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
                 Case studies

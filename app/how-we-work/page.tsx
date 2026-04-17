@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import How from "@/components/How";
 import Reveal from "@/components/motion/Reveal";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = {
   title: "How we work · Impact Conversion",
@@ -86,6 +87,7 @@ export default function HowWeWorkPage() {
             }}
           />
           <div className="relative mx-auto max-w-4xl px-6">
+            <Breadcrumbs items={[{ label: "How we work" }]} />
             <Reveal>
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
                 How we work

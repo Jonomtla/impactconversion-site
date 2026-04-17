@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import FAQ from "@/components/FAQ";
 import Reveal from "@/components/motion/Reveal";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = {
   title: "Contact · Impact Conversion",
@@ -41,6 +42,9 @@ export default function ContactPage() {
             }}
           />
           <div className="relative mx-auto max-w-4xl px-6 text-center">
+            <div className="mx-auto inline-block text-left">
+              <Breadcrumbs items={[{ label: "Contact" }]} />
+            </div>
             <Reveal>
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
                 Book a call

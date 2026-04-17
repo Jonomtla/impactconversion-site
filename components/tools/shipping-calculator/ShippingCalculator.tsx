@@ -20,21 +20,21 @@ const PRESETS: Record<string, {
   ordersAboveT1: number; ordersAboveT2: number;
   currency: string; clientName: string;
 }> = {
-  steadyrack_na: {
-    label: 'Steadyrack NA',
-    annualOrders: 16153, aov: 268, varCostsPct: 40, cpa: 45,
+  example_premium: {
+    label: 'Example: premium D2C',
+    annualOrders: 15000, aov: 250, varCostsPct: 40, cpa: 45,
     shippingAbove: 10, shippingBelow: 30,
     threshold1: 300, threshold2: 200,
-    ordersAboveT1: 5257, ordersAboveT2: 10017,
-    currency: 'USD', clientName: 'Steadyrack NA',
+    ordersAboveT1: 5000, ordersAboveT2: 9500,
+    currency: 'USD', clientName: '',
   },
-  steadyrack_eu: {
-    label: 'Steadyrack EU',
-    annualOrders: 8400, aov: 245, varCostsPct: 45, cpa: 38,
-    shippingAbove: 8, shippingBelow: 25,
-    threshold1: 250, threshold2: 150,
-    ordersAboveT1: 3200, ordersAboveT2: 5800,
-    currency: 'EUR', clientName: 'Steadyrack EU',
+  example_mid: {
+    label: 'Example: mid-ticket D2C',
+    annualOrders: 25000, aov: 95, varCostsPct: 50, cpa: 28,
+    shippingAbove: 8, shippingBelow: 12,
+    threshold1: 150, threshold2: 75,
+    ordersAboveT1: 6000, ordersAboveT2: 15000,
+    currency: 'USD', clientName: '',
   },
   blank: {
     label: 'Blank template',
@@ -891,7 +891,7 @@ export default function ShippingCalculator() {
             <div>
               <h3 className="font-semibold text-[#10222b]">Order Distribution Reference</h3>
               <p className="text-xs text-[#565656]">
-                {customBuckets ? 'Using your uploaded data' : 'Default Steadyrack distribution'}
+                {customBuckets ? 'Using your uploaded data' : 'Default sample distribution'}
               </p>
             </div>
           </div>
