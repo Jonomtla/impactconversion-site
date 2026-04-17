@@ -79,7 +79,6 @@ export default function BlogIndexPage() {
               source="blog_index"
               heading="Get the CRO notes in your inbox."
               subhead="One email a week when there's something worth reading. Plus the 7 Conversion Killers PDF as a thank-you."
-              cta="Send me the PDF"
             />
           </div>
         </section>

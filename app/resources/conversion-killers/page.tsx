@@ -121,7 +121,6 @@ export default function ConversionKillersPage() {
                   source="conversion_killers_pdf"
                   heading="Email me the PDF."
                   subhead="14 pages. Arrives in under a minute. Unsubscribe any time."
-                  cta="Send it to me"
                 />
               </div>
             </div>
