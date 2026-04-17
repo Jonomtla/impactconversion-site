@@ -1,6 +1,9 @@
 import LeakyFunnel from "./LeakyFunnel";
 import VirtuousLoop from "./VirtuousLoop";
 import ABTestBars from "./ABTestBars";
+import Reveal from "./motion/Reveal";
+import { StaggerGroup, StaggerItem } from "./motion/Stagger";
+import TiltCard from "./motion/TiltCard";
 
 const pillars = [
   {
@@ -27,7 +30,7 @@ export default function Problem() {
   return (
     <section className="bg-cream py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="max-w-3xl">
+        <Reveal className="max-w-3xl">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
             The real problem
           </p>
@@ -42,36 +45,35 @@ export default function Problem() {
             Fixing what happens after the click is the cheap one. And it keeps
             paying every month you do it.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-3">
+        <StaggerGroup className="mt-16 grid gap-6 md:grid-cols-3" stagger={0.15}>
           {pillars.map((p) => {
             const V = p.Visual;
             return (
-              <div
-                key={p.n}
-                className="flex flex-col rounded-3xl border border-ink/10 bg-white p-8 md:p-10 transition-all hover:border-purple/30 hover:shadow-[0_20px_50px_-20px_rgba(124,90,236,0.25)]"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-soft font-mono text-xs font-semibold text-purple">
-                    {p.n}
+              <StaggerItem key={p.n}>
+                <TiltCard className="flex h-full flex-col rounded-3xl border border-ink/10 bg-white p-8 md:p-10 transition-shadow hover:shadow-[0_30px_60px_-20px_rgba(124,90,236,0.28)]">
+                  <div className="flex items-center justify-between">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-soft font-mono text-xs font-semibold text-purple">
+                      {p.n}
+                    </div>
                   </div>
-                </div>
-                <div className="mt-6 rounded-xl bg-cream/60 p-2">
-                  <V />
-                </div>
-                <h3
-                  className="mt-6 text-2xl font-semibold tracking-tight text-text"
-                  dangerouslySetInnerHTML={{ __html: p.h }}
-                />
-                <p
-                  className="mt-4 text-text-muted leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: p.p }}
-                />
-              </div>
+                  <div className="mt-6 rounded-xl bg-cream/60 p-2">
+                    <V />
+                  </div>
+                  <h3
+                    className="mt-6 text-2xl font-semibold tracking-tight text-text"
+                    dangerouslySetInnerHTML={{ __html: p.h }}
+                  />
+                  <p
+                    className="mt-4 text-text-muted leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: p.p }}
+                  />
+                </TiltCard>
+              </StaggerItem>
             );
           })}
-        </div>
+        </StaggerGroup>
       </div>
     </section>
   );

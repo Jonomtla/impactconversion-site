@@ -1,4 +1,6 @@
 import CountUp from "./CountUp";
+import Reveal from "./motion/Reveal";
+import { StaggerGroup, StaggerItem } from "./motion/Stagger";
 
 export default function CaseStudy() {
   return (
@@ -12,7 +14,7 @@ export default function CaseStudy() {
       />
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
-          <div className="lg:col-span-5">
+          <Reveal className="lg:col-span-5">
             <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
               Case study
             </p>
@@ -39,21 +41,27 @@ export default function CaseStudy() {
                 Ben Silcock, Co-founder
               </footer>
             </blockquote>
-          </div>
+          </Reveal>
 
           <div className="lg:col-span-7">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-              <Metric label="Extra revenue" sub="No extra ad spend">
-                <CountUp to={1} prefix="$" suffix="M+" />
-              </Metric>
-              <Metric label="Tests shipped" sub="Over 18 months">
-                <CountUp to={180} />
-              </Metric>
-              <Metric label="Win rate" sub="Industry avg ~22%">
-                <CountUp to={35} suffix="%" />
-              </Metric>
-            </div>
-            <div className="mt-4 rounded-2xl border border-cream/10 bg-cream/5 p-8">
+            <StaggerGroup className="grid grid-cols-1 gap-4 sm:grid-cols-3" stagger={0.1}>
+              <StaggerItem>
+                <Metric label="Extra revenue" sub="No extra ad spend">
+                  <CountUp to={1} prefix="$" suffix="M+" />
+                </Metric>
+              </StaggerItem>
+              <StaggerItem>
+                <Metric label="Tests shipped" sub="Over 18 months">
+                  <CountUp to={180} />
+                </Metric>
+              </StaggerItem>
+              <StaggerItem>
+                <Metric label="Win rate" sub="Industry avg ~22%">
+                  <CountUp to={35} suffix="%" />
+                </Metric>
+              </StaggerItem>
+            </StaggerGroup>
+            <Reveal delay={0.3} className="mt-4 rounded-2xl border border-cream/10 bg-cream/5 p-8">
               <p className="text-sm uppercase tracking-wider text-text-inv-muted">
                 What actually moved
               </p>
@@ -71,7 +79,7 @@ export default function CaseStudy() {
                   Logged-in cross-sells moved revenue per visitor up 30%.
                 </li>
               </ul>
-            </div>
+            </Reveal>
           </div>
         </div>
       </div>

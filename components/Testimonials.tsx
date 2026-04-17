@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Reveal from "./motion/Reveal";
+import { StaggerGroup, StaggerItem } from "./motion/Stagger";
 
 type T = {
   quote: string;
@@ -43,7 +45,7 @@ export default function Testimonials() {
   return (
     <section className="bg-cream py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="max-w-3xl">
+        <Reveal className="max-w-3xl">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
             More results
           </p>
@@ -55,66 +57,65 @@ export default function Testimonials() {
             No viral redesigns. Tests that ship, hit significance, and show up
             in the P&amp;L.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-16 grid gap-6 lg:grid-cols-3">
+        <StaggerGroup className="mt-16 grid gap-6 lg:grid-cols-3" stagger={0.12}>
           {testimonials.map((t, i) => (
-            <figure
-              key={i}
-              className="flex flex-col justify-between rounded-2xl border border-ink/10 bg-white p-8 transition-all hover:border-purple/30 hover:-translate-y-1"
-            >
-              <svg
-                width="28"
-                height="24"
-                viewBox="0 0 28 24"
-                fill="none"
-                className="text-purple"
-              >
-                <path
-                  d="M0 24V14C0 6.268 4.477 0 12 0v4C7.582 4 4 7.582 4 12h4v12H0zm16 0V14C16 6.268 20.477 0 28 0v4c-4.418 0-8 3.582-8 8h4v12h-8z"
-                  fill="currentColor"
+            <StaggerItem key={i}>
+              <figure className="flex h-full flex-col justify-between rounded-2xl border border-ink/10 bg-white p-8 transition-all hover:border-purple/30 hover:-translate-y-1">
+                <svg
+                  width="28"
+                  height="24"
+                  viewBox="0 0 28 24"
+                  fill="none"
+                  className="text-purple"
+                >
+                  <path
+                    d="M0 24V14C0 6.268 4.477 0 12 0v4C7.582 4 4 7.582 4 12h4v12H0zm16 0V14C16 6.268 20.477 0 28 0v4c-4.418 0-8 3.582-8 8h4v12h-8z"
+                    fill="currentColor"
+                  />
+                </svg>
+                <blockquote
+                  className="mt-6 text-lg leading-relaxed text-text"
+                  dangerouslySetInnerHTML={{ __html: t.quote }}
                 />
-              </svg>
-              <blockquote
-                className="mt-6 text-lg leading-relaxed text-text"
-                dangerouslySetInnerHTML={{ __html: t.quote }}
-              />
-              <div className="mt-8">
-                <div className="flex flex-wrap gap-6 border-t border-ink/10 pt-6">
-                  {t.stats.map((s) => (
-                    <div key={s.v}>
-                      <div className="text-2xl font-semibold text-purple">
-                        {s.k}
+                <div className="mt-8">
+                  <div className="flex flex-wrap gap-6 border-t border-ink/10 pt-6">
+                    {t.stats.map((s) => (
+                      <div key={s.v}>
+                        <div className="text-2xl font-semibold text-purple">
+                          {s.k}
+                        </div>
+                        <div className="text-xs uppercase tracking-wider text-text-muted">
+                          {s.v}
+                        </div>
                       </div>
-                      <div className="text-xs uppercase tracking-wider text-text-muted">
-                        {s.v}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <figcaption className="mt-6 flex items-center gap-3">
-                  {t.photo ? (
-                    <Image
-                      src={t.photo}
-                      alt={t.name}
-                      width={44}
-                      height={44}
-                      className="h-11 w-11 rounded-full object-cover"
-                    />
-                  ) : (
-                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-purple-soft text-sm font-semibold text-purple">
-                      {t.initials}
-                    </div>
-                  )}
-                  <div>
-                    <div className="font-semibold text-text">{t.name}</div>
-                    <div className="text-sm text-text-muted">{t.role}</div>
+                    ))}
                   </div>
-                </figcaption>
-              </div>
-            </figure>
+                  <figcaption className="mt-6 flex items-center gap-3">
+                    {t.photo ? (
+                      <Image
+                        src={t.photo}
+                        alt={t.name}
+                        width={44}
+                        height={44}
+                        className="h-11 w-11 rounded-full object-cover"
+                      />
+                    ) : (
+                      <div className="flex h-11 w-11 items-center justify-center rounded-full bg-purple-soft text-sm font-semibold text-purple">
+                        {t.initials}
+                      </div>
+                    )}
+                    <div>
+                      <div className="font-semibold text-text">{t.name}</div>
+                      <div className="text-sm text-text-muted">{t.role}</div>
+                    </div>
+                  </figcaption>
+                </div>
+              </figure>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </section>
   );
