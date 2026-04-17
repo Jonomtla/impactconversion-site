@@ -62,11 +62,11 @@ export default function CaseStudy() {
           </Reveal>
 
           <div className="lg:col-span-7">
-            <StaggerGroup className="grid grid-cols-1 gap-4 sm:grid-cols-3" stagger={0.1}>
-              <StaggerItem>
-                <Metric label="Extra revenue" sub="No extra ad spend">
+            <StaggerGroup className="grid grid-cols-1 gap-4 sm:grid-cols-2" stagger={0.1}>
+              <StaggerItem className="sm:col-span-2">
+                <HeroMetric label="Extra revenue" sub="No extra ad spend">
                   <CountUp to={1} prefix="$" suffix="M+" />
-                </Metric>
+                </HeroMetric>
               </StaggerItem>
               <StaggerItem>
                 <Metric label="Tests shipped" sub="Over 18 months">
@@ -123,6 +123,43 @@ function Metric({
         {children}
       </div>
       <div className="mt-1 text-sm text-text-inv-muted">{sub}</div>
+    </div>
+  );
+}
+
+function HeroMetric({
+  label,
+  children,
+  sub,
+}: {
+  label: string;
+  children: React.ReactNode;
+  sub: string;
+}) {
+  return (
+    <div className="relative overflow-hidden rounded-2xl border border-purple-2/30 bg-gradient-to-br from-purple/15 to-cream/5 p-8">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full opacity-40 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(circle, var(--color-purple) 0%, transparent 70%)",
+        }}
+      />
+      <div className="relative flex items-end justify-between gap-6">
+        <div>
+          <div className="text-xs uppercase tracking-wider text-text-inv-muted">
+            {label}
+          </div>
+          <div className="mt-2 text-6xl font-semibold tracking-tight text-cream md:text-7xl">
+            {children}
+          </div>
+          <div className="mt-2 text-sm text-text-inv-muted">{sub}</div>
+        </div>
+        <span className="hidden rounded-full border border-purple-2/40 bg-purple/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-purple-2 sm:inline-block">
+          Headline win
+        </span>
+      </div>
     </div>
   );
 }

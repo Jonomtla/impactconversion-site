@@ -52,35 +52,48 @@ export default function How() {
           </p>
         </Reveal>
 
-        <StaggerGroup className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
-          {steps.map((s, i) => {
-            const V = s.Visual;
-            return (
-              <StaggerItem key={s.n}>
-                <div className="group relative h-full overflow-hidden rounded-2xl border border-ink/10 bg-white p-8 transition-all hover:border-purple/30 hover:shadow-[0_20px_40px_-20px_rgba(124,90,236,0.3)]">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-purple text-xs font-semibold text-white">
-                      {i + 1}
-                    </span>
-                    <span className="font-mono text-xs uppercase tracking-wider text-text-muted">
-                      Stage {s.n}
-                    </span>
+        <div className="relative mt-16">
+          {/* Connector line passing through the stage badges on desktop */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute left-0 right-0 hidden h-px lg:block"
+            style={{
+              top: "calc(2rem + 1rem)", // p-8 padding (32px) + half of h-8 badge (16px) = 48px
+              background:
+                "linear-gradient(90deg, transparent 0%, var(--color-purple) 18%, var(--color-purple) 82%, transparent 100%)",
+              opacity: 0.35,
+            }}
+          />
+          <StaggerGroup className="relative grid gap-6 md:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
+            {steps.map((s, i) => {
+              const V = s.Visual;
+              return (
+                <StaggerItem key={s.n}>
+                  <div className="group relative h-full overflow-hidden rounded-2xl border border-ink/10 bg-white p-8 transition-all hover:border-purple/30 hover:shadow-[0_20px_40px_-20px_rgba(124,90,236,0.3)]">
+                    <div className="flex items-center gap-3">
+                      <span className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-purple text-xs font-semibold text-white ring-4 ring-cream-2">
+                        {i + 1}
+                      </span>
+                      <span className="font-mono text-xs uppercase tracking-wider text-text-muted">
+                        Stage {s.n}
+                      </span>
+                    </div>
+                    <div className="mt-6">
+                      <V />
+                    </div>
+                    <h3 className="mt-6 text-xl font-semibold tracking-tight text-text">
+                      {s.h}
+                    </h3>
+                    <p
+                      className="mt-3 text-text-muted leading-relaxed"
+                      dangerouslySetInnerHTML={{ __html: s.p }}
+                    />
                   </div>
-                  <div className="mt-6">
-                    <V />
-                  </div>
-                  <h3 className="mt-6 text-xl font-semibold tracking-tight text-text">
-                    {s.h}
-                  </h3>
-                  <p
-                    className="mt-3 text-text-muted leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: s.p }}
-                  />
-                </div>
-              </StaggerItem>
-            );
-          })}
-        </StaggerGroup>
+                </StaggerItem>
+              );
+            })}
+          </StaggerGroup>
+        </div>
       </div>
     </section>
   );

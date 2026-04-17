@@ -7,21 +7,25 @@ const receipts = [
 
 export default function ProofBar() {
   return (
-    <section className="border-b border-ink/5 bg-cream py-12">
+    <section className="border-b border-ink/5 bg-cream py-14 md:py-16">
       <div className="mx-auto max-w-7xl px-6">
-        <p className="text-center text-xs uppercase tracking-[0.25em] text-text-muted">
-          Real programs. Real receipts.
-        </p>
-        <div className="mt-8 grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-10">
+        <div className="flex items-center justify-center gap-3">
+          <span className="h-px w-8 bg-ink/15" />
+          <p className="text-center text-xs uppercase tracking-[0.25em] text-text-muted">
+            Real programs. Real receipts.
+          </p>
+          <span className="h-px w-8 bg-ink/15" />
+        </div>
+        <div className="mt-10 grid grid-cols-2 gap-y-8 md:grid-cols-4 md:gap-y-0 md:divide-x md:divide-ink/10">
           {receipts.map((r) => (
             <div
               key={r.l}
-              className="flex flex-col items-center text-center"
+              className="flex flex-col items-center px-4 text-center md:px-6"
             >
-              <div className="text-2xl font-semibold tracking-tight text-purple md:text-3xl">
+              <div className="text-3xl font-semibold tracking-tight text-purple md:text-4xl">
                 {r.n}
               </div>
-              <div className="mt-1 text-xs font-medium text-text-muted md:text-sm">
+              <div className="mt-2 text-xs font-medium text-text-muted md:text-sm">
                 {r.l}
               </div>
             </div>

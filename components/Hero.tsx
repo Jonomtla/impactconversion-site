@@ -13,6 +13,11 @@ export default function Hero() {
         }}
       />
       <WavyLines />
+      {/* Bottom fade bridging into the cream proof bar */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-ink"
+      />
 
       <div className="relative mx-auto max-w-7xl px-6 pb-28 pt-20 md:pb-40 md:pt-28">
         <StaggerGroup className="mx-auto max-w-4xl text-center" stagger={0.12}>
@@ -61,24 +66,30 @@ export default function Hero() {
             </p>
           </StaggerItem>
           <StaggerItem>
-            <div className="mt-20 grid grid-cols-1 gap-8 border-t border-cream/10 pt-12 sm:grid-cols-3">
-              <div>
-                <div className="text-4xl font-semibold tracking-tight text-purple-2">
+            <div className="mt-20 grid grid-cols-1 border-t border-cream/10 pt-12 sm:grid-cols-3 sm:divide-x sm:divide-cream/10">
+              <div className="px-2 sm:px-6">
+                <div className="text-4xl font-semibold tracking-tight text-purple-2 md:text-5xl">
                   <CountUp to={1} prefix="$" suffix="M+" />
                 </div>
-                <div className="mt-1 text-sm text-text-inv-muted">Extra revenue for one client in 18 months</div>
+                <div className="mt-2 text-sm text-text-inv-muted">
+                  Extra revenue for one client in 18 months
+                </div>
               </div>
-              <div>
-                <div className="text-4xl font-semibold tracking-tight text-purple-2">
+              <div className="mt-8 px-2 sm:mt-0 sm:px-6">
+                <div className="text-4xl font-semibold tracking-tight text-purple-2 md:text-5xl">
                   <CountUp to={35} suffix="%" />
                 </div>
-                <div className="mt-1 text-sm text-text-inv-muted">Win rate on tests we ship</div>
+                <div className="mt-2 text-sm text-text-inv-muted">
+                  Win rate on tests we ship
+                </div>
               </div>
-              <div>
-                <div className="text-4xl font-semibold tracking-tight text-purple-2">
+              <div className="mt-8 px-2 sm:mt-0 sm:px-6">
+                <div className="text-4xl font-semibold tracking-tight text-purple-2 md:text-5xl">
                   <CountUp to={180} suffix="+" />
                 </div>
-                <div className="mt-1 text-sm text-text-inv-muted">Experiments run, every one measured</div>
+                <div className="mt-2 text-sm text-text-inv-muted">
+                  Experiments run, every one measured
+                </div>
               </div>
             </div>
           </StaggerItem>
