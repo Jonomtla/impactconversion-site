@@ -14,30 +14,36 @@ type T = {
 const testimonials: T[] = [
   {
     quote:
+      "We&rsquo;ve seen single wins that brought in six figures of additional revenue. The ROI is a no-brainer. Beyond the numbers, the testing process has instilled a culture of experimentation that&rsquo;s removed assumptions from how we make decisions.",
+    name: "Ben Silcock",
+    role: "Co-founder, High Performance Academy",
+    initials: "BS",
+    stats: [
+      { k: "$1M+", v: "Extra revenue" },
+      { k: "35%", v: "Win rate" },
+    ],
+  },
+  {
+    quote:
       "Having Impact on our team has been a major asset. The support and expertise we needed to finally make our funnel work. The project has been a game changer.",
     name: "Ryan Cartlidge",
     role: "Founder, Animal Training Academy",
     initials: "RC",
     stats: [
-      { k: "+63%", v: "Revenue YoY" },
-      { k: "+46%", v: "New members" },
+      { k: "+57%", v: "Membership / 9mo" },
+      { k: "+63%", v: "MRR / 9mo" },
     ],
   },
   {
     quote:
-      "Their insights into the industry are second to none. We saw YoY performance improve straight away. The decision making culture it&apos;s built inside our team is arguably worth more than the numbers.",
-    name: "Aden",
-    role: "General Manager, EDMProd",
-    photo: "/assets/avatar-aden.png",
-    stats: [{ k: "+20%", v: "Qualified leads" }],
-  },
-  {
-    quote:
-      "Working with Impact didn&apos;t just lift conversion. It improved lead quality. More leads. Better leads. Lower CAC. It compounds.",
+      "Impact have been fantastic to work with. They&rsquo;ve provided actionable advice and the changes have made a real difference.",
     name: "Matthew Morrison",
-    role: "Founder",
+    role: "Co-founder, Kite Therapy",
     photo: "/assets/avatar-matt.png",
-    stats: [{ k: "+20%", v: "More leads" }],
+    stats: [
+      { k: "Higher", v: "Lead quality" },
+      { k: "Lower", v: "CAC" },
+    ],
   },
 ];
 
