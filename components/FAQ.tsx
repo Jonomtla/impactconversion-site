@@ -8,7 +8,7 @@ const faqs = [
     a: "Most clients see their first winning test inside 12 weeks. Traffic volume and purchase cycle affect the timing. We go after the biggest, most likely wins first, so the program tends to pay for itself well before it ends.",
   },
   {
-    q: "Isn&apos;t this expensive?",
+    q: "Isn't this expensive?",
     a: "Compare it to the alternative. A full redesign runs $50k to $150k and nobody can promise the new site beats the old one. Six months of testing costs less, and every winner you ship stays live forever. On our 90-day sprints we guarantee at least three winning tests, or you don&apos;t pay.",
   },
   {

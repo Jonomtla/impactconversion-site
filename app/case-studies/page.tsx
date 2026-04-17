@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -52,14 +53,14 @@ export default function CaseStudiesPage() {
             <Reveal>
               <Link
                 href={`/case-studies/${featured.slug}`}
-                className="group relative block overflow-hidden rounded-3xl border border-ink/10 bg-white p-8 transition-all hover:border-purple/40 hover:shadow-[0_30px_80px_-30px_rgba(124,90,236,0.35)] md:p-12"
+                className="group relative block overflow-hidden rounded-3xl border border-ink/10 bg-white p-8 pt-16 transition-all hover:border-purple/40 hover:shadow-[0_30px_80px_-30px_rgba(124,90,236,0.35)] md:p-12"
               >
                 <div className="absolute right-6 top-6 inline-flex items-center gap-1.5 rounded-full bg-purple px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
                   <span className="h-1.5 w-1.5 rounded-full bg-white" />
                   Featured
                 </div>
                 <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
-                  <div className="lg:col-span-7">
+                  <div className="lg:col-span-6">
                     <p className="text-sm font-semibold uppercase tracking-wider text-purple">
                       {featured.industry} · {featured.duration}
                     </p>
@@ -71,22 +72,8 @@ export default function CaseStudiesPage() {
                       className="mt-6 text-lg text-text-muted"
                       dangerouslySetInnerHTML={{ __html: featured.summary }}
                     />
-                    <div className="mt-8 inline-flex items-center gap-2 text-base font-semibold text-purple group-hover:gap-3 transition-all">
-                      Read the full story
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                        <path
-                          d="M5 12h14M13 5l7 7-7 7"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="lg:col-span-5">
-                    <div className="grid grid-cols-2 gap-3">
-                      {featured.heroStats.map((s) => (
+                    <div className="mt-8 grid grid-cols-2 gap-3">
+                      {featured.heroStats.slice(0, 4).map((s) => (
                         <div
                           key={s.l}
                           className="rounded-2xl border border-ink/10 bg-cream/50 p-5"
@@ -100,6 +87,32 @@ export default function CaseStudiesPage() {
                         </div>
                       ))}
                     </div>
+                    <div className="mt-8 inline-flex items-center gap-2 text-base font-semibold text-purple group-hover:gap-3 transition-all">
+                      Read the full story
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M5 12h14M13 5l7 7-7 7"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="lg:col-span-6">
+                    {featured.heroImage ? (
+                      <div className="overflow-hidden rounded-2xl border border-ink/10 bg-cream/50 p-2">
+                        <Image
+                          src={featured.heroImage}
+                          alt={featured.heroImageAlt ?? `${featured.name} site`}
+                          width={1600}
+                          height={1000}
+                          className="h-auto w-full rounded-xl"
+                          priority
+                        />
+                      </div>
+                    ) : null}
                   </div>
                 </div>
               </Link>
@@ -130,8 +143,20 @@ export default function CaseStudiesPage() {
                 <StaggerItem key={c.slug}>
                   <Link
                     href={`/case-studies/${c.slug}`}
-                    className="group flex h-full flex-col rounded-2xl border border-ink/10 bg-white p-7 transition-all hover:border-purple/40 hover:-translate-y-1 hover:shadow-[0_20px_50px_-25px_rgba(124,90,236,0.35)]"
+                    className="group flex h-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-white transition-all hover:border-purple/40 hover:-translate-y-1 hover:shadow-[0_20px_50px_-25px_rgba(124,90,236,0.35)]"
                   >
+                    {c.heroImage ? (
+                      <div className="aspect-[16/10] overflow-hidden bg-cream-2">
+                        <Image
+                          src={c.heroImage}
+                          alt={c.heroImageAlt ?? `${c.name} site`}
+                          width={800}
+                          height={500}
+                          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                        />
+                      </div>
+                    ) : null}
+                    <div className="flex flex-1 flex-col p-7">
                     <p className="text-xs font-semibold uppercase tracking-wider text-purple">
                       {c.industry}
                     </p>
@@ -162,6 +187,7 @@ export default function CaseStudiesPage() {
                           strokeLinejoin="round"
                         />
                       </svg>
+                    </div>
                     </div>
                   </Link>
                 </StaggerItem>

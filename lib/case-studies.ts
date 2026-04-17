@@ -21,6 +21,8 @@ export type CaseStudy = {
   quoteBy: string;
   quoteRole: string;
   photo?: string;
+  heroImage?: string;
+  heroImageAlt?: string;
   featured?: boolean;
 };
 
@@ -101,6 +103,8 @@ export const caseStudies: CaseStudy[] = [
       "Working with Impact Conversion has been epic. We&rsquo;ve seen single wins that brought in six figures of additional revenue, which makes the ROI a no-brainer. Beyond the numbers, the testing process has instilled a culture of experimentation within our marketing team which has removed assumptions and helped us make better decisions.",
     quoteBy: "Ben Silcock",
     quoteRole: "Co-founder, High Performance Academy",
+    heroImage: "/assets/case-studies/hpa-hero.png",
+    heroImageAlt: "High Performance Academy homepage",
     featured: true,
   },
   {
@@ -156,6 +160,8 @@ export const caseStudies: CaseStudy[] = [
       "We&rsquo;ve seen single wins that brought in six figures of additional revenue, which makes the ROI a no-brainer.",
     quoteBy: "Ben Silcock",
     quoteRole: "Co-founder, High Performance Academy",
+    heroImage: "/assets/case-studies/hpa-loss-leader.png",
+    heroImageAlt: "High Performance Academy $1 trial mobile landing page",
   },
   {
     slug: "animal-training-academy",
@@ -226,6 +232,8 @@ export const caseStudies: CaseStudy[] = [
       "Working with Impact Conversion has been a super valuable experience for the Animal Training Academy. From the outset, the team has demonstrated a commitment to understanding our unique challenges and objectives. Having them on our team has been a major asset.",
     quoteBy: "Ryan Cartlidge",
     quoteRole: "Founder, Animal Training Academy",
+    heroImage: "/assets/case-studies/ata-hero.png",
+    heroImageAlt: "Animal Training Academy homepage",
   },
   {
     slug: "kite-therapy",
@@ -280,6 +288,8 @@ export const caseStudies: CaseStudy[] = [
     quoteBy: "Matthew Morrison",
     quoteRole: "Co-founder, Kite Therapy",
     photo: "/assets/avatar-matt.png",
+    heroImage: "/assets/case-studies/kite-hero.png",
+    heroImageAlt: "Kite Therapy homepage",
   },
 ];
 

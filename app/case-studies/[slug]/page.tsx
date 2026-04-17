@@ -85,8 +85,23 @@ export default async function CaseStudyPage({
               />
             </Reveal>
 
+            {study.heroImage ? (
+              <Reveal className="mt-14">
+                <div className="relative overflow-hidden rounded-2xl border border-cream/10 bg-cream/5 p-2 md:p-3">
+                  <Image
+                    src={study.heroImage}
+                    alt={study.heroImageAlt ?? `${study.name} site`}
+                    width={1600}
+                    height={1000}
+                    className="h-auto w-full rounded-xl"
+                    priority
+                  />
+                </div>
+              </Reveal>
+            ) : null}
+
             <StaggerGroup
-              className="mt-14 grid grid-cols-2 gap-4 md:grid-cols-4"
+              className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4"
               stagger={0.08}
             >
               {study.heroStats.map((s) => {

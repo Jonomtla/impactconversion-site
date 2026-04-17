@@ -20,6 +20,8 @@ export default function Footer() {
             </p>
             <a
               href="https://app.cal.com/jono-matla-8ixyzk/15-minute-free-consult"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-purple px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-purple-2 hover:scale-105"
             >
               Book a 15-min intro call
@@ -45,11 +47,11 @@ export default function Footer() {
             <p className="text-xs uppercase tracking-wider text-text-inv-muted">
               Services
             </p>
-            <ul className="mt-4 space-y-2 text-sm text-cream/90">
-              <li>Conversion audits</li>
-              <li>90-day sprints</li>
-              <li>Ongoing programs</li>
-              <li>Landing page builds</li>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li><Link href="/how-we-work" className="text-cream/90 hover:text-cream transition-colors">Conversion audits</Link></li>
+              <li><Link href="/how-we-work" className="text-cream/90 hover:text-cream transition-colors">90-day sprints</Link></li>
+              <li><Link href="/how-we-work" className="text-cream/90 hover:text-cream transition-colors">Ongoing programs</Link></li>
+              <li><Link href="/how-we-work" className="text-cream/90 hover:text-cream transition-colors">Landing page builds</Link></li>
             </ul>
           </div>
 
@@ -64,7 +66,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://www.linkedin.com/company/impactconversion" className="text-cream/90 hover:text-cream transition-colors">
+                <a href="https://www.linkedin.com/company/impactconversion" target="_blank" rel="noopener noreferrer" className="text-cream/90 hover:text-cream transition-colors">
                   LinkedIn
                 </a>
               </li>

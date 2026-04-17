@@ -7,13 +7,13 @@ export default function LeakyFunnel() {
   const converters = [12, 47, 83];
   const converterSet = new Set(converters);
 
-  const cellW = 32;
-  const cellH = 17;
-  const startX = 42;
-  const startY = 58;
+  const cellW = 34;
+  const cellH = 26;
+  const startX = 28;
+  const startY = 55;
 
   return (
-    <svg viewBox="0 0 400 240" className="h-56 w-full" aria-hidden>
+    <svg viewBox="0 0 400 320" className="h-56 w-full" aria-hidden>
       <defs>
         <linearGradient id="dot-convert" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="#7c5aec" />
@@ -24,17 +24,17 @@ export default function LeakyFunnel() {
       {/* Corner labels */}
       <text
         x="20"
-        y="28"
-        className="fill-[var(--color-text-muted)] text-[11px] font-bold uppercase tracking-[0.2em]"
+        y="30"
+        className="fill-[var(--color-text-muted)] text-[13px] font-bold uppercase tracking-[0.2em]"
       >
         100 visitors
       </text>
       <g>
-        <circle cx="328" cy="24" r="3" fill="url(#dot-convert)" />
+        <circle cx="322" cy="25" r="4" fill="url(#dot-convert)" />
         <text
-          x="338"
-          y="28"
-          className="fill-[var(--color-purple)] text-[11px] font-bold uppercase tracking-[0.2em]"
+          x="332"
+          y="30"
+          className="fill-[var(--color-purple)] text-[13px] font-bold uppercase tracking-[0.2em]"
         >
           3 buy
         </text>
@@ -56,23 +56,23 @@ export default function LeakyFunnel() {
               <circle
                 cx={cx}
                 cy={cy}
-                r="9"
+                r="14"
                 fill="url(#dot-convert)"
                 opacity="0.2"
               >
                 <animate
                   attributeName="r"
-                  values="8;12;8"
+                  values="12;18;12"
                   dur="2.4s"
                   repeatCount="indefinite"
                   begin={delay}
                 />
               </circle>
               {/* Solid dot */}
-              <circle cx={cx} cy={cy} r="5.5" fill="url(#dot-convert)">
+              <circle cx={cx} cy={cy} r="9" fill="url(#dot-convert)">
                 <animate
                   attributeName="r"
-                  values="5;6;5"
+                  values="8;10;8"
                   dur="2.4s"
                   repeatCount="indefinite"
                   begin={delay}
@@ -87,10 +87,10 @@ export default function LeakyFunnel() {
             key={i}
             cx={cx}
             cy={cy}
-            r="3.5"
+            r="5"
             fill="none"
             stroke="var(--color-ink)"
-            strokeOpacity="0.15"
+            strokeOpacity="0.18"
             strokeWidth="1.5"
           />
         );

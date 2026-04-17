@@ -8,6 +8,7 @@ type T = {
   role: string;
   photo?: string;
   initials?: string;
+  featured?: boolean;
   stats: { k: string; v: string }[];
 };
 
@@ -18,6 +19,7 @@ const testimonials: T[] = [
     name: "Ben Silcock",
     role: "Co-founder, High Performance Academy",
     initials: "BS",
+    featured: true,
     stats: [
       { k: "$1M+", v: "Extra revenue" },
       { k: "35%", v: "Win rate" },
@@ -66,10 +68,16 @@ export default function Testimonials() {
           </p>
         </Reveal>
 
-        <StaggerGroup className="mt-16 grid gap-6 lg:grid-cols-3" stagger={0.12}>
+        <StaggerGroup className="mt-16 grid gap-6 lg:grid-cols-4" stagger={0.12}>
           {testimonials.map((t, i) => (
-            <StaggerItem key={i}>
-              <figure className="flex h-full flex-col justify-between rounded-2xl border border-ink/10 bg-white p-8 transition-all hover:border-purple/30 hover:-translate-y-1">
+            <StaggerItem key={i} className={t.featured ? "lg:col-span-2" : "lg:col-span-1"}>
+              <figure
+                className={`flex h-full flex-col justify-between rounded-2xl bg-white p-8 transition-all hover:-translate-y-1 ${
+                  t.featured
+                    ? "border-2 border-purple/50 shadow-[0_20px_60px_-20px_rgba(124,90,236,0.35)] hover:border-purple/70"
+                    : "border border-ink/10 hover:border-purple/30"
+                }`}
+              >
                 <svg
                   width="28"
                   height="24"

@@ -1,84 +1,189 @@
+// Compounding revenue curve — smooth bezier that draws in, soft area fill,
+// data dots that appear as the line sweeps past, pulsing endpoint at the summit.
 export default function VirtuousLoop() {
-  // Larger viewBox, cleaner labels inside the ring
-  const labels = [
-    { angle: -90, t: "Ship", sub: "a test" },
-    { angle: 0, t: "Find", sub: "a winner" },
-    { angle: 90, t: "Lower", sub: "CAC" },
-    { angle: 180, t: "More", sub: "to spend" },
+  // Smooth cubic bezier — flat early, steep late (classic compounding shape).
+  const path = "M 30 260 C 90 258, 150 245, 200 215 S 300 130, 370 55";
+  const area =
+    "M 30 260 C 90 258, 150 245, 200 215 S 300 130, 370 55 L 370 275 L 30 275 Z";
+
+  // Approximate data points along the curve.
+  const points = [
+    { x: 30, y: 260 },
+    { x: 90, y: 255 },
+    { x: 150, y: 240 },
+    { x: 210, y: 210 },
+    { x: 270, y: 165 },
+    { x: 320, y: 110 },
+    { x: 370, y: 55 },
   ];
-  const cx = 250;
-  const cy = 160;
-  const r = 100;
+
   return (
-    <svg viewBox="0 0 500 320" className="h-56 w-full" aria-hidden>
+    <svg viewBox="0 0 400 320" className="h-56 w-full" aria-hidden>
       <defs>
-        <linearGradient id="loop-grad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="var(--color-purple)" />
-          <stop offset="100%" stopColor="var(--color-accent-warm)" />
+        <linearGradient id="line-grad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#7c5aec" />
+          <stop offset="70%" stopColor="#9b8ce8" />
+          <stop offset="100%" stopColor="#ff7a59" />
         </linearGradient>
-        <radialGradient id="loop-glow" cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0%" stopColor="var(--color-purple)" stopOpacity="0.22" />
-          <stop offset="100%" stopColor="var(--color-purple)" stopOpacity="0" />
+        <linearGradient id="area-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#7c5aec" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="#7c5aec" stopOpacity="0" />
+        </linearGradient>
+        <radialGradient id="endpoint-glow" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0%" stopColor="#ff7a59" stopOpacity="0.55" />
+          <stop offset="100%" stopColor="#ff7a59" stopOpacity="0" />
         </radialGradient>
       </defs>
 
-      {/* Glow backdrop */}
-      <circle cx={cx} cy={cy} r="140" fill="url(#loop-glow)" />
+      {/* Labels */}
+      <text
+        x="18"
+        y="28"
+        className="fill-[var(--color-text-muted)] text-[13px] font-bold uppercase tracking-[0.2em]"
+      >
+        Revenue
+      </text>
+      <g>
+        <path
+          d="M 363 24 L 369 18 L 375 24"
+          fill="none"
+          stroke="var(--color-purple)"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <text
+          x="356"
+          y="28"
+          textAnchor="end"
+          className="fill-[var(--color-purple)] text-[13px] font-bold uppercase tracking-[0.2em]"
+        >
+          Compounds
+        </text>
+      </g>
 
-      {/* Background ring */}
-      <circle cx={cx} cy={cy} r={r} fill="none" stroke="rgba(124,90,236,0.18)" strokeWidth="3" />
-
-      {/* Animated traveling arc */}
-      <circle
-        cx={cx}
-        cy={cy}
-        r={r}
-        fill="none"
-        stroke="url(#loop-grad)"
-        strokeWidth="5"
-        strokeLinecap="round"
-        pathLength={1}
-        strokeDasharray="0.3 0.7"
-        className="loop-travel"
+      {/* Baseline + faint gridlines */}
+      <line
+        x1="20"
+        y1="275"
+        x2="380"
+        y2="275"
+        stroke="var(--color-ink)"
+        strokeOpacity="0.12"
+        strokeWidth="1"
+      />
+      <line
+        x1="20"
+        y1="200"
+        x2="380"
+        y2="200"
+        stroke="var(--color-ink)"
+        strokeOpacity="0.06"
+        strokeWidth="1"
+        strokeDasharray="3 4"
+      />
+      <line
+        x1="20"
+        y1="125"
+        x2="380"
+        y2="125"
+        stroke="var(--color-ink)"
+        strokeOpacity="0.06"
+        strokeWidth="1"
+        strokeDasharray="3 4"
       />
 
-      {/* Center label */}
-      <text x={cx} y={cy - 6} textAnchor="middle" className="fill-[var(--color-purple)] text-[14px] font-bold uppercase tracking-[0.18em]">
-        Compound
-      </text>
-      <text x={cx} y={cy + 14} textAnchor="middle" className="fill-[var(--color-text-muted)] text-[11px] font-medium uppercase tracking-wider">
-        loop
-      </text>
+      {/* Glow behind endpoint */}
+      <circle cx="370" cy="55" r="40" fill="url(#endpoint-glow)" />
 
-      {/* Nodes + external labels */}
-      {labels.map((l, i) => {
-        const rad = (l.angle * Math.PI) / 180;
-        const nx = cx + r * Math.cos(rad);
-        const ny = cy + r * Math.sin(rad);
-        // Label position — push outward from node
-        const lx = cx + (r + 50) * Math.cos(rad);
-        const ly = cy + (r + 50) * Math.sin(rad);
+      {/* Area fill — fades in after line draws */}
+      <path d={area} fill="url(#area-grad)" opacity="0">
+        <animate
+          attributeName="opacity"
+          values="0;0;1;1;0"
+          keyTimes="0;0.35;0.55;0.9;1"
+          dur="5s"
+          repeatCount="indefinite"
+        />
+      </path>
+
+      {/* The line — draws in via stroke-dashoffset */}
+      <path
+        d={path}
+        fill="none"
+        stroke="url(#line-grad)"
+        strokeWidth="3.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeDasharray="700"
+        strokeDashoffset="700"
+      >
+        <animate
+          attributeName="stroke-dashoffset"
+          values="700;0;0;0;700"
+          keyTimes="0;0.35;0.55;0.9;1"
+          dur="5s"
+          repeatCount="indefinite"
+        />
+      </path>
+
+      {/* Data point dots — appear in sequence as the line sweeps past */}
+      {points.map((p, i) => {
+        const appearAt = 0.05 + (i / (points.length - 1)) * 0.3;
+        const isHero = i === points.length - 1;
         return (
-          <g key={i}>
-            <circle cx={nx} cy={ny} r="11" fill="var(--color-purple)" className="loop-node" style={{ animationDelay: `${i * 0.5}s` }} />
-            <circle cx={nx} cy={ny} r="4" fill="white" />
-            <text
-              x={lx}
-              y={ly - 2}
-              textAnchor="middle"
-              className="fill-[var(--color-text)] text-[14px] font-bold"
-            >
-              {l.t}
-            </text>
-            <text
-              x={lx}
-              y={ly + 14}
-              textAnchor="middle"
-              className="fill-[var(--color-text-muted)] text-[12px] font-medium"
-            >
-              {l.sub}
-            </text>
-          </g>
+          <circle
+            key={i}
+            cx={p.x}
+            cy={p.y}
+            r={isHero ? 5 : 3}
+            fill={isHero ? "#ff7a59" : "white"}
+            stroke={isHero ? "#ff7a59" : "var(--color-purple)"}
+            strokeWidth={isHero ? 0 : 2}
+            opacity="0"
+          >
+            <animate
+              attributeName="opacity"
+              values="0;0;1;1;0"
+              keyTimes={`0;${appearAt.toFixed(3)};${(appearAt + 0.05).toFixed(3)};0.9;1`}
+              dur="5s"
+              repeatCount="indefinite"
+            />
+          </circle>
+        );
+      })}
+
+      {/* Pulsing halo on endpoint */}
+      <circle cx="370" cy="55" r="8" fill="#ff7a59" opacity="0">
+        <animate
+          attributeName="opacity"
+          values="0;0;0.5;0;0.5;0;0"
+          keyTimes="0;0.4;0.5;0.6;0.7;0.9;1"
+          dur="5s"
+          repeatCount="indefinite"
+        />
+        <animate
+          attributeName="r"
+          values="6;6;14;6;14;6;6"
+          keyTimes="0;0.4;0.5;0.6;0.7;0.9;1"
+          dur="5s"
+          repeatCount="indefinite"
+        />
+      </circle>
+
+      {/* X-axis month labels */}
+      {["M1", "M2", "M3", "M4", "M5", "M6", "M7"].map((m, i) => {
+        const x = 30 + i * ((370 - 30) / 6);
+        return (
+          <text
+            key={m}
+            x={x}
+            y="298"
+            textAnchor="middle"
+            className="fill-[var(--color-text-muted)] text-[10px] font-semibold uppercase tracking-wider"
+          >
+            {m}
+          </text>
         );
       })}
     </svg>
