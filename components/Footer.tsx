@@ -77,7 +77,10 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-cream/10 pt-6 text-xs text-text-inv-muted md:flex-row">
           <span>© {new Date().getFullYear()} Impact Conversion Ltd. All rights reserved.</span>
-          <span>Research-led CRO for brands that care about compounding.</span>
+          <div className="flex items-center gap-4">
+            <Link href="/privacy" className="hover:text-cream transition-colors">Privacy</Link>
+            <Link href="/terms-of-service" className="hover:text-cream transition-colors">Terms</Link>
+          </div>
         </div>
       </div>
     </footer>
