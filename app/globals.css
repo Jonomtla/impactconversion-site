@@ -1,26 +1,134 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+@theme {
+  --color-cream: #faf7f2;
+  --color-cream-2: #f1ece3;
+  --color-ink: #14172a;
+  --color-ink-2: #1e2238;
+  --color-ink-3: #2a2f4d;
+  --color-text: #14172a;
+  --color-text-muted: #5a5e77;
+  --color-text-inv-muted: #a8aec9;
+  --color-purple: #7c5aec;
+  --color-purple-2: #9b8ce8;
+  --color-purple-soft: #ede7ff;
+  --color-accent-warm: #ff7a59;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-accent-warm) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-glow {
+  background: linear-gradient(135deg, #fff 0%, var(--color-purple-2) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Fanning "up and to the right" growth lines — flow animation */
+@keyframes fan-flow {
+  0% { stroke-dashoffset: 1; }
+  100% { stroke-dashoffset: -1; }
+}
+.fan-line {
+  animation: fan-flow 14s linear infinite;
+}
+
+/* Virtuous loop: traveling arc around the circle */
+@keyframes loop-travel {
+  to { stroke-dashoffset: -1; }
+}
+.loop-travel {
+  animation: loop-travel 6s linear infinite;
+}
+
+/* Virtuous loop: node pulses */
+@keyframes loop-node-pulse {
+  0%, 100% { r: 5; opacity: 0.6; }
+  50% { r: 7; opacity: 1; }
+}
+.loop-node {
+  animation: loop-node-pulse 3s ease-in-out infinite;
+}
+
+/* Leaky funnel: conversion drop falls from top to bottom */
+@keyframes convert-drop {
+  0% { transform: translate(0, 0); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translate(0, 140px); opacity: 0; }
+}
+.convert-drop {
+  animation: convert-drop 3.5s ease-in infinite;
+}
+
+/* Leaky funnel: drops escape sideways (leaks) */
+@keyframes leak-left {
+  0%, 40% { transform: translate(0, 0); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translate(-40px, 30px); opacity: 0; }
+}
+.leak-drop-left {
+  animation: leak-left 2.8s ease-in infinite;
+}
+@keyframes leak-right {
+  0%, 40% { transform: translate(0, 0); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translate(40px, 30px); opacity: 0; }
+}
+.leak-drop-right {
+  animation: leak-right 2.8s ease-in infinite;
+}
+
+/* A/B test bars: grow up + checkmark reveal */
+@keyframes ab-grow-a {
+  0%, 100% { transform: scaleY(0); }
+  10%, 80% { transform: scaleY(1); }
+}
+@keyframes ab-grow-b {
+  0%, 100% { transform: scaleY(0); }
+  20%, 80% { transform: scaleY(1); }
+}
+.ab-bar-a {
+  transform-origin: 100px 170px;
+  animation: ab-grow-a 5s ease-out infinite;
+}
+.ab-bar-b {
+  transform-origin: 230px 170px;
+  animation: ab-grow-b 5s ease-out infinite;
+}
+@keyframes ab-check-reveal {
+  0%, 60% { transform: scale(0); opacity: 0; }
+  70%, 85% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0; }
+}
+.ab-check {
+  animation: ab-check-reveal 5s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fan-line, .loop-travel, .loop-node, .convert-drop,
+  .leak-drop-left, .leak-drop-right, .ab-bar-a, .ab-bar-b, .ab-check {
+    animation: none;
+  }
 }
