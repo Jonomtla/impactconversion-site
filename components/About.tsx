@@ -37,16 +37,16 @@ export default function About() {
           <div className="space-y-6 text-lg leading-relaxed text-text-muted">
             <p>
               Impact Conversion started because too many good companies were
-              being talked into $100k redesigns by agencies that couldn&apos;t
-              prove the new site would do any better than the old one.
+              being sold $100k redesigns by agencies that couldn&apos;t prove
+              the new site would beat the old one.
             </p>
             <p>
               That&apos;s not how you move revenue. You move revenue by
-              figuring out what&apos;s broken, testing fixes against the real
-              thing, and keeping what works. Every week. Forever.
+              finding what&apos;s broken, testing fixes against the real
+              thing, and keeping what works. Week after week. Forever.
             </p>
             <p>
-              So we do that. And only that. Small number of clients. Long
+              So that&apos;s all we do. A small number of clients. Long
               engagements. Deep relationships. Every test documented. Every
               win attributable. Every loss explained.
             </p>

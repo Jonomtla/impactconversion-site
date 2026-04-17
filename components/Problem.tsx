@@ -12,23 +12,23 @@ import TiltCard from "./motion/TiltCard";
 const pillars = [
   {
     h: "You&apos;re leaking money right now",
-    p: "Every ad click you buy is a deposit. Most of them walk away without spending a dollar. We find the holes in your funnel and patch them so more of that traffic converts.",
-    stat: "97 of every 100",
+    p: "Every click you buy is a deposit. 97 out of 100 walk away without spending a dollar. We find the holes in your funnel and close them, so more of the traffic you&apos;ve already paid for actually converts.",
+    stat: "97 of 100",
     statLabel: "visitors leave without buying",
     Visual: LeakyFunnel,
   },
   {
-    h: "Conversion lifts compound",
-    p: "Lift your conversion rate once and everything downstream moves with it. ROAS goes up. CAC goes down. LTV climbs. Same ad spend, more revenue, every month, forever.",
+    h: "Conversion wins compound",
+    p: "Lift the rate once and everything downstream moves with it. ROAS up. CAC down. LTV up. Same ad budget, more revenue, every month. Compounding, not one-off.",
     stat: "Same budget",
     statLabel: "30 to 60% more revenue",
     Visual: VirtuousLoop,
   },
   {
     h: "Guessing is expensive",
-    p: "Design agencies sell taste. Growth hackers sell templates. We sell proof. Every change runs as an experiment, and you see the result in your P&L, not in somebody&apos;s Figma file.",
+    p: "Design agencies sell taste. Growth hackers sell templates. We sell proof. Every change runs as a controlled experiment. You see the result in your P&amp;L, not in somebody&apos;s Figma file.",
     stat: "95% confidence",
-    statLabel: "before anything ships",
+    statLabel: "before a winner ships",
     Visual: ABTestBars,
   },
 ];
@@ -86,9 +86,9 @@ export default function Problem() {
             <span className="text-gradient-flow">conversion problem.</span>
           </h2>
           <p className="mt-6 text-lg text-text-muted">
-            Throwing more budget at cold traffic is the expensive answer.
-            Fixing what happens after the click is the cheap one. And it keeps
-            paying every month you do it.
+            Buying more cold traffic is the expensive answer. Converting the
+            traffic you&apos;ve already got is the cheap one. And it keeps
+            paying month after month.
           </p>
         </Reveal>
 

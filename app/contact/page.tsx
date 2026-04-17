@@ -13,17 +13,17 @@ const expect = [
   {
     n: "01",
     h: "We ask about your funnel",
-    p: "Traffic sources, conversion bottlenecks, what you&apos;ve already tried. Quick, specific, no dragging it out.",
+    p: "Traffic sources. Conversion bottlenecks. What you&apos;ve already tried. Quick, specific, no dragging it out.",
   },
   {
     n: "02",
     h: "We show you how we&apos;d approach it",
-    p: "Where we&apos;d look first, what the early tests would be, what a 90-day sprint would probably ship.",
+    p: "Where we&apos;d look first. What the early tests would be. What a 90-day sprint would likely ship.",
   },
   {
     n: "03",
     h: "We&apos;re straight about fit",
-    p: "If you don&apos;t have the traffic or the budget is wrong, we say so. If you do, we send you a proposal.",
+    p: "If the traffic isn&apos;t there or the budget is wrong, we say so. If it lines up, we send a proposal.",
   },
 ];
 

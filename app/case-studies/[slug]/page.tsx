@@ -76,7 +76,7 @@ export default async function CaseStudyPage({
                 <span>{study.duration}</span>
               </div>
               <h1
-                className="mt-6 text-balance text-4xl font-semibold tracking-tight md:text-6xl"
+                className="mt-6 max-w-4xl text-balance text-4xl font-semibold leading-[1.05] tracking-tight md:text-5xl lg:text-6xl"
                 dangerouslySetInnerHTML={{ __html: study.headline }}
               />
               <p
@@ -89,31 +89,38 @@ export default async function CaseStudyPage({
               className="mt-14 grid grid-cols-2 gap-4 md:grid-cols-4"
               stagger={0.08}
             >
-              {study.heroStats.map((s) => (
-                <StaggerItem key={s.l}>
-                  <div className="h-full rounded-2xl border border-cream/10 bg-cream/5 p-6">
-                    <div className="text-xs uppercase tracking-wider text-text-inv-muted">
-                      {s.l}
-                    </div>
-                    <div className="mt-2 text-3xl font-semibold tracking-tight text-cream md:text-4xl">
-                      {s.v.match(/^[+-]?\d+%?$/) ? (
-                        <CountUp
-                          to={parseInt(s.v)}
-                          prefix={s.v.startsWith("+") ? "+" : ""}
-                          suffix={s.v.includes("%") ? "%" : ""}
-                        />
-                      ) : (
-                        s.v
-                      )}
-                    </div>
-                    {s.sub ? (
-                      <div className="mt-2 text-xs text-text-inv-muted">
-                        {s.sub}
+              {study.heroStats.map((s) => {
+                const isNumeric = /^[+-]?\$?\d[\d,.]*[%+kMB]*$/i.test(s.v) || /^[↑↓]$/.test(s.v);
+                return (
+                  <StaggerItem key={s.l}>
+                    <div className="flex h-full flex-col rounded-2xl border border-cream/10 bg-cream/5 p-6">
+                      <div className="text-[11px] font-semibold uppercase tracking-[0.15em] text-text-inv-muted">
+                        {s.l}
                       </div>
-                    ) : null}
-                  </div>
-                </StaggerItem>
-              ))}
+                      <div
+                        className={`mt-3 font-semibold tracking-tight text-cream ${
+                          isNumeric ? "text-4xl md:text-5xl" : "text-xl md:text-2xl"
+                        }`}
+                      >
+                        {s.v.match(/^[+-]?\d+%?$/) ? (
+                          <CountUp
+                            to={parseInt(s.v)}
+                            prefix={s.v.startsWith("+") ? "+" : ""}
+                            suffix={s.v.includes("%") ? "%" : ""}
+                          />
+                        ) : (
+                          s.v
+                        )}
+                      </div>
+                      {s.sub ? (
+                        <div className="mt-auto pt-3 text-xs text-text-inv-muted">
+                          {s.sub}
+                        </div>
+                      ) : null}
+                    </div>
+                  </StaggerItem>
+                );
+              })}
             </StaggerGroup>
           </div>
         </section>

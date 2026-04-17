@@ -31,10 +31,9 @@ export const caseStudies: CaseStudy[] = [
     industry: "Online education",
     duration: "Full-funnel testing program",
     tagline: "180 tests. Seven figures added. No extra ad spend.",
-    headline:
-      "How we ran 180 tests for High Performance Academy and added $1M+ in revenue.",
+    headline: "Seven figures added. No extra ad spend.",
     summary:
-      "Automotive education platform teaching 100,000+ students across 175 countries. Scaling ad spend, stalling conversion rate. Eighteen months of systematic testing moved that.",
+      "Automotive education platform. 100,000+ students across 175 countries. Ad spend scaling, conversion rate stuck. Eighteen months of systematic testing moved that.",
     heroStats: [
       { v: "$1M+", l: "Extra revenue", sub: "Without extra ad spend" },
       { v: "35%", l: "Win rate", sub: "Industry avg ~22%" },
@@ -109,11 +108,10 @@ export const caseStudies: CaseStudy[] = [
     name: "High Performance Academy",
     industry: "Online education",
     duration: "Single test program",
-    tagline: "36% more customers from a $1 offer that used to scare people off.",
-    headline:
-      "How a 36% lift on a mobile landing page cut HPA&rsquo;s customer acquisition cost in half.",
+    tagline: "36% more customers from a $1 offer.",
+    headline: "One mobile page. CAC cut in half.",
     summary:
-      "HPA&rsquo;s evergreen $1 trial for a normally $99 course was under-converting on mobile. The offer looked too good to be true. We fixed that.",
+      "HPA&rsquo;s evergreen $1 trial on a normally $99 course. Great hook. Under-converting on mobile because it looked too good to be true. We fixed the believability problem.",
     heroStats: [
       { v: "+36%", l: "Conversion lift", sub: "99.8% confidence" },
       { v: "280", l: "New customers/mo", sub: "Incremental" },
@@ -165,10 +163,9 @@ export const caseStudies: CaseStudy[] = [
     industry: "Online education",
     duration: "Funnel rebuild + ongoing program",
     tagline: "Membership up 57% in nine months. Revenue up 63%.",
-    headline:
-      "How we grew Animal Training Academy&rsquo;s membership 57% in nine months.",
+    headline: "Membership up 57%. In nine months.",
     summary:
-      "Quarterly launch model running out of steam. Declining new members. Rising churn. Lead quality dropping. We rebuilt the acquisition model from the lead magnet through to the trial offer.",
+      "Quarterly launch model running out of steam. New member count falling. Churn rising. Lead quality dropping. We rebuilt the acquisition model end to end, from lead magnet through to the trial offer.",
     heroStats: [
       { v: "+57%", l: "Membership", sub: "In 9 months" },
       { v: "+43%", l: "YoY members", sub: "Sustained growth" },
@@ -235,15 +232,15 @@ export const caseStudies: CaseStudy[] = [
     name: "Kite Therapy",
     industry: "Lead generation",
     duration: "Heuristic analysis + testing",
-    tagline: "Clearer messaging beat persuasive messaging.",
-    headline:
-      "How we lifted lead submissions and quality for Kite Therapy with clarity, not copywriting tricks.",
+    tagline: "Clarity beat persuasion.",
+    headline: "More leads. Better leads. Lower CAC.",
     summary:
-      "VC-backed Australian startup offering parent-led therapy coaching for children with autism and developmental delays. High CAC from paid. Poor lead quality. The website wasn&rsquo;t carrying the promise.",
+      "VC-backed Australian startup. Parent-led therapy coaching for children with autism and developmental delays. Strong paid traffic, but the site wasn&rsquo;t carrying the promise.",
     heroStats: [
-      { v: "Clarity > persuasion", l: "The finding", sub: "From heuristic review" },
-      { v: "Higher quality", l: "Leads", sub: "Pre-qualified up front" },
-      { v: "Lower CAC", l: "Paid channels", sub: "More sustainable scale" },
+      { v: "↑", l: "Lead volume", sub: "Clearer UVP" },
+      { v: "↑", l: "Lead quality", sub: "Pre-qualified up front" },
+      { v: "↓", l: "CAC", sub: "Sustainable paid scale" },
+      { v: "4", l: "Root causes", sub: "Surfaced by heuristic review" },
     ],
     stats: [
       { v: "↑", l: "Lead submissions" },

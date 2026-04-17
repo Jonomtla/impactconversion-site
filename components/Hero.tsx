@@ -30,9 +30,9 @@ export default function Hero() {
           </StaggerItem>
           <StaggerItem>
             <p className="mx-auto mt-8 max-w-2xl text-pretty text-lg text-text-inv-muted md:text-xl">
-              We run the testing program that turns your existing visitors into
-              more revenue. No rebuilds. No guesswork. Research, experiments
-              that ship, and winners that stay live.
+              We find the leaks in your funnel and fix them with data. Same ad
+              spend, more revenue, every month. Tests that ship, winners that
+              stay live, proof in the P&amp;L.
             </p>
           </StaggerItem>
           <StaggerItem>
@@ -56,8 +56,8 @@ export default function Hero() {
           </StaggerItem>
           <StaggerItem>
             <p className="mt-6 text-xs text-text-inv-muted">
-              No pitch deck. No pressure. We&apos;ll tell you in 15 minutes if
-              there&apos;s a program worth running.
+              15 minutes. No pitch. We&apos;ll tell you straight whether there&apos;s
+              a program worth running.
             </p>
           </StaggerItem>
           <StaggerItem>

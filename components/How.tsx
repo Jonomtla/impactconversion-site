@@ -11,25 +11,25 @@ const steps = [
   {
     n: "01",
     h: "Research",
-    p: "We figure out why people aren&apos;t buying. Not from guesses. From surveys, session recordings, heatmaps, and analytics. The fixes come from your customers&apos; own words.",
+    p: "Before we touch your site, we find out exactly why people leave. Surveys. Session recordings. Heatmaps. Analytics. The fixes come from your customers, not a best-practice blog.",
     Visual: ResearchVisual,
   },
   {
     n: "02",
     h: "Prioritise",
-    p: "Not every idea deserves a test slot. We pick the ones most likely to move revenue, based on what we found in the research.",
+    p: "Every idea gets scored on impact, confidence, and effort. Test slots go to the changes most likely to move revenue. Not the ones easiest to ship.",
     Visual: PrioritiseVisual,
   },
   {
     n: "03",
     h: "Test",
-    p: "Every change runs as a controlled experiment. You get real data, not opinions. Winners ship. Losers teach us what your buyers don&apos;t want.",
+    p: "Every change runs as a proper A/B test. 95% confidence or we don&apos;t call it a win. Real data, real weight. No &ldquo;I think this looks better&rdquo; arguments.",
     Visual: TestVisual,
   },
   {
     n: "04",
     h: "Compound",
-    p: "One test rarely moves the business. Thirty do. We stack wins over months, and the gains snowball into real revenue.",
+    p: "One test moves a needle. Thirty tests move the business. Month after month, winners stack up and the revenue curve bends the right way.",
     Visual: CompoundVisual,
   },
 ];
@@ -46,8 +46,9 @@ export default function How() {
             Research first. Then test. Then repeat.
           </h2>
           <p className="mt-6 text-lg text-text-muted">
-            Every engagement runs the same loop. It&apos;s simple, it&apos;s
-            honest, and it works.
+            No secret method. Just a disciplined loop that runs on every
+            engagement. Same four stages. Month after month. It&apos;s how the
+            results compound.
           </p>
         </Reveal>
 

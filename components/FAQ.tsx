@@ -1,35 +1,35 @@
 const faqs = [
   {
     q: "What does a CRO agency actually do?",
-    a: "Four things. We find where people are leaving your funnel and why. We turn the fixes into testable ideas. We run proper A/B tests. We keep the winners, kill the losers, and queue up the next round. That&apos;s it.",
+    a: "Four things. Find where buyers leave your funnel and why. Turn those findings into testable ideas. Ship proper A/B tests. Keep the winners, kill the losers, queue up the next round. That&apos;s it.",
   },
   {
     q: "How fast will I see ROI?",
-    a: "Most clients see their first winning test inside 12 weeks. Traffic volume and purchase cycle both affect the timing. Our roadmap goes after the biggest, most likely wins first, so the program tends to pay for itself well before it ends.",
+    a: "Most clients see their first winning test inside 12 weeks. Traffic volume and purchase cycle affect the timing. We go after the biggest, most likely wins first, so the program tends to pay for itself well before it ends.",
   },
   {
     q: "Isn&apos;t this expensive?",
-    a: "Compare it to the alternative. A full redesign runs $50k to $150k with no guarantee the new site beats the old one. Six months of testing runs less than that and you keep every winner forever. On our 90-day sprints we guarantee at least three winning tests or you don&apos;t pay.",
+    a: "Compare it to the alternative. A full redesign runs $50k to $150k and nobody can promise the new site beats the old one. Six months of testing costs less, and every winner you ship stays live forever. On our 90-day sprints we guarantee at least three winning tests, or you don&apos;t pay.",
   },
   {
-    q: "What makes you different?",
-    a: "Three things. We only do CRO, so nobody on our team is secretly trying to sell you branding. Dev and design are in house, so tests ship fast. And we refuse to report on vanity metrics. Every test we run maps to revenue, or we don&apos;t run it.",
+    q: "What makes you different from other agencies?",
+    a: "Three things. One: we only do CRO, so nobody on our team is quietly trying to sell you a rebrand. Two: strategy, dev, and design are in-house, so tests ship fast. Three: we refuse to report on vanity metrics. Every test maps to revenue, or we don&apos;t run it.",
   },
   {
     q: "Do we have enough traffic to A/B test?",
-    a: "Rough rule: if you&apos;re getting around 800 conversions per month, you have what you need. That&apos;s 20-30k sessions at a 3% conversion rate, or 5-7k sessions at a higher one. Book a call if you&apos;re not sure, we&apos;ll tell you straight.",
+    a: "Rough rule: around 800 conversions a month and you&apos;re good. That&apos;s 20-30k sessions at a 3% conversion rate, or 5-7k at a higher one. Not sure? Book a call. We&apos;ll tell you straight.",
   },
   {
     q: "Can you work alongside our in-house team?",
-    a: "Yes. Most of our clients have one. We share a backlog, run fortnightly calls, stay available between. Our wins become your team&apos;s wins. We leave the testing culture behind when we&apos;re done, not a dependency.",
+    a: "Yes. Most of our clients have one. Shared backlog, fortnightly calls, available between. Our wins become your team&apos;s wins. When we&apos;re done we leave the testing culture behind, not a dependency.",
   },
   {
-    q: "Which industries?",
-    a: "D2C ecommerce and online education are where we&apos;re strongest. We&apos;ve also shipped work in SaaS, subscriptions, and tourism. If you sell online and you care about lifetime value, chances are we can help.",
+    q: "Which industries do you work best in?",
+    a: "D2C ecommerce and online education. We&apos;ve also shipped work in SaaS, subscriptions, and tourism. If you sell online and you care about lifetime value, chances are we can help.",
   },
   {
     q: "How do we start?",
-    a: "Book a free 15-minute intro call. We&apos;ll ask about your funnel, explain how we&apos;d approach it, and tell you honestly whether we&apos;re a fit. No pitch deck. No sales script.",
+    a: "Book a free 15-minute intro call. We ask about your funnel, explain how we&apos;d approach it, tell you honestly whether we&apos;re a fit. No pitch deck. No sales script.",
   },
 ];
 
@@ -42,7 +42,7 @@ export default function FAQ() {
             FAQ
           </p>
           <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
-            What most people want to know first.
+            The stuff you&apos;re actually wondering.
           </h2>
         </div>
 

@@ -10,7 +10,7 @@ export default function ProofBar() {
     <section className="border-b border-ink/5 bg-cream py-12">
       <div className="mx-auto max-w-7xl px-6">
         <p className="text-center text-xs uppercase tracking-[0.25em] text-text-muted">
-          Results shipped for real programs
+          Real programs. Real receipts.
         </p>
         <div className="mt-8 grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-10">
           {receipts.map((r) => (

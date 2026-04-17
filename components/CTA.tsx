@@ -13,13 +13,13 @@ export default function CTA() {
           Ready when you are
         </p>
         <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight md:text-6xl">
-          Let&apos;s see if we can{" "}
-          <span className="text-gradient-glow">fix it.</span>
+          Let&apos;s move your{" "}
+          <span className="text-gradient-glow">numbers.</span>
         </h2>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-text-inv-muted">
-          Fifteen minutes. One call. We&apos;ll ask about your funnel, tell
-          you how we&apos;d approach it, and be straight with you about
-          whether we&apos;re a fit. No slide deck. No sales script.
+          Fifteen minutes. One call. We ask about your funnel, show you how
+          we&apos;d approach it, and tell you straight whether we&apos;re a
+          fit. No slide deck. No sales script.
         </p>
 
         {/* Risk reversal pills */}

@@ -53,7 +53,7 @@ export default function Testimonials() {
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-            More results
+            What clients say
           </p>
           <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
             Boring. Repeatable.{" "}
@@ -61,7 +61,8 @@ export default function Testimonials() {
           </h2>
           <p className="mt-6 text-lg text-text-muted">
             No viral redesigns. No rip-and-replace rebuilds. Tests that ship,
-            hit significance, and show up in the P&amp;L where it matters.
+            hit significance, and move the line in the P&amp;L where it
+            matters.
           </p>
         </Reveal>
 

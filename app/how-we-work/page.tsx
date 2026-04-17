@@ -22,7 +22,7 @@ const services: Service[] = [
     name: "Conversion Audit",
     price: "from $2,500",
     blurb:
-      "A full analytics, funnel, and heatmap review with prioritised recommendations. The right call if you want a roadmap before you commit to a program.",
+      "Where your funnel leaks. What to fix first. In a prioritised roadmap you can hand to anyone. Start here if you want to see the map before you hire the crew.",
     inclusions: [
       "Analytics + funnel analysis",
       "Heatmap + session recording review",
@@ -36,7 +36,7 @@ const services: Service[] = [
     price: "from $15,000",
     featured: true,
     blurb:
-      "Twelve weeks of focused experimentation. Deep research up front, then 8 to 12 tests in market. Guarantee: at least three winning tests with measurable impact, or you don&apos;t pay.",
+      "Twelve weeks. 8 to 12 tests in market. Three winners with measurable revenue impact, or you don&apos;t pay. The fastest way to prove the loop works on your site.",
     inclusions: [
       "Weeks 1-2 deep-dive research",
       "8-12 experiments in market",
@@ -49,7 +49,7 @@ const services: Service[] = [
     name: "Ongoing CRO Program",
     price: "from $4,500 / month",
     blurb:
-      "Continuous research, three to five experiments running at once, monthly reporting tied to revenue. For teams serious about compounding gains over quarters.",
+      "Three to five live tests every month. Continuous research. Revenue reported monthly. For teams that want the compounding to start and never stop.",
     inclusions: [
       "Continuous research pipeline",
       "3-5 live experiments at all times",
@@ -62,7 +62,7 @@ const services: Service[] = [
     name: "Landing Page & Funnel Builds",
     price: "from $3,500",
     blurb:
-      "Research-led pages written in a direct response voice. Built to convert, not to look busy in a pitch deck.",
+      "Pages built on research, written in direct response. Designed to convert, not to win a design award. Shipped with the tracking already wired in.",
     inclusions: [
       "Research-led copy",
       "Direct response structure",
@@ -95,8 +95,8 @@ export default function HowWeWorkPage() {
                 <span className="text-gradient-glow">Boring on purpose.</span>
               </h1>
               <p className="mt-8 text-lg text-text-inv-muted md:text-xl">
-                We don&apos;t have a secret method. We have a disciplined one.
-                Here&apos;s what you get, what it costs, and how we run it.
+                No secret method. A disciplined one. Here&apos;s the loop, what
+                it costs, and what you actually get out of it.
               </p>
             </Reveal>
           </div>
@@ -115,8 +115,8 @@ export default function HowWeWorkPage() {
                 <span className="text-gradient-purple">work with us.</span>
               </h2>
               <p className="mt-6 text-lg text-text-muted">
-                Most clients start with an audit or a 90-day sprint, then move
-                into an ongoing program once the loop is running.
+                Most clients start with an audit or a sprint. Once the loop is
+                running and winning, they roll into the ongoing program.
               </p>
             </Reveal>
 
