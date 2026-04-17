@@ -20,6 +20,13 @@ const tools = [
     tag: "Forecasting",
   },
   {
+    href: "/tools/ab-calculator",
+    title: "A/B Test Significance Calculator",
+    blurb:
+      "Two-tailed z-test for proportions. Drop in visitors and conversions, get confidence, p-value, and relative lift.",
+    tag: "Experimentation",
+  },
+  {
     href: "/tools/shipping-calculator",
     title: "Free Shipping Profitability Calculator",
     blurb:

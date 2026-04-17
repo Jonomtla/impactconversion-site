@@ -41,9 +41,22 @@ export default function Hero() {
             </p>
           </StaggerItem>
           <StaggerItem>
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="mt-8 flex justify-center">
+              <span className="inline-flex items-center gap-2 rounded-full border border-purple-2/40 bg-purple/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-purple-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-2 opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-purple-2" />
+                </span>
+                Next sprint opens June 2026 · 2 slots
+              </span>
+            </div>
+          </StaggerItem>
+          <StaggerItem>
+            <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
                 href="/contact"
+                data-ga-event="book_call_click"
+                data-ga-location="homepage_hero"
                 className="group inline-flex items-center gap-2 rounded-full bg-purple px-7 py-3.5 text-sm font-semibold text-white transition-all hover:bg-purple-2 hover:scale-105"
               >
                 Book a 15-min intro call

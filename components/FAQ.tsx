@@ -34,8 +34,24 @@ const faqs = [
 ];
 
 export default function FAQ() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q.replace(/&apos;/g, "'"),
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: f.a.replace(/&apos;/g, "'"),
+      },
+    })),
+  };
   return (
     <section id="faq" className="bg-cream py-24 md:py-32">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="mx-auto max-w-4xl px-6">
         <div className="text-center">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">

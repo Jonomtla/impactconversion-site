@@ -1,0 +1,92 @@
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
+
+export const metadata = {
+  title: "Why most A/B tests are statistically broken",
+  description:
+    "Peeking, premature stops, and the quiet false-positive problem costing teams real money. How to run tests that hold up.",
+  alternates: { canonical: "/blog/ab-tests-statistically-broken" },
+};
+
+export const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Why most A/B tests are statistically broken",
+  description:
+    "Peeking, premature stops, and the quiet false-positive problem costing teams real money.",
+  author: { "@type": "Person", name: "Jono Matla", url: "https://impactconversion.com/about" },
+  publisher: { "@type": "Organization", name: "Impact Conversion", logo: { "@type": "ImageObject", url: "https://impactconversion.com/assets/logo.png" } },
+  datePublished: "2026-04-14",
+  dateModified: "2026-04-17",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://impactconversion.com/blog/ab-tests-statistically-broken" },
+};
+
+<Nav />
+
+<main id="main">
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+  <article className="bg-cream pt-32 pb-20 md:pt-40">
+    <div className="mx-auto max-w-3xl px-6">
+      <Breadcrumbs items={[{ label: "Blog", href: "/blog" }, { label: "A/B tests statistically broken" }]} />
+      <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
+        Experimentation · April 2026
+      </p>
+
+# Why most A/B tests are statistically broken
+
+If you run CRO seriously for a year, this is the quiet realisation: most of the "wins" you ship don&rsquo;t actually work. The test said they did. The data said they did. They didn&rsquo;t.
+
+Here are the three reasons that&rsquo;s usually happening.
+
+## 1. Peeking
+
+The simplest and most common. You start a test on Monday. By Thursday, variation B is up 8% at 93% confidence. You stop the test and ship B.
+
+What actually happened: you looked at the test every day and stopped it the moment it crossed a threshold. This is called peeking, and it inflates your false-positive rate dramatically. A test designed to be wrong 5% of the time becomes wrong 20-30% of the time when you peek daily and stop on the first significant result.
+
+The fix is simple and painful: decide the sample size before the test goes live, and refuse to look at confidence until you hit it.
+
+## 2. Stopping at the first positive result
+
+Related to peeking but worse. You do the full test. It hits significance. You ship. But the effect size you saw was almost certainly inflated, because of a phenomenon called "winner&rsquo;s curse". The estimate at the first-crossing moment is systematically higher than the true effect.
+
+Translation: your test showed +8%. The real effect, if there even was one, was probably +2-4%.
+
+The fix: don&rsquo;t stop at the first crossing. Run for the planned duration. Better yet, run for two full business cycles, so you capture weekday and weekend variance.
+
+## 3. Segment hunting
+
+Test fails on the main metric. Someone says "let&rsquo;s check by device" or "let&rsquo;s look at returning users only". You slice ten times. One of the slices is positive. You ship the "mobile-only win".
+
+If you run 10 hypothesis tests at 95% confidence, the probability that at least one of them is a false positive is 40%. If you run 20, it&rsquo;s 64%. Segment hunting looks rigorous and is actually a false-positive factory.
+
+The fix: commit to the primary metric and audience before the test starts. Segments are hypothesis generation for the next test, not validation for this one.
+
+## The quiet cost
+
+A team running 40 tests a year with these problems is probably shipping 15-20 "winners". Of those, maybe 8-10 are real. The rest are just drift &mdash; changes that feel like progress and didn&rsquo;t actually move the revenue number when rolled out to 100%.
+
+You can usually tell which team this is. They run lots of tests. They&rsquo;ve shipped lots of wins. And the revenue line doesn&rsquo;t bend.
+
+## How we run tests
+
+Plain English, no frills:
+
+- **Primary metric locked before launch.** Usually revenue-per-visitor.
+- **Sample size and duration agreed in writing before launch.** Minimum two full business cycles.
+- **No peeking.** Confidence gets looked at once: at the end.
+- **Segments looked at for hypothesis generation only.** Never to rescue a failed main-metric test.
+- **Guardrails.** If a key metric (checkout errors, page load) degrades, we stop regardless.
+
+Boring. And it&rsquo;s the reason our clients&rsquo; revenue lines actually bend when we ship a winner.
+
+---
+
+If your testing program is shipping wins that don&rsquo;t seem to show up in the P&amp;L, that&rsquo;s the problem. <a href="/contact">Book a 15-minute call</a> and we can have a look at how you&rsquo;re running tests.
+
+    </div>
+  </article>
+</main>
+
+<Footer />

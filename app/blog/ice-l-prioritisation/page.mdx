@@ -1,0 +1,83 @@
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
+
+export const metadata = {
+  title: "ICE-L: the prioritisation filter we actually use",
+  description:
+    "Why ICE scores fall apart in practice, what the L adds, and how to stop arguing about which test to run next.",
+  alternates: { canonical: "/blog/ice-l-prioritisation" },
+};
+
+export const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "ICE-L: the prioritisation filter we actually use",
+  description:
+    "Why ICE scores fall apart in practice, what the L adds, and how to stop arguing about which test to run next.",
+  author: { "@type": "Person", name: "Jono Matla", url: "https://impactconversion.com/about" },
+  publisher: { "@type": "Organization", name: "Impact Conversion", logo: { "@type": "ImageObject", url: "https://impactconversion.com/assets/logo.png" } },
+  datePublished: "2026-04-08",
+  dateModified: "2026-04-17",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://impactconversion.com/blog/ice-l-prioritisation" },
+};
+
+<Nav />
+
+<main id="main">
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+  <article className="bg-cream pt-32 pb-20 md:pt-40">
+    <div className="mx-auto max-w-3xl px-6">
+      <Breadcrumbs items={[{ label: "Blog", href: "/blog" }, { label: "ICE-L prioritisation" }]} />
+      <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
+        Methodology · April 2026
+      </p>
+
+# ICE-L: the prioritisation filter we actually use
+
+Every CRO team has a backlog. Every CRO team runs out of hours before it runs out of backlog. The only question that matters is which test goes next.
+
+Most teams answer that question with ICE. Impact, Confidence, Ease. Score each 1-10, multiply or average, sort descending, ship the top one. It is a perfectly reasonable framework that quietly fails in practice, for three reasons.
+
+## Why ICE breaks
+
+**The scores lie.** When five people score the same idea, you get five numbers between 3 and 9. Nobody is calibrated. The "Confidence" score in particular is almost pure vibes. So the ranking is noise with a number on it.
+
+**Ease is the wrong axis.** Ease measures the developer&rsquo;s discomfort, not the company&rsquo;s cost. A one-line CSS tweak scores a 10 for ease, but if it ships a broken checkout in three regions, it was not easy at all.
+
+**There&rsquo;s no anchor to revenue.** ICE tells you which idea is "best" relative to the rest of the list. It does not tell you whether the top idea is worth running at all. You can end up testing enthusiastically on a page that sees 200 visitors a month.
+
+## What the L adds
+
+L is for Lifetime. Specifically: does this change move a metric that compounds, or does it move a one-off number?
+
+A 2% lift on a checkout flow that runs 40,000 orders a year compounds for as long as the checkout stays live. A 5% lift on a seasonal campaign banner compounds for six weeks.
+
+When you add L, the prioritisation shifts. Tests on infrastructure &mdash; checkout, PDP, pricing page, signup flow &mdash; start to beat tests on campaigns, even when the raw ICE score looks similar.
+
+## How we actually score
+
+We score each test on four axes, 1 to 5, with written definitions:
+
+- **Impact**: estimated revenue or profit if the test wins, given the page&rsquo;s traffic and the typical effect size for this category of change.
+- **Confidence**: how much customer research points at this being a real problem. Not a vibe. Did surveys, session recordings, or support tickets surface this?
+- **Effort**: total engineering + design + QA hours, including rollout. Not just the developer&rsquo;s optimism.
+- **Lifetime**: how long does the win stay live? Permanent change scores 5. Seasonal or campaign-specific scores 2.
+
+If a test doesn&rsquo;t score at least 3 on three of the four axes, it doesn&rsquo;t get a slot. Slots are precious. A program running 10-15 tests a quarter has maybe 45 slots a year. You want every one of them to compound.
+
+## The honest limit
+
+Prioritisation frameworks are a tool, not an oracle. ICE-L will not tell you whether a particular test is the right one &mdash; only research can do that. What it will tell you is which of your research-backed hypotheses goes first.
+
+That is enough to end the meeting. The next meeting is about running the test, not debating whether to run it.
+
+---
+
+If your backlog is full of 30 ideas and nobody can agree on which one to run, the <a href="/how-we-work">how we work</a> page shows the loop we use. Or <a href="/contact">book a 15-minute call</a> and we&rsquo;ll talk through how to get your list down to the five that actually matter.
+
+    </div>
+  </article>
+</main>
+
+<Footer />

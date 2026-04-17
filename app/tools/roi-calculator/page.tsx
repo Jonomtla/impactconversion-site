@@ -12,9 +12,33 @@ export const metadata = {
   alternates: { canonical: "/tools/roi-calculator" },
 };
 
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "CRO ROI Calculator",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  description:
+    "Estimate incremental revenue and profit a CRO program could unlock from your existing traffic. 12-month forecast with break-even analysis.",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+  provider: {
+    "@type": "Organization",
+    name: "Impact Conversion",
+    url: "https://impactconversion.com",
+  },
+};
+
 export default function RoiCalculatorPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
       <Nav />
       <main id="main">
         <section className="bg-ink text-cream pt-32 pb-12 md:pt-40 md:pb-16">

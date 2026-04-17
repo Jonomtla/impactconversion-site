@@ -3,6 +3,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import LeadMagnetForm from "@/components/LeadMagnetForm";
 import { posts } from "@/lib/blog";
 
 export const metadata = {
@@ -69,6 +70,17 @@ export default function BlogIndexPage() {
                 </Link>
               </Reveal>
             ))}
+          </div>
+        </section>
+
+        <section className="bg-cream pb-20 md:pb-28">
+          <div className="mx-auto max-w-3xl px-6">
+            <LeadMagnetForm
+              source="blog_index"
+              heading="Get the CRO notes in your inbox."
+              subhead="One email a week when there's something worth reading. Plus the 7 Conversion Killers PDF as a thank-you."
+              cta="Send me the PDF"
+            />
           </div>
         </section>
       </main>

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { caseStudies } from "@/lib/case-studies";
+import { posts } from "@/lib/blog";
 
 const BASE = "https://impactconversion.com";
 
@@ -12,8 +13,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/case-studies`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/for-d2c-ecommerce`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/for-online-education`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/tools`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/tools/roi-calculator`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/tools/shipping-calculator`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/tools/ab-calculator`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/resources/conversion-killers`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${BASE}/terms-of-service`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
@@ -26,5 +32,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...caseStudyRoutes];
+  const blogRoutes: MetadataRoute.Sitemap = posts.map((p) => ({
+    url: `${BASE}/blog/${p.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...caseStudyRoutes, ...blogRoutes];
 }

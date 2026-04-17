@@ -22,6 +22,8 @@ export default function Footer() {
               href="https://app.cal.com/jono-matla-8ixyzk/15-minute-free-consult"
               target="_blank"
               rel="noopener noreferrer"
+              data-ga-event="book_call_click"
+              data-ga-location="footer"
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-purple px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-purple-2 hover:scale-105"
             >
               Book a 15-min intro call
@@ -38,6 +40,10 @@ export default function Footer() {
             <ul className="mt-4 space-y-2 text-sm">
               <li><Link href="/how-we-work" className="text-cream/90 hover:text-cream transition-colors">How we work</Link></li>
               <li><Link href="/case-studies" className="text-cream/90 hover:text-cream transition-colors">Case studies</Link></li>
+              <li><Link href="/for-d2c-ecommerce" className="text-cream/90 hover:text-cream transition-colors">For D2C ecommerce</Link></li>
+              <li><Link href="/for-online-education" className="text-cream/90 hover:text-cream transition-colors">For online education</Link></li>
+              <li><Link href="/tools" className="text-cream/90 hover:text-cream transition-colors">Free tools</Link></li>
+              <li><Link href="/blog" className="text-cream/90 hover:text-cream transition-colors">Blog</Link></li>
               <li><Link href="/about" className="text-cream/90 hover:text-cream transition-colors">About</Link></li>
               <li><Link href="/contact" className="text-cream/90 hover:text-cream transition-colors">Contact</Link></li>
             </ul>

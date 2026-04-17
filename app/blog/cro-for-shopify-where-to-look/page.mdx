@@ -1,0 +1,90 @@
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
+
+export const metadata = {
+  title: "CRO for Shopify: where to look first",
+  description:
+    "The five places on a Shopify store where the biggest wins usually hide. Plus the three places most teams waste their first quarter.",
+  alternates: { canonical: "/blog/cro-for-shopify-where-to-look" },
+};
+
+export const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "CRO for Shopify: where to look first",
+  description:
+    "The five places on a Shopify store where the biggest wins usually hide.",
+  author: { "@type": "Person", name: "Jono Matla", url: "https://impactconversion.com/about" },
+  publisher: { "@type": "Organization", name: "Impact Conversion", logo: { "@type": "ImageObject", url: "https://impactconversion.com/assets/logo.png" } },
+  datePublished: "2026-04-15",
+  dateModified: "2026-04-17",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://impactconversion.com/blog/cro-for-shopify-where-to-look" },
+};
+
+<Nav />
+
+<main id="main">
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+  <article className="bg-cream pt-32 pb-20 md:pt-40">
+    <div className="mx-auto max-w-3xl px-6">
+      <Breadcrumbs items={[{ label: "Blog", href: "/blog" }, { label: "CRO for Shopify" }]} />
+      <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
+        D2C ecommerce · April 2026
+      </p>
+
+# CRO for Shopify: where to look first
+
+Most Shopify stores doing $5M+ have the same shape. Paid traffic into the homepage or a collection, funnel to a PDP, then checkout. If that&rsquo;s you, here&rsquo;s where the wins usually hide, ranked roughly by expected impact per unit of effort.
+
+## 1. The PDP above the fold
+
+This is almost always the highest-leverage surface on the site, and it&rsquo;s almost always under-optimised. Three things to check:
+
+- **Does the headline state the outcome, or the product?** "Premium merino base layer" is a product. "The base layer you stop taking off on ski trips" is an outcome. The second converts better.
+- **Do the first two bullet points answer the top two objections?** Pull the top objections from your email post-purchase survey. If the PDP doesn&rsquo;t address them in the first 200 words, it will lose buyers who don&rsquo;t scroll.
+- **Is the primary image showing the product doing its job, or sitting on a backdrop?** For most categories, in-use beats studio.
+
+## 2. The checkout
+
+Shopify checkout is mostly fixed, but you have more control than you think via checkout customisations, extensions, and the post-purchase page. Three tests worth running:
+
+- **Upsell on the post-purchase page.** Not the thank-you page &mdash; the interstitial between order and thank-you. Take rates of 15-25% on a well-matched offer are normal.
+- **Shipping-threshold nudge in cart.** "Add $12 for free shipping" with a progress bar, if you have threshold-based shipping. Typically moves AOV 5-10%.
+- **Trust density at the payment step.** Not badges &mdash; wording. "No charge until order confirmed" or similar. Surprisingly strong on cold traffic.
+
+## 3. Collection pages for paid traffic
+
+If you&rsquo;re running Meta or Google to a collection page, that page is effectively a landing page and should be treated as one. Most collection pages fail because they&rsquo;re treated as navigation.
+
+What to test: a hero that restates the ad&rsquo;s promise, a short (2-3 sentence) primer, social proof directly above the grid, and only then the products.
+
+## 4. The homepage hero, for repeat traffic
+
+If your homepage gets meaningful direct or returning traffic, the hero matters. If it&rsquo;s only a first-touch landing for cold paid, send paid somewhere else and let the homepage serve the existing customer.
+
+The test that usually wins: replacing a brand-voice hero with a problem-led hero. "Handcrafted in New Zealand since 2012" loses to "The boots that stay dry through three winters."
+
+## 5. Cross-sells on the cart drawer
+
+Bundle and cross-sell apps are everywhere in the Shopify ecosystem, and most of them are installed, configured once, and forgotten. Testing different bundle logic &mdash; complementary SKU vs. higher-priced alternative vs. smart recommendation &mdash; usually pulls 3-8% AOV without touching anything else.
+
+## Where teams waste the first quarter
+
+- **A/B testing button colour and copy in isolation.** These tests are cheap and almost never move a needle big enough to show up.
+- **Redesigning the nav.** Navigation bets rarely beat content bets. And nav tests are hard to measure without long run-times.
+- **Optimising the About page.** The About page matters, but not for conversion. For conversion, it&rsquo;s usually a near-zero-impact surface.
+
+## If you&rsquo;re starting from zero
+
+One quarter. Five places. Start with the PDP. End with the post-purchase page. Everything else can wait.
+
+---
+
+If you want to know which of these is the biggest leak on your specific Shopify store, that&rsquo;s exactly what an audit answers. <a href="/how-we-work">See how we work</a> or <a href="/contact">book a 15-minute call</a>.
+
+    </div>
+  </article>
+</main>
+
+<Footer />

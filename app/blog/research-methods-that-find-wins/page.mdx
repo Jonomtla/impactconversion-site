@@ -1,0 +1,96 @@
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
+
+export const metadata = {
+  title: "Research methods that actually find wins",
+  description:
+    "Six research methods, ranked by how often they surface a hypothesis that wins in test. Plus when to use each one.",
+  alternates: { canonical: "/blog/research-methods-that-find-wins" },
+};
+
+export const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Research methods that actually find wins",
+  description:
+    "Six research methods, ranked by how often they surface a hypothesis that wins in test.",
+  author: { "@type": "Person", name: "Jono Matla", url: "https://impactconversion.com/about" },
+  publisher: { "@type": "Organization", name: "Impact Conversion", logo: { "@type": "ImageObject", url: "https://impactconversion.com/assets/logo.png" } },
+  datePublished: "2026-04-11",
+  dateModified: "2026-04-17",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://impactconversion.com/blog/research-methods-that-find-wins" },
+};
+
+<Nav />
+
+<main id="main">
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+  <article className="bg-cream pt-32 pb-20 md:pt-40">
+    <div className="mx-auto max-w-3xl px-6">
+      <Breadcrumbs items={[{ label: "Blog", href: "/blog" }, { label: "Research methods that find wins" }]} />
+      <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
+        Research · April 2026
+      </p>
+
+# Research methods that actually find wins
+
+A research phase is meant to generate hypotheses that win in test. Not "insights". Not "personas". Hypotheses that, when you ship them to half your traffic, move the revenue number.
+
+After running a few hundred tests across ecommerce and online education, some methods pull their weight. Some don&rsquo;t. Here&rsquo;s the ranking.
+
+## 1. Email surveys of recent buyers
+
+The single most productive hour of CRO research you can do. One open question: "What almost stopped you from buying?" Sent to buyers within 48 hours of purchase, ideally with a discount code as an incentive.
+
+Why it works: recency. The objections that almost cost you the sale are still in their head. They type them in their own words. Those words become the counter-objections on the next PDP.
+
+## 2. Session recordings, but only of converters
+
+Most people watch non-converter recordings. This is a waste of time. Non-converters leave for a thousand reasons, most of them unreadable from a video.
+
+Converters are different. Watching a converter tells you what they had to push through to buy. Where they hesitated. Which page they re-read. Which tab they opened (a comparison site, almost always). That&rsquo;s your hypothesis list.
+
+## 3. On-site exit surveys
+
+A single-question popup on exit intent for non-converters: "What stopped you from checking out today?" Free-form answer, no dropdown.
+
+The response rate is low &mdash; 1-3%. Doesn&rsquo;t matter. Even 200 answers a month on a top-of-funnel page will cluster into five themes. Those themes are your next quarter&rsquo;s tests.
+
+## 4. Review mining
+
+Only useful if you have 500+ reviews. But when you do, it&rsquo;s gold. Tag each review for the top 2-3 things the customer mentions. Count the mentions. The top five are your value propositions. The five negative mentions are your friction points.
+
+This one is almost entirely replaceable by AI now, which tips the ROI further in its favour.
+
+## 5. Heatmaps (clicks only)
+
+Useful for one thing: discovering which elements people try to click that aren&rsquo;t actually clickable. Almost every site has 2-3 of these. Every one is a free win.
+
+Don&rsquo;t waste time on scroll maps. They mostly tell you the fold is the fold.
+
+## 6. User testing (moderated)
+
+Last on the list because it&rsquo;s expensive and the returns are diminishing. One round of 5 users at the start of an engagement is worth the money. A second round rarely is.
+
+When it does earn its keep: testing a new concept before you build it, where the cost of building the wrong thing is high.
+
+## What we rarely use
+
+- **Persona exercises.** They generate vibes, not tests.
+- **Analytics dashboards built from scratch.** The dashboard tells you where the leak is. It does not tell you why. You still need surveys and recordings for that.
+- **Competitor audits.** Useful for context, not for hypotheses. Your competitor might be getting their own thing wrong.
+
+## The rule of thumb
+
+If a research method doesn&rsquo;t have a line of sight to a specific test you could run next week, stop doing it. Research should be shortening the list of things to try, not padding it.
+
+---
+
+If your research phase has produced a deck instead of a test queue, we should talk. <a href="/contact">Book a 15-minute call</a> or see the <a href="/how-we-work">full loop</a>.
+
+    </div>
+  </article>
+</main>
+
+<Footer />

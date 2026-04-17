@@ -59,7 +59,9 @@ export default function ContactPage() {
                 look like.
               </p>
               <a
-                href="https://app.cal.com/jono-matla-8ixyzk/15-minute-free-consult"
+                href="#book"
+                data-ga-event="book_call_click"
+                data-ga-location="contact_hero"
                 className="mt-10 inline-flex items-center gap-2 rounded-full bg-purple px-8 py-4 text-base font-semibold text-white transition-all hover:bg-purple-2 hover:scale-105"
               >
                 Book a 15-minute intro call
@@ -83,6 +85,28 @@ export default function ContactPage() {
                 </a>
               </p>
             </Reveal>
+          </div>
+        </section>
+
+        {/* Cal.com embed */}
+        <section id="book" className="bg-cream py-16 md:py-24">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="mb-8 text-center">
+              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
+                Pick a time
+              </p>
+              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+                Fifteen minutes. No prep needed.
+              </h2>
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-ink/10 bg-white shadow-sm">
+              <iframe
+                src="https://cal.com/jono-matla-8ixyzk/15-minute-free-consult?embed=true"
+                title="Book a 15-minute intro call"
+                className="h-[680px] w-full"
+                loading="lazy"
+              />
+            </div>
           </div>
         </section>
 

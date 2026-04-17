@@ -11,9 +11,33 @@ export const metadata = {
   alternates: { canonical: "/tools/shipping-calculator" },
 };
 
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Free Shipping Profitability Calculator",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  description:
+    "Model the net profitability of offering free shipping above a threshold. See break-even lift required and how different threshold/price combos play out.",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+  provider: {
+    "@type": "Organization",
+    name: "Impact Conversion",
+    url: "https://impactconversion.com",
+  },
+};
+
 export default function ShippingCalculatorPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
       <Nav />
       <main id="main">
         <section className="bg-ink text-cream pt-32 pb-12 md:pt-40 md:pb-16">

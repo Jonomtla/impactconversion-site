@@ -5,13 +5,44 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 export const metadata = {
   title: "Why most CRO programs fail in the first 90 days",
   description:
-    "The four patterns I see over and over again — and the research-led structure that makes them go away.",
+    "The four patterns I see over and over again, and the research-led structure that makes them go away.",
   alternates: { canonical: "/blog/why-most-cro-programs-fail" },
+};
+
+export const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Why most CRO programs fail in the first 90 days",
+  description:
+    "The four patterns I see over and over again, and the research-led structure that makes them go away.",
+  author: {
+    "@type": "Person",
+    name: "Jono Matla",
+    url: "https://impactconversion.com/about",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Impact Conversion",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://impactconversion.com/assets/logo.png",
+    },
+  },
+  datePublished: "2026-04-01",
+  dateModified: "2026-04-17",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": "https://impactconversion.com/blog/why-most-cro-programs-fail",
+  },
 };
 
 <Nav />
 
 <main id="main">
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+  />
   <article className="bg-cream pt-32 pb-20 md:pt-40">
     <div className="mx-auto max-w-3xl px-6">
       <Breadcrumbs
