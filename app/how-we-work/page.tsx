@@ -5,11 +5,19 @@ import How from "@/components/How";
 import Reveal from "@/components/motion/Reveal";
 
 export const metadata = {
-  title: "How we work — Impact Conversion",
+  title: "How we work · Impact Conversion",
   description: "Research. Prioritise. Test. Compound. Every engagement runs the same loop.",
 };
 
-const services = [
+type Service = {
+  name: string;
+  price: string;
+  blurb: string;
+  inclusions: string[];
+  featured?: boolean;
+};
+
+const services: Service[] = [
   {
     name: "Conversion Audit",
     price: "from $2,500",
@@ -26,8 +34,9 @@ const services = [
   {
     name: "90-Day Optimisation Sprint",
     price: "from $15,000",
+    featured: true,
     blurb:
-      "Twelve weeks of focused experimentation. Deep research up front, then 8 to 12 tests in market. Guarantee: at least three winning tests with measurable impact — or you don&apos;t pay.",
+      "Twelve weeks of focused experimentation. Deep research up front, then 8 to 12 tests in market. Guarantee: at least three winning tests with measurable impact, or you don&apos;t pay.",
     inclusions: [
       "Weeks 1-2 deep-dive research",
       "8-12 experiments in market",
@@ -114,7 +123,17 @@ export default function HowWeWorkPage() {
             <div className="mt-16 grid gap-6 md:grid-cols-2">
               {services.map((s) => (
                 <Reveal key={s.name}>
-                  <div className="flex h-full flex-col rounded-2xl border border-ink/10 bg-white p-8 md:p-10">
+                  <div className={`relative flex h-full flex-col rounded-2xl p-8 md:p-10 ${
+                    s.featured
+                      ? "border-2 border-purple bg-white shadow-[0_20px_60px_-20px_rgba(124,90,236,0.4)]"
+                      : "border border-ink/10 bg-white"
+                  }`}>
+                    {s.featured ? (
+                      <span className="absolute -top-3 left-6 inline-flex items-center gap-1.5 rounded-full bg-purple px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
+                        <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                        Most popular
+                      </span>
+                    ) : null}
                     <div className="flex items-baseline justify-between gap-4">
                       <h3 className="text-2xl font-semibold text-text">
                         {s.name}

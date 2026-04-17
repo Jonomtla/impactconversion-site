@@ -13,13 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Impact Conversion — Turn existing traffic into revenue",
+  title: "Impact Conversion · Turn existing traffic into revenue",
   description:
-    "A CRO agency for D2C ecommerce and online education. We find the leaks in your funnel and fix them with data — not guesswork. $1M+ in extra revenue, 21% average uplift.",
+    "A CRO agency for D2C ecommerce and online education. We find the leaks in your funnel and fix them with data, not guesswork. $1M+ in extra revenue, 35% win rate on tests we ship.",
   openGraph: {
-    title: "Impact Conversion — Turn existing traffic into revenue",
+    title: "Impact Conversion · Turn existing traffic into revenue",
     description:
-      "We find the leaks in your funnel and fix them with data. $1M+ extra revenue generated for clients. 21% average uplift.",
+      "We find the leaks in your funnel and fix them with data. $1M+ extra revenue generated for clients. 35% win rate on tests shipped.",
     url: "https://impactconversion.com",
     siteName: "Impact Conversion",
     type: "website",

@@ -12,17 +12,23 @@ import TiltCard from "./motion/TiltCard";
 const pillars = [
   {
     h: "You&apos;re leaking money right now",
-    p: "Most visitors who land on your site never come back. Each one cost you ad spend to get there. We find where they drop and why, then fix it so more of them buy.",
+    p: "Every ad click you buy is a deposit. Most of them walk away without spending a dollar. We find the holes in your funnel and patch them so more of that traffic converts.",
+    stat: "97 of every 100",
+    statLabel: "visitors leave without buying",
     Visual: LeakyFunnel,
   },
   {
     h: "Conversion lifts compound",
-    p: "Pay Facebook more, your CAC goes up. Lift the conversion rate on traffic you already have, and ROAS, LTV, and profit all move at once. Same spend. More output. The math doesn&apos;t lie.",
+    p: "Lift your conversion rate once and everything downstream moves with it. ROAS goes up. CAC goes down. LTV climbs. Same ad spend, more revenue, every month, forever.",
+    stat: "Same budget",
+    statLabel: "30 to 60% more revenue",
     Visual: VirtuousLoop,
   },
   {
     h: "Guessing is expensive",
-    p: "Design agencies sell rebuilds based on taste. We sell tests based on data. You&apos;ll know, with 95% confidence, whether a change moved the needle. Or didn&apos;t.",
+    p: "Design agencies sell taste. Growth hackers sell templates. We sell proof. Every change runs as an experiment, and you see the result in your P&L, not in somebody&apos;s Figma file.",
+    stat: "95% confidence",
+    statLabel: "before anything ships",
     Visual: ABTestBars,
   },
 ];
@@ -34,7 +40,6 @@ export default function Problem() {
     offset: ["start end", "end start"],
   });
 
-  // Parallax gradient movement
   const gradX = useTransform(scrollYProgress, [0, 1], ["-10%", "30%"]);
   const gradY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
   const gradOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 0.9, 0.9, 0]);
@@ -45,7 +50,6 @@ export default function Problem() {
       ref={sectionRef}
       className="relative overflow-hidden bg-cream py-24 md:py-32"
     >
-      {/* Parallax gradient orb 1 — drifts on scroll */}
       <motion.div
         aria-hidden
         className="pointer-events-none absolute -top-40 -left-40 h-[700px] w-[700px] rounded-full blur-3xl"
@@ -58,7 +62,6 @@ export default function Problem() {
             "radial-gradient(circle, rgba(124,90,236,0.35) 0%, rgba(124,90,236,0) 70%)",
         }}
       />
-      {/* Parallax gradient orb 2 — counter-moves */}
       <motion.div
         aria-hidden
         className="pointer-events-none absolute -bottom-40 -right-40 h-[800px] w-[800px] rounded-full blur-3xl"
@@ -80,7 +83,7 @@ export default function Problem() {
             You don&apos;t have a traffic problem.
             <br />
             You have a{" "}
-            <span className="text-gradient-purple">conversion problem.</span>
+            <span className="text-gradient-flow">conversion problem.</span>
           </h2>
           <p className="mt-6 text-lg text-text-muted">
             Throwing more budget at cold traffic is the expensive answer.
@@ -95,7 +98,6 @@ export default function Problem() {
             return (
               <StaggerItem key={p.h}>
                 <TiltCard className="flex h-full flex-col rounded-3xl border border-ink/10 bg-white p-8 md:p-10 transition-shadow hover:shadow-[0_30px_60px_-20px_rgba(124,90,236,0.35)]">
-                  {/* Visual sits directly on the card, no inner bg */}
                   <div className="-mx-2 mb-2">
                     <V />
                   </div>
@@ -104,9 +106,17 @@ export default function Problem() {
                     dangerouslySetInnerHTML={{ __html: p.h }}
                   />
                   <p
-                    className="mt-4 text-text-muted leading-relaxed"
+                    className="mt-4 flex-1 text-text-muted leading-relaxed"
                     dangerouslySetInnerHTML={{ __html: p.p }}
                   />
+                  <div className="mt-6 flex items-baseline gap-3 border-t border-ink/10 pt-5">
+                    <span className="text-lg font-bold text-purple">
+                      {p.stat}
+                    </span>
+                    <span className="text-sm text-text-muted">
+                      {p.statLabel}
+                    </span>
+                  </div>
                 </TiltCard>
               </StaggerItem>
             );

@@ -2,11 +2,30 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FAQ from "@/components/FAQ";
 import Reveal from "@/components/motion/Reveal";
+import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 
 export const metadata = {
-  title: "Contact — Impact Conversion",
-  description: "Book a 15-minute intro call.",
+  title: "Contact · Impact Conversion",
+  description: "Book a 15-minute intro call. No pitch deck, no sales script.",
 };
+
+const expect = [
+  {
+    n: "01",
+    h: "We ask about your funnel",
+    p: "Traffic sources, conversion bottlenecks, what you&apos;ve already tried. Quick, specific, no dragging it out.",
+  },
+  {
+    n: "02",
+    h: "We show you how we&apos;d approach it",
+    p: "Where we&apos;d look first, what the early tests would be, what a 90-day sprint would probably ship.",
+  },
+  {
+    n: "03",
+    h: "We&apos;re straight about fit",
+    p: "If you don&apos;t have the traffic or the budget is wrong, we say so. If you do, we send you a proposal.",
+  },
+];
 
 export default function ContactPage() {
   return (
@@ -28,7 +47,7 @@ export default function ContactPage() {
               </p>
               <h1 className="mt-4 text-balance text-5xl font-semibold tracking-tight md:text-6xl">
                 Fifteen minutes.{" "}
-                <span className="text-gradient-glow">No pitch.</span>
+                <span className="text-gradient-flow-light">No pitch.</span>
               </h1>
               <p className="mx-auto mt-8 max-w-2xl text-lg text-text-inv-muted md:text-xl">
                 Tell us about your funnel. We&apos;ll tell you how we&apos;d
@@ -60,6 +79,39 @@ export default function ContactPage() {
                 </a>
               </p>
             </Reveal>
+          </div>
+        </section>
+
+        {/* What to expect */}
+        <section className="bg-cream py-24 md:py-32">
+          <div className="mx-auto max-w-7xl px-6">
+            <Reveal className="max-w-2xl">
+              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
+                What to expect
+              </p>
+              <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
+                Three things happen on the call.
+              </h2>
+            </Reveal>
+            <StaggerGroup className="mt-14 grid gap-6 md:grid-cols-3" stagger={0.1}>
+              {expect.map((e) => (
+                <StaggerItem key={e.n}>
+                  <div className="h-full rounded-2xl border border-ink/10 bg-white p-8">
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-purple-soft text-xs font-bold text-purple">
+                      {e.n}
+                    </span>
+                    <h3
+                      className="mt-6 text-xl font-semibold tracking-tight text-text"
+                      dangerouslySetInnerHTML={{ __html: e.h }}
+                    />
+                    <p
+                      className="mt-3 text-text-muted leading-relaxed"
+                      dangerouslySetInnerHTML={{ __html: e.p }}
+                    />
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerGroup>
           </div>
         </section>
 

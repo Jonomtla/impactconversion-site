@@ -1,23 +1,81 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-cream/10 bg-ink py-12 text-cream">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 md:flex-row">
-        <div className="flex items-center gap-3 text-sm text-text-inv-muted">
-          <Image
-            src="/assets/logo.png"
-            alt="Impact Conversion"
-            width={120}
-            height={28}
-            className="h-6 w-auto brightness-0 invert opacity-90"
-          />
-          <span className="hidden sm:inline">Queenstown, New Zealand</span>
+    <footer className="border-t border-cream/10 bg-ink text-cream">
+      <div className="mx-auto max-w-7xl px-6 py-16">
+        <div className="grid gap-10 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <Image
+              src="/assets/logo.png"
+              alt="Impact Conversion"
+              width={150}
+              height={36}
+              className="h-7 w-auto brightness-0 invert"
+            />
+            <p className="mt-4 max-w-sm text-sm text-text-inv-muted">
+              A CRO program for D2C ecommerce and online education brands that
+              want more from the traffic they already paid for.
+            </p>
+            <a
+              href="https://app.cal.com/jono-matla-8ixyzk/15-minute-free-consult"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-purple px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-purple-2 hover:scale-105"
+            >
+              Book a 15-min intro call
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+          </div>
+
+          <div className="md:col-span-2">
+            <p className="text-xs uppercase tracking-wider text-text-inv-muted">
+              Site
+            </p>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li><Link href="/how-we-work" className="text-cream/90 hover:text-cream transition-colors">How we work</Link></li>
+              <li><Link href="/case-studies" className="text-cream/90 hover:text-cream transition-colors">Case studies</Link></li>
+              <li><Link href="/about" className="text-cream/90 hover:text-cream transition-colors">About</Link></li>
+              <li><Link href="/contact" className="text-cream/90 hover:text-cream transition-colors">Contact</Link></li>
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
+            <p className="text-xs uppercase tracking-wider text-text-inv-muted">
+              Services
+            </p>
+            <ul className="mt-4 space-y-2 text-sm text-cream/90">
+              <li>Conversion audits</li>
+              <li>90-day sprints</li>
+              <li>Ongoing programs</li>
+              <li>Landing page builds</li>
+            </ul>
+          </div>
+
+          <div className="md:col-span-3">
+            <p className="text-xs uppercase tracking-wider text-text-inv-muted">
+              Contact
+            </p>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li>
+                <a href="mailto:jono@impactconversion.com" className="text-cream/90 hover:text-cream transition-colors">
+                  jono@impactconversion.com
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/company/impactconversion" className="text-cream/90 hover:text-cream transition-colors">
+                  LinkedIn
+                </a>
+              </li>
+              <li className="text-cream/90">Queenstown, New Zealand</li>
+            </ul>
+          </div>
         </div>
-        <div className="flex items-center gap-6 text-sm text-text-inv-muted">
-          <a href="mailto:jono@impactconversion.com" className="hover:text-cream transition-colors">Email</a>
-          <a href="https://www.linkedin.com/company/impactconversion" className="hover:text-cream transition-colors">LinkedIn</a>
-          <span>© {new Date().getFullYear()}</span>
+
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-cream/10 pt-6 text-xs text-text-inv-muted md:flex-row">
+          <span>© {new Date().getFullYear()} Impact Conversion Ltd. All rights reserved.</span>
+          <span>Research-led CRO for brands that care about compounding.</span>
         </div>
       </div>
     </footer>

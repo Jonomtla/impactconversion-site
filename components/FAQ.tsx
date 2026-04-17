@@ -5,7 +5,11 @@ const faqs = [
   },
   {
     q: "How fast will I see ROI?",
-    a: "Most clients see their first winning test inside 12 weeks. Traffic volume and purchase cycle both affect the timing. Our roadmap always goes after the biggest, most likely wins first.",
+    a: "Most clients see their first winning test inside 12 weeks. Traffic volume and purchase cycle both affect the timing. Our roadmap goes after the biggest, most likely wins first, so the program tends to pay for itself well before it ends.",
+  },
+  {
+    q: "Isn&apos;t this expensive?",
+    a: "Compare it to the alternative. A full redesign runs $50k to $150k with no guarantee the new site beats the old one. Six months of testing runs less than that and you keep every winner forever. On our 90-day sprints we guarantee at least three winning tests or you don&apos;t pay.",
   },
   {
     q: "What makes you different?",
@@ -13,11 +17,11 @@ const faqs = [
   },
   {
     q: "Do we have enough traffic to A/B test?",
-    a: "Rough rule: if you&apos;re getting around 800 conversions per month, you have what you need. That&apos;s 20-30k sessions at a 3% conversion rate, or 5-7k sessions at a higher one. Book a call if you&apos;re not sure.",
+    a: "Rough rule: if you&apos;re getting around 800 conversions per month, you have what you need. That&apos;s 20-30k sessions at a 3% conversion rate, or 5-7k sessions at a higher one. Book a call if you&apos;re not sure, we&apos;ll tell you straight.",
   },
   {
     q: "Can you work alongside our in-house team?",
-    a: "Yes. Most of our clients have one. We share a backlog, run fortnightly calls, stay available between. Our wins become your team&apos;s wins.",
+    a: "Yes. Most of our clients have one. We share a backlog, run fortnightly calls, stay available between. Our wins become your team&apos;s wins. We leave the testing culture behind when we&apos;re done, not a dependency.",
   },
   {
     q: "Which industries?",
@@ -25,7 +29,7 @@ const faqs = [
   },
   {
     q: "How do we start?",
-    a: "Book a free 15-minute intro call. We&apos;ll ask about your funnel, explain how we&apos;d approach it, and tell you honestly whether we&apos;re a fit. No pitch.",
+    a: "Book a free 15-minute intro call. We&apos;ll ask about your funnel, explain how we&apos;d approach it, and tell you honestly whether we&apos;re a fit. No pitch deck. No sales script.",
   },
 ];
 

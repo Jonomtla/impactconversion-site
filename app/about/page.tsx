@@ -5,7 +5,7 @@ import About from "@/components/About";
 import Reveal from "@/components/motion/Reveal";
 
 export const metadata = {
-  title: "About — Impact Conversion",
+  title: "About · Impact Conversion",
   description: "Why we run narrow, on purpose.",
 };
 

@@ -19,18 +19,20 @@ export default function CaseStudy() {
               Case study
             </p>
             <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
-              High Performance Academy.{" "}
-              <span className="text-gradient-glow">18 months in.</span>
+              How we added{" "}
+              <span className="text-gradient-glow">seven figures</span> to High
+              Performance Academy.
             </h2>
             <p className="mt-6 text-lg text-text-inv-muted">
-              Online automotive education platform. Strong traffic. Stalling
-              conversion rate. We embedded a full testing program, rebuilt
-              their hypothesis pipeline around customer research, and shipped
-              experiments week after week.
+              Automotive education platform. Huge paid traffic. Conversion rate
+              stuck. They were buying more clicks to hit the same number every
+              month.
             </p>
             <p className="mt-4 text-lg text-text-inv-muted">
-              The result wasn&apos;t one big win. It was dozens of smaller
-              wins stacked on top of each other until the numbers moved.
+              We embedded a full testing program. Rebuilt their hypothesis
+              pipeline around customer research. Shipped experiments week after
+              week. Eighteen months later, they&apos;re running on the same ad
+              spend and a very different top line.
             </p>
             <blockquote className="mt-10 border-l-2 border-purple-2 pl-6 text-lg italic text-cream">
               &ldquo;We&apos;ve seen single wins that brought in six figures of
