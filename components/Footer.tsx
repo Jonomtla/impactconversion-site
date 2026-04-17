@@ -66,7 +66,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://www.linkedin.com/company/impactconversion" target="_blank" rel="noopener noreferrer" className="text-cream/90 hover:text-cream transition-colors">
+                <a href="https://www.linkedin.com/company/impactconversion" target="_blank" rel="noopener noreferrer" aria-label="Impact Conversion on LinkedIn (opens in new tab)" className="text-cream/90 hover:text-cream transition-colors">
                   LinkedIn
                 </a>
               </li>

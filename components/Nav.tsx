@@ -47,7 +47,7 @@ export default function Nav() {
             priority
           />
         </Link>
-        <nav className="hidden items-center gap-1 text-sm text-text-inv-muted md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-1 text-sm text-text-inv-muted md:flex">
           {links.map((l) => {
             const active =
               pathname === l.href ||

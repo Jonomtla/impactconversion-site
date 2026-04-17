@@ -31,6 +31,16 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Keyboard-only focus ring — does not affect mouse users */
+*:focus {
+  outline: none;
+}
+*:focus-visible {
+  outline: 2px solid var(--color-purple);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 .text-gradient-purple {
   background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-accent-warm) 100%);
   -webkit-background-clip: text;
