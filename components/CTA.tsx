@@ -17,9 +17,9 @@ export default function CTA() {
           <span className="text-gradient-glow">numbers.</span>
         </h2>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-text-inv-muted">
-          Fifteen minutes. One call. We ask about your funnel, show you how
-          we&apos;d approach it, and tell you straight whether we&apos;re a
-          fit. No slide deck. No sales script.
+          Let&apos;s grab fifteen minutes to look at your funnel together, and
+          we&apos;ll tell you straight whether we are a fit, with no slide
+          deck or sales script in the way.
         </p>
 
         {/* Risk reversal pills */}
@@ -40,12 +40,14 @@ export default function CTA() {
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-purple-2">
               <path d="M5 12l5 5L20 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            Three winning tests, or you don&apos;t pay
+            Revenue uplift, or you don&apos;t pay
           </span>
         </div>
 
         <a
           href="https://app.cal.com/jono-matla-8ixyzk/15-minute-free-consult"
+          data-ga-event="book_call_click"
+          data-ga-location="homepage_cta"
           className="mt-10 inline-flex items-center gap-2 rounded-full bg-purple px-8 py-4 text-base font-semibold text-white transition-all hover:bg-purple-2 hover:scale-105"
         >
           Book a 15-minute intro call

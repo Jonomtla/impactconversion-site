@@ -11,25 +11,25 @@ const steps = [
   {
     n: "01",
     h: "Research",
-    p: "Before we touch your site, we find out exactly why people leave. Surveys. Session recordings. Heatmaps. Analytics. The fixes come from your customers, not a best-practice blog.",
+    p: "Before we touch your site, we dig into why people actually leave, using surveys, session recordings, heatmaps, and analytics side by side. The fixes come out of your customers&apos; own words rather than a best-practice blog.",
     Visual: ResearchVisual,
   },
   {
     n: "02",
     h: "Prioritise",
-    p: "Every idea gets scored on impact, confidence, and effort. Test slots go to the changes most likely to move revenue. Not the ones easiest to ship.",
+    p: "Every idea gets scored on impact, confidence, and effort, so the test slots go to the changes most likely to move revenue rather than the ones that happen to be easy to ship.",
     Visual: PrioritiseVisual,
   },
   {
     n: "03",
     h: "Test",
-    p: "Every change runs as a proper A/B test. 95% confidence or we don&apos;t call it a win. Real data, real weight. No &ldquo;I think this looks better&rdquo; arguments.",
+    p: "Every change runs as a proper A/B test, and we only call it a win at 95% confidence, so the decisions rest on real data rather than opinion.",
     Visual: TestVisual,
   },
   {
     n: "04",
     h: "Compound",
-    p: "One test moves a needle. Thirty tests move the business. Month after month, winners stack up and the revenue curve bends the right way.",
+    p: "One test moves a single needle, but thirty tests move the business. Month after month the winners stack up, and the revenue curve bends in the right direction.",
     Visual: CompoundVisual,
   },
 ];
@@ -46,9 +46,9 @@ export default function How() {
             Research first. Then test. Then repeat.
           </h2>
           <p className="mt-6 text-lg text-text-muted">
-            No secret method. Just a disciplined loop that runs on every
-            engagement. Same four stages. Month after month. It&apos;s how the
-            results compound.
+            There is no secret method, just a disciplined loop that runs on
+            every engagement with the same four stages month after month. That
+            repetition is what makes the results compound.
           </p>
         </Reveal>
 

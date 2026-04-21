@@ -25,15 +25,16 @@ export default function CaseStudy() {
               Performance Academy.
             </h2>
             <p className="mt-6 text-lg text-text-inv-muted">
-              Automotive education platform. Huge paid traffic. Conversion rate
-              stuck. They were buying more clicks to hit the same number every
-              month.
+              HPA is an automotive education platform with huge paid traffic
+              and a conversion rate that had flatlined, so every extra click
+              was just buying them the same number.
             </p>
             <p className="mt-4 text-lg text-text-inv-muted">
-              We embedded a full testing program. Rebuilt their hypothesis
-              pipeline around customer research. Shipped experiments week after
-              week. Eighteen months later, they&apos;re running on the same ad
-              spend and a very different top line.
+              We embedded a full testing program, rebuilt their hypothesis
+              pipeline around customer research, and shipped experiments week
+              after week. Eighteen months in, they are running on the same ad
+              spend with a very different top line, and the guarantee kicks in
+              if the revenue does not show up.
             </p>
             <blockquote className="mt-10 border-l-2 border-purple-2 pl-6 text-lg italic text-cream">
               &ldquo;We&apos;ve seen single wins that brought in six figures of

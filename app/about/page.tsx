@@ -34,8 +34,9 @@ export default function AboutPage() {
                 <span className="text-gradient-glow">because nobody&apos;s testing.</span>
               </h1>
               <p className="mt-8 text-lg text-text-inv-muted md:text-xl">
-                Founded by Jono Matla. Built around the idea that revenue comes
-                from running the loop, not from one big redesign.
+                Founded by Jono Matla, and built around the idea that real
+                revenue comes from running the research-and-test loop
+                consistently, rather than from one big redesign.
               </p>
             </Reveal>
           </div>
@@ -58,15 +59,15 @@ export default function AboutPage() {
               {[
                 {
                   h: "Research is louder than opinion",
-                  p: "If a test isn't tied to a real customer voice, it's a guess in a nice font. We listen first and build from what your buyers actually say.",
+                  p: "If a test is not tied to a real customer voice, it is just a guess in a nice font, so we listen first and build from what your buyers actually say.",
                 },
                 {
                   h: "Small wins compound",
-                  p: "One viral test is a lottery ticket. Thirty disciplined wins stacked over a year is how serious revenue gets moved.",
+                  p: "One viral test is a lottery ticket, whereas thirty disciplined wins stacked over a year is how serious revenue actually moves.",
                 },
                 {
                   h: "Honesty beats storytelling",
-                  p: "If a test lost, we tell you. If your funnel is in decent shape, we tell you that too. You get the truth, not a pitch deck.",
+                  p: "When a test loses we tell you plainly, and when your funnel is in decent shape we tell you that too, so you get the truth rather than a pitch deck.",
                 },
               ].map((v) => (
                 <Reveal key={v.h}>

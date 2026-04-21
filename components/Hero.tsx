@@ -1,5 +1,6 @@
 import WavyLines from "./WavyLines";
 import CountUp from "./CountUp";
+import SprintSlotBadge from "./SprintSlotBadge";
 import { StaggerGroup, StaggerItem } from "./motion/Stagger";
 
 export default function Hero() {
@@ -35,20 +36,14 @@ export default function Hero() {
           </StaggerItem>
           <StaggerItem>
             <p className="mx-auto mt-8 max-w-2xl text-pretty text-lg text-text-inv-muted md:text-xl">
-              We find the leaks in your funnel and fix them with data. Same ad
-              spend, more revenue, every month. Tests that ship, winners that
-              stay live, proof in the P&amp;L.
+              We find the leaks in your funnel and fix them with research-led
+              testing, so the same ad spend earns more every month. Every
+              winning test stays live, and the revenue compounds.
             </p>
           </StaggerItem>
           <StaggerItem>
             <div className="mt-8 flex justify-center">
-              <span className="inline-flex items-center gap-2 rounded-full border border-purple-2/40 bg-purple/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-purple-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-2 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-purple-2" />
-                </span>
-                Next sprint opens June 2026 · 2 slots
-              </span>
+              <SprintSlotBadge />
             </div>
           </StaggerItem>
           <StaggerItem>
@@ -68,14 +63,15 @@ export default function Hero() {
                 href="/case-studies"
                 className="inline-flex items-center gap-2 rounded-full border border-cream/20 px-7 py-3.5 text-sm font-semibold text-cream hover:bg-cream/5 transition-colors"
               >
-                See the receipts
+                See case studies
               </a>
             </div>
           </StaggerItem>
           <StaggerItem>
             <p className="mt-6 text-xs text-text-inv-muted">
-              15 minutes. No pitch. We&apos;ll tell you straight whether there&apos;s
-              a program worth running.
+              Let&apos;s grab fifteen minutes to look at your funnel together,
+              and you&apos;ll leave with a straight answer on whether a program
+              is worth running.
             </p>
           </StaggerItem>
           <StaggerItem>

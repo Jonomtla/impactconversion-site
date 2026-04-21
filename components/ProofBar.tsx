@@ -12,7 +12,7 @@ export default function ProofBar() {
         <div className="flex items-center justify-center gap-3">
           <span className="h-px w-8 bg-ink/15" />
           <p className="text-center text-xs uppercase tracking-[0.25em] text-text-muted">
-            Real programs. Real receipts.
+            Real programs, real numbers
           </p>
           <span className="h-px w-8 bg-ink/15" />
         </div>

@@ -11,7 +11,7 @@ import { caseStudies } from "@/lib/case-studies";
 export const metadata = {
   title: "Case studies · Impact Conversion",
   description:
-    "Real testing programs. Real revenue moved. Six-figure single wins and compounding programs.",
+    "Real testing programs and real revenue moved, with six-figure single wins and compounding programs behind every engagement.",
 };
 
 export default function CaseStudiesPage() {
@@ -40,12 +40,14 @@ export default function CaseStudiesPage() {
                 Case studies
               </p>
               <h1 className="mt-4 text-balance text-5xl font-semibold tracking-tight md:text-6xl">
-                Revenue moved.{" "}
-                <span className="text-gradient-flow-light">Receipts attached.</span>
+                Revenue moved, with the{" "}
+                <span className="text-gradient-flow-light">numbers to back it up.</span>
               </h1>
               <p className="mx-auto mt-8 max-w-2xl text-lg text-text-inv-muted md:text-xl">
-                Real programs. Real numbers. Tests that shipped, hit
-                significance, and showed up in the P&amp;L, not in a deck.
+                These are real programs where the tests shipped, hit
+                significance, and showed up in the P&amp;L rather than in a
+                deck. Every engagement runs on the same promise: you see a
+                revenue uplift, or you don&apos;t pay.
               </p>
             </Reveal>
           </div>
@@ -135,8 +137,9 @@ export default function CaseStudiesPage() {
                 Different stacks. Same loop.
               </h2>
               <p className="mt-4 text-lg text-text-muted">
-                Online education. D2C. Lead generation. The method is the
-                same. Research, prioritise, test, compound.
+                The industries range across online education, D2C ecommerce,
+                and lead generation, but the method stays the same: research,
+                prioritise, test, compound.
               </p>
             </Reveal>
             <StaggerGroup

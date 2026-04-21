@@ -15,24 +15,24 @@ export const metadata = {
 const pains = [
   {
     h: "Paid CAC is up, margin is down",
-    p: "Meta and Google keep asking for more to deliver the same. The only lever that compounds the other direction is site conversion, and most Shopify stores leave 20 to 40 percent on the table.",
+    p: "Meta and Google keep asking for more to deliver the same result, and the only lever that compounds in the other direction is site conversion. Most Shopify stores leave 20 to 40 percent on the table in the places nobody is actively testing.",
   },
   {
     h: "Every site change is a guess",
-    p: "Your team ships redesigns, copy tweaks, and new sections based on taste and opinion. Nobody knows which ones are helping, hurting, or drifting. Revenue per visitor tells the truth, and you&rsquo;re not measuring it.",
+    p: "When your team ships redesigns, copy tweaks, and new sections based on taste and opinion, nobody really knows which ones are helping, hurting, or drifting, because revenue per visitor tells the truth and almost no one is measuring it properly.",
   },
   {
     h: "The backlog is full, the calendar is empty",
-    p: "You&rsquo;ve got thirty ideas from three agencies. Nothing has been tested because nobody has the hours to prioritise and instrument them properly.",
+    p: "You have thirty ideas from three agencies and nothing has been tested, because nobody has the hours to prioritise them, instrument the tracking, and ship experiments with any real rigour.",
   },
 ];
 
 const surfaces = [
-  { h: "PDP above the fold", p: "Usually the single highest-leverage surface. Headline that states outcome, top two objections addressed, in-use imagery." },
-  { h: "Checkout + post-purchase", p: "Shopify checkout has more room than most teams realise. Post-purchase upsells, shipping-threshold nudges, trust density at payment." },
-  { h: "Collection pages for paid traffic", p: "If you&rsquo;re running paid to a collection, it&rsquo;s a landing page. Restated promise, primer, proof above the grid." },
-  { h: "Homepage hero for returning traffic", p: "Problem-led heroes usually beat brand-voice heroes. Especially for repeat visitors comparing options." },
-  { h: "Cart drawer cross-sells", p: "Most bundle apps are installed once and forgotten. Smart recommendation logic typically pulls 3 to 8 percent AOV." },
+  { h: "PDP above the fold", p: "Usually the single highest-leverage surface on the site, where a headline that states the outcome, the top two objections addressed in-line, and genuine in-use imagery tend to move the number." },
+  { h: "Checkout and post-purchase", p: "Shopify checkout has more room to move than most teams realise, and post-purchase upsells, shipping-threshold nudges, and extra trust density at payment usually unlock real AOV." },
+  { h: "Collection pages for paid traffic", p: "If you are running paid traffic to a collection, it is a landing page, so it deserves a restated promise, a primer on the category, and proof sitting above the product grid." },
+  { h: "Homepage hero for returning traffic", p: "Problem-led heroes usually beat brand-voice heroes when the visitor is already comparing options, which is most of your repeat traffic." },
+  { h: "Cart drawer cross-sells", p: "Most bundle apps get installed once and forgotten, whereas smart recommendation logic tuned to the actual basket typically pulls 3 to 8 percent AOV." },
 ];
 
 export default function ForD2CPage() {
@@ -48,12 +48,13 @@ export default function ForD2CPage() {
                 For D2C ecommerce brands
               </p>
               <h1 className="mt-4 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
-                Your ad spend is fine. Your site is leaking.
+                Your ad spend is fine, your site is leaking.
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
-                Research-led CRO for Shopify brands doing $5M to $20M. We turn
-                the traffic you&rsquo;re already paying for into revenue, with
-                tests that hold up in the P&amp;L.
+                Research-led CRO for Shopify brands doing $5M to $20M, where we
+                turn the traffic you are already paying for into revenue with
+                tests that hold up in the P&amp;L. You see a revenue uplift,
+                or you don&rsquo;t pay.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
@@ -150,11 +151,11 @@ export default function ForD2CPage() {
                 What a typical engagement looks like.
               </h2>
               <p className="mt-5 text-lg text-text-muted">
-                Deep discovery research in weeks one and two. Survey your recent
-                buyers. Mine session recordings. Audit the top five funnels.
-                Then eight to twelve experiments over the following ten weeks,
-                scored by ICE-L, shipped through a proper testing platform, and
-                reported against revenue per visitor.
+                Weeks one and two are deep discovery research, where we survey
+                your recent buyers, mine session recordings, and audit the top
+                five funnels. The following ten weeks cover eight to twelve
+                experiments, scored by ICE-L, shipped through a proper testing
+                platform, and reported against revenue per visitor.
               </p>
               <div className="mt-10 grid gap-6 md:grid-cols-3">
                 <div className="rounded-2xl border border-ink/10 bg-white p-6">
@@ -163,7 +164,7 @@ export default function ForD2CPage() {
                 </div>
                 <div className="rounded-2xl border border-ink/10 bg-white p-6">
                   <p className="text-3xl font-bold text-purple">2 cycles</p>
-                  <p className="mt-2 text-sm text-text-muted">minimum test duration. No peeking.</p>
+                  <p className="mt-2 text-sm text-text-muted">minimum test duration, with no peeking or early stops</p>
                 </div>
                 <div className="rounded-2xl border border-ink/10 bg-white p-6">
                   <p className="text-3xl font-bold text-purple">RPV</p>

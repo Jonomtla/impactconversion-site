@@ -15,11 +15,11 @@ export default function About() {
               <div className="rounded-2xl bg-white border border-ink/10 p-6">
                 <p className="text-xs uppercase tracking-wider text-text-muted">Based in</p>
                 <p className="mt-2 text-2xl font-semibold text-text">Queenstown, NZ</p>
-                <p className="mt-1 text-sm text-text-muted">We pick up the phone early. And late.</p>
+                <p className="mt-1 text-sm text-text-muted">We pick up the phone early and late.</p>
               </div>
               <div className="rounded-2xl bg-white border border-ink/10 p-6">
                 <p className="text-xs uppercase tracking-wider text-text-muted">Working with brands in</p>
-                <p className="mt-2 text-2xl font-semibold text-text">US. AU. EU. APAC.</p>
+                <p className="mt-2 text-2xl font-semibold text-text">US, AU, EU, APAC</p>
                 <p className="mt-1 text-sm text-text-muted">Timezone is not a blocker.</p>
               </div>
             </div>
@@ -29,8 +29,8 @@ export default function About() {
               </p>
               <p className="mt-2 text-base text-text">
                 D2C ecommerce and online education brands doing $5M to $20M a
-                year. Enough traffic to test fast. Enough revenue on the line
-                to care.
+                year, where there is enough traffic to test fast and enough
+                revenue on the line to care.
               </p>
             </div>
           </div>
@@ -41,14 +41,15 @@ export default function About() {
               the new site would beat the old one.
             </p>
             <p>
-              That&apos;s not how you move revenue. You move revenue by
-              finding what&apos;s broken, testing fixes against the real
-              thing, and keeping what works. Week after week. Forever.
+              Revenue moves when you find what is broken, test the fix against
+              the real thing, and keep what works, week after week, for as
+              long as the program runs.
             </p>
             <p>
-              So that&apos;s all we do. A small number of clients. Long
-              engagements. Deep relationships. Every test documented. Every
-              win attributable. Every loss explained.
+              So that is all we do. We keep a small number of clients on long
+              engagements with deep relationships, and every test gets
+              documented so the wins are attributable and the losses are
+              explained.
             </p>
             <p className="text-text font-medium">
               If that sounds like what your current setup is missing,

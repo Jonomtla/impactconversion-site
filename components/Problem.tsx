@@ -12,21 +12,21 @@ import TiltCard from "./motion/TiltCard";
 const pillars = [
   {
     h: "You&apos;re leaking money right now",
-    p: "Every click you buy is a deposit. 97 out of 100 walk away without spending a dollar. We find the holes in your funnel and close them, so more of the traffic you&apos;ve already paid for actually converts.",
+    p: "Every click you buy is a deposit, and on most sites 97 out of 100 visitors walk away without spending a dollar. We find the holes in your funnel and close them, so more of the traffic you already paid for actually converts.",
     stat: "97 of 100",
     statLabel: "visitors leave without buying",
     Visual: LeakyFunnel,
   },
   {
     h: "Conversion wins compound",
-    p: "Lift the rate once and everything downstream moves with it. ROAS up. CAC down. LTV up. Same ad budget, more revenue, every month. Compounding, not one-off.",
+    p: "When you lift the conversion rate once, every downstream metric moves with it and keeps paying on the same ad budget. Winners stay live forever, so the revenue compounds month after month instead of resetting.",
     stat: "Same budget",
     statLabel: "30 to 60% more revenue",
     Visual: VirtuousLoop,
   },
   {
     h: "Guessing is expensive",
-    p: "Design agencies sell taste. Growth hackers sell templates. We sell proof. Every change runs as a controlled experiment. You see the result in your P&amp;L, not in somebody&apos;s Figma file.",
+    p: "Most agencies sell taste or templates, but we sell proof. Every change runs as a controlled experiment, so you see the result in your P&amp;L rather than in a Figma file.",
     stat: "95% confidence",
     statLabel: "before a winner ships",
     Visual: ABTestBars,
@@ -86,9 +86,9 @@ export default function Problem() {
             <span className="text-gradient-flow">conversion problem.</span>
           </h2>
           <p className="mt-6 text-lg text-text-muted">
-            Buying more cold traffic is the expensive answer. Converting the
-            traffic you&apos;ve already got is the cheap one. And it keeps
-            paying month after month.
+            Buying more cold traffic is the expensive answer, while converting
+            the traffic you already have is the cheap one, and it keeps paying
+            month after month.
           </p>
         </Reveal>
 

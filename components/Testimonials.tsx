@@ -62,9 +62,9 @@ export default function Testimonials() {
             <span className="text-gradient-flow">Compounding.</span>
           </h2>
           <p className="mt-6 text-lg text-text-muted">
-            No viral redesigns. No rip-and-replace rebuilds. Tests that ship,
-            hit significance, and move the line in the P&amp;L where it
-            matters.
+            We stay away from viral redesigns and rip-and-replace rebuilds, and
+            instead ship tests that hit significance and move the line in the
+            P&amp;L where it actually matters.
           </p>
         </Reveal>
 

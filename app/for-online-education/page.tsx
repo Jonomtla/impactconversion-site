@@ -14,25 +14,25 @@ export const metadata = {
 
 const pains = [
   {
-    h: "Webinar registrations are fine. Show-up and buy rates aren&rsquo;t.",
-    p: "You can fill a webinar. The drop-off between registration and purchase is where the margin lives, and most funnels never get properly tested past the registration page.",
+    h: "Registrations are fine, show-up and buy rates are the problem",
+    p: "You can fill a webinar, but the drop-off between registration and purchase is where the margin actually lives, and most funnels never get properly tested past the registration page.",
   },
   {
     h: "Launch revenue depends on a handful of pages you never test",
-    p: "The sales page, the checkout, the upsell sequence. The four pages that decide whether the launch hits forecast. Usually shipped once, tweaked on vibes, never properly experimented on.",
+    p: "The sales page, the checkout, and the upsell sequence are the pages that decide whether a launch hits forecast, yet they usually get shipped once, tweaked on vibes, and never properly experimented on.",
   },
   {
     h: "Evergreen funnels drift and nobody notices",
-    p: "Conversion rates on evergreen funnels decay over time as the market shifts. Without continuous research and testing, you&rsquo;re serving last year&rsquo;s message to this year&rsquo;s audience.",
+    p: "Conversion rates on evergreen funnels decay quietly over time as the market shifts, so without continuous research and testing you are serving last year&rsquo;s message to this year&rsquo;s audience.",
   },
 ];
 
 const surfaces = [
-  { h: "Webinar registration to show-up", p: "Registration confirmation page, email sequence, SMS reminders, pre-webinar engagement assets. The biggest gap in most funnels." },
-  { h: "The replay page", p: "Usually where the money is made. Proof density, urgency mechanics, offer stack clarity, checkout friction." },
-  { h: "Sales page above the fold", p: "Headline has to do the work. For most online ed brands, outcome-led headlines beat feature-led by a wide margin." },
-  { h: "Checkout + order bumps", p: "One-page checkout with the right order bump usually pulls 15 to 25 percent take rate. Most programs are not testing this." },
-  { h: "Post-purchase upsell sequence", p: "The five-minute window after purchase is the single highest-converting surface you own. Under-optimised almost everywhere." },
+  { h: "Webinar registration to show-up", p: "The confirmation page, email sequence, SMS reminders, and pre-webinar engagement assets together usually hide the biggest gap in the whole funnel." },
+  { h: "The replay page", p: "Usually where the money actually gets made, which is why proof density, urgency mechanics, offer-stack clarity, and checkout friction all deserve proper testing." },
+  { h: "Sales page above the fold", p: "The headline has to do the work, and for most online education brands, outcome-led headlines beat feature-led headlines by a wide margin." },
+  { h: "Checkout and order bumps", p: "A one-page checkout with the right order bump typically pulls a 15 to 25 percent take rate, and most programs are not testing this surface at all." },
+  { h: "Post-purchase upsell sequence", p: "The five-minute window after purchase is the single highest-converting surface you own, and it is under-optimised almost everywhere." },
 ];
 
 export default function ForOnlineEducationPage() {
@@ -52,9 +52,10 @@ export default function ForOnlineEducationPage() {
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
                 Research-led CRO for online education brands doing $5M to $20M
-                on Kajabi, Teachable, or custom. Eighteen months on High
-                Performance Academy. One to two million in additional revenue,
-                same ad spend.
+                on Kajabi, Teachable, or custom platforms. Our eighteen months
+                with High Performance Academy added one to two million in
+                revenue on the same ad spend, and every engagement runs on the
+                same promise: you see a revenue uplift, or you don&rsquo;t pay.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
@@ -137,14 +138,14 @@ export default function ForOnlineEducationPage() {
                 Proof, not theory
               </p>
               <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                High Performance Academy. 18 months. 180 tests.
+                High Performance Academy, eighteen months, 180 tests.
               </h2>
               <p className="mt-5 text-lg text-text-muted">
                 One to two million in additional revenue without increasing ad
-                spend. Single test wins driving $300k+ in projected annual
-                revenue. 69 percent increase in new visitor purchases from
-                homepage messaging. 15 percent AOV lift from a 26 percent
-                take-rate checkout upsell.
+                spend, with single-test wins driving $300k+ in projected
+                annual revenue. Homepage messaging alone lifted new-visitor
+                purchases 69 percent, and a checkout upsell at a 26 percent
+                take rate added 15 percent to AOV.
               </p>
               <div className="mt-8">
                 <Link

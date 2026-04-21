@@ -7,24 +7,24 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = {
   title: "Contact · Impact Conversion",
-  description: "Book a 15-minute intro call. No pitch deck, no sales script.",
+  description: "Book a 15-minute intro call to look at your funnel together. No pitch deck, no sales script.",
 };
 
 const expect = [
   {
     n: "01",
     h: "We ask about your funnel",
-    p: "Traffic sources. Conversion bottlenecks. What you&apos;ve already tried. Quick, specific, no dragging it out.",
+    p: "We want to understand your traffic sources, the conversion bottlenecks that are costing you the most, and what you have already tried, without dragging it out.",
   },
   {
     n: "02",
     h: "We show you how we&apos;d approach it",
-    p: "Where we&apos;d look first. What the early tests would be. What a 90-day sprint would likely ship.",
+    p: "We walk you through where we would look first, what the early tests would be, and what a 90-day sprint would most likely ship on your funnel.",
   },
   {
     n: "03",
     h: "We&apos;re straight about fit",
-    p: "If the traffic isn&apos;t there or the budget is wrong, we say so. If it lines up, we send a proposal.",
+    p: "If the traffic is not there or the budget is not aligned, we tell you, and if it lines up we send a proposal with the guarantee built in: you see a revenue uplift, or you don&apos;t pay.",
   },
 ];
 
@@ -50,13 +50,13 @@ export default function ContactPage() {
                 Book a call
               </p>
               <h1 className="mt-4 text-balance text-5xl font-semibold tracking-tight md:text-6xl">
-                Fifteen minutes.{" "}
-                <span className="text-gradient-flow-light">No pitch.</span>
+                Let&apos;s grab fifteen minutes to{" "}
+                <span className="text-gradient-flow-light">look at your funnel.</span>
               </h1>
               <p className="mx-auto mt-8 max-w-2xl text-lg text-text-inv-muted md:text-xl">
-                Tell us about your funnel. We&apos;ll tell you how we&apos;d
-                approach it, whether we&apos;re a fit, and what good would
-                look like.
+                Tell us what your funnel looks like today, and we&apos;ll walk
+                you through how we would approach it, whether we are a fit,
+                and what a good outcome actually looks like for you.
               </p>
               <a
                 href="#book"
@@ -96,7 +96,7 @@ export default function ContactPage() {
                 Pick a time
               </p>
               <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                Fifteen minutes. No prep needed.
+                Fifteen minutes, no prep needed.
               </h2>
             </div>
             <div className="overflow-hidden rounded-2xl border border-ink/10 bg-white shadow-sm">

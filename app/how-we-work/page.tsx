@@ -12,7 +12,6 @@ export const metadata = {
 
 type Service = {
   name: string;
-  price: string;
   blurb: string;
   inclusions: string[];
   featured?: boolean;
@@ -21,12 +20,11 @@ type Service = {
 const services: Service[] = [
   {
     name: "Conversion Audit",
-    price: "from $2,500",
     blurb:
-      "Where your funnel leaks. What to fix first. In a prioritised roadmap you can hand to anyone. Start here if you want to see the map before you hire the crew.",
+      "A prioritised roadmap showing where your funnel leaks and what to fix first, so you can see the map before you hire the crew.",
     inclusions: [
-      "Analytics + funnel analysis",
-      "Heatmap + session recording review",
+      "Analytics and funnel analysis",
+      "Heatmap and session recording review",
       "Customer research synthesis",
       "Competitor benchmarking",
       "Prioritised recommendation list",
@@ -34,23 +32,21 @@ const services: Service[] = [
   },
   {
     name: "90-Day Optimisation Sprint",
-    price: "from $15,000",
     featured: true,
     blurb:
-      "Twelve weeks. 8 to 12 tests in market. Three winners with measurable revenue impact, or you don&apos;t pay. The fastest way to prove the loop works on your site.",
+      "Twelve focused weeks with 8 to 12 tests in market, and you see a revenue uplift by the end of the sprint or you don&apos;t pay. The fastest way to prove the loop works on your site.",
     inclusions: [
       "Weeks 1-2 deep-dive research",
       "8-12 experiments in market",
       "Weekly async updates",
       "Fortnightly strategy calls",
-      "Results guarantee",
+      "Revenue-uplift guarantee",
     ],
   },
   {
     name: "Ongoing CRO Program",
-    price: "from $4,500 / month",
     blurb:
-      "Three to five live tests every month. Continuous research. Revenue reported monthly. For teams that want the compounding to start and never stop.",
+      "Three to five live tests every month with continuous research feeding the pipeline, for teams that want the compounding to start and never stop.",
     inclusions: [
       "Continuous research pipeline",
       "3-5 live experiments at all times",
@@ -61,14 +57,13 @@ const services: Service[] = [
   },
   {
     name: "Landing Page & Funnel Builds",
-    price: "from $3,500",
     blurb:
-      "Pages built on research, written in direct response. Designed to convert, not to win a design award. Shipped with the tracking already wired in.",
+      "Pages built on research and written in direct response, designed to convert rather than win a design award, with analytics and tracking wired in before launch.",
     inclusions: [
       "Research-led copy",
       "Direct response structure",
       "Conversion-first design",
-      "Analytics + test instrumentation",
+      "Analytics and test instrumentation",
     ],
   },
 ];
@@ -97,8 +92,10 @@ export default function HowWeWorkPage() {
                 <span className="text-gradient-glow">Boring on purpose.</span>
               </h1>
               <p className="mt-8 text-lg text-text-inv-muted md:text-xl">
-                No secret method. A disciplined one. Here&apos;s the loop, what
-                it costs, and what you actually get out of it.
+                There is no secret method, just a disciplined one. Here is the
+                loop and exactly what you get out of it, with the guarantee
+                sitting underneath every engagement: you see a revenue uplift,
+                or you don&apos;t pay.
               </p>
             </Reveal>
           </div>
@@ -117,8 +114,11 @@ export default function HowWeWorkPage() {
                 <span className="text-gradient-purple">work with us.</span>
               </h2>
               <p className="mt-6 text-lg text-text-muted">
-                Most clients start with an audit or a sprint. Once the loop is
-                running and winning, they roll into the ongoing program.
+                Most clients start with an audit or a sprint, and once the
+                loop is running and winning, they roll into the ongoing
+                program. Pricing is matched to scope on the intro call, and
+                every engagement carries the same guarantee: you see a revenue
+                uplift, or you don&apos;t pay.
               </p>
             </Reveal>
 
@@ -140,9 +140,6 @@ export default function HowWeWorkPage() {
                       <h3 className="text-2xl font-semibold text-text">
                         {s.name}
                       </h3>
-                      <span className="text-sm font-semibold text-purple">
-                        {s.price}
-                      </span>
                     </div>
                     <p
                       className="mt-4 text-text-muted leading-relaxed"

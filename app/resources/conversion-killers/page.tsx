@@ -21,37 +21,37 @@ const killers = [
   {
     n: "01",
     t: "The hero that talks about you instead of them",
-    b: "Your homepage hero names the product, the brand, and the year founded. It does not name the problem the buyer is trying to solve. One rewrite fixes it.",
+    b: "Most homepage heroes name the product, the brand, and the year founded, without ever naming the problem the buyer is trying to solve, so one rewrite usually pays for itself many times over.",
   },
   {
     n: "02",
     t: "Price anchoring that works against you",
-    b: "The first price a buyer sees sets the anchor. Most D2C sites lead with the cheapest SKU. That caps every cart that follows.",
+    b: "The first price a buyer sees sets the anchor for every cart that follows, and most D2C sites lead with their cheapest SKU, which quietly caps AOV across the entire range.",
   },
   {
     n: "03",
     t: "PDPs that answer questions nobody is asking",
-    b: "The FAQ block answers returns and shipping. The buyer is still wondering whether this thing fits their specific use case. You are one paragraph away from the sale.",
+    b: "When the FAQ block covers returns and shipping but says nothing about whether the product fits the buyer&rsquo;s specific use case, you are usually one paragraph of copy away from the sale.",
   },
   {
     n: "04",
     t: "Free shipping thresholds that cost you margin",
-    b: "Free shipping above $100 can look like a conversion win and actually be a profit loser. Run the maths before you set it.",
+    b: "A free-shipping threshold that looks like a conversion win can quietly be a profit loser once you account for increased fulfilment cost, so the threshold needs to be modelled on real basket data.",
   },
   {
     n: "05",
     t: "The checkout that re-introduces doubt",
-    b: "You spend the whole site building trust. Then the checkout asks for a coupon code, surfaces a strange shipping fee, and gives the buyer one more chance to leave.",
+    b: "You spend the whole site building trust, and then the checkout asks for a coupon code, surfaces a strange shipping fee, and hands the buyer one more reason to leave.",
   },
   {
     n: "06",
     t: "Upsells that feel like upsells",
-    b: "Bundles and cross-sells work when they extend the job the buyer hired the product to do. Not when they look like what they are.",
+    b: "Bundles and cross-sells work when they extend the job the buyer hired the product to do, and they stall whenever they look like the store is just trying to add another line to the order.",
   },
   {
     n: "07",
     t: "Post-purchase pages that sell nothing",
-    b: "The thank-you page has the highest-intent eyeballs on your entire site. Most brands use it to say thank you.",
+    b: "The thank-you page holds the highest-intent traffic on the entire site, and most brands use it simply to say thank you, leaving a large pile of margin sitting on the floor.",
   },
 ];
 
@@ -85,9 +85,9 @@ export default function ConversionKillersPage() {
                 from D2C sites.
               </h1>
               <p className="mt-6 text-lg text-text-inv-muted md:text-xl">
-                The patterns we see on almost every audit. The damage each one
-                does. And the fastest fix for each. 14 pages, plain English, no
-                fluff.
+                These are the patterns we see on almost every audit, along
+                with the damage each one causes and the fastest way to fix it.
+                Fourteen pages, plain English, no fluff.
               </p>
             </Reveal>
           </div>
@@ -119,8 +119,8 @@ export default function ConversionKillersPage() {
               <div className="md:sticky md:top-28">
                 <LeadMagnetForm
                   source="conversion_killers_pdf"
-                  heading="Email me the PDF."
-                  subhead="14 pages. Arrives in under a minute. Unsubscribe any time."
+                  heading="Email me the PDF"
+                  subhead="Fourteen pages, arriving in under a minute, and you can unsubscribe any time."
                 />
               </div>
             </div>
