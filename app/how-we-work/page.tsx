@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import How from "@/components/How";
+import GuaranteeBlock from "@/components/GuaranteeBlock";
 import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
@@ -103,7 +104,7 @@ export default function HowWeWorkPage() {
 
         <How />
 
-        <section className="bg-cream py-24 md:py-32">
+        <section id="engagements" className="bg-cream py-24 md:py-32 scroll-mt-24">
           <div className="mx-auto max-w-7xl px-6">
             <Reveal className="max-w-3xl">
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
@@ -159,6 +160,8 @@ export default function HowWeWorkPage() {
             </div>
           </div>
         </section>
+
+        <GuaranteeBlock />
 
         <CTA />
       </main>

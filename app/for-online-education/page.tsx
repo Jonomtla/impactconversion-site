@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTA from "@/components/CTA";
+import GuaranteeBlock from "@/components/GuaranteeBlock";
 
 export const metadata = {
   title: "CRO for Online Education & Digital Products",
@@ -161,6 +162,8 @@ export default function ForOnlineEducationPage() {
             </Reveal>
           </div>
         </section>
+
+        <GuaranteeBlock />
 
         <CTA />
       </main>

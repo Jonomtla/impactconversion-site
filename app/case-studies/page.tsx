@@ -3,6 +3,7 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
+import GuaranteeBlock from "@/components/GuaranteeBlock";
 import Reveal from "@/components/motion/Reveal";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -202,6 +203,8 @@ export default function CaseStudiesPage() {
             </StaggerGroup>
           </div>
         </section>
+
+        <GuaranteeBlock />
 
         <CTA />
       </main>

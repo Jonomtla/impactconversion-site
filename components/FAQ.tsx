@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     q: "Isn't this expensive?",
-    a: "It depends on the alternative you are comparing it to. A full redesign runs $50k to $150k and nobody can promise the new site beats the old one, whereas six months of testing costs less and every winner you ship stays live forever. And on every engagement, you see a revenue uplift or you don&apos;t pay.",
+    a: "It depends on the alternative you are comparing it to. A full redesign runs $50k to $150k and nobody can promise the new site beats the old one, whereas six months of testing costs less and every winner you ship stays live forever. Every 90-day sprint also carries the guarantee: you see a revenue uplift by the end of the quarter, or we refund the final 50% of the sprint fee.",
   },
   {
     q: "What makes you different from other agencies?",
