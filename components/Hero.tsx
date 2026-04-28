@@ -36,9 +36,10 @@ export default function Hero() {
           </StaggerItem>
           <StaggerItem>
             <p className="mx-auto mt-8 max-w-2xl text-pretty text-lg text-text-inv-muted md:text-xl">
-              We find the leaks in your funnel and fix them with research-led
-              testing, so the same ad spend earns more every month. Every
-              winning test stays live, and the revenue compounds.
+              We find the leaks in your funnel, run research-led tests, and
+              only ship wins that hold up in your P&amp;L. The winners stay
+              live. The revenue compounds on the same ad spend, month after
+              month.
             </p>
           </StaggerItem>
           <StaggerItem>

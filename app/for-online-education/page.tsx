@@ -16,24 +16,24 @@ export const metadata = {
 const pains = [
   {
     h: "Registrations are fine, show-up and buy rates are the problem",
-    p: "You can fill a webinar, but the drop-off between registration and purchase is where the margin actually lives, and most funnels never get properly tested past the registration page.",
+    p: "You can fill a webinar. The drop-off between registration and purchase is where the margin lives, and most funnels never get tested past the registration page.",
   },
   {
     h: "Launch revenue depends on a handful of pages you never test",
-    p: "The sales page, the checkout, and the upsell sequence are the pages that decide whether a launch hits forecast, yet they usually get shipped once, tweaked on vibes, and never properly experimented on.",
+    p: "Three pages decide whether a launch hits forecast: the sales page, the checkout, and the upsell sequence. They usually get shipped once, tweaked on vibes, and never properly experimented on.",
   },
   {
     h: "Evergreen funnels drift and nobody notices",
-    p: "Conversion rates on evergreen funnels decay quietly over time as the market shifts, so without continuous research and testing you are serving last year&rsquo;s message to this year&rsquo;s audience.",
+    p: "Evergreen funnels decay. Markets shift, audiences shift, and without continuous research and testing you end up serving last year&rsquo;s message to this year&rsquo;s audience.",
   },
 ];
 
 const surfaces = [
-  { h: "Webinar registration to show-up", p: "The confirmation page, email sequence, SMS reminders, and pre-webinar engagement assets together usually hide the biggest gap in the whole funnel." },
-  { h: "The replay page", p: "Usually where the money actually gets made, which is why proof density, urgency mechanics, offer-stack clarity, and checkout friction all deserve proper testing." },
-  { h: "Sales page above the fold", p: "The headline has to do the work, and for most online education brands, outcome-led headlines beat feature-led headlines by a wide margin." },
-  { h: "Checkout and order bumps", p: "A one-page checkout with the right order bump typically pulls a 15 to 25 percent take rate, and most programs are not testing this surface at all." },
-  { h: "Post-purchase upsell sequence", p: "The five-minute window after purchase is the single highest-converting surface you own, and it is under-optimised almost everywhere." },
+  { h: "Webinar registration to show-up", p: "The biggest gap in the whole funnel usually hides here: the confirmation page, the email sequence, the SMS reminders, the pre-webinar engagement assets. Few teams test any of them." },
+  { h: "The replay page", p: "This is where the money gets made. Proof density, urgency mechanics, offer-stack clarity, checkout friction: every one of them deserves testing." },
+  { h: "Sales page above the fold", p: "Outcome-led headlines beat feature-led headlines by a wide margin for most online education brands. The headline has to do the work." },
+  { h: "Checkout and order bumps", p: "A one-page checkout with the right order bump moves real AOV. On HPA, our checkout upsell hit a 26 percent take rate. Most programs aren&rsquo;t testing this surface at all." },
+  { h: "Post-purchase upsell sequence", p: "The five-minute window after purchase is the highest-converting surface you own. Most brands leave it under-optimised." },
 ];
 
 export default function ForOnlineEducationPage() {
@@ -52,11 +52,11 @@ export default function ForOnlineEducationPage() {
                 More buyers from the funnel you already have.
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
-                Research-led CRO for online education brands doing $5M to $20M
-                on Kajabi, Teachable, or custom platforms. Our eighteen months
-                with High Performance Academy added one to two million in
-                revenue on the same ad spend, and every engagement runs on the
-                same promise: you see a revenue uplift, or you don&rsquo;t pay.
+                We run research-led CRO for online education brands doing $5M
+                to $20M a year on Kajabi, Teachable, or custom platforms.
+                Eighteen months at High Performance Academy added one to two
+                million in revenue on the same ad spend. Every engagement runs
+                the same promise. Revenue uplift, or you don&rsquo;t pay.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
@@ -111,7 +111,7 @@ export default function ForOnlineEducationPage() {
                 Where the wins usually hide
               </p>
               <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                Five surfaces, ranked by expected impact per unit of effort.
+                Five surfaces, ranked by what moves the most for the least work.
               </h2>
             </Reveal>
             <ol className="mt-10 space-y-5">

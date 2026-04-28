@@ -36,9 +36,9 @@ export default function About() {
           </div>
           <div className="space-y-6 text-lg leading-relaxed text-text-muted">
             <p>
-              Impact Conversion started because too many good companies were
-              being sold $100k redesigns by agencies that couldn&apos;t prove
-              the new site would beat the old one.
+              Impact Conversion started because too many agencies were
+              charging good companies $100k for redesigns and couldn&apos;t
+              prove the new site would beat the old one.
             </p>
             <p>
               Revenue moves when you find what is broken, test the fix against

@@ -28,7 +28,7 @@ const pillars = [
     h: "Guessing is expensive",
     p: "Most agencies sell taste or templates, but we sell proof. Every change runs as a controlled experiment, so you see the result in your P&amp;L rather than in a Figma file.",
     stat: "95% confidence",
-    statLabel: "before a winner ships",
+    statLabel: "on metrics locked at launch",
     Visual: ABTestBars,
   },
 ];

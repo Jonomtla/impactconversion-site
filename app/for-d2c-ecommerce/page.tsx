@@ -16,24 +16,24 @@ export const metadata = {
 const pains = [
   {
     h: "Paid CAC is up, margin is down",
-    p: "Meta and Google keep asking for more to deliver the same result, and the only lever that compounds in the other direction is site conversion. Most Shopify stores leave 20 to 40 percent on the table in the places nobody is actively testing.",
+    p: "Meta and Google keep asking for more to deliver the same result. The only lever that compounds in the other direction is site conversion, and most Shopify stores leave real revenue on the table in the surfaces nobody is actively testing.",
   },
   {
     h: "Every site change is a guess",
-    p: "When your team ships redesigns, copy tweaks, and new sections based on taste and opinion, nobody really knows which ones are helping, hurting, or drifting, because revenue per visitor tells the truth and almost no one is measuring it properly.",
+    p: "Your team ships redesigns, copy tweaks, and new sections based on taste and opinion, and nobody knows which ones helped, hurt, or drifted. Revenue per visitor tells the truth. Most teams aren&rsquo;t measuring it.",
   },
   {
     h: "The backlog is full, the calendar is empty",
-    p: "You have thirty ideas from three agencies and nothing has been tested, because nobody has the hours to prioritise them, instrument the tracking, and ship experiments with any real rigour.",
+    p: "You have thirty ideas from three agencies and nothing has been tested. Nobody has the hours to prioritise them, instrument the tracking, and ship experiments with the rigour they need.",
   },
 ];
 
 const surfaces = [
-  { h: "PDP above the fold", p: "Usually the single highest-leverage surface on the site, where a headline that states the outcome, the top two objections addressed in-line, and genuine in-use imagery tend to move the number." },
-  { h: "Checkout and post-purchase", p: "Shopify checkout has more room to move than most teams realise, and post-purchase upsells, shipping-threshold nudges, and extra trust density at payment usually unlock real AOV." },
-  { h: "Collection pages for paid traffic", p: "If you are running paid traffic to a collection, it is a landing page, so it deserves a restated promise, a primer on the category, and proof sitting above the product grid." },
-  { h: "Homepage hero for returning traffic", p: "Problem-led heroes usually beat brand-voice heroes when the visitor is already comparing options, which is most of your repeat traffic." },
-  { h: "Cart drawer cross-sells", p: "Most bundle apps get installed once and forgotten, whereas smart recommendation logic tuned to the actual basket typically pulls 3 to 8 percent AOV." },
+  { h: "PDP above the fold", p: "The PDP is the highest-leverage surface on most sites. Three things tend to move the number: a headline that names the outcome, the top two objections handled in line, and genuine in-use imagery." },
+  { h: "Checkout and post-purchase", p: "Shopify checkout has more room to move than most teams realise. Post-purchase upsells, shipping-threshold nudges, and extra trust density at payment usually unlock AOV worth caring about." },
+  { h: "Collection pages for paid traffic", p: "If you run paid traffic to a collection, it&rsquo;s a landing page. Treat it like one: restate the promise, prime the category, and put proof above the product grid." },
+  { h: "Homepage hero for returning traffic", p: "Problem-led heroes beat brand-voice heroes when the visitor is already comparing options, which describes most of your repeat traffic." },
+  { h: "Cart drawer cross-sells", p: "Bundle apps get installed once and forgotten. Recommendation logic tuned to the actual basket lifts AOV, but only when you test which logic actually fires." },
 ];
 
 export default function ForD2CPage() {
@@ -52,10 +52,11 @@ export default function ForD2CPage() {
                 Your ad spend is fine, your site is leaking.
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
-                Research-led CRO for Shopify brands doing $5M to $20M, where we
-                turn the traffic you are already paying for into revenue with
-                tests that hold up in the P&amp;L. You see a revenue uplift,
-                or you don&rsquo;t pay.
+                We run research-led CRO for Shopify brands doing $5M to $20M,
+                turning the traffic you&rsquo;re already paying for into
+                revenue with tests that hold up in the P&amp;L. Every
+                engagement runs the same promise. Revenue uplift, or you
+                don&rsquo;t pay.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
@@ -107,7 +108,7 @@ export default function ForD2CPage() {
                 Where the wins usually hide
               </p>
               <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                Five surfaces, ranked by expected impact per unit of effort.
+                Five surfaces, ranked by what moves the most for the least work.
               </h2>
             </Reveal>
             <ol className="mt-10 space-y-5">

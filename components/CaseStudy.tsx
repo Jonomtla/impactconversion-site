@@ -25,16 +25,16 @@ export default function CaseStudy() {
               Performance Academy.
             </h2>
             <p className="mt-6 text-lg text-text-inv-muted">
-              HPA is an automotive education platform with huge paid traffic
-              and a conversion rate that had flatlined, so every extra click
-              was just buying them the same number.
+              HPA teaches automotive engineering to over 100,000 students
+              across 175 countries, and by the time they came to us the ad
+              spend was scaling fine while the site conversion rate refused to
+              follow.
             </p>
             <p className="mt-4 text-lg text-text-inv-muted">
               We embedded a full testing program, rebuilt their hypothesis
               pipeline around customer research, and shipped experiments week
-              after week. Eighteen months in, they are running on the same ad
-              spend with a very different top line, and the guarantee kicks in
-              if the revenue does not show up.
+              after week. Eighteen months in, the same ad spend produces seven
+              figures more revenue, and the guarantee kicks in if it doesn&apos;t.
             </p>
             <blockquote className="mt-10 border-l-2 border-purple-2 pl-6 text-lg italic text-cream">
               &ldquo;We&apos;ve seen single wins that brought in six figures of
@@ -75,7 +75,7 @@ export default function CaseStudy() {
                 </Metric>
               </StaggerItem>
               <StaggerItem>
-                <Metric label="Win rate" sub="Industry avg ~22%">
+                <Metric label="Win rate" sub="Roughly 2x industry typical">
                   <CountUp to={35} suffix="%" />
                 </Metric>
               </StaggerItem>

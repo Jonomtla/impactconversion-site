@@ -51,8 +51,8 @@ export default function AboutPage() {
                 What we believe
               </p>
               <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
-                Three principles.{" "}
-                <span className="text-gradient-purple">Non-negotiable.</span>
+                Three principles run our work.{" "}
+                <span className="text-gradient-purple">None of them bend.</span>
               </h2>
             </Reveal>
             <div className="mt-12 space-y-8">

@@ -23,7 +23,7 @@ const steps = [
   {
     n: "03",
     h: "Test",
-    p: "Every change runs as a proper A/B test, and we only call it a win at 95% confidence, so the decisions rest on real data rather than opinion.",
+    p: "Every change runs as a proper A/B test, with the sample size and primary metric locked before launch, so the decisions rest on real data rather than opinion.",
     Visual: TestVisual,
   },
   {
@@ -43,7 +43,7 @@ export default function How() {
             How we work
           </p>
           <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
-            Research first. Then test. Then repeat.
+            Research the problem. Test the answer. Compound the wins.
           </h2>
           <p className="mt-6 text-lg text-text-muted">
             There is no secret method, just a disciplined loop that runs on

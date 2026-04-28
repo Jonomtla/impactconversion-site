@@ -135,7 +135,7 @@ export default function CaseStudiesPage() {
                 More programs
               </p>
               <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                Different stacks. Same loop.
+                The stacks differ. The loop doesn&apos;t.
               </h2>
               <p className="mt-4 text-lg text-text-muted">
                 The industries range across online education, D2C ecommerce,

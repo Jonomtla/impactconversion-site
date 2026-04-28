@@ -58,8 +58,8 @@ export default function Testimonials() {
             What clients say
           </p>
           <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
-            Boring. Repeatable.{" "}
-            <span className="text-gradient-flow">Compounding.</span>
+            Boring is the point.{" "}
+            <span className="text-gradient-flow">Compounding is the result.</span>
           </h2>
           <p className="mt-6 text-lg text-text-muted">
             We stay away from viral redesigns and rip-and-replace rebuilds, and

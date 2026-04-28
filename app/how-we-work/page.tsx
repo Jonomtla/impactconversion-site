@@ -59,7 +59,7 @@ const services: Service[] = [
   {
     name: "Landing Page & Funnel Builds",
     blurb:
-      "Pages built on research and written in direct response, designed to convert rather than win a design award, with analytics and tracking wired in before launch.",
+      "Research drives the copy, direct response drives the structure, and analytics ship before launch. The pages convert. They don&apos;t win design awards.",
     inclusions: [
       "Research-led copy",
       "Direct response structure",
@@ -89,7 +89,7 @@ export default function HowWeWorkPage() {
                 How we work
               </p>
               <h1 className="mt-4 text-balance text-5xl font-semibold tracking-tight md:text-6xl">
-                Same loop. Every time.{" "}
+                We run the same loop, every time.{" "}
                 <span className="text-gradient-glow">Boring on purpose.</span>
               </h1>
               <p className="mt-8 text-lg text-text-inv-muted md:text-xl">
@@ -117,7 +117,7 @@ export default function HowWeWorkPage() {
               <p className="mt-6 text-lg text-text-muted">
                 Most clients start with an audit or a sprint, and once the
                 loop is running and winning, they roll into the ongoing
-                program. Pricing is matched to scope on the intro call, and
+                program. We match pricing to scope on the intro call, and
                 every engagement carries the same guarantee: you see a revenue
                 uplift, or you don&apos;t pay.
               </p>
