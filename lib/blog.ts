@@ -10,6 +10,15 @@ export type Post = {
 // Hand-maintained list — drop a new folder in app/blog/<slug>/page.mdx and add an entry here.
 export const posts: Post[] = [
   {
+    slug: "follow-up-test-48-cr-loss-six-figures",
+    title: "How a follow-up test turned a 48% CR loss into six figures of additional revenue",
+    description:
+      "Why the same conceptual fix lost 48% on the PDP and added six figures of profit on the category page. The case for follow-up tests on a different surface before you bury the idea.",
+    date: "April 2026",
+    readTime: "5 min read",
+    tag: "Methodology",
+  },
+  {
     slug: "cro-for-shopify-where-to-look",
     title: "CRO for Shopify: where to look first",
     description:

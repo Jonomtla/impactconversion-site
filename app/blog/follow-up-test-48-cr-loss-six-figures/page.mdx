@@ -1,0 +1,187 @@
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
+
+export const metadata = {
+  title: "How a follow-up test turned a 48% CR loss into six figures of additional revenue",
+  description: "Why the same conceptual fix lost 48% on the PDP and added six figures of profit on the category page. The case for follow-up tests on a different surface before you bury the idea.",
+  alternates: { canonical: "/blog/follow-up-test-48-cr-loss-six-figures" },
+};
+
+export const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "How a follow-up test turned a 48% CR loss into six figures of additional revenue",
+  description: "Why the same conceptual fix lost 48% on the PDP and added six figures of profit on the category page. The case for follow-up tests on a different surface before you bury the idea.",
+  author: { "@type": "Person", name: "Jono Matla", url: "https://impactconversion.com/about" },
+  publisher: { "@type": "Organization", name: "Impact Conversion", logo: { "@type": "ImageObject", url: "https://impactconversion.com/assets/logo.png" } },
+  datePublished: "2026-04-29",
+  dateModified: "2026-04-29",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://impactconversion.com/blog/follow-up-test-48-cr-loss-six-figures" },
+};
+
+<Nav />
+
+<main id="main">
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+  <article className="bg-cream pt-32 pb-20 md:pt-40">
+    <div className="mx-auto max-w-3xl px-6">
+      <Breadcrumbs items={[{ label: "Blog", href: "/blog" }, { label: "How a follow-up test turned a 48% CR loss into six figures" }]} />
+      <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
+        Methodology · April 2026
+      </p>
+
+# How a follow-up test turned a 48% CR loss into six figures of additional revenue
+
+When a CRO test loses 48%, the easy lesson is "that idea was wrong." Sometimes it isn't. A good hypothesis can survive a bad execution, and the page you placed the test on is part of the execution.
+
+A few months back, working with a D2C ecommerce client, we ran two tests with the same underlying goal: help the buyer figure out which size of one product line fit their use case. The product line had three sizes. Customer research had been telling us for months that buyers couldn't tell which one was theirs. Support tickets were full of "which one fits?" questions. Returns traced back to fit issues. The problem was real.
+
+We tried solving it twice, in two different places. One test ran on the product detail page, where the buyer was about to pick a variant. The other ran on the category page, two clicks earlier, where the buyer was still deciding what to look at.
+
+The PDP test lost 48% on conversion. We killed it inside a week.
+
+The category page test added five figures in recurring revenue per month. It paid back the entire CRO engagement nine times over in year one.
+
+Same conceptual fix. Opposite results.
+
+<figure className="my-10">
+  <svg viewBox="0 0 720 460" className="w-full h-auto" role="img" aria-label="Two test placements compared. The PDP test lost 48 percent on conversion. The category page test produced six figures in annualised profit.">
+    <defs>
+      <marker id="arrowDark" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#14172a" />
+      </marker>
+    </defs>
+
+    <g>
+      <text x="20" y="30" fontSize="13" fill="#5a5e77" fontFamily="system-ui, sans-serif" letterSpacing="0.05em" fontWeight="600">TEST A · INTERACTIVE SIZING GUIDE ON THE PDP</text>
+      <rect x="20" y="50" width="160" height="90" rx="10" fill="#faf7f2" stroke="#14172a" strokeWidth="1.5" />
+      <text x="100" y="100" textAnchor="middle" fontSize="14" fill="#14172a" fontFamily="system-ui, sans-serif" fontWeight="500">Category page</text>
+      <rect x="220" y="50" width="160" height="90" rx="10" fill="#faf7f2" stroke="#ff7a59" strokeWidth="3" />
+      <text x="300" y="100" textAnchor="middle" fontSize="14" fill="#14172a" fontFamily="system-ui, sans-serif" fontWeight="500">PDP</text>
+      <circle cx="300" cy="50" r="9" fill="#ff7a59" />
+      <rect x="420" y="50" width="160" height="90" rx="10" fill="#faf7f2" stroke="#14172a" strokeWidth="1.5" />
+      <text x="500" y="100" textAnchor="middle" fontSize="14" fill="#14172a" fontFamily="system-ui, sans-serif" fontWeight="500">Checkout</text>
+      <path d="M 180 95 L 220 95" stroke="#14172a" strokeWidth="1.5" fill="none" markerEnd="url(#arrowDark)" />
+      <path d="M 380 95 L 420 95" stroke="#14172a" strokeWidth="1.5" fill="none" markerEnd="url(#arrowDark)" />
+      <text x="600" y="92" fontSize="22" fill="#ff7a59" fontWeight="700" fontFamily="system-ui, sans-serif">−48%</text>
+      <text x="600" y="112" fontSize="11" fill="#5a5e77" fontFamily="system-ui, sans-serif">conversion rate</text>
+    </g>
+
+    <line x1="20" y1="220" x2="700" y2="220" stroke="#a8aec9" strokeWidth="1" strokeDasharray="3 4" />
+
+    <g transform="translate(0,250)">
+      <text x="20" y="30" fontSize="13" fill="#5a5e77" fontFamily="system-ui, sans-serif" letterSpacing="0.05em" fontWeight="600">TEST B · PASSIVE LABELLING ON THE CATEGORY PAGE</text>
+      <rect x="20" y="50" width="160" height="90" rx="10" fill="#faf7f2" stroke="#7c5aec" strokeWidth="3" />
+      <text x="100" y="100" textAnchor="middle" fontSize="14" fill="#14172a" fontFamily="system-ui, sans-serif" fontWeight="500">Category page</text>
+      <circle cx="100" cy="50" r="9" fill="#7c5aec" />
+      <rect x="220" y="50" width="160" height="90" rx="10" fill="#faf7f2" stroke="#14172a" strokeWidth="1.5" />
+      <text x="300" y="100" textAnchor="middle" fontSize="14" fill="#14172a" fontFamily="system-ui, sans-serif" fontWeight="500">PDP</text>
+      <rect x="420" y="50" width="160" height="90" rx="10" fill="#faf7f2" stroke="#14172a" strokeWidth="1.5" />
+      <text x="500" y="100" textAnchor="middle" fontSize="14" fill="#14172a" fontFamily="system-ui, sans-serif" fontWeight="500">Checkout</text>
+      <path d="M 180 95 L 220 95" stroke="#14172a" strokeWidth="1.5" fill="none" markerEnd="url(#arrowDark)" />
+      <path d="M 380 95 L 420 95" stroke="#14172a" strokeWidth="1.5" fill="none" markerEnd="url(#arrowDark)" />
+      <text x="600" y="92" fontSize="20" fill="#7c5aec" fontWeight="700" fontFamily="system-ui, sans-serif">Six figures</text>
+      <text x="600" y="112" fontSize="11" fill="#5a5e77" fontFamily="system-ui, sans-serif">annualised profit</text>
+    </g>
+  </svg>
+  <figcaption className="mt-4 text-sm text-text-muted text-center">
+    Same conceptual fix, two different surfaces. The only thing that changed was where the test was placed.
+  </figcaption>
+</figure>
+
+## The PDP test (the loss)
+
+The PDP test added a "Which size fits me?" link next to the variant selector. Click the link, get a clean modal with a visual size guide: photos, fit ranges, a CTA that pre-selected the correct variant before closing the modal. Standard pattern. The kind of thing fashion ecommerce has been doing well for ten years.
+
+Add-to-cart rate dropped. Conversion rate dropped further. By the end of week one we'd seen enough.
+
+What actually happened, when you watched the session recordings: the modal was working as designed. Buyers opened it. They scrolled through it. They sometimes used it. And then they either bounced, took the question to a competitor's site for a sanity check, or sat on the page longer without buying.
+
+The modal didn't fail because the content was wrong. It failed because the *interactive nature* of the fix re-opened a question the buyer had already settled. We turned a confident click into "wait, am I sure?"
+
+## The category page test (the win)
+
+The same buyer question got answered on the category page, two clicks earlier in the funnel.
+
+We duplicated the single product card into three, one for each variant. Each one named the variant and tagged the use case it was built for, so the matching card stood out at a glance. The buyer didn't have to click anything to get the answer. The card on the category page already told them which variant fit their use case before they opened the PDP.
+
+<figure className="my-10">
+  <svg viewBox="0 0 720 360" className="w-full h-auto" role="img" aria-label="Before and after of the category page card. Before: one card with three variants buried. After: three duplicated cards, each labelled with its use case.">
+    <defs>
+      <marker id="arrowMid" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#14172a" />
+      </marker>
+    </defs>
+
+    <text x="80" y="30" fontSize="12" fontWeight="700" fill="#5a5e77" letterSpacing="0.15em" fontFamily="system-ui, sans-serif">BEFORE</text>
+
+    <g transform="translate(80,50)">
+      <rect x="0" y="0" width="200" height="260" rx="14" fill="#faf7f2" stroke="#14172a" strokeWidth="1.5" />
+      <rect x="20" y="20" width="160" height="130" rx="8" fill="#ede7ff" stroke="#7c5aec" strokeWidth="1" strokeDasharray="4 3" />
+      <text x="100" y="92" textAnchor="middle" fontSize="11" fill="#7c5aec" fontFamily="system-ui, sans-serif">[product image]</text>
+      <text x="20" y="180" fontSize="15" fontWeight="700" fill="#14172a" fontFamily="system-ui, sans-serif">Product line</text>
+      <text x="20" y="204" fontSize="12" fill="#a8aec9" fontFamily="system-ui, sans-serif">3 variants</text>
+      <rect x="20" y="220" width="90" height="26" rx="6" fill="#14172a" />
+      <text x="65" y="237" textAnchor="middle" fontSize="11" fill="#faf7f2" fontFamily="system-ui, sans-serif" fontWeight="600">Shop now</text>
+    </g>
+
+    <path d="M 305 180 L 365 180" stroke="#14172a" strokeWidth="2" fill="none" markerEnd="url(#arrowMid)" />
+
+    <text x="395" y="30" fontSize="12" fontWeight="700" fill="#7c5aec" letterSpacing="0.15em" fontFamily="system-ui, sans-serif">AFTER</text>
+
+    <g transform="translate(395,50)">
+      <rect x="0" y="0" width="245" height="76" rx="12" fill="#faf7f2" stroke="#7c5aec" strokeWidth="1.5" />
+      <rect x="14" y="12" width="52" height="52" rx="6" fill="#ede7ff" stroke="#7c5aec" strokeWidth="1" strokeDasharray="3 2" />
+      <text x="80" y="34" fontSize="14" fontWeight="700" fill="#14172a" fontFamily="system-ui, sans-serif">Variant A</text>
+      <text x="80" y="54" fontSize="11" fill="#5a5e77" fontFamily="system-ui, sans-serif">Fits use case one</text>
+
+      <rect x="0" y="92" width="245" height="76" rx="12" fill="#faf7f2" stroke="#7c5aec" strokeWidth="1.5" />
+      <rect x="14" y="104" width="52" height="52" rx="6" fill="#ede7ff" stroke="#7c5aec" strokeWidth="1" strokeDasharray="3 2" />
+      <text x="80" y="126" fontSize="14" fontWeight="700" fill="#14172a" fontFamily="system-ui, sans-serif">Variant B</text>
+      <text x="80" y="146" fontSize="11" fill="#5a5e77" fontFamily="system-ui, sans-serif">Fits use case two</text>
+
+      <rect x="0" y="184" width="245" height="76" rx="12" fill="#faf7f2" stroke="#7c5aec" strokeWidth="1.5" />
+      <rect x="14" y="196" width="52" height="52" rx="6" fill="#ede7ff" stroke="#7c5aec" strokeWidth="1" strokeDasharray="3 2" />
+      <text x="80" y="218" fontSize="14" fontWeight="700" fill="#14172a" fontFamily="system-ui, sans-serif">Variant C</text>
+      <text x="80" y="238" fontSize="11" fill="#5a5e77" fontFamily="system-ui, sans-serif">Fits use case three</text>
+    </g>
+  </svg>
+  <figcaption className="mt-4 text-sm text-text-muted text-center">
+    The category page change: one card became three, each labelled with the use case it fit.
+  </figcaption>
+</figure>
+
+Add-to-cart rate moved a little. Average order value moved more, because the labelling shifted buyers into the higher-AOV variant they'd been undershooting on. Revenue per visitor came in around +7%.
+
+What we trusted wasn't the RPV number on its own. We saw a 33% increase in orders for the higher-priced variant at 98% confidence. The client's sister product range was already laid out exactly this way on the category page, split into labelled cards by use case, with no interactive aids. That had been the established pattern for years. The test was extending an approach that already worked on one product line, to a product line that hadn't been treated the same way. The data wasn't surfacing a new finding. It was reproducing a known one.
+
+## Why the page mattered more than the answer
+
+Two things made the same fix work on one page and break on another.
+
+**1. Interactive elements near the buy button cost confidence.**
+
+A buyer reading product specs and clicking Add-to-Cart is in a momentum state. Anything that asks them to *check* something (a modal, a tooltip, a quiz, a guide) interrupts the momentum and re-opens the decision. Most of the time, the buyer doesn't return to the same level of confidence they had before they opened the modal. You've replaced "I'm buying this one" with "let me make sure," and "let me make sure" is a state customers leave the site to resolve.
+
+The PDP loss wasn't about *where* the size guide was. It was about *what* the size guide was. An interactive opt-in question, sitting next to the variant selector, told the buyer they might be wrong. Even buyers who'd already made up their mind paused to consider whether to second-guess themselves. That hesitation cost half the conversion rate.
+
+**2. In this case, the sizing decision was being made before the PDP, not on it.**
+
+Buyers landing on the PDP for this product weren't using the page to *decide* which size they wanted. They were using it to confirm a decision they'd already made earlier in their session: by clicking through from a category page, by reading reviews, by talking to support. When the modal appeared on the PDP and asked them to re-open the sizing question, it was rewinding work they'd already done. The category page is where the decision was being formed. The fix belonged there.
+
+## The short version
+
+If your test failed near the buy button, don't kill the idea. Move it upstream and try it as a label. Most of the time, the buyer didn't disagree with what you said. They disagreed with where you said it.
+
+The follow-up test, run in a different place, is the difference between burying a 48% loss as "that didn't work" and turning it into six figures of annualised profit.
+
+---
+
+If your last few PDP tests lost and you're not sure why, that's the place to look first. <a href="/contact">Book a 15-minute call</a> and we can pull the funnel-level numbers together.
+
+    </div>
+  </article>
+</main>
+
+<Footer />
