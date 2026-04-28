@@ -2,30 +2,30 @@ import type { MDXComponents } from "mdx/types";
 
 const components: MDXComponents = {
   h1: ({ children }) => (
-    <h1 className="mt-0 text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
+    <h1 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
       {children}
     </h1>
   ),
   h2: ({ children }) => (
-    <h2 className="mt-10 text-balance text-2xl font-semibold tracking-tight text-text md:text-3xl">
+    <h2 className="mt-12 text-balance text-2xl font-semibold tracking-tight text-text md:text-3xl">
       {children}
     </h2>
   ),
   h3: ({ children }) => (
-    <h3 className="mt-8 text-xl font-semibold text-text md:text-2xl">
+    <h3 className="mt-10 text-xl font-semibold text-text md:text-2xl">
       {children}
     </h3>
   ),
   p: ({ children }) => (
-    <p className="mt-4 text-lg leading-relaxed text-text-muted">{children}</p>
+    <p className="mt-6 text-lg leading-relaxed text-text-muted">{children}</p>
   ),
   ul: ({ children }) => (
-    <ul className="mt-4 space-y-2 pl-6 text-lg text-text-muted [list-style-type:disc]">
+    <ul className="mt-6 space-y-2 pl-6 text-lg leading-relaxed text-text-muted [list-style-type:disc]">
       {children}
     </ul>
   ),
   ol: ({ children }) => (
-    <ol className="mt-4 space-y-2 pl-6 text-lg text-text-muted [list-style-type:decimal]">
+    <ol className="mt-6 space-y-2 pl-6 text-lg leading-relaxed text-text-muted [list-style-type:decimal]">
       {children}
     </ol>
   ),

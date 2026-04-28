@@ -61,9 +61,7 @@ export const articleSchema = {
   <article className="bg-cream pt-32 pb-20 md:pt-40">
     <div className="mx-auto max-w-3xl px-6">
       <Breadcrumbs items={[{ label: "Blog", href: "/blog" }, { label: "${title}" }]} />
-      <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-        TODO: Category · ${monthYear}
-      </p>
+      <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">TODO: Category · ${monthYear}</p>
 
 # ${title}
 
