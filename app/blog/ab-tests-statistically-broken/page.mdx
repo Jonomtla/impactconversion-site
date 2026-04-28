@@ -43,7 +43,7 @@ Here are the three reasons that&rsquo;s usually happening.
 
 The simplest and most common. You start a test on Monday. By Thursday, variation B is up 8% at 93% confidence. You stop the test and ship B.
 
-What actually happened: you looked at the test every day and stopped it the moment it crossed a threshold. This is called peeking, and it inflates your false-positive rate dramatically. A test designed to be wrong 5% of the time becomes wrong 20-30% of the time when you peek daily and stop on the first significant result.
+What happened: you looked at the test every day and stopped it the moment it crossed a threshold. This is called peeking, and it inflates your false-positive rate dramatically. A test designed to be wrong 5% of the time becomes wrong 20-30% of the time when you peek daily and stop on the first significant result.
 
 The fix is simple and painful: decide the sample size before the test goes live, and refuse to look at confidence until you hit it.
 
@@ -65,7 +65,7 @@ The fix: commit to the primary metric and audience before the test starts. Segme
 
 ## The quiet cost
 
-A team running 40 tests a year with these problems is probably shipping 15-20 "winners". Of those, maybe 8-10 are real. The rest are just drift &mdash; changes that feel like progress and didn&rsquo;t actually move the revenue number when rolled out to 100%.
+A team running 40 tests a year with these problems probably ships 15-20 "winners". Of those, maybe 8-10 are real. The rest is drift: changes that feel like progress and didn&rsquo;t move the revenue number when rolled out to 100%.
 
 You can usually tell which team this is. They run lots of tests. They&rsquo;ve shipped lots of wins. And the revenue line doesn&rsquo;t bend.
 
@@ -79,7 +79,7 @@ Plain English, no frills:
 - **Segments looked at for hypothesis generation only.** Never to rescue a failed main-metric test.
 - **Guardrails.** If a key metric (checkout errors, page load) degrades, we stop regardless.
 
-Boring. And it&rsquo;s the reason our clients&rsquo; revenue lines actually bend when we ship a winner.
+Boring. And it&rsquo;s the reason our clients&rsquo; revenue lines bend when we ship a winner.
 
 ---
 
