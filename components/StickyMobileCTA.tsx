@@ -27,7 +27,7 @@ export default function StickyMobileCTA() {
       }`}
     >
       <a
-        href="https://app.cal.com/jono-matla-8ixyzk/15-minute-free-consult"
+        href="/contact#book"
         target="_blank"
         rel="noopener noreferrer"
         data-ga-event="book_call_click"

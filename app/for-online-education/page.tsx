@@ -60,7 +60,7 @@ export default function ForOnlineEducationPage() {
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
-                  href="/contact"
+                  href="/contact#book"
                   data-ga-event="book_call_click"
                   data-ga-location="icp_edu_hero"
                   className="inline-flex items-center gap-2 rounded-full bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"

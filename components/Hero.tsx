@@ -50,7 +50,7 @@ export default function Hero() {
           <StaggerItem>
             <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
-                href="/contact"
+                href="/contact#book"
                 data-ga-event="book_call_click"
                 data-ga-location="homepage_hero"
                 className="group inline-flex items-center gap-2 rounded-full bg-purple px-7 py-3.5 text-sm font-semibold text-white transition-all hover:bg-purple-2 hover:scale-105"

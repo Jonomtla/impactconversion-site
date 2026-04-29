@@ -45,7 +45,7 @@ export default function CTA() {
         </div>
 
         <a
-          href="https://app.cal.com/jono-matla-8ixyzk/15-minute-free-consult"
+          href="/contact#book"
           data-ga-event="book_call_click"
           data-ga-location="homepage_cta"
           className="mt-10 inline-flex items-center gap-2 rounded-full bg-purple px-8 py-4 text-base font-semibold text-white transition-all hover:bg-purple-2 hover:scale-105"

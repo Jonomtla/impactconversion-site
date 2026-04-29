@@ -71,7 +71,7 @@ export default function Nav() {
           })}
         </nav>
         <Link
-          href="/contact"
+          href="/contact#book"
           data-ga-event="book_call_click"
           data-ga-location="nav"
           className="group inline-flex items-center gap-1.5 rounded-full bg-purple px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-purple-2 hover:scale-105"

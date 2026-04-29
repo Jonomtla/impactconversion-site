@@ -19,7 +19,7 @@ export default function Footer() {
               want more from the traffic they already paid for.
             </p>
             <a
-              href="https://app.cal.com/jono-matla-8ixyzk/15-minute-free-consult"
+              href="/contact#book"
               target="_blank"
               rel="noopener noreferrer"
               data-ga-event="book_call_click"
@@ -45,7 +45,7 @@ export default function Footer() {
               <li><Link href="/tools" className="text-cream/90 hover:text-cream transition-colors">Free tools</Link></li>
               <li><Link href="/blog" className="text-cream/90 hover:text-cream transition-colors">Blog</Link></li>
               <li><Link href="/about" className="text-cream/90 hover:text-cream transition-colors">About</Link></li>
-              <li><Link href="/contact" className="text-cream/90 hover:text-cream transition-colors">Contact</Link></li>
+              <li><a href="mailto:jono@impactconversion.com" className="text-cream/90 hover:text-cream transition-colors">Contact</a></li>
             </ul>
           </div>
 

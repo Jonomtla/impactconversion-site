@@ -294,7 +294,7 @@ ${invest > 0 && margin > 0 ? `
 Break-even Lift Required: ${breakEvenLift.toFixed(1)}%${lift >= breakEvenLift ? ' ✓ Target exceeds this!' : ''}` : ''}
 ${forecastSection}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Book a free 15-min consult: https://app.cal.com/jono-matla-8ixyzk/15-minute-free-consult`;
+Book a free 15-min consult: https://impactconversion.com/contact#book`;
 
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true);
@@ -710,7 +710,7 @@ Book a free 15-min consult: https://app.cal.com/jono-matla-8ixyzk/15-minute-free
           highest-leverage wins are hiding on your site.
         </p>
         <a
-          href="https://app.cal.com/jono-matla-8ixyzk/15-minute-free-consult"
+          href="/contact#book"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-8 py-4 bg-purple hover:bg-purple-2 text-white font-bold rounded-xl transition-all hover-lift"
