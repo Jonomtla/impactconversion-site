@@ -4,6 +4,7 @@ import FAQ from "@/components/FAQ";
 import Reveal from "@/components/motion/Reveal";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import CalEmbed from "@/components/CalEmbed";
 
 export const metadata = {
   title: "Contact · Impact Conversion",
@@ -100,12 +101,7 @@ export default function ContactPage() {
               </h2>
             </div>
             <div className="overflow-hidden rounded-2xl border border-ink/10 bg-white shadow-sm">
-              <iframe
-                src="https://cal.com/jono-matla-8ixyzk/15-minute-free-consult?embed=true"
-                title="Book a 15-minute intro call"
-                className="h-[680px] w-full"
-                loading="lazy"
-              />
+              <CalEmbed />
             </div>
           </div>
         </section>

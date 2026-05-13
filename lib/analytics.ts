@@ -20,6 +20,7 @@ export function track(event: string, params: GtagEventParams = {}) {
 // and don't drift into free-form strings sprinkled through the codebase.
 export const analytics = {
   bookCall: (location: string) => track("book_call_click", { location }),
+  callBooked: (location: string) => track("call_booked", { location }),
   emailClick: (location: string) => track("email_click", { location }),
   caseStudyOpen: (slug: string) => track("case_study_open", { slug }),
   toolUse: (tool: string, action: string) =>
