@@ -10,7 +10,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { caseStudies } from "@/lib/case-studies";
 
 export const metadata = {
-  title: "Case studies · Impact Conversion",
+  title: "CRO Case Studies",
   description:
     "Real testing programs and real revenue moved, with six-figure single wins and compounding programs behind every engagement.",
 };

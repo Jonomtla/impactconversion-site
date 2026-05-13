@@ -6,8 +6,9 @@ import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = {
-  title: "About · Impact Conversion",
-  description: "Why we run narrow, on purpose.",
+  title: "About",
+  description:
+    "We run a narrow CRO practice on purpose. Two categories, one loop, no agency-hour billing. Direct-response copywriting school meets statistical testing rigour.",
 };
 
 export default function AboutPage() {

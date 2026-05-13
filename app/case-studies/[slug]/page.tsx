@@ -21,9 +21,9 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const study = getCaseStudy(slug);
-  if (!study) return { title: "Case study · Impact Conversion" };
+  if (!study) return { title: "Case study" };
   return {
-    title: `${study.name} · Case study · Impact Conversion`,
+    title: `${study.name} · Case study`,
     description: study.summary,
   };
 }

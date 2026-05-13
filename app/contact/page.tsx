@@ -7,7 +7,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CalEmbed from "@/components/CalEmbed";
 
 export const metadata = {
-  title: "Contact · Impact Conversion",
+  title: "Contact",
   description: "Book a 15-minute intro call to look at your funnel together. No pitch deck, no sales script.",
 };
 

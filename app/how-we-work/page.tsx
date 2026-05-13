@@ -7,7 +7,7 @@ import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = {
-  title: "How we work · Impact Conversion",
+  title: "How we work",
   description: "Research. Prioritise. Test. Compound. Every engagement runs the same loop.",
 };
 
