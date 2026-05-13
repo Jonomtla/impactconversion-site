@@ -10,6 +10,7 @@ type Body = {
   company?: string;
   role?: string;
   agree?: boolean;
+  website?: string;
 };
 
 function escape(s: string) {
@@ -27,6 +28,12 @@ export async function POST(req: Request) {
     body = (await req.json()) as Body;
   } catch {
     return NextResponse.json({ error: "invalid_json" }, { status: 400 });
+  }
+
+  // Honeypot: real users never see this field. Bots fill every input.
+  // Return 200 silently so bots don't learn to skip the field next time.
+  if ((body.website ?? "").trim() !== "") {
+    return NextResponse.json({ ok: true });
   }
 
   const name = (body.name ?? "").trim();

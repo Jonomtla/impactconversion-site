@@ -9,6 +9,7 @@ export const metadata = {
   description:
     "Impact Conversion Ltd (Peak Digital Ltd) terms of engagement for CRO services. Review and accept to begin an engagement.",
   alternates: { canonical: "/terms-of-service" },
+  robots: { index: false, follow: false },
 };
 
 const sections: { title: string; clauses: string[] }[] = [

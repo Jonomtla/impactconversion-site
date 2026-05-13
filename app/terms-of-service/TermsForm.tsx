@@ -21,6 +21,7 @@ export default function TermsForm() {
       company: (form.elements.namedItem("company") as HTMLInputElement).value,
       role: (form.elements.namedItem("role") as HTMLInputElement).value,
       agree: (form.elements.namedItem("agree") as HTMLInputElement).checked,
+      website: (form.elements.namedItem("website") as HTMLInputElement).value,
     };
 
     try {
@@ -72,6 +73,20 @@ export default function TermsForm() {
 
   return (
     <form onSubmit={onSubmit} className="space-y-4" noValidate>
+      <div
+        aria-hidden="true"
+        style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}
+      >
+        <label htmlFor="website">Website (leave blank)</label>
+        <input
+          type="text"
+          id="website"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          defaultValue=""
+        />
+      </div>
       <div className="grid gap-4 md:grid-cols-2">
         <Field id="name" label="Full name" autoComplete="name" required />
         <Field
