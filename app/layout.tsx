@@ -1,14 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
+import { Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import GAEventListener from "@/components/GAEventListener";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const satoshi = localFont({
+  src: [
+    { path: "./fonts/satoshi/Satoshi-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/satoshi/Satoshi-Medium.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/satoshi/Satoshi-Medium.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/satoshi/Satoshi-Bold.woff2", weight: "700", style: "normal" },
+    { path: "./fonts/satoshi/Satoshi-Black.woff2", weight: "900", style: "normal" },
+  ],
+  variable: "--font-sans",
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
@@ -57,7 +65,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      className={`${satoshi.variable} ${geistMono.variable} antialiased`}
     >
       <body className="bg-cream text-text min-h-screen">
         <script
