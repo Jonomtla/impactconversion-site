@@ -1,6 +1,5 @@
 import WavyLines from "./WavyLines";
 import CountUp from "./CountUp";
-import SprintSlotBadge from "./SprintSlotBadge";
 import { StaggerGroup, StaggerItem } from "./motion/Stagger";
 
 export default function Hero() {
@@ -43,12 +42,7 @@ export default function Hero() {
             </p>
           </StaggerItem>
           <StaggerItem>
-            <div className="mt-8 flex justify-center">
-              <SprintSlotBadge />
-            </div>
-          </StaggerItem>
-          <StaggerItem>
-            <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
                 href="/contact#book"
                 data-ga-event="book_call_click"
