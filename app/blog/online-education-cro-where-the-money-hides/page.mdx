@@ -1,0 +1,109 @@
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
+
+export const metadata = {
+  title: "Online education CRO: where the money hides in webinar and replay funnels",
+  description:
+    "Most online education brands optimise the opt-in and ignore the funnel after it. The five surfaces where the real revenue moves on Kajabi, Teachable, and custom course platforms.",
+  alternates: { canonical: "/blog/online-education-cro-where-the-money-hides" },
+};
+
+export const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Online education CRO: where the money hides in webinar and replay funnels",
+  description:
+    "Five surfaces where real revenue moves on Kajabi, Teachable, and custom course platforms. Counterpart to the Shopify where-to-look post.",
+  author: { "@type": "Person", name: "Jono Matla", url: "https://impactconversion.com/about" },
+  publisher: { "@type": "Organization", name: "Impact Conversion", logo: { "@type": "ImageObject", url: "https://impactconversion.com/assets/logo.png" } },
+  datePublished: "2026-05-14",
+  dateModified: "2026-05-14",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://impactconversion.com/blog/online-education-cro-where-the-money-hides" },
+};
+
+<Nav />
+
+<main id="main">
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+  <article className="bg-cream pt-32 pb-20 md:pt-40">
+    <div className="mx-auto max-w-3xl px-6">
+      <Breadcrumbs items={[{ label: "Blog", href: "/blog" }, { label: "Online education CRO" }]} />
+      <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">Online education · May 2026</p>
+
+# Online education CRO: where the money hides in webinar and replay funnels
+
+Most online education brands optimise the opt-in page and ignore everything after it. That is the wrong end of the funnel. The opt-in lifts registrations. Registrations are vanity. The revenue moves between "they registered" and "their card got charged," and most of that journey sits unmeasured.
+
+The shape is roughly the same across Kajabi, Teachable, Thinkific, and custom-built platforms. A webinar or VSL pulls them in, a registration confirmation kicks off a sequence, the live event runs (or the replay starts), there is an offer, there is a deadline, and somewhere in that twelve to thirty days the buyer either pays or quietly disappears. Here are the five surfaces where the real revenue lives and most teams aren&rsquo;t testing.
+
+## 1. The registration confirmation page
+
+Almost every online education brand sends registrants away from this page in under five seconds. They register. They see "thanks, check your email." They close the tab. That page is the highest-intent surface in the entire funnel and it gets used as a redirect.
+
+What we test here, in order of expected impact:
+
+1. **A direct add-to-calendar button**, with one tap on mobile. Calendar adds correlate with attendance, attendance correlates with sales. Most platforms make this an afterthought.
+2. **A "bring a friend" link.** Word-of-mouth registration at the moment of highest intent. For one client this pattern lifted total registrations by single digits at near-zero cost.
+3. **A short "watch this first" video preview** with the host&rsquo;s actual face, not a stock countdown. Building rapport before the live event lifts attendance materially.
+
+## 2. The pre-event email sequence
+
+Most pre-event emails are written like marketing emails. They are not marketing emails. They are reminders, and the test that wins is the one that minimises the cognitive load to attend.
+
+Three rules that test well:
+- Plain-text format wins against HTML in pre-event reminders, every time.
+- The time of day in the email is in the reader&rsquo;s local timezone. Most platforms default to the host&rsquo;s timezone and ignore the registrant&rsquo;s.
+- The subject line states the time, not the topic. "Your seat for tomorrow at 7pm" outperforms "How to triple your conversion rate live tomorrow" because the reader already knows the topic.
+
+## 3. The replay window
+
+For most online education funnels, the replay produces more revenue than the live event. The live event sets up the offer. The replay closes it. The window between when the replay opens and when the deadline closes is where most teams under-optimise.
+
+What we test in the replay window:
+
+1. **Replay page above the fold.** The structure is closer to a PDP than a webinar page. The headline names the outcome, the offer summary sits in line, and the trust signals are positioned for a buyer who already attended the live session or skipped it.
+2. **Countdown urgency that is real.** Fake countdowns reset every visit. Real ones don&rsquo;t. The performance difference between the two on tested funnels has been visible across every brand we&rsquo;ve worked with.
+3. **The replay-page CTA copy.** "Watch the replay" tests against "Watch the training" tests against "See the offer." The winner depends on whether your buyer is replay-shopping or offer-shopping by day four. Test for your audience.
+
+## 4. The checkout itself
+
+Online education checkouts get less attention than ecommerce checkouts, partly because the platforms are more locked-down. Kajabi checkout, Teachable checkout, and the various custom-built solutions all have less testability than Shopify Checkout Extensibility.
+
+The tests that do work here:
+- **Payment method ordering.** Stripe checkout defaults are not optimised for your buyer. The order of credit card vs PayPal vs Apple Pay matters more than most teams expect.
+- **Trust density at payment.** Course brands have less buyer-trust capital than ecommerce brands selling physical goods. Compensate with visible guarantees, attendee count, and named testimonials at the moment of payment.
+- **Order bumps.** The pre-purchase bump (a small additional product checked by default) consistently lifts AOV in education when the bump is something the buyer would have bought anyway. The bump that flops is the bump that feels like a trick.
+
+## 5. The first three sessions after purchase
+
+This one almost nobody tests, and it is the highest-leverage CRO surface in the education funnel.
+
+If a buyer doesn&rsquo;t engage with the first three sessions or modules, they don&rsquo;t renew, they refund-request, and they tell their network the program didn&rsquo;t work for them. Every churn metric and every word-of-mouth metric is downstream of those first three sessions.
+
+The CRO test pattern that works:
+- Onboarding page after purchase, where the first session is one tap to start.
+- A "lesson zero" worksheet that gets completed in under three minutes.
+- A community welcome (Slack, Circle, or whatever your stack is) that triggers within four hours of purchase, not on day three.
+
+For one client running this onboarding optimisation alongside the headline funnel work, four shipped wins in six months produced lifts of plus fifty-seven percent, plus sixty-three percent, plus forty-three percent, and plus thirty percent on the metrics that mattered most to their program.
+
+## What teams waste the first quarter on
+
+- **A/B testing opt-in page headlines in isolation.** The opt-in matters, but lifting registrations 10% does nothing for revenue if attendance drops 12%.
+- **Rebuilding the funnel in a new tool.** Migrating from Kajabi to a custom build, or vice versa, almost never improves conversion. It just costs you three months.
+- **Adding more pre-event emails.** Past four emails in a pre-event sequence, more emails reduce attendance. The fix is sharper emails, not more of them.
+
+## If you&rsquo;re starting from zero
+
+One quarter. Five surfaces. Start with the registration confirmation page. End with the replay-window page above the fold. The post-purchase onboarding is the next quarter&rsquo;s test slate. The opt-in headline can wait.
+
+---
+
+If you run an online education brand doing $5M to $20M and your CRO program is still concentrated on opt-in lifts, the <a href="/services/conversion-rate-optimisation">conversion rate optimisation</a> service walks the full funnel. Or <a href="/contact#book">book a 15-minute call</a> and we&rsquo;ll point at the two or three surfaces we&rsquo;d test first on your funnel.
+
+    </div>
+  </article>
+</main>
+
+<Footer />

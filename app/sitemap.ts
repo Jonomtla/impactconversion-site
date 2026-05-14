@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/for-d2c-ecommerce`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/for-online-education`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/services`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/services/conversion-rate-optimisation`, lastModified: now, changeFrequency: "monthly", priority: 0.95 },
     { url: `${BASE}/services/shopify-cro`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/services/ab-testing`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },

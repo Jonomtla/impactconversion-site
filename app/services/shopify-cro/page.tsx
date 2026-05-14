@@ -63,7 +63,7 @@ const faqs = [
   },
   {
     q: "How long is the engagement?",
-    a: "Twelve months. We don&rsquo;t sell three-month packages, because three months isn&rsquo;t enough to run a real testing program. The first ninety days cover research and the first two shipped tests.",
+    a: "We run in 90-day sprints. The first sprint covers research and the first two shipped tests. Most clients run multiple sprints back to back, because the second and third are where the compounding kicks in.",
   },
   {
     q: "Do you take a percentage of the revenue uplift?",

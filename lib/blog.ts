@@ -10,6 +10,42 @@ export type Post = {
 // Hand-maintained list — drop a new folder in app/blog/<slug>/page.mdx and add an entry here.
 export const posts: Post[] = [
   {
+    slug: "why-most-ecommerce-redesigns-lose",
+    title: "Why most ecommerce redesigns lose",
+    description:
+      "Redesigns ship one giant untested change against a site with years of accidental optimisation. Why the new version usually loses on revenue, and what to do instead.",
+    date: "May 2026",
+    readTime: "6 min read",
+    tag: "Methodology",
+  },
+  {
+    slug: "online-education-cro-where-the-money-hides",
+    title: "Online education CRO: where the money hides in webinar and replay funnels",
+    description:
+      "Most online education brands optimise the opt-in and ignore the funnel after it. Five surfaces where the real revenue moves on Kajabi, Teachable, and custom platforms.",
+    date: "May 2026",
+    readTime: "7 min read",
+    tag: "Online education",
+  },
+  {
+    slug: "cost-of-a-false-positive",
+    title: "The cost of a false positive",
+    description:
+      "False positives in CRO are not free. Quantifying the dollar drag of shipped non-wins on a $10M D2C P&L, and how rigorous calling rules pay for themselves.",
+    date: "May 2026",
+    readTime: "6 min read",
+    tag: "Methodology",
+  },
+  {
+    slug: "what-evergreen-cro-research-looks-like",
+    title: "What evergreen CRO research looks like",
+    description:
+      "Most CRO research dies at the end of the first month. Evergreen research is the practice of making it compound for eighteen months. How it works.",
+    date: "May 2026",
+    readTime: "7 min read",
+    tag: "Research",
+  },
+  {
     slug: "how-to-choose-a-cro-agency",
     title: "How to choose a CRO agency without falling for the dashboard theatre",
     description:

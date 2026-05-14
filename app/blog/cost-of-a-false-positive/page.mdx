@@ -1,0 +1,92 @@
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
+
+export const metadata = {
+  title: "The cost of a false positive",
+  description:
+    "False positives in CRO are not free. Quantifying the dollar drag of shipped non-wins on a $10M D2C P&L, and how rigorous calling rules pay for themselves.",
+  alternates: { canonical: "/blog/cost-of-a-false-positive" },
+};
+
+export const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "The cost of a false positive",
+  description:
+    "Quantifying the dollar drag of shipped non-wins on a $10M D2C P&L, and how rigorous calling rules pay for themselves.",
+  author: { "@type": "Person", name: "Jono Matla", url: "https://impactconversion.com/about" },
+  publisher: { "@type": "Organization", name: "Impact Conversion", logo: { "@type": "ImageObject", url: "https://impactconversion.com/assets/logo.png" } },
+  datePublished: "2026-05-14",
+  dateModified: "2026-05-14",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://impactconversion.com/blog/cost-of-a-false-positive" },
+};
+
+<Nav />
+
+<main id="main">
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+  <article className="bg-cream pt-32 pb-20 md:pt-40">
+    <div className="mx-auto max-w-3xl px-6">
+      <Breadcrumbs items={[{ label: "Blog", href: "/blog" }, { label: "The cost of a false positive" }]} />
+      <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">Methodology · May 2026</p>
+
+# The cost of a false positive
+
+False positives in CRO get treated as if they were free. A test goes green, you ship the variation, the new revenue number doesn&rsquo;t show up. You shrug and run the next test. No-one wrote down the cost.
+
+The cost is real. Every shipped non-win takes a slot on your site that could be doing better work, drags the program&rsquo;s credibility internally, and quietly bends the long-term revenue line in the wrong direction. On a moderate-scale D2C P&L, the dollar drag of a year of false-positive wins is large enough that the methodology to prevent them pays for itself many times over.
+
+This post quantifies that drag, and then walks through what catches the false positives before they ship.
+
+## The shape of the math
+
+Take a D2C brand doing $10M in revenue with twenty CRO tests shipped per year. Industry-typical win rates land around 25 to 30%, so call it six "winners" shipped per year.
+
+Of those six, the false-positive rate depends entirely on the calling rule. Frequentist p&lt;0.05 with continuous peeking sits around 25 to 30% real false-positive rate. Bayesian 95% probability-to-beat-baseline with informed priors and stable-signal calling sits closer to 6 to 8%.
+
+Concrete: of six shipped winners per year:
+
+- **Loose calling rule:** roughly 1.5 to 2 are false positives. They produced no revenue lift. They&rsquo;re sitting in production anyway.
+- **Tight calling rule:** roughly 0.4 are false positives. The other 5.6 are real wins.
+
+## The dollar drag, conservatively
+
+Two ways the dollar drag shows up.
+
+**The hidden revenue cost.** Every false positive is a slot on a high-leverage surface that could have been running a different test. If your average winning test produces a 3 to 5% lift on revenue per visitor, and you shipped 1.5 false positives instead of 1.5 real winners this year, the unrealised lift across that surface for the next year is in the order of $150K to $400K on a $10M brand.
+
+**The internal credibility cost.** False positives don&rsquo;t hold up at rollout. Hold rates on properly-called tests run roughly 70-80%. Hold rates on loosely-called tests run closer to 40-60%. After two years of shipping with a loose calling rule, the marketing team has lost trust in the CRO function and the next round of program budget is harder to defend. This one doesn&rsquo;t show up in spreadsheets. It shows up in the quarterly meeting where someone asks "remind me what the testing program actually moved in 2026."
+
+## What catches false positives before they ship
+
+Six things. None of them are expensive. Most agencies skip them.
+
+1. **Pre-test power analysis.** Calculate the minimum detectable effect at your target test duration before you launch. If the surface doesn&rsquo;t have the volume to detect a lift you&rsquo;d care about, don&rsquo;t run the test. Most false-positive "wins" come from underpowered tests that surface noise as signal.
+2. **Primary metric locked at brief time.** Default to revenue per visitor or conversion rate, set in writing before the test goes live. The metric that gets "found" after the test launches is the metric that lies to you.
+3. **A minimum duration that captures two full business cycles.** Two weeks for most ecommerce. Longer if your funnel has weekly seasonality. Day-of-week effects are real and they masquerade as wins on tests called inside one cycle.
+4. **A stability requirement before calling.** Three consecutive days at or above 95% probability-to-beat-baseline, with the primary and secondary metrics in agreement. A test that hits 95% on day three and drops below by day five was never at 95% in the first place.
+5. **Order count per arm.** Bayesian posteriors with small order counts have wide credible intervals. The point estimate looks confident. The interval is one bad week from being negative. Enforce a per-arm minimum.
+6. **Hold-rate tracking after rollout.** Every shipped winner gets re-measured at rollout. Wins that don&rsquo;t hold get rolled back and the learnings library captures why. Most teams forget to do this and the false positives just sit there, draining revenue quietly.
+
+## What you give up to get this right
+
+Speed. A tight calling rule ships fewer "wins" per year. Roughly 12 instead of 20. Three of them will be borderline cases you would have called under a looser rule.
+
+What you get for the speed: a hold rate above three-quarters at rollout, a program that compounds because every entry in the learnings library is a real signal, and a CFO who keeps signing off on the testing budget because the revenue line bends in the right direction.
+
+For one D2C client running this exact methodology, eighteen months produced $1M to $2M in added revenue across 180 tests at a 35% win rate. The win rate is higher than industry typical because false positives are getting caught before they ship, which means the learnings library is mostly real signal, which means the next quarter&rsquo;s hypotheses are sharper than the last quarter&rsquo;s.
+
+## The short version
+
+False positives in CRO are not free. The dollar drag on a $10M brand running a loose calling rule sits in the low six figures of unrealised lift per year. Tightening the rule costs you maybe four test slots a year. It buys you a program that holds at rollout and compounds across years.
+
+---
+
+If your CRO program is shipping wins that don&rsquo;t show up in the P&L months later, the calling rule is probably the problem. The <a href="/services/ab-testing">A/B testing</a> service walks through how we run it. Or <a href="/contact#book">book a 15-minute call</a> and we&rsquo;ll audit your last quarter&rsquo;s shipped winners against the rollout hold rate.
+
+    </div>
+  </article>
+</main>
+
+<Footer />

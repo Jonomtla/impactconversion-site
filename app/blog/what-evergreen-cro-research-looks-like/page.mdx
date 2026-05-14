@@ -1,0 +1,106 @@
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
+
+export const metadata = {
+  title: "What evergreen CRO research looks like",
+  description:
+    "Most CRO research dies at the end of the first month. Evergreen research is the practice of making it compound for eighteen months. Here's how it actually works.",
+  alternates: { canonical: "/blog/what-evergreen-cro-research-looks-like" },
+};
+
+export const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "What evergreen CRO research looks like",
+  description:
+    "Most CRO research dies at the end of the first month. Evergreen research is the practice of making it compound for eighteen months. How it works.",
+  author: { "@type": "Person", name: "Jono Matla", url: "https://impactconversion.com/about" },
+  publisher: { "@type": "Organization", name: "Impact Conversion", logo: { "@type": "ImageObject", url: "https://impactconversion.com/assets/logo.png" } },
+  datePublished: "2026-05-14",
+  dateModified: "2026-05-14",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://impactconversion.com/blog/what-evergreen-cro-research-looks-like" },
+};
+
+<Nav />
+
+<main id="main">
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+  <article className="bg-cream pt-32 pb-20 md:pt-40">
+    <div className="mx-auto max-w-3xl px-6">
+      <Breadcrumbs items={[{ label: "Blog", href: "/blog" }, { label: "Evergreen CRO research" }]} />
+      <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">Research · May 2026</p>
+
+# What evergreen CRO research looks like
+
+Most CRO research dies at the end of the first month. The agency runs a survey, mines some reviews, hands the client a PDF with ten hypotheses, and that&rsquo;s the last anyone looks at the customer voice for the rest of the engagement. By month four the program is shipping tests that have drifted away from what the customer actually said, and nobody can tell why the win rate is sliding.
+
+Evergreen research is the discipline of keeping that signal alive. The research input compounds rather than expires, and the program in month twelve produces sharper hypotheses than the program in month two, because there is twelve months of customer voice feeding into it.
+
+This is how it actually works.
+
+## 1. The first research wave is not the only research wave
+
+Month one research is the foundation. Forty to sixty completed surveys, fifty session recordings tagged, three to five customer interviews, full review mining on Trustpilot and your own reviews. The output is a ranked friction list in the customer&rsquo;s voice. That list has a shelf life.
+
+The shelf life is roughly six months on a stable product line and three months on a product line that&rsquo;s actively iterating. After that, the customer base has shifted, the product has changed, the seasonal mix has rotated, and your research is stale. The program that doesn&rsquo;t refresh it ships hypotheses that worked for last year&rsquo;s buyer.
+
+Evergreen research means a second wave at month six and a third at month twelve. Lighter than the first. Tighter scope. Same methodology. Each wave catches the friction points the first wave missed and the new ones that emerged.
+
+## 2. The post-purchase survey runs in perpetuity
+
+The single most productive recurring research tap on any ecommerce or course brand is a one-question post-purchase survey: "What almost stopped you from buying?"
+
+Sent to buyers within forty-eight hours of purchase. One open text field. No multiple choice. Ten to fifteen percent response rate on most stores. The answers compound into a living friction document that updates every week.
+
+For one D2C client running this, the rolling six-month corpus of post-purchase responses has been the single highest-yield research artefact across eighteen months of program work. New hypotheses surface every quarter. Old friction points reappear when product or marketing changes accidentally reintroduce them. The signal is alive.
+
+## 3. The learnings library captures every test, not just the wins
+
+The learnings library is the structural difference between a program that compounds and a program that runs in circles. Every test, win or loss, generates a one-paragraph entry: the hypothesis, the variation, the result, the reasoning.
+
+Losses matter more than wins. A loss rules out a hypothesis cheaply. Three losses on adjacent hypotheses tell you the surface isn&rsquo;t actually broken, or the segment you&rsquo;re targeting isn&rsquo;t real, or the test design isn&rsquo;t isolating the variable you thought it was. The next quarter&rsquo;s test slate is sharper because you ruled out the wrong directions.
+
+A program twelve months in with a real learnings library has roughly 24 entries. Some of those entries are now structural beliefs about the customer ("buyers in the gift-giving segment respond to a different objection structure than buyers for personal use"). Those beliefs survive into the next engagement, the next product launch, the next agency.
+
+## 4. Session recordings get retagged, not just rewatched
+
+Every CRO tool ships with session recordings. Most teams watch them once, take a few notes, and move on. The compounding version is different.
+
+Set up recurring tags: "checkout abandonment," "PDP scroll-fail," "post-purchase confusion," "mobile-only friction." Tag forty to sixty sessions in month one. Then ten to fifteen sessions per quarter against the same tag set. The tag distribution shifts over time. New tags emerge from new patterns. The team builds a mental model of how buyers behave on your site that no PDF could carry.
+
+This is research as a habit, not a deliverable. It doesn&rsquo;t take long. Two hours a quarter. The payoff is that the team running the program can spot a friction point in the data before it shows up in the conversion numbers.
+
+## 5. Customer interviews run at quarterly cadence
+
+Three customer interviews per quarter. Recent buyers, mixed segments, thirty to forty-five minutes each. Not focus groups. Not surveys with extra steps. Real conversations where you let the customer talk about their last purchase decision.
+
+What you&rsquo;re looking for is the specific objection language that doesn&rsquo;t show up in reviews or surveys. The customer who says "I almost didn&rsquo;t buy because the shipping cost was hidden until checkout, and that&rsquo;s the same thing that made me bounce off a competitor last year." That sentence is gold. It carries a specific objection, a specific surface, and a specific buyer behaviour pattern, and you would never get it from a quantitative survey.
+
+These quotes feed the next quarter&rsquo;s test briefs in the buyer&rsquo;s actual voice. Hypothesis quality goes up. Win rate goes up. The program compounds.
+
+## 6. Research outputs feed the priority list, not the test queue
+
+The mistake most programs make is going straight from research to test queue. Friction found, test scheduled. That skips the ICE-L scoring step where research insights compete against each other for limited test slots.
+
+Evergreen research means treating the ranked friction list as an input to the prioritisation conversation every month, not as a fixed test plan. The friction that ranked third in month one might rank first in month seven because two adjacent surfaces have already been optimised. The hypothesis that wins in month nine often started as a footnote in the original research wave that nobody scheduled the first time around.
+
+## What this looks like compounded over eighteen months
+
+For one D2C client, the eighteen-month engagement produced $1M to $2M in added revenue across 180 tests at a 35% win rate. The headline number is the revenue. The compounding number is the win rate. Twenty percent industry typical, climbing to thirty-five percent in our program over the course of the engagement, because each quarter&rsquo;s hypothesis quality was sharper than the last.
+
+That climb is the dividend of evergreen research. The first quarter&rsquo;s tests were guesses backed by month one research. The fifth quarter&rsquo;s tests were guided by eighteen months of accumulated customer voice, two waves of refresh research, four hundred post-purchase survey responses, a tagged session-recording library, and twelve customer interviews. The same methodology applied to better inputs.
+
+## The short version
+
+CRO research that compounds is not a single big project at the start of the engagement. It is a habit. A post-purchase survey running in perpetuity. A learnings library that captures losses as well as wins. Session recordings tagged on a recurring schedule. Customer interviews at quarterly cadence. Research waves refreshed every six months. The win rate in month eighteen reflects all of it.
+
+---
+
+If your CRO program has a research deck from launch that nobody has opened since, the <a href="/services/conversion-rate-optimisation">conversion rate optimisation</a> service walks through how we keep research alive across the engagement. Or <a href="/contact#book">book a 15-minute call</a> and we&rsquo;ll talk through which research taps would compound on your funnel.
+
+    </div>
+  </article>
+</main>
+
+<Footer />

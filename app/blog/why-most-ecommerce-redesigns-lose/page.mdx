@@ -1,0 +1,92 @@
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
+
+export const metadata = {
+  title: "Why most ecommerce redesigns lose",
+  description:
+    "Redesigns ship one giant untested change against an old site that had years of accidental optimisation in it. Why the new version usually loses on revenue, and what to do instead.",
+  alternates: { canonical: "/blog/why-most-ecommerce-redesigns-lose" },
+};
+
+export const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Why most ecommerce redesigns lose",
+  description:
+    "Redesigns ship one giant untested change against an old site with years of accidental optimisation. Why the new version usually loses on revenue.",
+  author: { "@type": "Person", name: "Jono Matla", url: "https://impactconversion.com/about" },
+  publisher: { "@type": "Organization", name: "Impact Conversion", logo: { "@type": "ImageObject", url: "https://impactconversion.com/assets/logo.png" } },
+  datePublished: "2026-05-14",
+  dateModified: "2026-05-14",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://impactconversion.com/blog/why-most-ecommerce-redesigns-lose" },
+};
+
+<Nav />
+
+<main id="main">
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+  <article className="bg-cream pt-32 pb-20 md:pt-40">
+    <div className="mx-auto max-w-3xl px-6">
+      <Breadcrumbs items={[{ label: "Blog", href: "/blog" }, { label: "Why most ecommerce redesigns lose" }]} />
+      <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">Methodology · May 2026</p>
+
+# Why most ecommerce redesigns lose
+
+Most ecommerce redesigns lose on the metric that matters. Revenue per visitor drops in the first month, the team blames "launch noise," and four months later the new site is still underperforming the old one. Nobody wants to roll back because the design firm spent six months building it and the new colours are on every email signature.
+
+The reason is structural. A redesign ships one giant untested change against an existing site that had years of accidental optimisation in it. Every legacy element, however ugly, was either deliberately kept because somebody noticed it converted, or quietly survived a thousand small tweaks because removing it always hurt the number. The new site sweeps all of that away in one move. The replacement looks better and converts worse, and you have no way to isolate which of the hundred changes caused the drop.
+
+Here are the four patterns I see over and over, and the alternative we run instead.
+
+## 1. The old site was an unmonitored optimisation engine
+
+Every site that has been live for three years has been optimised in the background, whether anyone planned it or not. Buttons moved because customer support kept getting questions. Headlines changed because copy got updated for a campaign and never reverted. The PDP layout shifted because one product team A/B tested its category and rolled it out site-wide.
+
+By the time you commission a redesign, the existing site reflects hundreds of small decisions made under real load. Most are fine. Some are load-bearing. Nobody on the redesign team can tell you which is which, because nobody wrote them down. The new site gets shipped, the load-bearing ones get rebuilt incorrectly, and revenue drops.
+
+## 2. The brief is design-led, not conversion-led
+
+Redesign briefs almost always describe the new site in design language. Cleaner. More modern. Better aligned with the brand. None of these are revenue claims.
+
+A real conversion brief reads differently. It names a specific friction point, in customer language, that the redesign is supposed to fix. "Buyers can&rsquo;t find shipping costs until checkout, and our session recordings show the abandonment on the cart page is concentrated on first-time visitors who never reach the address form." That brief gets you a redesigned cart page that lifts revenue. The "make it more modern" brief gets you a redesigned cart page that wins design awards.
+
+If the redesign brief contains the word "premium" more times than the word "buyer," the redesign is going to lose.
+
+## 3. The launch is a single shipped change with no control
+
+The redesign goes live on a Tuesday. Everyone watches the conversion rate the next day. It is lower. The team says "give it a week, people need to adjust." It is still lower the next week. The team says "we changed the photography style, the new shots are still rendering on the CDN." Three months later the conversion rate has settled at 88% of where it was, and nobody can prove whether it was the redesign or seasonality.
+
+You shipped a single change with no control group. You have no way to attribute the drop to any specific decision. The only way to recover is another full redesign, or a year of CRO work undoing the parts that hurt the worst.
+
+A redesigned site shipped without an A/B holdout is not a test. It is a bet.
+
+## 4. The redesign agency does not own the result
+
+The agency cashed the cheque. They moved on to the next client. The metric that decides whether the project worked, revenue per visitor in months four through twelve, is your problem now.
+
+Almost no design agency&rsquo;s contract makes them responsible for revenue performance after launch. The redesigns that do work, work because the in-house team kept testing after launch and rebuilt the broken parts. The redesign itself was an expensive way to set the table for that work.
+
+## What we run instead
+
+Three rules, in order:
+
+1. **Never ship a redesign as one change.** The site you want, broken into 8 to 20 individually testable hypotheses, shipped over six to twelve months. Each one gets a control. You keep the ones that lift revenue, you drop the ones that don&rsquo;t, and the site that emerges is closer to the design vision than a single-shot launch ever gets, because every decision is measured.
+2. **Lock the primary metric in the brief.** Revenue per visitor by default. Conversion rate if AOV is stable. Not "engagement," not "scroll depth," not "time on page."
+3. **Run the highest-stakes pages last.** Test the changes that have the smallest expected revenue impact first, to build confidence in the methodology and shake out the tracking bugs. Save the PDP and the checkout for once the program is humming.
+
+For one D2C client running this approach, eighteen months of incremental testing produced $1M to $2M in added revenue across 180 tests at a 35% win rate, including a 69% homepage lift that compounded for the rest of the engagement. None of those wins would have survived being bundled into a single redesign.
+
+## The short version
+
+A redesign is one giant untested change with no control. The new site loses on revenue most of the time, the cause is unattributable, and the path to recovery is another year of CRO work undoing the worst parts. Test the redesign in pieces and you keep the lifts. Ship it all at once and you usually keep the losses.
+
+---
+
+If you are about to commission a redesign on a site doing meaningful revenue, the <a href="/services/conversion-rate-optimisation">conversion rate optimisation</a> service is the loop we&rsquo;d run instead. Or <a href="/contact#book">book a 15-minute call</a> and we will walk through how to break the redesign brief into testable pieces.
+
+    </div>
+  </article>
+</main>
+
+<Footer />

@@ -48,7 +48,7 @@ const loop = [
   { h: "Research", p: "Weeks one to four. Surveys, session recordings, funnel analysis, review mining, customer interviews. Output is a ranked friction list in the customer&rsquo;s voice, not ours." },
   { h: "Prioritise", p: "ICE-L scoring. We wrote about why ICE alone breaks. Top two or three tests scheduled with the primary metric locked in the brief." },
   { h: "Test", p: "Two to four experiments per month. Code we write, code your team reviews, code that ships when both sides sign off. We deploy through your existing testing tool." },
-  { h: "Compound", p: "Every test feeds the learnings library. We don&rsquo;t run sprints. We don&rsquo;t ship redesigns. We don&rsquo;t sell hours." },
+  { h: "Compound", p: "Every test feeds the learnings library. We don&rsquo;t ship redesigns. We don&rsquo;t sell hours. The wins stack, the losses rule out hypotheses cheaply, and the program gets sharper every quarter." },
 ];
 
 const faqs = [
@@ -74,7 +74,7 @@ const faqs = [
   },
   {
     q: "What does it cost?",
-    a: "Engagements start at NZD $4,000 per month for a twelve-month commitment. The retainer covers research, prioritisation, two to four shipped experiments per month, the test code, the learnings library, and monthly review calls. We don&rsquo;t sell three-month packages, because three months isn&rsquo;t enough to run the loop properly.",
+    a: "Engagements start at NZD $4,000 per month. We run in 90-day sprints, and most clients run multiple sprints back to back. The retainer covers research, prioritisation, two to four shipped experiments per month, the test code, the learnings library, and monthly review calls.",
   },
 ];
 
