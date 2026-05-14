@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const links = [
+  { href: "/services/conversion-rate-optimisation", label: "Services" },
   { href: "/how-we-work", label: "How we work" },
   { href: "/case-studies", label: "Case studies" },
   { href: "/tools", label: "Tools" },

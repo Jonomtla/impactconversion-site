@@ -10,6 +10,33 @@ export type Post = {
 // Hand-maintained list — drop a new folder in app/blog/<slug>/page.mdx and add an entry here.
 export const posts: Post[] = [
   {
+    slug: "how-to-choose-a-cro-agency",
+    title: "How to choose a CRO agency without falling for the dashboard theatre",
+    description:
+      "Five questions to ask before signing a twelve-month CRO retainer, plus five things that should make you pause. Methodology over slides.",
+    date: "May 2026",
+    readTime: "7 min read",
+    tag: "Methodology",
+  },
+  {
+    slug: "shopify-cro-whats-moving-the-needle-2026",
+    title: "Shopify CRO in 2026: what's actually moving the needle",
+    description:
+      "Five Shopify surfaces moving real revenue in 2026, plus what's quietly stopped working since 2022.",
+    date: "May 2026",
+    readTime: "7 min read",
+    tag: "D2C ecommerce",
+  },
+  {
+    slug: "conversion-rate-optimisation-australia-anz-market",
+    title: "Conversion rate optimisation in Australia: what's different about the ANZ market",
+    description:
+      "Five things that change when you run conversion rate optimisation on a $5M to $20M Australian D2C brand. Payment mix, GST display, EOFY, shipping by state.",
+    date: "May 2026",
+    readTime: "6 min read",
+    tag: "D2C ecommerce",
+  },
+  {
     slug: "follow-up-test-48-cr-loss-six-figures",
     title: "How a follow-up test turned a 48% CR loss into six figures of additional revenue",
     description:

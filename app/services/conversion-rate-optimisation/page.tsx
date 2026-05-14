@@ -74,7 +74,7 @@ const faqs = [
   },
   {
     q: "What does it cost?",
-    a: "Engagements run twelve months. We don&rsquo;t sell three-month packages, because three months isn&rsquo;t enough to run the loop. Book a call and we&rsquo;ll walk through the structure and pricing tied to your traffic volume.",
+    a: "Engagements start at NZD $4,000 per month for a twelve-month commitment. The retainer covers research, prioritisation, two to four shipped experiments per month, the test code, the learnings library, and monthly review calls. We don&rsquo;t sell three-month packages, because three months isn&rsquo;t enough to run the loop properly.",
   },
 ];
 

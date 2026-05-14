@@ -1,0 +1,106 @@
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
+
+export const metadata = {
+  title: "How to choose a CRO agency without falling for the dashboard theatre",
+  description:
+    "Five questions to ask before signing a twelve-month CRO retainer, plus five things that should make you pause. Methodology over slides.",
+  alternates: { canonical: "/blog/how-to-choose-a-cro-agency" },
+};
+
+export const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "How to choose a CRO agency without falling for the dashboard theatre",
+  description:
+    "Five questions to ask before signing a twelve-month CRO retainer, plus five things that should make you pause.",
+  author: { "@type": "Person", name: "Jono Matla", url: "https://impactconversion.com/about" },
+  publisher: { "@type": "Organization", name: "Impact Conversion", logo: { "@type": "ImageObject", url: "https://impactconversion.com/assets/logo.png" } },
+  datePublished: "2026-05-14",
+  dateModified: "2026-05-14",
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://impactconversion.com/blog/how-to-choose-a-cro-agency" },
+};
+
+<Nav />
+
+<main id="main">
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+  <article className="bg-cream pt-32 pb-20 md:pt-40">
+    <div className="mx-auto max-w-3xl px-6">
+      <Breadcrumbs items={[{ label: "Blog", href: "/blog" }, { label: "How to choose a CRO agency" }]} />
+      <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">Methodology · May 2026</p>
+
+# How to choose a CRO agency without falling for the dashboard theatre
+
+Most CRO agency pitches look the same. A dashboard with green arrows, a case study where someone added 40% revenue with one test, and a process diagram that ends in "compound growth." If you&rsquo;re trying to choose between three of them, the surface differences will not help you. They have all read the same playbook.
+
+The differences that matter sit one layer deeper. How the agency makes calls. How they handle losses. Who writes the test code, day to day. Whether the process is built to ship the most tests or to ship the most real revenue. These are the questions you need answered before you sign a twelve-month retainer, because by the time you find out the wrong way, you have spent tens of thousands.
+
+Here are five things to look for. And five things that should make you pause.
+
+## 1. Ask how they call a test
+
+The most important question. Bayesian or frequentist doesn&rsquo;t matter much. What matters is whether they have written rules.
+
+Listen for: pre-test power analysis, a primary metric locked before launch, a minimum duration that captures at least two full business cycles, a stability requirement before calling, and a rule for when secondary metrics disagree with the primary. The agency that says "we run tests until they&rsquo;re statistically significant and then we ship them" is calling on point estimate alone. That approach produces a hold rate well below half on rollout. You are going to ship a lot of changes that don&rsquo;t hold.
+
+## 2. Ask what their last three losses taught them
+
+Wins are easy to talk about. Losses are where the methodology shows.
+
+A good agency can walk you through three recent losing tests and tell you what they learned. The hypothesis that didn&rsquo;t survive contact with the data. The surface that turned out to be the wrong place to test it. The customer segment that behaved opposite to expectation. The learnings library entry that came out of it.
+
+An agency that can&rsquo;t recall their last three losses is either not running enough tests to have them, or treating losses as failures to forget rather than data to compound on.
+
+## 3. Ask who writes the test code
+
+Look for a specific name. Look for code review. Look for someone other than "the team."
+
+CRO test code is real production code that ships to your real customers. Bad code creates flicker, breaks tracking, slows mobile, and quietly tanks the conversion rate of the variant you are trying to measure. If the agency can&rsquo;t tell you who writes the code, who reviews it, and how it gets into your site, the answer is probably "whoever is free that week, no review, and via a third-party tool that fires after the page renders."
+
+We&rsquo;ve audited test code from previous agencies that added hundreds of milliseconds to mobile LCP. In those cases, the "winning" variant beats control because control is slower. None of those wins hold up in rollout.
+
+## 4. Ask about their concurrent test policy
+
+If your traffic supports running three tests at once, the agency should have a rule about overlap.
+
+Two tests on the same page can interact. One test affects a metric the other is measuring. Audience overlap turns clean A/B comparisons into messy A/B/C/D ones nobody can interpret. The agency should have an explicit policy: stagger tests on the same surface, exclude one test from another&rsquo;s audience, or schedule sequentially when the surfaces touch.
+
+Vague answers here usually mean they&rsquo;re shipping multiple tests, calling wins, and never investigating why the rollout numbers don&rsquo;t add up.
+
+## 5. Ask what happens at month twelve
+
+The honest answer is usually "the program slows down." Most CRO programs deliver their biggest wins in months three to nine, when the research is fresh and the obvious leaks are still on the table. After that, the surface area shrinks and the tests get harder.
+
+A good agency tells you this up front. They talk about how the learnings library compounds even when individual test sizes shrink. They explain how research gets refreshed every six months. They have a plan for what month eighteen looks like.
+
+An agency that promises the same trajectory forever is either misleading you or doesn&rsquo;t know.
+
+## Five things that should make you pause
+
+- **A win rate above half.** Either they&rsquo;re calling tests too easily, or they&rsquo;re only counting the wins. Properly called tests sit closer to a quarter. Ours hovers around 35% and that is the high end of believable.
+- **No mention of revenue per visitor or revenue per session.** If the primary metric is always CVR, you will ship CVR wins that drag AOV down. The math at rollout will surprise you.
+- **A "free audit" as the lead magnet.** Audits are valuable. Free audits, written in an afternoon by a junior, are not. The ones that are useful take a week.
+- **A roster of forty clients.** Senior practitioners can run maybe four to six concurrent engagements at depth. More than that and you are getting templates with your logo on them.
+- **Performance-based pricing on CRO.** Pay-per-uplift sounds aligned. It actually incentivises the agency to call wins early, ship volume over quality, and pick the metric they can move easiest, not the one that moves your revenue.
+
+## How we run it
+
+We don&rsquo;t pitch off a dashboard. We walk you through our calling rule, our research process, our last three losses, the code review pattern with our developer, and the surfaces where we think your funnel is leaking. Then you decide whether the loop is right for you.
+
+For one D2C client, that loop produced $1M to $2M in added revenue across eighteen months, 180 tests at a 35% win rate, a 69% lift on the homepage that compounded for the rest of the engagement, and a 26% take rate on a single post-purchase upsell. We don&rsquo;t promise the numbers. We promise the loop.
+
+## The short version
+
+Ask how they call tests. Ask about their last three losses. Ask who writes the code. Ask about concurrent test interaction. Ask what month twelve looks like. The agency with clean answers to all five is the one most likely to move your revenue line.
+
+---
+
+If you&rsquo;re shortlisting <a href="/services/conversion-rate-optimisation">conversion rate optimisation</a> agencies right now, the <a href="/how-we-work">how we work</a> page shows the loop we run. Or <a href="/contact#book">book a 15-minute call</a> and we&rsquo;ll talk through your shortlist, no pitch deck.
+
+    </div>
+  </article>
+</main>
+
+<Footer />

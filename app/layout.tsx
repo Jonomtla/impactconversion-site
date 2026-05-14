@@ -19,15 +19,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://impactconversion.com"),
   title: {
-    default: "Impact Conversion · Turn existing traffic into revenue",
+    default: "Conversion Rate Optimisation for D2C Ecommerce & Online Education · Impact Conversion",
     template: "%s · Impact Conversion",
   },
   description:
-    "A CRO agency for D2C ecommerce and online education. We find the leaks in your funnel and fix them with data, not guesswork. $1M+ in extra revenue, 35% win rate on tests we ship.",
+    "Conversion rate optimisation for $5M to $20M D2C ecommerce and online education brands. Research-led testing, statistical rigour, 35% win rate, $1M+ added revenue on a single engagement.",
   openGraph: {
-    title: "Impact Conversion · Turn existing traffic into revenue",
+    title: "Conversion Rate Optimisation for D2C Ecommerce & Online Education · Impact Conversion",
     description:
-      "We find the leaks in your funnel and fix them with data. $1M+ extra revenue generated for clients. 35% win rate on tests shipped.",
+      "Research-led conversion rate optimisation for $5M to $20M D2C ecommerce and online education brands. $1M+ added revenue on a single engagement. 35% win rate on shipped tests.",
     url: "https://impactconversion.com",
     siteName: "Impact Conversion",
     type: "website",
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Impact Conversion · Turn existing traffic into revenue",
+    title: "Conversion Rate Optimisation for D2C Ecommerce & Online Education",
     description:
-      "Research-led CRO for D2C ecommerce and online education. $1M+ extra revenue generated. 35% win rate.",
+      "Research-led CRO for D2C ecommerce and online education brands. 35% win rate, $1M+ added revenue on a single engagement.",
   },
   robots: {
     index: true,
@@ -74,11 +74,25 @@ export default function RootLayout({
                   url: "https://impactconversion.com",
                   logo: "https://impactconversion.com/assets/logo.png",
                   description:
-                    "A CRO agency for D2C ecommerce and online education brands. Research-led experimentation that turns existing traffic into revenue.",
+                    "A conversion rate optimisation agency for D2C ecommerce and online education brands. Research-led experimentation that turns existing traffic into revenue.",
                   founder: {
                     "@type": "Person",
                     name: "Jono Matla",
                   },
+                  areaServed: [
+                    { "@type": "Country", name: "New Zealand" },
+                    { "@type": "Country", name: "Australia" },
+                    { "@type": "Country", name: "United States" },
+                    { "@type": "Country", name: "United Kingdom" },
+                  ],
+                  knowsAbout: [
+                    "Conversion Rate Optimisation",
+                    "A/B Testing",
+                    "Shopify CRO",
+                    "Ecommerce Optimisation",
+                    "Online Education Funnel Optimisation",
+                    "Statistical Testing",
+                  ],
                   sameAs: [
                     "https://www.linkedin.com/company/impactconversion",
                   ],
@@ -86,23 +100,30 @@ export default function RootLayout({
                     "@type": "ContactPoint",
                     email: "jono@impactconversion.com",
                     contactType: "sales",
-                    areaServed: "Worldwide",
+                    areaServed: ["NZ", "AU", "US", "GB"],
                   },
                 },
                 {
-                  "@type": "LocalBusiness",
+                  "@type": "ProfessionalService",
                   "@id": "https://impactconversion.com/#localbusiness",
                   name: "Impact Conversion",
                   image: "https://impactconversion.com/assets/logo.png",
                   url: "https://impactconversion.com",
                   email: "jono@impactconversion.com",
                   priceRange: "$$$",
+                  serviceType: "Conversion Rate Optimisation",
                   address: {
                     "@type": "PostalAddress",
                     addressLocality: "Queenstown",
                     addressRegion: "Otago",
                     addressCountry: "NZ",
                   },
+                  areaServed: [
+                    { "@type": "Country", name: "New Zealand" },
+                    { "@type": "Country", name: "Australia" },
+                    { "@type": "Country", name: "United States" },
+                    { "@type": "Country", name: "United Kingdom" },
+                  ],
                 },
                 {
                   "@type": "WebSite",
