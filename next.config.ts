@@ -6,6 +6,16 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.impactconversion.com" }],
+        destination: "https://impactconversion.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 const withMDX = createMDX({});
