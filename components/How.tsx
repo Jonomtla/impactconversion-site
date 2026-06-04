@@ -39,10 +39,7 @@ export default function How() {
     <section id="how" className="bg-cream-2 py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-            How we work
-          </p>
-          <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
+          <h2 className="text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
             Research the problem. Test the answer. Compound the wins.
           </h2>
           <p className="mt-6 text-lg text-text-muted">

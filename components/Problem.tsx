@@ -1,7 +1,3 @@
-"use client";
-
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
 import LeakyFunnel from "./LeakyFunnel";
 import VirtuousLoop from "./VirtuousLoop";
 import ABTestBars from "./ABTestBars";
@@ -34,52 +30,11 @@ const pillars = [
 ];
 
 export default function Problem() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  const gradX = useTransform(scrollYProgress, [0, 1], ["-10%", "30%"]);
-  const gradY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
-  const gradOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 0.9, 0.9, 0]);
-  const gradScale = useTransform(scrollYProgress, [0, 1], [0.9, 1.3]);
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative overflow-hidden bg-cream py-24 md:py-32"
-    >
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute -top-40 -left-40 h-[700px] w-[700px] rounded-full blur-3xl"
-        style={{
-          x: gradX,
-          y: gradY,
-          opacity: gradOpacity,
-          scale: gradScale,
-          background:
-            "radial-gradient(circle, rgba(124,90,236,0.35) 0%, rgba(124,90,236,0) 70%)",
-        }}
-      />
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-40 -right-40 h-[800px] w-[800px] rounded-full blur-3xl"
-        style={{
-          x: useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]),
-          y: useTransform(scrollYProgress, [0, 1], ["10%", "-30%"]),
-          opacity: useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 0.6, 0.7, 0]),
-          background:
-            "radial-gradient(circle, rgba(255,122,89,0.28) 0%, rgba(255,122,89,0) 70%)",
-        }}
-      />
-
+    <section className="relative overflow-hidden bg-cream py-24 md:py-32">
       <div className="relative mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-            The real problem
-          </p>
-          <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
+          <h2 className="text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
             You don&apos;t have a traffic problem.
             <br />
             You have a{" "}

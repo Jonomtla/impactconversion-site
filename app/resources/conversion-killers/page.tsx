@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/motion/Reveal";
+import WavyLines from "@/components/WavyLines";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import LeadMagnetForm from "@/components/LeadMagnetForm";
 
@@ -61,6 +62,7 @@ export default function ConversionKillersPage() {
       <Nav />
       <main id="main">
         <section className="relative overflow-hidden bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
+          <WavyLines />
           <div
             className="pointer-events-none absolute inset-0 opacity-40"
             style={{

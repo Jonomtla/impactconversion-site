@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local design dev tool (not part of the site)
+.claude/skills/impeccable/

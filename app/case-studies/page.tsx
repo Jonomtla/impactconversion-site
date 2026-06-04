@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import GuaranteeBlock from "@/components/GuaranteeBlock";
 import Reveal from "@/components/motion/Reveal";
+import WavyLines from "@/components/WavyLines";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { caseStudies } from "@/lib/case-studies";
@@ -25,6 +26,7 @@ export default function CaseStudiesPage() {
       <main>
         {/* Hero */}
         <section className="relative overflow-hidden bg-ink text-cream pt-40 pb-24 md:pt-52 md:pb-28">
+          <WavyLines />
           <div
             className="pointer-events-none absolute inset-0 opacity-40"
             style={{
@@ -131,10 +133,7 @@ export default function CaseStudiesPage() {
         <section className="bg-cream pb-24 md:pb-32">
           <div className="mx-auto max-w-7xl px-6">
             <Reveal className="max-w-3xl">
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                More programs
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 The stacks differ. The loop doesn&apos;t.
               </h2>
               <p className="mt-4 text-lg text-text-muted">

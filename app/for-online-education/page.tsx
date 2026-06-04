@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import WavyLines from "@/components/WavyLines";
 import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTA from "@/components/CTA";
@@ -41,8 +42,9 @@ export default function ForOnlineEducationPage() {
     <>
       <Nav />
       <main id="main">
-        <section className="bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
-          <div className="mx-auto max-w-4xl px-6">
+        <section className="relative overflow-hidden bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
+          <WavyLines />
+          <div className="relative mx-auto max-w-4xl px-6">
             <Breadcrumbs items={[{ label: "For online education" }]} />
             <Reveal>
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
@@ -63,13 +65,13 @@ export default function ForOnlineEducationPage() {
                   href="/contact#book"
                   data-ga-event="book_call_click"
                   data-ga-location="icp_edu_hero"
-                  className="inline-flex items-center gap-2 rounded-full bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
+                  className="inline-flex items-center gap-2 rounded-xl bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
                 >
                   Book a 15-min intro call
                 </Link>
                 <Link
                   href="/case-studies/hpa"
-                  className="inline-flex items-center gap-2 rounded-full border border-cream/30 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:border-cream"
+                  className="inline-flex items-center gap-2 rounded-xl border border-cream/30 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:border-cream"
                 >
                   See the HPA case study
                 </Link>
@@ -81,10 +83,7 @@ export default function ForOnlineEducationPage() {
         <section className="bg-cream py-20 md:py-24">
           <div className="mx-auto max-w-5xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                Sound familiar?
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 The three problems every online ed team hits at scale.
               </h2>
             </Reveal>
@@ -107,10 +106,7 @@ export default function ForOnlineEducationPage() {
         <section className="bg-white py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                Where the wins usually hide
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 Five surfaces, ranked by what moves the most for the least work.
               </h2>
             </Reveal>
@@ -135,10 +131,7 @@ export default function ForOnlineEducationPage() {
         <section className="bg-cream py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                Proof, not theory
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 High Performance Academy, eighteen months, 180 tests.
               </h2>
               <p className="mt-5 text-lg text-text-muted">

@@ -54,10 +54,7 @@ export default function FAQ() {
       />
       <div className="mx-auto max-w-4xl px-6">
         <div className="text-center">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-            FAQ
-          </p>
-          <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
+          <h2 className="text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
             The stuff you&apos;re actually wondering.
           </h2>
         </div>

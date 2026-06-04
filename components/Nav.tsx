@@ -75,7 +75,7 @@ export default function Nav() {
           href="/contact#book"
           data-ga-event="book_call_click"
           data-ga-location="nav"
-          className="group inline-flex items-center gap-1.5 rounded-full bg-purple px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-purple-2 hover:scale-105"
+          className="group inline-flex items-center gap-1.5 rounded-xl bg-purple px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
         >
           Book a call
           <svg

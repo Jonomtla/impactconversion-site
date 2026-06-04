@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import WavyLines from "@/components/WavyLines";
 import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import TermsForm from "./TermsForm";
@@ -130,8 +131,9 @@ export default function TermsOfServicePage() {
     <>
       <Nav />
       <main id="main">
-        <section className="bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
-          <div className="mx-auto max-w-3xl px-6">
+        <section className="relative overflow-hidden bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
+          <WavyLines />
+          <div className="relative mx-auto max-w-3xl px-6">
             <Breadcrumbs items={[{ label: "Terms of engagement" }]} />
             <Reveal>
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
@@ -188,10 +190,7 @@ export default function TermsOfServicePage() {
         <section className="bg-cream-2 py-16 md:py-20">
           <div className="mx-auto max-w-3xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                Accept the terms
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 Confirm and we&rsquo;ll get started.
               </h2>
               <p className="mt-4 text-text-muted">

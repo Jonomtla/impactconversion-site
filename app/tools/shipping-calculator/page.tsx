@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import WavyLines from "@/components/WavyLines";
 import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ShippingCalculator from "@/components/tools/shipping-calculator/ShippingCalculator";
@@ -40,8 +41,9 @@ export default function ShippingCalculatorPage() {
       />
       <Nav />
       <main id="main">
-        <section className="bg-ink text-cream pt-32 pb-12 md:pt-40 md:pb-16">
-          <div className="mx-auto max-w-4xl px-6">
+        <section className="relative overflow-hidden bg-ink text-cream pt-32 pb-12 md:pt-40 md:pb-16">
+          <WavyLines />
+          <div className="relative mx-auto max-w-4xl px-6">
             <Breadcrumbs
               items={[
                 { label: "Tools", href: "/tools" },

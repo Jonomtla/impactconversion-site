@@ -4,10 +4,7 @@ export default function About() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
           <div>
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-              About
-            </p>
-            <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
+            <h2 className="text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
               We run narrow.{" "}
               <span className="text-gradient-purple">On purpose.</span>
             </h2>

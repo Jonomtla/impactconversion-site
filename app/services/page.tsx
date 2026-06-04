@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import WavyLines from "@/components/WavyLines";
 import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTA from "@/components/CTA";
@@ -74,8 +75,9 @@ export default function ServicesIndexPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
         />
 
-        <section className="bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
-          <div className="mx-auto max-w-4xl px-6">
+        <section className="relative overflow-hidden bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
+          <WavyLines />
+          <div className="relative mx-auto max-w-4xl px-6">
             <Breadcrumbs items={[{ label: "Services" }]} />
             <Reveal>
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
@@ -92,13 +94,13 @@ export default function ServicesIndexPage() {
                   href="/contact#book"
                   data-ga-event="book_call_click"
                   data-ga-location="services_index_hero"
-                  className="inline-flex items-center gap-2 rounded-full bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
+                  className="inline-flex items-center gap-2 rounded-xl bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
                 >
                   Book a 15-min intro call
                 </Link>
                 <Link
                   href="/how-we-work"
-                  className="inline-flex items-center gap-2 rounded-full border border-cream/30 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:border-cream"
+                  className="inline-flex items-center gap-2 rounded-xl border border-cream/30 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:border-cream"
                 >
                   See how we work
                 </Link>
@@ -110,10 +112,7 @@ export default function ServicesIndexPage() {
         <section className="bg-cream py-20 md:py-24">
           <div className="mx-auto max-w-6xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                Pick a starting point
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 Three engagement shapes. One underlying methodology.
               </h2>
             </Reveal>
@@ -148,10 +147,7 @@ export default function ServicesIndexPage() {
         <section className="bg-white py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                The loop, common to every service
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 Four stages. Run on every engagement.
               </h2>
               <p className="mt-5 text-lg text-text-muted">
@@ -180,10 +176,7 @@ export default function ServicesIndexPage() {
         <section className="bg-cream py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                Geo
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 Based in Queenstown. Working with brands in NZ, AU, US, and the UK.
               </h2>
               <p className="mt-5 text-lg text-text-muted">
@@ -192,13 +185,13 @@ export default function ServicesIndexPage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/cro-agency-australia"
-                  className="inline-flex items-center gap-2 rounded-full border border-purple/30 bg-white px-5 py-2 text-sm font-semibold text-purple transition-colors hover:bg-purple hover:text-white"
+                  className="inline-flex items-center gap-2 rounded-xl border border-purple/30 bg-white px-5 py-2 text-sm font-semibold text-purple transition-colors hover:bg-purple hover:text-white"
                 >
                   CRO Agency Australia
                 </Link>
                 <Link
                   href="/cro-agency-nz"
-                  className="inline-flex items-center gap-2 rounded-full border border-purple/30 bg-white px-5 py-2 text-sm font-semibold text-purple transition-colors hover:bg-purple hover:text-white"
+                  className="inline-flex items-center gap-2 rounded-xl border border-purple/30 bg-white px-5 py-2 text-sm font-semibold text-purple transition-colors hover:bg-purple hover:text-white"
                 >
                   CRO Agency NZ
                 </Link>

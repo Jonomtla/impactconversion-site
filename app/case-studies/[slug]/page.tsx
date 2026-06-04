@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import Reveal from "@/components/motion/Reveal";
+import WavyLines from "@/components/WavyLines";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import CountUp from "@/components/CountUp";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -45,6 +46,7 @@ export default async function CaseStudyPage({
       <main>
         {/* Hero */}
         <section className="relative overflow-hidden bg-ink text-cream pt-40 pb-20 md:pt-52 md:pb-28">
+          <WavyLines />
           <div
             className="pointer-events-none absolute inset-0 opacity-40"
             style={{
@@ -203,10 +205,7 @@ export default async function CaseStudyPage({
         <section className="bg-cream-2 py-20 md:py-28">
           <div className="mx-auto max-w-7xl px-6">
             <Reveal className="max-w-2xl">
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                Keep reading
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 Other programs, other results.
               </h2>
             </Reveal>

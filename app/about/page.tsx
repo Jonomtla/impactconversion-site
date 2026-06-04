@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import About from "@/components/About";
+import WavyLines from "@/components/WavyLines";
 import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
@@ -24,6 +25,7 @@ export default function AboutPage() {
                 "radial-gradient(ellipse at 20% 30%, var(--color-purple) 0%, transparent 55%)",
             }}
           />
+          <WavyLines />
           <div className="relative mx-auto max-w-4xl px-6">
             <Breadcrumbs items={[{ label: "About" }]} />
             <Reveal>
@@ -48,10 +50,7 @@ export default function AboutPage() {
         <section className="bg-cream py-24 md:py-32">
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                What we believe
-              </p>
-              <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
+              <h2 className="text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
                 Three principles run our work.{" "}
                 <span className="text-gradient-purple">None of them bend.</span>
               </h2>

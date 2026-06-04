@@ -24,7 +24,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               data-ga-event="book_call_click"
               data-ga-location="footer"
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-purple px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-purple-2 hover:scale-105"
+              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-purple px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
             >
               Book a 15-min intro call
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none">

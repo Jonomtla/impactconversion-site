@@ -40,55 +40,48 @@ body {
   border-radius: 4px;
 }
 
+/* Emphasis colors (impeccable pass): solid, no gradient-clip text.
+   *-glow / *-flow-light read on dark surfaces; *-purple / *-flow read on light. */
 .text-gradient-purple {
-  background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-accent-warm) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-purple);
 }
-
 .text-gradient-glow {
-  background: linear-gradient(135deg, #fff 0%, var(--color-purple-2) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Animated gradient text: shifts left-to-right */
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  color: var(--color-purple-2);
 }
 .text-gradient-flow {
-  background: linear-gradient(
-    90deg,
-    var(--color-purple) 0%,
-    var(--color-purple-2) 25%,
-    var(--color-accent-warm) 50%,
-    var(--color-purple-2) 75%,
-    var(--color-purple) 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: gradient-shift 10s linear infinite;
+  color: var(--color-purple);
 }
 .text-gradient-flow-light {
-  background: linear-gradient(
-    90deg,
-    #fff 0%,
-    var(--color-purple-2) 25%,
-    var(--color-purple-soft) 50%,
-    var(--color-purple-2) 75%,
-    #fff 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: gradient-shift 10s linear infinite;
+  color: var(--color-purple-2);
+}
+
+/* Hero grid: a soft band of light sweeps diagonally up-and-to-the-right,
+   illuminating the grid lines as it passes (nods to the old growth-line fan). */
+@keyframes hero-grid-sweep {
+  0% {
+    -webkit-mask-position: -30% 130%;
+    mask-position: -30% 130%;
+  }
+  100% {
+    -webkit-mask-position: 130% -30%;
+    mask-position: 130% -30%;
+  }
+}
+.hero-grid-sweep {
+  -webkit-mask-image: radial-gradient(45% 45% at 50% 50%, #000 0%, transparent 70%);
+  mask-image: radial-gradient(45% 45% at 50% 50%, #000 0%, transparent 70%);
+  -webkit-mask-size: 200% 200%;
+  mask-size: 200% 200%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  animation: hero-grid-sweep 16s ease-in-out infinite alternate;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-grid-sweep {
+    animation: none;
+    -webkit-mask-position: 50% 50%;
+    mask-position: 50% 50%;
+  }
 }
 
 /* Moving glow orb that drifts behind a headline */

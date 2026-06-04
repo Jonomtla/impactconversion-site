@@ -2,6 +2,7 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/motion/Reveal";
+import WavyLines from "@/components/WavyLines";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import LeadMagnetForm from "@/components/LeadMagnetForm";
 import { posts } from "@/lib/blog";
@@ -18,8 +19,9 @@ export default function BlogIndexPage() {
     <>
       <Nav />
       <main id="main">
-        <section className="bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
-          <div className="mx-auto max-w-3xl px-6">
+        <section className="relative overflow-hidden bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
+          <WavyLines />
+          <div className="relative mx-auto max-w-3xl px-6">
             <Breadcrumbs items={[{ label: "Blog" }]} />
             <Reveal>
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">

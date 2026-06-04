@@ -84,7 +84,7 @@ export default function GuaranteeBlock({
             <div className="flex-shrink-0">
               <Link
                 href={termsHref}
-                className="inline-flex items-center gap-2 rounded-full bg-purple px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-purple-2 hover:scale-105"
+                className="inline-flex items-center gap-2 rounded-xl bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
               >
                 See the terms
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none">

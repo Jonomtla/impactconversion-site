@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import WavyLines from "@/components/WavyLines";
 import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTA from "@/components/CTA";
@@ -124,8 +125,9 @@ export default function CROServicePage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
         />
 
-        <section className="bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
-          <div className="mx-auto max-w-4xl px-6">
+        <section className="relative overflow-hidden bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
+          <WavyLines />
+          <div className="relative mx-auto max-w-4xl px-6">
             <Breadcrumbs items={[{ label: "Services" }, { label: "Conversion rate optimisation" }]} />
             <Reveal>
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
@@ -142,13 +144,13 @@ export default function CROServicePage() {
                   href="/contact#book"
                   data-ga-event="book_call_click"
                   data-ga-location="services_cro_hero"
-                  className="inline-flex items-center gap-2 rounded-full bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
+                  className="inline-flex items-center gap-2 rounded-xl bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
                 >
                   Book a 15-min intro call
                 </Link>
                 <Link
                   href="/how-we-work"
-                  className="inline-flex items-center gap-2 rounded-full border border-cream/30 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:border-cream"
+                  className="inline-flex items-center gap-2 rounded-xl border border-cream/30 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:border-cream"
                 >
                   See how we work
                 </Link>
@@ -160,10 +162,7 @@ export default function CROServicePage() {
         <section className="bg-cream py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                Who this is built for
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 The head of growth, founder, or CMO at a brand doing $5M to $20M.
               </h2>
               <p className="mt-5 text-lg text-text-muted">
@@ -179,10 +178,7 @@ export default function CROServicePage() {
         <section className="bg-white py-20 md:py-24">
           <div className="mx-auto max-w-5xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                What we deliver
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 Five outputs from every engagement.
               </h2>
               <p className="mt-5 text-lg text-text-muted">
@@ -213,10 +209,7 @@ export default function CROServicePage() {
         <section className="bg-cream py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                Where the wins usually hide
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 Five surfaces that account for most of the revenue we move.
               </h2>
             </Reveal>
@@ -244,10 +237,7 @@ export default function CROServicePage() {
         <section className="bg-white py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                How we run the engagement
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 One loop. Same shape on every engagement.
               </h2>
             </Reveal>
@@ -271,17 +261,14 @@ export default function CROServicePage() {
         <section className="bg-cream py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                What the numbers look like
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 Verified results from clients running this loop.
               </h2>
               <p className="mt-5 text-lg text-text-muted">
-                One D2C client, eighteen months of the loop: $1M to $2M in added revenue, a thirty-five percent win rate across 180 tests, a sixty-nine percent lift on the homepage that compounded for the rest of the engagement, a twenty-six percent take rate on a single post-purchase upsell.
+                One D2C client, eighteen months of the loop: $1.2M in added revenue, a thirty-five percent win rate across 180 tests, a sixty-nine percent lift on the homepage that compounded for the rest of the engagement, a twenty-six percent take rate on a single post-purchase upsell.
               </p>
               <p className="mt-4 text-lg text-text-muted">
-                One online education client: four shipped wins inside the first six months. Plus fifty-seven percent. Plus sixty-three percent. Plus forty-three percent. Plus thirty percent. Different surface each time.
+                One membership-education client: membership up fifty-seven percent and recurring revenue up sixty-three percent over nine months. Year-on-year members up forty-three percent. Qualified leads up thirty percent.
               </p>
               <p className="mt-4 text-lg text-text-muted">
                 We don&rsquo;t promise either of those. We promise the loop, run with the same discipline, on your funnel.
@@ -304,10 +291,7 @@ export default function CROServicePage() {
         <section className="bg-white py-20 md:py-24">
           <div className="mx-auto max-w-3xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                Frequently asked
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 Questions buyers ask before booking a call.
               </h2>
             </Reveal>

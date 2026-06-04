@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FAQ from "@/components/FAQ";
+import WavyLines from "@/components/WavyLines";
 import Reveal from "@/components/motion/Reveal";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -42,6 +43,7 @@ export default function ContactPage() {
                 "radial-gradient(ellipse at center, var(--color-purple) 0%, transparent 55%)",
             }}
           />
+          <WavyLines />
           <div className="relative mx-auto max-w-4xl px-6 text-center">
             <div className="mx-auto inline-block text-left">
               <Breadcrumbs items={[{ label: "Contact" }]} />
@@ -63,7 +65,7 @@ export default function ContactPage() {
                 href="#book"
                 data-ga-event="book_call_click"
                 data-ga-location="contact_hero"
-                className="mt-10 inline-flex items-center gap-2 rounded-full bg-purple px-8 py-4 text-base font-semibold text-white transition-all hover:bg-purple-2 hover:scale-105"
+                className="mt-10 inline-flex items-center gap-2 rounded-xl bg-purple px-8 py-4 text-base font-semibold text-white transition-all hover:bg-purple-2"
               >
                 Book a 15-minute intro call
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -93,10 +95,7 @@ export default function ContactPage() {
         <section id="book" className="bg-cream py-16 md:py-24">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-8 text-center">
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                Pick a time
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 Fifteen minutes, no prep needed.
               </h2>
             </div>
@@ -110,10 +109,7 @@ export default function ContactPage() {
         <section className="bg-cream py-24 md:py-32">
           <div className="mx-auto max-w-7xl px-6">
             <Reveal className="max-w-2xl">
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                What to expect
-              </p>
-              <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
+              <h2 className="text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
                 Three things happen on the call.
               </h2>
             </Reveal>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import WavyLines from "@/components/WavyLines";
 import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTA from "@/components/CTA";
@@ -117,8 +118,9 @@ export default function ShopifyCROPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
         />
 
-        <section className="bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
-          <div className="mx-auto max-w-4xl px-6">
+        <section className="relative overflow-hidden bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
+          <WavyLines />
+          <div className="relative mx-auto max-w-4xl px-6">
             <Breadcrumbs items={[{ label: "Services" }, { label: "Shopify CRO" }]} />
             <Reveal>
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
@@ -135,13 +137,13 @@ export default function ShopifyCROPage() {
                   href="/contact#book"
                   data-ga-event="book_call_click"
                   data-ga-location="services_shopify_hero"
-                  className="inline-flex items-center gap-2 rounded-full bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
+                  className="inline-flex items-center gap-2 rounded-xl bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
                 >
                   Book a 15-min intro call
                 </Link>
                 <Link
                   href="/services/conversion-rate-optimisation"
-                  className="inline-flex items-center gap-2 rounded-full border border-cream/30 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:border-cream"
+                  className="inline-flex items-center gap-2 rounded-xl border border-cream/30 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:border-cream"
                 >
                   Full conversion rate optimisation services
                 </Link>
@@ -153,10 +155,7 @@ export default function ShopifyCROPage() {
         <section className="bg-cream py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                Who this is for
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 Shopify stores doing $5M to $20M that suspect they&rsquo;re testing the wrong things.
               </h2>
               <p className="mt-5 text-lg text-text-muted">
@@ -172,10 +171,7 @@ export default function ShopifyCROPage() {
         <section className="bg-white py-20 md:py-24">
           <div className="mx-auto max-w-5xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                Where the money usually hides
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 Five Shopify surfaces that account for most of what we ship.
               </h2>
             </Reveal>
@@ -214,10 +210,7 @@ export default function ShopifyCROPage() {
         <section className="bg-cream py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                What goes wrong
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 Three Shopify-specific mistakes we see over and over.
               </h2>
             </Reveal>
@@ -243,10 +236,7 @@ export default function ShopifyCROPage() {
         <section className="bg-white py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                How we run a Shopify engagement
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 Same loop. Shopify-specific instrumentation.
               </h2>
             </Reveal>
@@ -267,10 +257,7 @@ export default function ShopifyCROPage() {
         <section className="bg-cream py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                Verified numbers
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 One D2C client. Eighteen months. The loop, properly run.
               </h2>
               <div className="mt-10 grid gap-6 md:grid-cols-4">
@@ -298,10 +285,7 @@ export default function ShopifyCROPage() {
         <section className="bg-white py-20 md:py-24">
           <div className="mx-auto max-w-3xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                Frequently asked
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 Questions Shopify operators ask before booking.
               </h2>
             </Reveal>

@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import How from "@/components/How";
 import GuaranteeBlock from "@/components/GuaranteeBlock";
+import WavyLines from "@/components/WavyLines";
 import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
@@ -82,6 +83,7 @@ export default function HowWeWorkPage() {
                 "radial-gradient(ellipse at 80% 30%, var(--color-purple) 0%, transparent 55%)",
             }}
           />
+          <WavyLines />
           <div className="relative mx-auto max-w-4xl px-6">
             <Breadcrumbs items={[{ label: "How we work" }]} />
             <Reveal>
@@ -107,10 +109,7 @@ export default function HowWeWorkPage() {
         <section id="engagements" className="bg-cream py-24 md:py-32 scroll-mt-24">
           <div className="mx-auto max-w-7xl px-6">
             <Reveal className="max-w-3xl">
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                Engagements
-              </p>
-              <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
+              <h2 className="text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
                 Four ways to{" "}
                 <span className="text-gradient-purple">work with us.</span>
               </h2>

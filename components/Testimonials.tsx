@@ -54,10 +54,7 @@ export default function Testimonials() {
     <section className="bg-cream py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-            What clients say
-          </p>
-          <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
+          <h2 className="text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
             Boring is the point.{" "}
             <span className="text-gradient-flow">Compounding is the result.</span>
           </h2>

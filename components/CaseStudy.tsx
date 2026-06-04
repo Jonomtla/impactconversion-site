@@ -6,20 +6,10 @@ import { StaggerGroup, StaggerItem } from "./motion/Stagger";
 export default function CaseStudy() {
   return (
     <section id="results" className="relative overflow-hidden bg-ink text-cream py-24 md:py-32">
-      <div
-        className="pointer-events-none absolute -bottom-40 -left-20 h-[500px] w-[500px] rounded-full opacity-25 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(circle, var(--color-purple) 0%, transparent 70%)",
-        }}
-      />
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
           <Reveal className="lg:col-span-5">
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
-              Case study
-            </p>
-            <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
+            <h2 className="text-balance text-4xl font-semibold tracking-tight md:text-5xl">
               How we added{" "}
               <span className="text-gradient-glow">seven figures</span> to High
               Performance Academy.
@@ -138,15 +128,7 @@ function HeroMetric({
   sub: string;
 }) {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-purple-2/30 bg-gradient-to-br from-purple/15 to-cream/5 p-8">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full opacity-40 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(circle, var(--color-purple) 0%, transparent 70%)",
-        }}
-      />
+    <div className="relative overflow-hidden rounded-2xl border border-purple-2/25 bg-purple/[0.06] p-8">
       <div className="relative flex items-end justify-between gap-6">
         <div>
           <div className="text-xs uppercase tracking-wider text-text-inv-muted">

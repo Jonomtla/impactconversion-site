@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import WavyLines from "@/components/WavyLines";
 import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTA from "@/components/CTA";
@@ -111,8 +112,9 @@ export default function CROAgencyNZPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
 
-        <section className="bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
-          <div className="mx-auto max-w-4xl px-6">
+        <section className="relative overflow-hidden bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
+          <WavyLines />
+          <div className="relative mx-auto max-w-4xl px-6">
             <Breadcrumbs items={[{ label: "CRO Agency NZ" }]} />
             <Reveal>
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
@@ -129,13 +131,13 @@ export default function CROAgencyNZPage() {
                   href="/contact#book"
                   data-ga-event="book_call_click"
                   data-ga-location="geo_nz_hero"
-                  className="inline-flex items-center gap-2 rounded-full bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
+                  className="inline-flex items-center gap-2 rounded-xl bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
                 >
                   Book a 15-min intro call
                 </Link>
                 <Link
                   href="/services/conversion-rate-optimisation"
-                  className="inline-flex items-center gap-2 rounded-full border border-cream/30 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:border-cream"
+                  className="inline-flex items-center gap-2 rounded-xl border border-cream/30 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:border-cream"
                 >
                   How we run engagements
                 </Link>
@@ -147,10 +149,7 @@ export default function CROAgencyNZPage() {
         <section className="bg-cream py-20 md:py-24">
           <div className="mx-auto max-w-5xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                Why local matters
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 Four reasons NZ brands choose a local CRO agency.
               </h2>
             </Reveal>
@@ -173,10 +172,7 @@ export default function CROAgencyNZPage() {
         <section className="bg-white py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                Where we tend to find the wins
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 Five surfaces that account for most of what we ship.
               </h2>
             </Reveal>
@@ -204,10 +200,7 @@ export default function CROAgencyNZPage() {
         <section className="bg-cream py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                Verified numbers
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 Eighteen months on one D2C engagement.
               </h2>
               <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -242,10 +235,7 @@ export default function CROAgencyNZPage() {
         <section className="bg-white py-20 md:py-24">
           <div className="mx-auto max-w-3xl px-6">
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                Frequently asked
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 Questions NZ operators ask before booking.
               </h2>
             </Reveal>
