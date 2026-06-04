@@ -70,7 +70,7 @@ export default async function CaseStudyPage({
                 <span>{study.duration}</span>
               </div>
               <h1
-                className="mt-6 max-w-4xl text-balance text-4xl font-semibold leading-[1.05] tracking-tight md:text-5xl lg:text-6xl"
+                className="mt-6 max-w-4xl text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.8vw,4rem)]"
                 dangerouslySetInnerHTML={{ __html: study.headline }}
               />
               <p

@@ -81,7 +81,7 @@ export default function ConversionKillersPage() {
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
                 Free PDF · D2C ecommerce
               </p>
-              <h1 className="mt-4 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
+              <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.75rem)]">
                 7 conversion killers quietly{" "}
                 <span className="text-gradient-glow">draining revenue</span>{" "}
                 from D2C sites.

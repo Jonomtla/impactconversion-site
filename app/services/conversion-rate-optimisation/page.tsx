@@ -133,7 +133,7 @@ export default function CROServicePage() {
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
                 Services · Conversion rate optimisation
               </p>
-              <h1 className="mt-4 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
+              <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.75rem)]">
                 Conversion rate optimisation for $5M to $20M D2C ecommerce and online education brands.
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">

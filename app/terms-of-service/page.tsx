@@ -139,7 +139,7 @@ export default function TermsOfServicePage() {
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
                 Legal
               </p>
-              <h1 className="mt-4 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
+              <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.75rem)]">
                 Terms of engagement
               </h1>
               <p className="mt-5 text-lg text-text-inv-muted">

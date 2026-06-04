@@ -90,7 +90,7 @@ export default function HowWeWorkPage() {
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
                 How we work
               </p>
-              <h1 className="mt-4 text-balance text-5xl font-semibold tracking-tight md:text-6xl">
+              <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.75rem)]">
                 We run the same loop, every time.{" "}
                 <span className="text-gradient-glow">Boring on purpose.</span>
               </h1>
