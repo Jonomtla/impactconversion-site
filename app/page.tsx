@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import ProofBar from "@/components/ProofBar";
 import Problem from "@/components/Problem";
 import CaseStudy from "@/components/CaseStudy";
 import GuaranteeBlock from "@/components/GuaranteeBlock";
@@ -17,7 +16,6 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <ProofBar />
         <Problem />
         <CaseStudy />
         <GuaranteeBlock />

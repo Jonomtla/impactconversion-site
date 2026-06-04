@@ -1,10 +1,9 @@
 import WavyLines from "./WavyLines";
-import CountUp from "./CountUp";
 import { StaggerGroup, StaggerItem } from "./motion/Stagger";
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden bg-ink text-cream">
+    <section id="top" className="relative flex min-h-[70vh] items-center overflow-hidden bg-ink text-cream">
       <div
         className="pointer-events-none absolute -top-40 left-1/2 h-[700px] w-[1100px] -translate-x-1/2 rounded-full opacity-30 blur-3xl"
         style={{
@@ -13,20 +12,14 @@ export default function Hero() {
         }}
       />
       <WavyLines />
-      {/* Bottom fade bridging into the cream proof bar */}
+      {/* Bottom fade bridging into the next section */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-ink"
       />
 
-      <div className="relative mx-auto max-w-7xl px-6 pb-28 pt-20 md:pb-40 md:pt-28">
+      <div className="relative mx-auto w-full max-w-7xl px-6 py-28 md:py-32">
         <StaggerGroup className="mx-auto max-w-4xl text-center" stagger={0.12}>
-          <StaggerItem className="mb-8">
-            <div className="inline-flex items-center gap-2 rounded-full border border-cream/15 bg-cream/5 px-4 py-1.5 text-xs text-text-inv-muted">
-              <span className="h-1.5 w-1.5 rounded-full bg-purple-2" />
-              CRO for D2C ecommerce and online education
-            </div>
-          </StaggerItem>
           <StaggerItem>
             <h1 className="text-balance text-5xl font-semibold leading-[1.02] tracking-tight md:text-7xl">
               You already paid for the traffic.{" "}
@@ -68,34 +61,6 @@ export default function Hero() {
               and you&apos;ll leave with a straight answer on whether a program
               is worth running.
             </p>
-          </StaggerItem>
-          <StaggerItem>
-            <div className="mt-20 grid grid-cols-1 border-t border-cream/10 pt-12 sm:grid-cols-3 sm:divide-x sm:divide-cream/10">
-              <div className="px-2 sm:px-6">
-                <div className="text-4xl font-semibold tracking-tight text-purple-2 md:text-5xl">
-                  <CountUp to={1} prefix="$" suffix="M+" />
-                </div>
-                <div className="mt-2 text-sm text-text-inv-muted">
-                  Extra revenue for one client in 18 months
-                </div>
-              </div>
-              <div className="mt-8 px-2 sm:mt-0 sm:px-6">
-                <div className="text-4xl font-semibold tracking-tight text-purple-2 md:text-5xl">
-                  <CountUp to={35} suffix="%" />
-                </div>
-                <div className="mt-2 text-sm text-text-inv-muted">
-                  Win rate on tests we ship
-                </div>
-              </div>
-              <div className="mt-8 px-2 sm:mt-0 sm:px-6">
-                <div className="text-4xl font-semibold tracking-tight text-purple-2 md:text-5xl">
-                  <CountUp to={180} suffix="+" />
-                </div>
-                <div className="mt-2 text-sm text-text-inv-muted">
-                  Experiments run, every one measured
-                </div>
-              </div>
-            </div>
           </StaggerItem>
         </StaggerGroup>
       </div>
