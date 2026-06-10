@@ -14,6 +14,13 @@ export const metadata = {
 
 const tools = [
   {
+    href: "/tools/rpv-calculator",
+    title: "Revenue Per Visitor Calculator",
+    blurb:
+      "Model the revenue a CRO program could unlock by lifting revenue per visitor &mdash; the metric that actually tracks profitability. 12-month forecast with break-even analysis.",
+    tag: "Forecasting",
+  },
+  {
     href: "/tools/roi-calculator",
     title: "CRO ROI Calculator",
     blurb:
@@ -22,9 +29,9 @@ const tools = [
   },
   {
     href: "/tools/ab-calculator",
-    title: "A/B Test Significance Calculator",
+    title: "A/B Test Calculator",
     blurb:
-      "Two-tailed z-test for proportions. Drop in visitors and conversions, get confidence, p-value, and relative lift.",
+      "Three calculators in one. Pre-test go/no-go, live conversion-rate analyzer, and revenue-per-visitor analyzer. Project when 85% or 95% becomes reachable.",
     tag: "Experimentation",
   },
   {

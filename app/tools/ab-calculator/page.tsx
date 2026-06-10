@@ -6,20 +6,20 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import ABCalculator from "@/components/tools/ab-calculator/Calculator";
 
 export const metadata = {
-  title: "A/B Test Significance Calculator",
+  title: "A/B Test Calculator",
   description:
-    "Free two-tailed z-test calculator for A/B testing. Compute confidence, p-value, and lift from visitor and conversion counts.",
+    "Free three-in-one A/B test calculator. Pre-test go/no-go check, live conversion-rate analyzer, and revenue-per-visitor analyzer. See current confidence and project when 85% or 95% thresholds get crossed.",
   alternates: { canonical: "/tools/ab-calculator" },
 };
 
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "A/B Test Significance Calculator",
+  name: "A/B Test Calculator",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   description:
-    "Free two-tailed z-test calculator for A/B testing. Compute confidence, p-value, and lift from visitor and conversion counts.",
+    "Free three-in-one A/B test calculator. Pre-test go/no-go check, live conversion-rate analyzer, and revenue-per-visitor analyzer. See current confidence and project when 85% or 95% thresholds get crossed.",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   provider: {
     "@type": "Organization",
@@ -43,7 +43,7 @@ export default function ABCalculatorPage() {
             <Breadcrumbs
               items={[
                 { label: "Tools", href: "/tools" },
-                { label: "A/B Test Significance Calculator" },
+                { label: "A/B Test Calculator" },
               ]}
             />
             <Reveal>
@@ -51,13 +51,13 @@ export default function ABCalculatorPage() {
                 Free tool
               </p>
               <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.75rem)]">
-                A/B Test Significance Calculator
+                A/B Test Calculator
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
-                Drop in visitors and conversions for each variation. Get
-                confidence, p-value, and relative lift. Two-tailed z-test,
-                pooled standard error. The same maths your testing platform
-                uses at the end of the run.
+                Three calculators in one. Decide whether a test is worth
+                briefing, paste in live data to see where you are, and project
+                when the 85% or 95% threshold becomes reachable. Covers both
+                conversion rate and revenue per visitor.
               </p>
             </Reveal>
           </div>
