@@ -7,10 +7,46 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import Calculator from "@/components/tools/rpv-calculator/Calculator";
 
 export const metadata = {
-  title: "Revenue Per Visitor Calculator",
+  title: { absolute: "Revenue Per Visitor (RPV) Calculator · Impact Conversion" },
   description:
-    "Model the incremental revenue and profit a CRO program could unlock by lifting your revenue per visitor, the metric that actually tracks profitability. 12-month forecast with break-even analysis.",
+    "Free revenue per visitor (RPV) calculator. Model the incremental revenue and profit a CRO program could unlock by lifting RPV, the metric that actually tracks profitability. 12-month forecast with break-even analysis.",
   alternates: { canonical: "/tools/rpv-calculator" },
+  keywords: [
+    "revenue per visitor calculator",
+    "rpv calculator",
+    "revenue per session calculator",
+    "cro revenue calculator",
+    "ecommerce revenue forecast calculator",
+  ],
+};
+
+const faqs = [
+  {
+    q: "What is revenue per visitor (RPV)?",
+    a: "Total revenue divided by total sessions. It folds conversion rate and average order value into one number, so it tracks profitability better than conversion rate on its own.",
+  },
+  {
+    q: "Why optimise for RPV instead of conversion rate?",
+    a: "A test can lift conversion while quietly dropping average order value, leaving revenue flat or down. RPV catches that. It is the metric that actually tracks the money rather than just the count of orders.",
+  },
+  {
+    q: "How do I increase revenue per visitor?",
+    a: "Lift conversion rate, average order value, or both, through research-led testing on pricing, merchandising, and the path to purchase. This calculator forecasts the revenue impact of a given RPV lift across 12 months.",
+  },
+  {
+    q: "How is the 12-month forecast calculated?",
+    a: "It applies your target RPV lift across a ramp: month one is research with no lift yet, then a linear climb to full lift by the end of year one. The result is netted against program cost to show your break-even point.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
 };
 
 const softwareSchema = {
@@ -39,6 +75,10 @@ export default function RpvCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Nav />
       <main id="main">

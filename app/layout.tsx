@@ -27,15 +27,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://impactconversion.com"),
   title: {
-    default: "Conversion Rate Optimisation for D2C Ecommerce & Online Education · Impact Conversion",
+    default: "Conversion Rate Optimisation for D2C & Online Education · Impact Conversion",
     template: "%s · Impact Conversion",
   },
   description:
-    "Conversion rate optimisation for $5M to $20M D2C ecommerce and online education brands. Research-led testing, statistical rigour, 35% win rate, $1M+ added revenue on a single engagement.",
+    "Conversion rate optimisation for D2C and online education brands. Research-led testing, statistical rigour, 35% win rate, $1M+ added revenue on a single engagement.",
   openGraph: {
-    title: "Conversion Rate Optimisation for D2C Ecommerce & Online Education · Impact Conversion",
+    title: "Conversion Rate Optimisation for D2C & Online Education · Impact Conversion",
     description:
-      "Research-led conversion rate optimisation for $5M to $20M D2C ecommerce and online education brands. $1M+ added revenue on a single engagement. 35% win rate on shipped tests.",
+      "Research-led conversion rate optimisation for D2C and online education brands. $1M+ added revenue on a single engagement. 35% win rate on shipped tests.",
     url: "https://impactconversion.com",
     siteName: "Impact Conversion",
     type: "website",
@@ -51,9 +51,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Conversion Rate Optimisation for D2C Ecommerce & Online Education",
+    title: "Conversion Rate Optimisation for D2C & Online Education",
     description:
-      "Research-led CRO for D2C ecommerce and online education brands. 35% win rate, $1M+ added revenue on a single engagement.",
+      "Research-led CRO for D2C and online education brands. 35% win rate, $1M+ added revenue on a single engagement.",
     images: ["/assets/og-default.png"],
   },
   robots: {
@@ -91,7 +91,7 @@ export default function RootLayout({
                   url: "https://impactconversion.com",
                   logo: "https://impactconversion.com/assets/logo.png",
                   description:
-                    "A conversion rate optimisation agency for D2C ecommerce and online education brands. Research-led experimentation that turns existing traffic into revenue.",
+                    "A conversion rate optimisation agency for D2C and online education brands. Research-led experimentation that turns existing traffic into revenue.",
                   founder: {
                     "@type": "Person",
                     name: "Jono Matla",
@@ -106,7 +106,7 @@ export default function RootLayout({
                     "Conversion Rate Optimisation",
                     "A/B Testing",
                     "Shopify CRO",
-                    "Ecommerce Optimisation",
+                    "D2C Optimisation",
                     "Online Education Funnel Optimisation",
                     "Statistical Testing",
                   ],

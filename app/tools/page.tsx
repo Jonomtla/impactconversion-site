@@ -8,7 +8,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 export const metadata = {
   title: "Free CRO Tools",
   description:
-    "Free calculators for ecommerce operators: CRO ROI forecasting and free-shipping profitability modelling.",
+    "Free calculators for D2C operators: CRO ROI forecasting and free-shipping profitability modelling.",
   alternates: { canonical: "/tools" },
 };
 

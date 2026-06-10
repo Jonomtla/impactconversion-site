@@ -8,12 +8,12 @@ import LeadMagnetForm from "@/components/LeadMagnetForm";
 export const metadata = {
   title: "7 Conversion Killers quietly draining revenue from D2C sites",
   description:
-    "A plain-English PDF on the seven patterns we see over and over in D2C ecommerce funnels, and what to do about each one. Free.",
+    "A plain-English PDF on the seven patterns we see over and over in D2C funnels, and what to do about each one. Free.",
   alternates: { canonical: "/resources/conversion-killers" },
   openGraph: {
     title: "7 Conversion Killers quietly draining revenue from D2C sites",
     description:
-      "A plain-English PDF on the seven patterns we see over and over in D2C ecommerce funnels. Free.",
+      "A plain-English PDF on the seven patterns we see over and over in D2C funnels. Free.",
     url: "https://impactconversion.com/resources/conversion-killers",
   },
 };
@@ -79,7 +79,7 @@ export default function ConversionKillersPage() {
             />
             <Reveal>
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
-                Free PDF · D2C ecommerce
+                Free PDF · D2C
               </p>
               <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.75rem)]">
                 7 conversion killers quietly{" "}

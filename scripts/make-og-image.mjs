@@ -51,7 +51,7 @@ const svg = `
   <text x="80" y="426" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="78" fill="${CREAM}" letter-spacing="-2">traffic you already have.</text>
 
   <!-- category descriptor -->
-  <text x="80" y="528" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="30" fill="${MUTED}">Conversion rate optimisation for D2C ecommerce brands.</text>
+  <text x="80" y="528" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="30" fill="${MUTED}">Conversion rate optimisation for D2C brands.</text>
 </svg>`;
 
 const buf = await sharp(Buffer.from(svg))

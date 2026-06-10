@@ -61,16 +61,16 @@ export const posts: Post[] = [
       "Five Shopify surfaces moving real revenue in 2026, plus what's quietly stopped working since 2022.",
     date: "May 2026",
     readTime: "7 min read",
-    tag: "D2C ecommerce",
+    tag: "D2C",
   },
   {
     slug: "conversion-rate-optimisation-australia-anz-market",
     title: "Conversion rate optimisation in Australia: what's different about the ANZ market",
     description:
-      "Five things that change when you run conversion rate optimisation on a $5M to $20M Australian D2C brand. Payment mix, GST display, EOFY, shipping by state.",
+      "Five things that change when you run conversion rate optimisation on an Australian D2C brand. Payment mix, GST display, EOFY, shipping by state.",
     date: "May 2026",
     readTime: "6 min read",
-    tag: "D2C ecommerce",
+    tag: "D2C",
   },
   {
     slug: "follow-up-test-48-cr-loss-six-figures",
@@ -88,7 +88,7 @@ export const posts: Post[] = [
       "The five places on a Shopify store where the biggest wins usually hide. Plus the three places most teams waste their first quarter.",
     date: "April 2026",
     readTime: "6 min read",
-    tag: "D2C ecommerce",
+    tag: "D2C",
   },
   {
     slug: "ab-tests-statistically-broken",

@@ -8,9 +8,9 @@ import CTA from "@/components/CTA";
 import GuaranteeBlock from "@/components/GuaranteeBlock";
 
 export const metadata = {
-  title: "A/B Testing Agency · Statistical Rigour for Ecommerce",
+  title: "A/B Testing Agency · Statistical Rigour for D2C Brands",
   description:
-    "An A/B testing agency that runs tests with proper power analysis, Bayesian peeking rules, and verdicts that hold under scrutiny. For $5M to $20M D2C ecommerce and online education brands.",
+    "An A/B testing agency that runs tests with proper power analysis, Bayesian peeking rules, and verdicts that hold under scrutiny. For D2C and online education brands.",
   alternates: { canonical: "/services/ab-testing" },
 };
 
@@ -44,7 +44,7 @@ const rules = [
 const platforms = [
   { name: "Intelligems", note: "Preferred for Shopify. Server-side rendering, native theme integration." },
   { name: "GrowthBook", note: "Open-source, self-hostable. Strong feature flag and stats engine." },
-  { name: "Convert", note: "Solid generalist. Good for non-Shopify ecommerce." },
+  { name: "Convert", note: "Solid generalist. Good for non-Shopify D2C." },
   { name: "ABTasty", note: "Enterprise license already in place? Fine. Otherwise expensive." },
   { name: "Optimizely", note: "Works. Capable. Expensive. We don&rsquo;t lead with it." },
 ];
@@ -64,7 +64,7 @@ const faqs = [
   },
   {
     q: "Do you do multivariate testing?",
-    a: "Rarely. Most teams need fewer, sharper tests rather than more arms. Multivariate is the right call when interaction effects matter and you have the traffic to support eight or sixteen variants. Most ecommerce surfaces don&rsquo;t.",
+    a: "Rarely. Most teams need fewer, sharper tests rather than more arms. Multivariate is the right call when interaction effects matter and you have the traffic to support eight or sixteen variants. Most D2C surfaces don&rsquo;t.",
   },
   {
     q: "Can you audit our current testing program?",
@@ -95,7 +95,7 @@ const serviceSchema = {
     url: "https://impactconversion.com",
   },
   description:
-    "A/B testing agency for ecommerce and online education brands. Statistical rigour, Bayesian methodology, verdicts that hold.",
+    "A/B testing agency for D2C and online education brands. Statistical rigour, Bayesian methodology, verdicts that hold.",
 };
 
 export default function ABTestingPage() {

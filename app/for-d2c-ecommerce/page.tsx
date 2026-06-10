@@ -8,9 +8,9 @@ import CTA from "@/components/CTA";
 import GuaranteeBlock from "@/components/GuaranteeBlock";
 
 export const metadata = {
-  title: "CRO for D2C Ecommerce Brands",
+  title: "CRO for D2C Brands",
   description:
-    "Conversion rate optimisation for $5M to $20M D2C brands on Shopify. Research-led experimentation that turns the traffic you&rsquo;re already paying for into revenue.",
+    "Conversion rate optimisation for D2C brands on Shopify. Research-led experimentation that turns the traffic you&rsquo;re already paying for into revenue.",
   alternates: { canonical: "/for-d2c-ecommerce" },
 };
 
@@ -45,16 +45,16 @@ export default function ForD2CPage() {
         <section className="relative overflow-hidden bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
           <WavyLines />
           <div className="relative mx-auto max-w-4xl px-6">
-            <Breadcrumbs items={[{ label: "For D2C ecommerce" }]} />
+            <Breadcrumbs items={[{ label: "For D2C" }]} />
             <Reveal>
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
-                For D2C ecommerce brands
+                For D2C brands
               </p>
               <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.75rem)]">
                 Your ad spend is fine, your site is leaking.
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
-                We run research-led CRO for Shopify brands doing $5M to $20M,
+                We run research-led CRO for Shopify brands,
                 turning the traffic you&rsquo;re already paying for into
                 revenue with tests that hold up in the P&amp;L. Every
                 engagement runs the same promise. Revenue uplift, or you
@@ -84,7 +84,7 @@ export default function ForD2CPage() {
           <div className="mx-auto max-w-5xl px-6">
             <Reveal>
               <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                The three problems every D2C team hits between $5M and $20M.
+                The three problems every D2C team hits.
               </h2>
             </Reveal>
             <div className="mt-12 grid gap-6 md:grid-cols-3">

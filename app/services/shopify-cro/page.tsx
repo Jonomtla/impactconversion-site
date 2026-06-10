@@ -10,7 +10,7 @@ import GuaranteeBlock from "@/components/GuaranteeBlock";
 export const metadata = {
   title: "Shopify CRO · Conversion Rate Optimisation for Shopify",
   description:
-    "Shopify conversion rate optimisation for $5M to $20M D2C brands. Research-led testing on PDP, checkout, and post-purchase. 35% win rate, $1M+ added revenue on a single engagement.",
+    "Shopify conversion rate optimisation for D2C brands. Research-led testing on PDP, checkout, and post-purchase. 35% win rate, $1M+ added revenue on a single engagement.",
   alternates: { canonical: "/services/shopify-cro" },
 };
 
@@ -101,7 +101,7 @@ const serviceSchema = {
     { "@type": "Country", name: "United Kingdom" },
   ],
   description:
-    "Shopify conversion rate optimisation for $5M to $20M D2C brands. PDP, checkout, post-purchase, collection pages.",
+    "Shopify conversion rate optimisation for D2C brands. PDP, checkout, post-purchase, collection pages.",
 };
 
 export default function ShopifyCROPage() {
@@ -127,7 +127,7 @@ export default function ShopifyCROPage() {
                 Services · Shopify CRO
               </p>
               <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.75rem)]">
-                Shopify conversion rate optimisation for $5M to $20M D2C brands.
+                Shopify conversion rate optimisation for D2C brands.
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
                 Shopify makes it easy to launch a store. It does not make it easy to find the leaks. We run a research-led testing program on the surfaces that actually move revenue on Shopify, and we call wins with the kind of statistical rigour your CFO can sign off.
@@ -156,7 +156,7 @@ export default function ShopifyCROPage() {
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
               <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                Shopify stores doing $5M to $20M that suspect they&rsquo;re testing the wrong things.
+                Shopify stores doing that suspect they&rsquo;re testing the wrong things.
               </h2>
               <p className="mt-5 text-lg text-text-muted">
                 You have GA4 or can install it next week. You have a testing tool installed, or you&rsquo;re choosing one. Your team has tested some things but isn&rsquo;t sure which moved revenue and which moved noise.

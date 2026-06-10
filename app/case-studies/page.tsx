@@ -137,7 +137,7 @@ export default function CaseStudiesPage() {
                 The stacks differ. The loop doesn&apos;t.
               </h2>
               <p className="mt-4 text-lg text-text-muted">
-                The industries range across online education, D2C ecommerce,
+                The industries range across online education, D2C,
                 and lead generation, but the method stays the same: research,
                 prioritise, test, compound.
               </p>

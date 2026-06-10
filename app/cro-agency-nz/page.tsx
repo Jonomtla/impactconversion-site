@@ -10,7 +10,7 @@ import GuaranteeBlock from "@/components/GuaranteeBlock";
 export const metadata = {
   title: "CRO Agency NZ · Conversion Rate Optimisation New Zealand",
   description:
-    "A New Zealand CRO agency for $3M to $20M D2C ecommerce brands. Research-led testing program, NZD pricing, local timezone, sized for the traffic NZ stores actually run. Based in Queenstown.",
+    "A New Zealand CRO agency for D2C brands. Research-led testing program, NZD pricing, local timezone, sized for the traffic NZ stores actually run. Based in Queenstown.",
   alternates: { canonical: "/cro-agency-nz" },
 };
 
@@ -74,7 +74,7 @@ const faqs = [
   },
   {
     q: "What size brand do you work with?",
-    a: "$3M to $20M revenue for NZ-based clients, and a little higher for larger markets. Under $1M, the traffic-volume math doesn&rsquo;t support a real testing program yet, so we&rsquo;d tell you to put that budget into traffic until it does.",
+    a: "revenue for NZ-based clients, and a little higher for larger markets. Under $1M, the traffic-volume math doesn&rsquo;t support a real testing program yet, so we&rsquo;d tell you to put that budget into traffic until it does.",
   },
   {
     q: "Will the small NZ market hold the program back?",
@@ -108,7 +108,7 @@ const localBusinessSchema = {
   "@type": "ProfessionalService",
   name: "Impact Conversion",
   description:
-    "New Zealand conversion rate optimisation agency for D2C ecommerce brands.",
+    "New Zealand conversion rate optimisation agency for D2C brands.",
   url: "https://impactconversion.com/cro-agency-nz",
   address: {
     "@type": "PostalAddress",
@@ -144,10 +144,10 @@ export default function CROAgencyNZPage() {
                 For New Zealand brands
               </p>
               <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.75rem)]">
-                A New Zealand CRO agency for D2C ecommerce brands.
+                A New Zealand CRO agency for D2C brands.
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
-                Conversion rate optimisation for $3M to $20M New Zealand Shopify brands. Based in Queenstown. Every test starts with research into how your buyers actually shop, runs with the rigour your CFO can sign off, and is sized for the traffic NZ stores actually run.
+                Conversion rate optimisation for New Zealand Shopify brands. Based in Queenstown. Every test starts with research into how your buyers actually shop, runs with the rigour your CFO can sign off, and is sized for the traffic NZ stores actually run.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link

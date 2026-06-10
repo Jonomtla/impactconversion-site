@@ -15,7 +15,7 @@ export default function Footer() {
               className="h-7 w-auto brightness-0 invert"
             />
             <p className="mt-4 max-w-sm text-sm text-text-inv-muted">
-              A CRO program for D2C ecommerce and online education brands that
+              A CRO program for D2C and online education brands that
               want more from the traffic they already paid for.
             </p>
             <a
@@ -40,7 +40,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-2 text-sm">
               <li><Link href="/how-we-work" className="text-cream/90 hover:text-cream transition-colors">How we work</Link></li>
               <li><Link href="/case-studies" className="text-cream/90 hover:text-cream transition-colors">Case studies</Link></li>
-              <li><Link href="/for-d2c-ecommerce" className="text-cream/90 hover:text-cream transition-colors">For D2C ecommerce</Link></li>
+              <li><Link href="/for-d2c-ecommerce" className="text-cream/90 hover:text-cream transition-colors">For D2C</Link></li>
               <li><Link href="/for-online-education" className="text-cream/90 hover:text-cream transition-colors">For online education</Link></li>
               <li><Link href="/cro-agency-nz" className="text-cream/90 hover:text-cream transition-colors">CRO agency NZ</Link></li>
               <li><Link href="/cro-agency-australia" className="text-cream/90 hover:text-cream transition-colors">CRO agency Australia</Link></li>

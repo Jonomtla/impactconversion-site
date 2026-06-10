@@ -10,7 +10,7 @@ import { posts } from "@/lib/blog";
 export const metadata = {
   title: "Blog",
   description:
-    "Essays on conversion rate optimisation, research-led experimentation, and how to actually move the needle for D2C ecommerce and online education brands.",
+    "Essays on conversion rate optimisation, research-led experimentation, and how to actually move the needle for D2C and online education brands.",
   alternates: { canonical: "/blog" },
 };
 

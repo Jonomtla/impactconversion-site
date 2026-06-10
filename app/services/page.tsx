@@ -19,7 +19,7 @@ const services = [
     href: "/services/conversion-rate-optimisation",
     label: "Conversion rate optimisation",
     headline: "The full program. For brands ready to run a real testing loop.",
-    body: "Research-led testing across your highest-leverage surfaces. PDP, checkout, post-purchase, webinar and launch funnels, collection pages. Two to four shipped experiments per month, called only when they meet the rule. Built for $5M to $20M D2C ecommerce and online education brands.",
+    body: "Research-led testing across your highest-leverage surfaces. PDP, checkout, post-purchase, webinar and launch funnels, collection pages. Two to four shipped experiments per month, called only when they meet the rule. Built for D2C and online education brands.",
   },
   {
     href: "/services/shopify-cro",

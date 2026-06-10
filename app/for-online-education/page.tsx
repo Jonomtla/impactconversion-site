@@ -10,7 +10,7 @@ import GuaranteeBlock from "@/components/GuaranteeBlock";
 export const metadata = {
   title: "CRO for Online Education & Digital Products",
   description:
-    "Conversion rate optimisation for online education brands doing $5M to $20M. Research-led experimentation on webinar funnels, launch pages, and evergreen flows.",
+    "Conversion rate optimisation for online education brands. Research-led experimentation on webinar funnels, launch pages, and evergreen flows.",
   alternates: { canonical: "/for-online-education" },
 };
 

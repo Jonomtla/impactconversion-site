@@ -10,7 +10,7 @@ import GuaranteeBlock from "@/components/GuaranteeBlock";
 export const metadata = {
   title: "CRO Agency Australia · Conversion Rate Optimisation",
   description:
-    "An Australia-focused CRO agency for $5M to $20M D2C ecommerce brands. Research-led testing program, local timezone, AUD pricing, statistical rigour your CFO can sign off. Book a 15-minute call.",
+    "An Australia-focused CRO agency for D2C brands. Research-led testing program, local timezone, AUD pricing, statistical rigour your CFO can sign off. Book a 15-minute call.",
   alternates: { canonical: "/cro-agency-australia" },
 };
 
@@ -70,7 +70,7 @@ const faqs = [
   },
   {
     q: "Which brands have you worked with?",
-    a: "We work with D2C ecommerce brands in the $5M to $20M revenue band. You can read the full case studies, including engagements that have run twelve months or longer.",
+    a: "We work with D2C brands in the revenue band. You can read the full case studies, including engagements that have run twelve months or longer.",
   },
   {
     q: "Do you charge in AUD?",
@@ -103,7 +103,7 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "Impact Conversion",
-  description: "Conversion rate optimisation agency for Australian D2C ecommerce brands.",
+  description: "Conversion rate optimisation agency for Australian D2C brands.",
   url: "https://impactconversion.com/cro-agency-australia",
   areaServed: { "@type": "Country", name: "Australia" },
   priceRange: "$$$",
@@ -134,10 +134,10 @@ export default function CROAgencyAustraliaPage() {
                 For Australian brands
               </p>
               <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.75rem)]">
-                A CRO agency for Australian D2C ecommerce brands.
+                A CRO agency for Australian D2C brands.
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
-                Conversion rate optimisation for $5M to $20M Australian Shopify brands. Every test starts with research into how your buyers actually shop, runs with the statistical rigour your CFO can sign off, and ships only when the result holds up.
+                Conversion rate optimisation for Australian Shopify brands. Every test starts with research into how your buyers actually shop, runs with the statistical rigour your CFO can sign off, and ships only when the result holds up.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link

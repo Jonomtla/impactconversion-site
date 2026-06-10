@@ -10,7 +10,7 @@ import GuaranteeBlock from "@/components/GuaranteeBlock";
 export const metadata = {
   title: "Conversion Rate Optimisation Services",
   description:
-    "Research-led conversion rate optimisation for $5M to $20M D2C ecommerce and online education brands. We find the leaks, ship the fixes, and prove the lift with statistical rigour.",
+    "Research-led conversion rate optimisation for D2C and online education brands. We find the leaks, ship the fixes, and prove the lift with statistical rigour.",
   alternates: { canonical: "/services/conversion-rate-optimisation" },
 };
 
@@ -108,7 +108,7 @@ const serviceSchema = {
     { "@type": "Country", name: "United Kingdom" },
   ],
   description:
-    "Research-led conversion rate optimisation for $5M to $20M D2C ecommerce and online education brands.",
+    "Research-led conversion rate optimisation for D2C and online education brands.",
 };
 
 export default function CROServicePage() {
@@ -134,7 +134,7 @@ export default function CROServicePage() {
                 Services · Conversion rate optimisation
               </p>
               <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.75rem)]">
-                Conversion rate optimisation for $5M to $20M D2C ecommerce and online education brands.
+                Conversion rate optimisation for D2C and online education brands.
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
                 You already pay for the traffic. Most of it leaves without doing the thing you wanted them to do. We find out why, fix the worst of it first, and prove the lift with the kind of statistical discipline most agencies skip.
@@ -163,13 +163,13 @@ export default function CROServicePage() {
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
               <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                The head of growth, founder, or CMO at a brand doing $5M to $20M.
+                The head of growth, founder, or CMO at a D2C brand.
               </h2>
               <p className="mt-5 text-lg text-text-muted">
                 You run paid traffic at scale. You have a CRO tool installed or could install one in an afternoon. You suspect your current testing program is making noise without moving the revenue line.
               </p>
               <p className="mt-4 text-lg text-text-muted">
-                If you do under $1M a year, the math doesn&rsquo;t work yet. You need traffic volume to detect real lifts. If you want &lsquo;ten quick conversion tips&rsquo;, wrong room.
+                If your store doesn&rsquo;t work yet. You need enough traffic volume to detect real lifts. If you want &lsquo;ten quick conversion tips&rsquo;, wrong room.
               </p>
             </Reveal>
           </div>

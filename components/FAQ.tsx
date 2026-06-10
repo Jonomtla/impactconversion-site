@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: "Which industries do you work best in?",
-    a: "D2C ecommerce and online education, though we have also shipped work in SaaS, subscriptions, and tourism. If you sell online and you care about lifetime value, chances are we can help.",
+    a: "D2C and online education, though we have also shipped work in SaaS, subscriptions, and tourism. If you sell online and you care about lifetime value, chances are we can help.",
   },
   {
     q: "How do we start?",

@@ -27,9 +27,9 @@ export default function About() {
                 Who we work with
               </p>
               <p className="mt-2 text-base text-text">
-                D2C ecommerce and online education brands doing $5M to $20M a
-                year, where there is enough traffic to test fast and enough
-                revenue on the line to care.
+                D2C and online education brands where there is enough
+                traffic to test fast and enough revenue on the line to
+                care.
               </p>
             </div>
           </div>
