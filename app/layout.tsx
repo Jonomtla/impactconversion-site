@@ -40,12 +40,21 @@ export const metadata: Metadata = {
     siteName: "Impact Conversion",
     type: "website",
     locale: "en_NZ",
+    images: [
+      {
+        url: "/assets/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "Impact Conversion — more revenue from the traffic you already have.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Conversion Rate Optimisation for D2C Ecommerce & Online Education",
     description:
       "Research-led CRO for D2C ecommerce and online education brands. 35% win rate, $1M+ added revenue on a single engagement.",
+    images: ["/assets/og-default.png"],
   },
   robots: {
     index: true,

@@ -180,7 +180,7 @@ export default function ServicesIndexPage() {
                 Based in Queenstown. Working with brands in NZ, AU, US, and the UK.
               </h2>
               <p className="mt-5 text-lg text-text-muted">
-                If you&rsquo;re running an Australian or New Zealand brand, the geo-specific pages walk through what changes about the loop on your local stack: payment-method mix, GST display, EOFY messaging, state-by-state shipping economics.
+                If you&rsquo;re running an Australian or New Zealand brand, the geo-specific pages cover how we run the research-led testing program locally: your timezone, local-currency pricing, and test windows sized for the traffic your store actually has.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link

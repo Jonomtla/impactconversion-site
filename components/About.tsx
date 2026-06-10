@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function About() {
   return (
     <section className="bg-cream-2 py-24 md:py-32">
@@ -47,6 +49,17 @@ export default function About() {
               engagements with deep relationships, and every test gets
               documented so the wins are attributable and the losses are
               explained.
+            </p>
+            <p>
+              Running a brand closer to home? See how the program works as a{" "}
+              <Link href="/cro-agency-nz" className="font-medium text-purple hover:underline">
+                CRO agency in New Zealand
+              </Link>{" "}
+              or{" "}
+              <Link href="/cro-agency-australia" className="font-medium text-purple hover:underline">
+                Australia
+              </Link>
+              .
             </p>
             <p className="text-text font-medium">
               If that sounds like what your current setup is missing,

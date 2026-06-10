@@ -40,10 +40,40 @@ export default async function CaseStudyPage({
 
   const others = caseStudies.filter((c) => c.slug !== study.slug);
 
+  const url = `https://impactconversion.com/case-studies/${study.slug}`;
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: study.headline,
+    name: `${study.name} case study`,
+    description: study.summary
+      .replace(/<[^>]+>/g, "")
+      .replace(/&rsquo;/g, "'")
+      .replace(/&ldquo;|&rdquo;/g, '"')
+      .replace(/&amp;/g, "&"),
+    articleSection: study.industry,
+    author: {
+      "@type": "Person",
+      name: "Jono Matla",
+      url: "https://impactconversion.com/about",
+    },
+    publisher: { "@id": "https://impactconversion.com/#organization" },
+    about: { "@type": "Organization", name: study.name },
+    mainEntityOfPage: url,
+    url,
+    ...(study.heroImage
+      ? { image: `https://impactconversion.com${study.heroImage}` }
+      : {}),
+  };
+
   return (
     <>
       <Nav />
       <main>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
         {/* Hero */}
         <section className="relative overflow-hidden bg-ink text-cream pt-40 pb-20 md:pt-52 md:pb-28">
           <WavyLines />

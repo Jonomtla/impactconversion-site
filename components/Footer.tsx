@@ -42,6 +42,8 @@ export default function Footer() {
               <li><Link href="/case-studies" className="text-cream/90 hover:text-cream transition-colors">Case studies</Link></li>
               <li><Link href="/for-d2c-ecommerce" className="text-cream/90 hover:text-cream transition-colors">For D2C ecommerce</Link></li>
               <li><Link href="/for-online-education" className="text-cream/90 hover:text-cream transition-colors">For online education</Link></li>
+              <li><Link href="/cro-agency-nz" className="text-cream/90 hover:text-cream transition-colors">CRO agency NZ</Link></li>
+              <li><Link href="/cro-agency-australia" className="text-cream/90 hover:text-cream transition-colors">CRO agency Australia</Link></li>
               <li><Link href="/tools" className="text-cream/90 hover:text-cream transition-colors">Free tools</Link></li>
               <li><Link href="/blog" className="text-cream/90 hover:text-cream transition-colors">Blog</Link></li>
               <li><Link href="/about" className="text-cream/90 hover:text-cream transition-colors">About</Link></li>

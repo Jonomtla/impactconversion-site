@@ -10,57 +10,75 @@ import GuaranteeBlock from "@/components/GuaranteeBlock";
 export const metadata = {
   title: "CRO Agency Australia · Conversion Rate Optimisation",
   description:
-    "An Australia-focused CRO agency for $5M to $20M Shopify and online education brands. Local timezone, AU payment-method mix, GST-aware checkout testing, research-led testing program. Book a 15-minute call.",
+    "An Australia-focused CRO agency for $5M to $20M D2C ecommerce brands. Research-led testing program, local timezone, AUD pricing, statistical rigour your CFO can sign off. Book a 15-minute call.",
   alternates: { canonical: "/cro-agency-australia" },
 };
 
-const australiaContext = [
+const problems = [
   {
-    h: "AU payment-method mix",
-    p: "Afterpay, Zip, Klarna, Apple Pay, PayPal. Australian buyers are heavier BNPL users than US or UK shoppers. The way you display payment options at checkout, and the order you display them in, moves conversion in ways US-defaults don&rsquo;t.",
+    h: "Testing that doesn&rsquo;t move revenue",
+    p: "You&rsquo;re running tests, but the wins never add up to anything you can see in the P&amp;L. Most of them turn out to be guesses dressed up as experiments.",
   },
   {
-    h: "GST-aware pricing display",
-    p: "GST-inclusive pricing is the AU norm. Stores that import US themes often display ex-GST on the PDP and add tax at checkout. Every percent of cart abandonment we&rsquo;ve traced back to this surprise has been worth fixing.",
+    h: "A generic checklist instead of your store",
+    p: "Plenty of agencies arrive with the same twenty changes they make for everyone. Add a sticky bar, swap a button colour, call it optimisation. None of it is grounded in how your buyers actually behave.",
   },
   {
-    h: "Shipping rhythms by state",
-    p: "WA, NT, and TAS pricing and delivery windows are genuinely different from the eastern seaboard. Free-shipping thresholds tuned for &lsquo;Australia&rsquo; as a single market leave money on the table on both ends of the country.",
-  },
-  {
-    h: "Local timezone, local accountability",
-    p: "We work AEDT/AEST hours. Test reviews land in your morning. When a test surfaces a result that needs a same-day call, you&rsquo;re not waiting until tomorrow your time for our reply.",
+    h: "Results you can&rsquo;t take to the board",
+    p: "A win you can&rsquo;t trust is worse than no win. When the call gets made on a hunch or a peek at half-significant data, it won&rsquo;t survive contact with the real world, and your CFO knows it.",
   },
 ];
 
-const surfaces = [
-  { h: "PDP above the fold", p: "Headline that names the outcome, top two objections handled in line, in-use imagery. Most Australian Shopify PDPs inherit US theme defaults that don&rsquo;t match local buyer behaviour." },
-  { h: "Checkout", p: "Trust density at payment, BNPL placement, free-shipping mechanics tuned to AU state-by-state delivery costs. Shopify Checkout Extensibility now allows the level of testing we&rsquo;ve wanted for years." },
-  { h: "Post-purchase upsells", p: "The thank-you page is the highest-converting surface in the funnel and almost nobody tests it. For one client a single post-purchase offer hit a twenty-six percent take rate." },
-  { h: "Collection pages for paid traffic", p: "If you&rsquo;re paying Meta to send buyers to a collection, it&rsquo;s a landing page. Restate the promise, prime the category, put proof above the grid." },
-  { h: "Cart drawer cross-sells", p: "Recommendation logic that fires on basket composition lifts AOV in a way bundle-app defaults never will." },
+const steps = [
+  {
+    h: "Research how your buyers actually shop",
+    p: "Review mining, on-site surveys, session recordings, funnel analysis. We find where your revenue is leaking before we touch a thing.",
+  },
+  {
+    h: "Prioritise by opportunity and measurability",
+    p: "Every idea gets ranked by how much it could move and how cleanly we can prove it. The biggest, most measurable leaks go first.",
+  },
+  {
+    h: "Test with rigour you can sign off",
+    p: "Each test is sized up front with a power analysis and run to a significance threshold we agree before launch. We call winners on the numbers, not on a feeling.",
+  },
+  {
+    h: "Ship only what holds up",
+    p: "When a result won&rsquo;t survive the real world, we say so and move on. What ships is what we can still stand behind a month later.",
+  },
+];
+
+const fit = [
+  {
+    h: "Your timezone, your hours",
+    p: "We work AEDT and AEST. Test reviews land in your morning, and when a result needs a same-day decision you get an answer the same day, not overnight.",
+  },
+  {
+    h: "AUD pricing, no FX surprises",
+    p: "Engagements are priced and invoiced in AUD for Australian clients. No quoted-in-USD-then-rebilled-at-spot-rate, no invoice that swings ten percent on a bad week.",
+  },
+  {
+    h: "Your team, your tools",
+    p: "We work alongside your developers and inside the testing tool you already run. If you haven&rsquo;t picked one yet, we&rsquo;ll help you choose without taking a referral fee.",
+  },
 ];
 
 const faqs = [
   {
     q: "Are you based in Australia?",
-    a: "No. We&rsquo;re based in New Zealand and work with AU clients across AEDT/AEST. Most of our active clients run on the same timezone-overlap pattern. Calls land in your business day, briefs land in your inbox by start-of-day.",
+    a: "No. We&rsquo;re based in New Zealand and work with Australian clients across AEDT and AEST. Calls land inside your business day, and test briefs are in your inbox by the time you start work. The timezone overlap is close enough that most clients forget we&rsquo;re not local.",
   },
   {
-    q: "Which Australian brands have you worked with?",
-    a: "We work with brands across D2C ecommerce and online education in the $5M to $20M revenue band. Case studies are available on the case studies page, including engagements that have run twelve months or longer.",
+    q: "Which brands have you worked with?",
+    a: "We work with D2C ecommerce brands in the $5M to $20M revenue band. You can read the full case studies, including engagements that have run twelve months or longer.",
   },
   {
     q: "Do you charge in AUD?",
-    a: "Yes. Engagements are priced in AUD for Australian clients. NZD or USD on request.",
+    a: "Yes. Engagements are priced in AUD for Australian clients, with NZD or USD available on request.",
   },
   {
     q: "Will you work with our existing dev team?",
-    a: "Preferred. The cleanest engagements have your devs reviewing our code before it ships. Reduces theme conflicts and keeps everyone aligned.",
-  },
-  {
-    q: "Do you run tests on Australian-specific surfaces like Afterpay placement?",
-    a: "Yes, where the volume supports a clean test. Afterpay placement on PDP versus cart versus checkout is one of the recurring AU-specific tests we run. The right answer depends on AOV and category.",
+    a: "Preferred. The cleanest engagements have your developers reviewing our code before it ships, which keeps theme conflicts down and everyone aligned.",
   },
   {
     q: "Can you help us choose a CRO testing tool?",
@@ -85,7 +103,7 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "Impact Conversion",
-  description: "Conversion rate optimisation agency working with Australian D2C ecommerce and online education brands.",
+  description: "Conversion rate optimisation agency for Australian D2C ecommerce brands.",
   url: "https://impactconversion.com/cro-agency-australia",
   areaServed: { "@type": "Country", name: "Australia" },
   priceRange: "$$$",
@@ -106,6 +124,7 @@ export default function CROAgencyAustraliaPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
 
+        {/* Hero */}
         <section className="relative overflow-hidden bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
           <WavyLines />
           <div className="relative mx-auto max-w-4xl px-6">
@@ -115,10 +134,10 @@ export default function CROAgencyAustraliaPage() {
                 For Australian brands
               </p>
               <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.75rem)]">
-                A CRO agency for Australian D2C ecommerce and online education brands.
+                A CRO agency for Australian D2C ecommerce brands.
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
-                Conversion rate optimisation for $5M to $20M Australian Shopify stores, course brands, and digital products. Local timezone, AU payment-method mix, GST-aware checkout testing, statistical rigour your CFO can sign off.
+                Conversion rate optimisation for $5M to $20M Australian Shopify brands. Every test starts with research into how your buyers actually shop, runs with the statistical rigour your CFO can sign off, and ships only when the result holds up.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
@@ -136,25 +155,38 @@ export default function CROAgencyAustraliaPage() {
                   How we run engagements
                 </Link>
               </div>
+              <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-text-inv-muted">
+                <span><strong className="font-semibold text-cream">$1M-$2M</strong> added on one engagement</span>
+                <span><strong className="font-semibold text-cream">180 tests</strong> shipped</span>
+                <span><strong className="font-semibold text-cream">12-month+</strong> retained clients</span>
+              </div>
             </Reveal>
           </div>
         </section>
 
+        {/* Problem */}
         <section className="bg-cream py-20 md:py-24">
           <div className="mx-auto max-w-5xl px-6">
             <Reveal>
               <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                Four things US-defaults get wrong on AU stores.
+                Most CRO programs stall for the same three reasons.
               </h2>
-              <p className="mt-5 text-lg text-text-muted">
-                Most Shopify themes ship with US defaults. Most CRO playbooks were written for US ecommerce. Both work, mostly. Both also leave Australian-specific revenue on the table.
+              <p className="mt-5 max-w-2xl text-lg text-text-muted">
+                If you&rsquo;re already testing and the numbers aren&rsquo;t moving, the problem usually isn&rsquo;t effort. It&rsquo;s one of these three, and they&rsquo;re a big part of{" "}
+                <Link href="/blog/why-most-cro-programs-fail" className="font-medium text-purple hover:underline">
+                  why most CRO programs fail
+                </Link>
+                .
               </p>
             </Reveal>
-            <div className="mt-10 grid gap-6 md:grid-cols-2">
-              {australiaContext.map((c) => (
+            <div className="mt-10 grid gap-6 md:grid-cols-3">
+              {problems.map((c) => (
                 <Reveal key={c.h}>
                   <div className="h-full rounded-2xl border border-ink/10 bg-white p-8">
-                    <h3 className="text-xl font-semibold text-text">{c.h}</h3>
+                    <h3
+                      className="text-xl font-semibold text-text"
+                      dangerouslySetInnerHTML={{ __html: c.h }}
+                    />
                     <p
                       className="mt-3 text-text-muted"
                       dangerouslySetInnerHTML={{ __html: c.p }}
@@ -166,24 +198,38 @@ export default function CROAgencyAustraliaPage() {
           </div>
         </section>
 
-        <section className="bg-white py-20 md:py-24">
+        {/* Mechanism (dark band) */}
+        <section className="bg-ink text-cream py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
-              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                Five surfaces that account for most of what we ship.
+              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
+                How we work
+              </p>
+              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight md:text-4xl">
+                It isn&rsquo;t a playbook. It&rsquo;s research.
               </h2>
+              <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
+                There&rsquo;s no fixed list of changes that works on every store. What lifts revenue on yours is hiding in how your specific buyers shop, so that&rsquo;s where every engagement starts. It&rsquo;s the same approach behind{" "}
+                <Link href="/blog/what-evergreen-cro-research-looks-like" className="font-medium text-purple-2 hover:underline">
+                  evergreen CRO research
+                </Link>
+                .
+              </p>
             </Reveal>
             <ol className="mt-10 space-y-5">
-              {surfaces.map((s, i) => (
+              {steps.map((s, i) => (
                 <Reveal key={s.h}>
-                  <li className="flex gap-5 rounded-2xl border border-ink/10 bg-cream p-6">
+                  <li className="flex gap-5 rounded-2xl border border-cream/10 bg-ink-2 p-6">
                     <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-purple text-sm font-bold text-white">
                       {i + 1}
                     </span>
                     <div>
-                      <h3 className="text-lg font-semibold text-text">{s.h}</h3>
+                      <h3
+                        className="text-lg font-semibold text-cream"
+                        dangerouslySetInnerHTML={{ __html: s.h }}
+                      />
                       <p
-                        className="mt-1 text-text-muted"
+                        className="mt-1 text-text-inv-muted"
                         dangerouslySetInnerHTML={{ __html: s.p }}
                       />
                     </div>
@@ -194,12 +240,16 @@ export default function CROAgencyAustraliaPage() {
           </div>
         </section>
 
+        {/* Proof */}
         <section className="bg-cream py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
               <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                One D2C client. Eighteen months. The same loop, run properly.
+                Eighteen months on one D2C engagement.
               </h2>
+              <p className="mt-5 max-w-2xl text-lg text-text-muted">
+                The same loop, run properly, compounding month after month.
+              </p>
               <div className="mt-10 grid gap-6 md:grid-cols-3">
                 <div className="rounded-2xl border border-ink/10 bg-white p-6">
                   <p className="text-3xl font-bold text-purple">$1M-$2M</p>
@@ -229,7 +279,32 @@ export default function CROAgencyAustraliaPage() {
           </div>
         </section>
 
+        {/* Practical fit */}
         <section className="bg-white py-20 md:py-24">
+          <div className="mx-auto max-w-5xl px-6">
+            <Reveal>
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+                The practical fit for Australian brands.
+              </h2>
+            </Reveal>
+            <div className="mt-10 grid gap-6 md:grid-cols-3">
+              {fit.map((c) => (
+                <Reveal key={c.h}>
+                  <div className="h-full rounded-2xl border border-ink/10 bg-cream p-8">
+                    <h3 className="text-xl font-semibold text-text">{c.h}</h3>
+                    <p
+                      className="mt-3 text-text-muted"
+                      dangerouslySetInnerHTML={{ __html: c.p }}
+                    />
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="bg-cream py-20 md:py-24">
           <div className="mx-auto max-w-3xl px-6">
             <Reveal>
               <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
@@ -239,7 +314,7 @@ export default function CROAgencyAustraliaPage() {
             <dl className="mt-10 space-y-6">
               {faqs.map((f) => (
                 <Reveal key={f.q}>
-                  <div className="rounded-2xl border border-ink/10 bg-cream p-6">
+                  <div className="rounded-2xl border border-ink/10 bg-white p-6">
                     <dt className="text-lg font-semibold text-text">{f.q}</dt>
                     <dd
                       className="mt-2 text-text-muted"
