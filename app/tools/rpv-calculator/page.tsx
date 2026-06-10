@@ -114,6 +114,49 @@ export default function RpvCalculatorPage() {
             </Suspense>
           </div>
         </section>
+
+        <section className="bg-cream pb-20 md:pb-28">
+          <div className="mx-auto max-w-3xl px-6">
+            <div className="rounded-2xl border border-ink/10 bg-white p-8">
+              <h2 className="text-xl font-semibold text-text">
+                Why revenue per visitor, not conversion rate?
+              </h2>
+              <p className="mt-3 text-text-muted">
+                Conversion rate tells you how many people buy. Revenue per visitor
+                tells you how much money each session is worth. A test can lift
+                conversion while quietly dropping average order value, leaving
+                revenue flat or down. RPV catches that because it folds both
+                metrics into one number.
+              </p>
+              <p className="mt-4 text-text-muted">
+                This is the forecasting model we use inside{" "}
+                <a href="/services/conversion-rate-optimisation" className="font-medium text-purple underline-offset-2 hover:underline">client engagements</a>{" "}
+                to pressure-test whether a CRO program can pay for itself.
+                Running a live test? Use the{" "}
+                <a href="/tools/ab-calculator" className="font-medium text-purple underline-offset-2 hover:underline">A/B test calculator</a>{" "}
+                to check significance and project when you can call it.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-cream pb-20 md:pb-28">
+          <div className="mx-auto max-w-3xl px-6">
+            <h2 className="text-2xl font-black tracking-tight text-text">
+              Revenue per visitor calculator FAQ
+            </h2>
+            <dl className="mt-8 space-y-4">
+              {faqs.map((f) => (
+                <Reveal key={f.q}>
+                  <div className="rounded-2xl border border-ink/10 bg-white p-6">
+                    <dt className="text-lg font-semibold text-text">{f.q}</dt>
+                    <dd className="mt-2 text-text-muted">{f.a}</dd>
+                  </div>
+                </Reveal>
+              ))}
+            </dl>
+          </div>
+        </section>
       </main>
       <Footer />
     </>

@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
         destination: "https://impactconversion.com/:path*",
         permanent: true,
       },
+      {
+        source: "/tools/roi-calculator",
+        destination: "/tools/rpv-calculator",
+        permanent: true,
+      },
     ];
   },
 };

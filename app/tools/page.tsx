@@ -8,7 +8,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 export const metadata = {
   title: "Free CRO Tools",
   description:
-    "Free calculators for D2C operators: CRO ROI forecasting and free-shipping profitability modelling.",
+    "Free calculators for D2C operators: A/B test significance and duration, revenue per visitor forecasting, and free-shipping profitability modelling.",
   alternates: { canonical: "/tools" },
 };
 
@@ -17,7 +17,7 @@ const tools = [
     href: "/tools/rpv-calculator",
     title: "Revenue Per Visitor Calculator",
     blurb:
-      "Model the revenue a CRO program could unlock by lifting revenue per visitor &mdash; the metric that actually tracks profitability. 12-month forecast with break-even analysis.",
+      "Model the revenue a CRO program could unlock by lifting revenue per visitor, the metric that actually tracks profitability. 12-month forecast with break-even analysis.",
     tag: "Forecasting",
   },
   {
