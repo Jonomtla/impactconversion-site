@@ -43,6 +43,8 @@ type State = {
   ordersWeek: number;
   weeks: number;
   expectedLift: number;
+  // live: how long the test has been running
+  testDays: number;
   // live cvr
   cN: number;
   cO: number;
@@ -60,6 +62,7 @@ type State = {
 const DEFAULTS: State = {
   weekly: 8000, nvar: 2, sig: "0.95", pow: "0.80", tails: "2", sidak: false,
   ordersWeek: 256, weeks: 4, expectedLift: 10,
+  testDays: 14,
   cN: 4000, cO: 128, vN: 4000, vO: 141,
   cN_r: 4000, cRpv: 8.82, cCv: 7.8, vN_r: 4000, vRpv: 9.70, vCv: 7.8,
 };
@@ -122,7 +125,14 @@ export default function ABCalculator() {
     return (numr * numr) / Math.pow(p2 - p1, 2);
   }
 
-  const availAtWeek = (w: number) => (s.weekly * w) / Math.max(1, s.nvar);
+  // Per-arm sample collected so far (live modes), and the run rate derived from it.
+  const livePerArm = mode === "cvr" ? (s.cN + s.vN) / 2 : mode === "rpv" ? (s.cN_r + s.vN_r) / 2 : 0;
+  const nowWeek = Math.max(0.05, s.testDays / 7);
+  const liveRatePerWeek = livePerArm / nowWeek; // per-arm visitors/sessions per week, at the observed pace
+
+  // Projected per-arm sample by week w (weeks from test start).
+  const availAtWeek = (w: number) =>
+    mode === "pre" ? (s.weekly * w) / Math.max(1, s.nvar) : liveRatePerWeek * w;
 
   function minMde(nPerVar: number): number {
     if (mode === "rpv") {
@@ -174,12 +184,16 @@ export default function ABCalculator() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mode, s.cN, s.cO, s.vN, s.vO, s.cN_r, s.cRpv, s.cCv, s.vN_r, s.vRpv, s.vCv]);
 
-  function weeksToThreshold(thr: number, liftFrac: number, startN: number): number | null {
-    for (let w = 0.1; w <= 52; w += 0.1) {
-      if (p2bbAt(startN + availAtWeek(w), liftFrac) >= thr) return w;
+  // Week-from-start at which projected p2bb first crosses a threshold, at the observed pace.
+  function crossWeekAt(thr: number, liftFrac: number): number | null {
+    if (liftFrac <= 0) return null;
+    for (let w = 0.05; w <= 52; w += 0.05) {
+      if (p2bbAt(availAtWeek(w), liftFrac) >= thr) return w;
     }
     return null;
   }
+  // Additional days from now until a crossing week.
+  const daysFromNow = (crossW: number | null) => (crossW == null ? null : Math.max(0, (crossW - nowWeek) * 7));
 
   // ---- inputs UI per mode ----
   function PreInputs() {
@@ -252,7 +266,7 @@ export default function ABCalculator() {
             </div>
           </div>
         </div>
-        <ForwardTraffic />
+        <TestSetup />
         <CommonStats />
       </>
     );
@@ -304,23 +318,27 @@ export default function ABCalculator() {
             Load example: high-AOV PDP test snapshot
           </button>
         </div>
-        <ForwardTraffic />
+        <TestSetup />
         <CommonStats />
       </>
     );
   }
 
-  function ForwardTraffic() {
+  function TestSetup() {
     return (
       <div className="border-b border-dashed border-ink/15 pb-3.5 mb-3.5">
-        <h4 className="m-0 mb-2.5 text-xs font-semibold uppercase tracking-wider text-text-muted">Projection</h4>
-        <div className="mb-3">
-          <label className={labelCls} htmlFor="weeklyP">Weekly visitors going forward <span className={hintCls}>(all variations)</span></label>
-          <input id="weeklyP" type="number" min={1} step={100} value={s.weekly} onChange={(e) => set("weekly", Number(e.target.value) || 0)} className={inputCls} />
-        </div>
-        <div>
-          <label className={labelCls} htmlFor="nvarP">Variations <span className={hintCls}>(incl. control)</span></label>
-          <input id="nvarP" type="number" min={2} max={10} step={1} value={s.nvar} onChange={(e) => set("nvar", Math.max(2, Math.min(10, Number(e.target.value) || 2)))} className={inputCls} />
+        <h4 className="m-0 mb-2.5 text-xs font-semibold uppercase tracking-wider text-text-muted">Test setup</h4>
+        <div className="grid grid-cols-2 gap-2.5">
+          <div>
+            <label className={labelCls} htmlFor="testDays">Days running
+              <Info label="Why days running?">How long the test has been live. Combined with the visitor counts above, this gives your real run rate, then projects the days still needed to reach each threshold.</Info>
+            </label>
+            <input id="testDays" type="number" min={1} step={1} value={s.testDays} onChange={(e) => set("testDays", Math.max(1, Number(e.target.value) || 1))} className={inputCls} />
+          </div>
+          <div>
+            <label className={labelCls} htmlFor="nvarP">Variations <span className={hintCls}>(incl. control)</span></label>
+            <input id="nvarP" type="number" min={2} max={10} step={1} value={s.nvar} onChange={(e) => set("nvar", Math.max(2, Math.min(10, Number(e.target.value) || 2)))} className={inputCls} />
+          </div>
         </div>
       </div>
     );
@@ -409,8 +427,10 @@ export default function ABCalculator() {
       );
     }
     if (!live) return null;
-    const wTo85 = weeksToThreshold(0.85, live.lift, live.perArmN);
-    const wTo95 = weeksToThreshold(0.95, live.lift, live.perArmN);
+    const d85 = daysFromNow(crossWeekAt(0.85, live.lift));
+    const d95 = daysFromNow(crossWeekAt(0.95, live.lift));
+    const ratePerDay = livePerArm / Math.max(1, s.testDays);
+    const unit = mode === "cvr" ? "visitors" : "sessions";
     let head: React.ReactNode;
     if (live.p2bb >= 0.95) head = <span className="text-emerald-400">Callable now at 95%.</span>;
     else if (live.p2bb >= 0.85) head = <span className="text-emerald-400">Callable now at 85%.</span>;
@@ -442,13 +462,15 @@ export default function ABCalculator() {
         {mode === "cvr" && (
           <p className="mt-1.5 text-[13px] text-text-inv-muted"><span className={ordersOk ? "font-bold text-emerald-400" : "font-bold text-orange-400"}>{ordersOk ? "✓" : "✗"}</span> Orders floor: {s.cO} / {s.vO} per arm (need ≥100, want ≥250)</p>
         )}
+        <p className="mt-1.5 text-[13px] text-text-inv-muted">Running <b className="text-white">{s.testDays} days</b> at ~{fmt(ratePerDay)} {unit}/arm/day.</p>
         {live.lift > 0 && (
           <>
-            {live.p2bb < 0.85 && wTo85 && <p className="mt-1.5 text-[13px] text-text-inv-muted">If this lift holds, <b>85%</b> threshold crosses in <b>~{wTo85.toFixed(1)} more weeks</b> at {fmt(s.weekly)} visitors/week.</p>}
-            {live.p2bb < 0.95 && wTo95 && <p className="mt-1.5 text-[13px] text-text-inv-muted"><b>95%</b> threshold crosses in <b>~{wTo95.toFixed(1)} more weeks</b>.</p>}
-            {live.p2bb < 0.85 && !wTo85 && <p className="mt-2 text-[13px] font-semibold text-orange-400">85% isn&rsquo;t reachable inside a year at this traffic. Lift is too small or variance too high.</p>}
+            {live.p2bb < 0.85 && d85 != null && <p className="mt-1.5 text-[13px] text-text-inv-muted">If this lift holds, <b>85%</b> in <b>~{Math.ceil(d85)} more days</b> (day {Math.ceil(s.testDays + d85)} total).</p>}
+            {live.p2bb < 0.95 && d95 != null && <p className="mt-1.5 text-[13px] text-text-inv-muted"><b>95%</b> in <b>~{Math.ceil(d95)} more days</b> (day {Math.ceil(s.testDays + d95)} total).</p>}
+            {live.p2bb < 0.85 && d85 == null && <p className="mt-2 text-[13px] font-semibold text-orange-400">85% isn&rsquo;t reachable inside a year at this pace. Lift is too small or variance too high.</p>}
           </>
         )}
+        {live.lift <= 0 && live.p2bb < 0.85 && <p className="mt-1.5 text-[13px] text-text-inv-muted">No positive lift to project from yet.</p>}
       </>
     );
   }
@@ -517,7 +539,14 @@ export default function ABCalculator() {
 
   // ---- SVG graph ----
   function Graph() {
-    const wmax = Math.max(WEEKS, mode === "pre" ? s.weeks : 0);
+    let wmax: number;
+    if (mode === "pre") {
+      wmax = Math.max(WEEKS, s.weeks);
+    } else {
+      const lift = live ? live.lift : 0;
+      const c95 = crossWeekAt(0.95, lift);
+      wmax = Math.min(26, Math.max(WEEKS, Math.ceil(nowWeek) + 1, c95 ? Math.ceil(c95) + 1 : 0));
+    }
     const W = 700, H = 240, padL = 46, padR = 16, padT = 16, padB = 32;
     const x = (w: number) => padL + (w / wmax) * (W - padL - padR);
     const y = (p: number) => padT + (1 - (Math.max(0.5, p) - 0.5) / 0.5) * (H - padT - padB);
@@ -551,8 +580,8 @@ export default function ABCalculator() {
       markerLabel = "planned end";
     } else if (live) {
       lift = live.lift;
-      markerW = Math.min(live.perArmN / Math.max(1, s.weekly / Math.max(1, s.nvar)), wmax);
-      markerLabel = "now";
+      markerW = Math.min(nowWeek, wmax);
+      markerLabel = `now (day ${s.testDays})`;
     }
 
     const marker = markerW > 0 && (
@@ -589,7 +618,7 @@ export default function ABCalculator() {
       });
       curve = (<><path d={d} fill="none" stroke="#7c5aec" strokeWidth={2.5} strokeLinecap="round" />{dots}</>);
     } else if (mode !== "pre") {
-      curve = <text x={W / 2} y={H / 2} textAnchor="middle" fontSize={13} fill="#5a5e77">No positive lift to project — variant currently {lift < 0 ? "behind" : "tied with"} control.</text>;
+      curve = <text x={W / 2} y={H / 2} textAnchor="middle" fontSize={13} fill="#5a5e77">No positive lift to project. Variant currently {lift < 0 ? "behind" : "tied with"} control.</text>;
     }
 
     return (
@@ -615,13 +644,13 @@ export default function ABCalculator() {
   const graphSub = mode === "pre"
     ? `Bayesian probability variant beats control over time, assuming your expected ${s.expectedLift}% lift is real. Dashed lines mark the 85% and 95% thresholds.`
     : live
-      ? `Assuming the currently observed ${(live.lift >= 0 ? "+" : "") + pct(live.lift, 1)} lift holds, this is when probability-to-beat-control crosses the 85% and 95% thresholds at ${fmt(s.weekly)} visitors/week.`
+      ? `Test has run ${s.testDays} days. Assuming the observed ${(live.lift >= 0 ? "+" : "") + pct(live.lift, 1)} lift holds at the same pace, this projects when probability-to-beat-control crosses the 85% and 95% thresholds. The orange line marks today.`
       : "";
 
   const foot = mode === "rpv"
-    ? "Two-sample means test. p2bb computed from z = Δ / SE using each arm's CV. Same model Intelligems and other Bayesian tools report."
+    ? "Two-sample means test. p2bb computed from z = Δ / SE using each arm's CV. Projection assumes your observed run rate (sessions ÷ days running) continues. Same model Intelligems and other Bayesian tools report."
     : mode === "cvr"
-      ? "Two-proportion z-test. p2bb computed from z = (p₂−p₁) / SE. Same model used by Intelligems and other Bayesian tools."
+      ? "Two-proportion z-test. p2bb computed from z = (p₂−p₁) / SE. Projection assumes your observed run rate (visitors ÷ days running) continues. Same model used by Intelligems and other Bayesian tools."
       : "Size on orders, call on your locked primary metric. 100 orders/arm is the callable floor, 250+ is the happy zone. Two-proportion z-test at your significance and power settings.";
 
   return (

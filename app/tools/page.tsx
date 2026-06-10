@@ -21,13 +21,6 @@ const tools = [
     tag: "Forecasting",
   },
   {
-    href: "/tools/roi-calculator",
-    title: "CRO ROI Calculator",
-    blurb:
-      "See exactly how much revenue you could unlock from the traffic you&rsquo;re already paying for. 12-month forecast with break-even analysis.",
-    tag: "Forecasting",
-  },
-  {
     href: "/tools/ab-calculator",
     title: "A/B Test Calculator",
     blurb:
