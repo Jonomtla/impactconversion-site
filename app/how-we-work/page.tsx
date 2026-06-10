@@ -9,7 +9,9 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = {
   title: "How we work",
-  description: "Research. Prioritise. Test. Compound. Every engagement runs the same loop.",
+  description:
+    "Research. Prioritise. Test. Compound. The four-step loop every Impact Conversion engagement runs, from conversion audits to 90-day sprints and ongoing CRO programs.",
+  alternates: { canonical: "/how-we-work" },
 };
 
 type Service = {
@@ -36,7 +38,7 @@ const services: Service[] = [
     name: "90-Day Optimisation Sprint",
     featured: true,
     blurb:
-      "Twelve focused weeks with 8 to 12 tests in market, and you see a revenue uplift by the end of the sprint or you don&apos;t pay. The fastest way to prove the loop works on your site.",
+      "Twelve focused weeks with 8 to 12 tests in market, and you see a revenue uplift by the end of the sprint or you don’t pay. The fastest way to prove the loop works on your site.",
     inclusions: [
       "Weeks 1-2 deep-dive research",
       "8-12 experiments in market",
@@ -60,7 +62,7 @@ const services: Service[] = [
   {
     name: "Landing Page & Funnel Builds",
     blurb:
-      "Research drives the copy, direct response drives the structure, and analytics ship before launch. The pages convert. They don&apos;t win design awards.",
+      "Research drives the copy, direct response drives the structure, and analytics ship before launch. The pages convert. They don’t win design awards.",
     inclusions: [
       "Research-led copy",
       "Direct response structure",
@@ -74,7 +76,7 @@ export default function HowWeWorkPage() {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main">
         <section className="relative overflow-hidden bg-ink text-cream pt-40 pb-24 md:pt-52 md:pb-32">
           <div
             className="pointer-events-none absolute inset-0 opacity-40"
@@ -116,9 +118,10 @@ export default function HowWeWorkPage() {
               <p className="mt-6 text-lg text-text-muted">
                 Most clients start with an audit or a sprint, and once the
                 loop is running and winning, they roll into the ongoing
-                program. We match pricing to scope on the intro call, and
-                every engagement carries the same guarantee: you see a revenue
-                uplift, or you don&apos;t pay.
+                program. Pricing starts at NZD $4,000 per month and scales
+                with scope, confirmed on the intro call, and every engagement
+                carries the same guarantee: you see a revenue uplift, or you
+                don&apos;t pay.
               </p>
             </Reveal>
 
@@ -141,10 +144,9 @@ export default function HowWeWorkPage() {
                         {s.name}
                       </h3>
                     </div>
-                    <p
-                      className="mt-4 text-text-muted leading-relaxed"
-                      dangerouslySetInnerHTML={{ __html: s.blurb }}
-                    />
+                    <p className="mt-4 text-text-muted leading-relaxed">
+                      {s.blurb}
+                    </p>
                     <ul className="mt-6 space-y-2 text-sm text-text">
                       {s.inclusions.map((inc) => (
                         <li key={inc} className="flex items-start gap-2">

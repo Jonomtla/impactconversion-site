@@ -15,6 +15,14 @@ export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
 }
 
+function stripHtml(s: string) {
+  return s
+    .replace(/<[^>]+>/g, "")
+    .replace(/&rsquo;/g, "'")
+    .replace(/&ldquo;|&rdquo;/g, '"')
+    .replace(/&amp;/g, "&");
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -24,8 +32,9 @@ export async function generateMetadata({
   const study = getCaseStudy(slug);
   if (!study) return { title: "Case study" };
   return {
-    title: `${study.name} · Case study`,
-    description: study.summary,
+    title: `${study.name} Case Study · ${study.industry} CRO`,
+    description: stripHtml(study.summary),
+    alternates: { canonical: `/case-studies/${slug}` },
   };
 }
 
@@ -46,11 +55,7 @@ export default async function CaseStudyPage({
     "@type": "Article",
     headline: study.headline,
     name: `${study.name} case study`,
-    description: study.summary
-      .replace(/<[^>]+>/g, "")
-      .replace(/&rsquo;/g, "'")
-      .replace(/&ldquo;|&rdquo;/g, '"')
-      .replace(/&amp;/g, "&"),
+    description: stripHtml(study.summary),
     articleSection: study.industry,
     author: {
       "@type": "Person",
@@ -69,7 +74,7 @@ export default async function CaseStudyPage({
   return (
     <>
       <Nav />
-      <main>
+      <main id="main">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -99,14 +104,12 @@ export default async function CaseStudyPage({
                 <span>·</span>
                 <span>{study.duration}</span>
               </div>
-              <h1
-                className="mt-6 max-w-4xl text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.8vw,4rem)]"
-                dangerouslySetInnerHTML={{ __html: study.headline }}
-              />
-              <p
-                className="mt-8 max-w-3xl text-lg text-text-inv-muted md:text-xl"
-                dangerouslySetInnerHTML={{ __html: study.summary }}
-              />
+              <h1 className="mt-6 max-w-4xl text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.8vw,4rem)]">
+                {study.headline}
+              </h1>
+              <p className="mt-8 max-w-3xl text-lg text-text-inv-muted md:text-xl">
+                {study.summary}
+              </p>
             </Reveal>
 
             {study.heroImage ? (
@@ -117,6 +120,7 @@ export default async function CaseStudyPage({
                     alt={study.heroImageAlt ?? `${study.name} site`}
                     width={1600}
                     height={1000}
+                    sizes="(min-width: 1024px) 960px, 100vw"
                     className="h-auto w-full rounded-xl"
                     priority
                   />
@@ -170,9 +174,7 @@ export default async function CaseStudyPage({
             {study.chapters.map((ch, i) => (
               <Reveal key={ch.heading} className={i === 0 ? "" : "mt-16"}>
                 <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                  <span
-                    dangerouslySetInnerHTML={{ __html: ch.heading }}
-                  />
+                  <span>{ch.heading}</span>
                 </h2>
                 <div className="mt-6 space-y-5 text-lg leading-relaxed text-text-muted">
                   {ch.body.map((p, j) => (
@@ -192,7 +194,7 @@ export default async function CaseStudyPage({
                   {study.wins.map((w) => (
                     <li key={w} className="flex items-start gap-3">
                       <span className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-purple" />
-                      <span dangerouslySetInnerHTML={{ __html: w }} />
+                      <span>{w}</span>
                     </li>
                   ))}
                 </ul>
@@ -202,11 +204,7 @@ export default async function CaseStudyPage({
             {/* Quote */}
             <Reveal className="mt-16">
               <blockquote className="border-l-2 border-purple pl-6 text-xl italic leading-relaxed text-text md:text-2xl">
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: `&ldquo;${study.quote}&rdquo;`,
-                  }}
-                />
+                <span>{`“${study.quote}”`}</span>
                 <footer className="mt-6 flex items-center gap-3 not-italic">
                   {study.photo ? (
                     <Image

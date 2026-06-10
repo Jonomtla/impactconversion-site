@@ -5,13 +5,14 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import GAEventListener from "@/components/GAEventListener";
+import MotionProvider from "@/components/motion/MotionProvider";
 import "./globals.css";
 
 const satoshi = localFont({
   src: [
     { path: "./fonts/satoshi/Satoshi-Regular.woff2", weight: "400", style: "normal" },
     { path: "./fonts/satoshi/Satoshi-Medium.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/satoshi/Satoshi-Medium.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/satoshi/Satoshi-Bold.woff2", weight: "600", style: "normal" },
     { path: "./fonts/satoshi/Satoshi-Bold.woff2", weight: "700", style: "normal" },
     { path: "./fonts/satoshi/Satoshi-Black.woff2", weight: "900", style: "normal" },
   ],
@@ -27,16 +28,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://impactconversion.com"),
   title: {
-    default: "Conversion Rate Optimisation for D2C & Online Education · Impact Conversion",
+    default: "CRO Agency for D2C & Online Education · Impact Conversion",
     template: "%s · Impact Conversion",
   },
   description:
     "Conversion rate optimisation for D2C and online education brands. Research-led testing, statistical rigour, 35% win rate, $1M+ added revenue on a single engagement.",
+  // No title/description/url here: each page's og tags then inherit that
+  // page's own resolved title and description instead of the homepage's.
   openGraph: {
-    title: "Conversion Rate Optimisation for D2C & Online Education · Impact Conversion",
-    description:
-      "Research-led conversion rate optimisation for D2C and online education brands. $1M+ added revenue on a single engagement. 35% win rate on shipped tests.",
-    url: "https://impactconversion.com",
     siteName: "Impact Conversion",
     type: "website",
     locale: "en_NZ",
@@ -45,24 +44,17 @@ export const metadata: Metadata = {
         url: "/assets/og-default.png",
         width: 1200,
         height: 630,
-        alt: "Impact Conversion — more revenue from the traffic you already have.",
+        alt: "Impact Conversion: more revenue from the traffic you already have.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Conversion Rate Optimisation for D2C & Online Education",
-    description:
-      "Research-led CRO for D2C and online education brands. 35% win rate, $1M+ added revenue on a single engagement.",
-    images: ["/assets/og-default.png"],
   },
   robots: {
     index: true,
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
-  },
-  alternates: {
-    canonical: "/",
   },
 };
 
@@ -76,6 +68,12 @@ export default function RootLayout({
       lang="en"
       className={`${satoshi.variable} ${geistMono.variable} antialiased`}
     >
+      <head>
+        {/* If JS never loads, scroll-reveal content must still be visible */}
+        <noscript>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
+      </head>
       <body className="bg-cream text-text min-h-screen">
         <script
           type="application/ld+json"
@@ -87,7 +85,7 @@ export default function RootLayout({
                   "@type": "Organization",
                   "@id": "https://impactconversion.com/#organization",
                   name: "Impact Conversion",
-                  legalName: "Peak Digital Ltd",
+                  legalName: "Impact Conversion Limited",
                   url: "https://impactconversion.com",
                   logo: "https://impactconversion.com/assets/logo.png",
                   description:
@@ -161,7 +159,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        {children}
+        <MotionProvider>{children}</MotionProvider>
         <GAEventListener />
         <StickyMobileCTA />
         <Analytics />

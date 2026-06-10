@@ -9,7 +9,7 @@ import Calculator from "@/components/tools/rpv-calculator/Calculator";
 export const metadata = {
   title: { absolute: "Revenue Per Visitor (RPV) Calculator · Impact Conversion" },
   description:
-    "Free revenue per visitor (RPV) calculator. Model the incremental revenue and profit a CRO program could unlock by lifting RPV, the metric that actually tracks profitability. 12-month forecast with break-even analysis.",
+    "Free revenue per visitor (RPV) calculator. Model the incremental revenue and profit a CRO program could unlock, with a 12-month forecast and break-even analysis.",
   alternates: { canonical: "/tools/rpv-calculator" },
   keywords: [
     "revenue per visitor calculator",

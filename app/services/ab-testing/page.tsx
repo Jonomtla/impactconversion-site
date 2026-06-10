@@ -21,7 +21,7 @@ const broken = [
   },
   {
     h: "Segment hunting after the fact",
-    p: "Splitting the audience by device, source, country, and new-vs-returning until one of them goes green is how you generate confident-looking wins that don&rsquo;t replicate. Segments are pre-registered or they don&rsquo;t count.",
+    p: "Splitting the audience by device, source, country, and new-vs-returning until one of them goes green is how you generate confident-looking wins that don’t replicate. Segments are pre-registered or they don’t count.",
   },
   {
     h: "Linked metrics counted as independent confirmations",
@@ -29,16 +29,16 @@ const broken = [
   },
   {
     h: "Calling wins on point estimate alone",
-    p: "The point estimate is the central best guess of a posterior with a range that often spans zero to seventy percent. Shipping based on the headline number without reading the credible interval is how you ship lifts that don&rsquo;t hold up after rollout.",
+    p: "The point estimate is the central best guess of a posterior with a range that often spans zero to seventy percent. Shipping based on the headline number without reading the credible interval is how you ship lifts that don’t hold up after rollout.",
   },
 ];
 
 const rules = [
-  { h: "Pre-test power analysis", p: "Before launch, we calculate the minimum detectable effect at your target test duration. If the surface doesn&rsquo;t have the volume to detect a lift you&rsquo;d care about, we don&rsquo;t run the test." },
-  { h: "Primary metric locked in the brief", p: "Default to CVR unless there&rsquo;s a specific reason for a funnel step or revenue metric. Locked before launch, not after." },
+  { h: "Pre-test power analysis", p: "Before launch, we calculate the minimum detectable effect at your target test duration. If the surface doesn’t have the volume to detect a lift you’d care about, we don’t run the test." },
+  { h: "Primary metric locked in the brief", p: "Default to CVR unless there’s a specific reason for a funnel step or revenue metric. Locked before launch, not after." },
   { h: "Track A versus Track B", p: "Low-risk UX tests follow a three-day stability rule. Functional and commercial tests have a fourteen-day minimum to capture day-of-week effects. The track is picked at brief time, not at call time." },
   { h: "Stable signal, not magic dates", p: "A win needs three consecutive days at or above ninety-five percent probability-to-beat-baseline, with primary and secondary metrics in agreement, and minimum order count per arm." },
-  { h: "Descriptive language at handoff", p: "&lsquo;During the test we observed +28 percent CVR uplift with 96 percent confidence&rsquo;, not &lsquo;you got a +28 percent lift&rsquo;. We don&rsquo;t promise replication. We hardcode and watch." },
+  { h: "Descriptive language at handoff", p: "‘During the test we observed +28 percent CVR uplift with 96 percent confidence’, not ‘you got a +28 percent lift’. We don’t promise replication. We hardcode and watch." },
 ];
 
 const platforms = [
@@ -46,13 +46,13 @@ const platforms = [
   { name: "GrowthBook", note: "Open-source, self-hostable. Strong feature flag and stats engine." },
   { name: "Convert", note: "Solid generalist. Good for non-Shopify D2C." },
   { name: "ABTasty", note: "Enterprise license already in place? Fine. Otherwise expensive." },
-  { name: "Optimizely", note: "Works. Capable. Expensive. We don&rsquo;t lead with it." },
+  { name: "Optimizely", note: "Works. Capable. Expensive. We don’t lead with it." },
 ];
 
 const faqs = [
   {
     q: "Do I need a testing tool already installed?",
-    a: "No. Part of the engagement covers tool selection if you don&rsquo;t already have one. We don&rsquo;t take referral fees, so the recommendation is based on your stack and traffic volume, not on what pays us.",
+    a: "No. Part of the engagement covers tool selection if you don’t already have one. We don’t take referral fees, so the recommendation is based on your stack and traffic volume, not on what pays us.",
   },
   {
     q: "How many tests can I expect per month?",
@@ -64,11 +64,11 @@ const faqs = [
   },
   {
     q: "Do you do multivariate testing?",
-    a: "Rarely. Most teams need fewer, sharper tests rather than more arms. Multivariate is the right call when interaction effects matter and you have the traffic to support eight or sixteen variants. Most D2C surfaces don&rsquo;t.",
+    a: "Rarely. Most teams need fewer, sharper tests rather than more arms. Multivariate is the right call when interaction effects matter and you have the traffic to support eight or sixteen variants. Most D2C surfaces don’t.",
   },
   {
     q: "Can you audit our current testing program?",
-    a: "Yes. The first month of every engagement is, in part, exactly that. We look at the tests you&rsquo;ve called, the calling rule you used, and the results that actually replicated post-rollout. Most programs have a hidden false-positive rate above twenty percent.",
+    a: "Yes. The first month of every engagement is, in part, exactly that. We look at the tests you’ve called, the calling rule you used, and the results that actually replicated post-rollout. Most programs have a hidden false-positive rate above twenty percent.",
   },
 ];
 
@@ -158,10 +158,7 @@ export default function ABTestingPage() {
                 <Reveal key={b.h}>
                   <div className="h-full rounded-2xl border border-ink/10 bg-white p-8">
                     <h3 className="text-xl font-semibold text-text">{b.h}</h3>
-                    <p
-                      className="mt-3 text-text-muted"
-                      dangerouslySetInnerHTML={{ __html: b.p }}
-                    />
+                    <p className="mt-3 text-text-muted">{b.p}</p>
                   </div>
                 </Reveal>
               ))}
@@ -185,10 +182,7 @@ export default function ABTestingPage() {
                     </span>
                     <div>
                       <h3 className="text-lg font-semibold text-text">{r.h}</h3>
-                      <p
-                        className="mt-1 text-text-muted"
-                        dangerouslySetInnerHTML={{ __html: r.p }}
-                      />
+                      <p className="mt-1 text-text-muted">{r.p}</p>
                     </div>
                   </li>
                 </Reveal>
@@ -212,10 +206,7 @@ export default function ABTestingPage() {
                 <Reveal key={p.name}>
                   <div className="rounded-2xl border border-ink/10 bg-white p-6">
                     <h3 className="text-lg font-semibold text-text">{p.name}</h3>
-                    <p
-                      className="mt-2 text-sm text-text-muted"
-                      dangerouslySetInnerHTML={{ __html: p.note }}
-                    />
+                    <p className="mt-2 text-sm text-text-muted">{p.note}</p>
                   </div>
                 </Reveal>
               ))}
@@ -235,10 +226,7 @@ export default function ABTestingPage() {
                 <Reveal key={f.q}>
                   <div className="rounded-2xl border border-ink/10 bg-cream p-6">
                     <dt className="text-lg font-semibold text-text">{f.q}</dt>
-                    <dd
-                      className="mt-2 text-text-muted"
-                      dangerouslySetInnerHTML={{ __html: f.a }}
-                    />
+                    <dd className="mt-2 text-text-muted">{f.a}</dd>
                   </div>
                 </Reveal>
               ))}

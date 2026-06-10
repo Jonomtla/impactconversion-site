@@ -29,7 +29,7 @@ export default function Breadcrumbs({ items }: { items: Crumb[] }) {
               {it.href && !last ? (
                 <Link
                   href={it.href}
-                  className="transition-opacity hover:opacity-100"
+                  className="underline-offset-2 transition-opacity hover:underline hover:opacity-100 focus-visible:underline focus-visible:opacity-100"
                 >
                   {it.label}
                 </Link>

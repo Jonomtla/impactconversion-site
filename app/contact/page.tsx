@@ -8,8 +8,10 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CalEmbed from "@/components/CalEmbed";
 
 export const metadata = {
-  title: "Contact",
-  description: "Book a 15-minute intro call to look at your funnel together. No pitch deck, no sales script.",
+  title: "Contact · Book a 15-Minute CRO Intro Call",
+  description:
+    "Book a free 15-minute intro call to look at your funnel together. No pitch deck, no sales script. We tell you straight whether CRO is a fit for your traffic.",
+  alternates: { canonical: "/contact" },
 };
 
 const expect = [
@@ -20,13 +22,13 @@ const expect = [
   },
   {
     n: "02",
-    h: "We show you how we&apos;d approach it",
+    h: "We show you how we’d approach it",
     p: "We walk you through where we would look first, what the early tests would be, and what a 90-day sprint would most likely ship on your funnel.",
   },
   {
     n: "03",
-    h: "We&apos;re straight about fit",
-    p: "If the traffic is not there or the budget is not aligned, we tell you, and if it lines up we send a proposal with the guarantee built in: you see a revenue uplift, or you don&apos;t pay.",
+    h: "We’re straight about fit",
+    p: "If the traffic is not there or the budget is not aligned, we tell you, and if it lines up we send a proposal with the guarantee built in: you see a revenue uplift, or you don’t pay.",
   },
 ];
 
@@ -34,7 +36,7 @@ export default function ContactPage() {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main">
         <section className="relative overflow-hidden bg-ink text-cream pt-40 pb-24 md:pt-52 md:pb-32">
           <div
             className="pointer-events-none absolute inset-0 opacity-50"
@@ -120,14 +122,12 @@ export default function ContactPage() {
                     <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-purple-soft text-xs font-bold text-purple">
                       {e.n}
                     </span>
-                    <h3
-                      className="mt-6 text-xl font-semibold tracking-tight text-text"
-                      dangerouslySetInnerHTML={{ __html: e.h }}
-                    />
-                    <p
-                      className="mt-3 text-text-muted leading-relaxed"
-                      dangerouslySetInnerHTML={{ __html: e.p }}
-                    />
+                    <h3 className="mt-6 text-xl font-semibold tracking-tight text-text">
+                      {e.h}
+                    </h3>
+                    <p className="mt-3 text-text-muted leading-relaxed">
+                      {e.p}
+                    </p>
                   </div>
                 </StaggerItem>
               ))}

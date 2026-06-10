@@ -11,10 +11,21 @@ export default function StickyMobileCTA() {
   const hide = pathname === "/contact" || pathname.startsWith("/terms-of-service");
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 500);
+    const onScroll = () => {
+      const scrolledPast = window.scrollY > 500;
+      // Hide once the footer is close so the bar never covers it.
+      const nearBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 320;
+      setVisible(scrolledPast && !nearBottom);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   if (hide) return null;
@@ -28,11 +39,10 @@ export default function StickyMobileCTA() {
     >
       <a
         href="/contact#book"
-        target="_blank"
-        rel="noopener noreferrer"
+        tabIndex={visible ? 0 : -1}
         data-ga-event="book_call_click"
         data-ga-location="sticky_mobile"
-        className="flex w-full items-center justify-center gap-2 rounded-full bg-purple px-5 py-3 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-purple-2"
+        className="flex w-full items-center justify-center gap-2 rounded-xl bg-purple px-5 py-3 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-purple-2"
       >
         Book a 15-min intro call
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none">

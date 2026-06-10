@@ -14,6 +14,7 @@ export const metadata = {
   title: "CRO Case Studies",
   description:
     "Real testing programs and real revenue moved, with six-figure single wins and compounding programs behind every engagement.",
+  alternates: { canonical: "/case-studies" },
 };
 
 export default function CaseStudiesPage() {
@@ -23,7 +24,7 @@ export default function CaseStudiesPage() {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main">
         {/* Hero */}
         <section className="relative overflow-hidden bg-ink text-cream pt-40 pb-24 md:pt-52 md:pb-28">
           <WavyLines />
@@ -73,14 +74,12 @@ export default function CaseStudiesPage() {
                     <p className="text-sm font-semibold uppercase tracking-wider text-purple">
                       {featured.industry} · {featured.duration}
                     </p>
-                    <h2
-                      className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-5xl"
-                      dangerouslySetInnerHTML={{ __html: featured.headline }}
-                    />
-                    <p
-                      className="mt-6 text-lg text-text-muted"
-                      dangerouslySetInnerHTML={{ __html: featured.summary }}
-                    />
+                    <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-text md:text-5xl">
+                      {featured.headline}
+                    </h2>
+                    <p className="mt-6 text-lg text-text-muted">
+                      {featured.summary}
+                    </p>
                     <div className="mt-8 grid grid-cols-2 gap-3">
                       {featured.heroStats.slice(0, 4).map((s) => (
                         <div
@@ -117,6 +116,7 @@ export default function CaseStudiesPage() {
                           alt={featured.heroImageAlt ?? `${featured.name} site`}
                           width={1600}
                           height={1000}
+                          sizes="(min-width: 1024px) 50vw, 100vw"
                           className="h-auto w-full rounded-xl"
                           priority
                         />
@@ -159,6 +159,7 @@ export default function CaseStudiesPage() {
                           alt={c.heroImageAlt ?? `${c.name} site`}
                           width={800}
                           height={500}
+                          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                           className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
                         />
                       </div>

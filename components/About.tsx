@@ -19,7 +19,7 @@ export default function About() {
               <div className="rounded-2xl bg-white border border-ink/10 p-6">
                 <p className="text-xs uppercase tracking-wider text-text-muted">Working with brands in</p>
                 <p className="mt-2 text-2xl font-semibold text-text">US, AU, EU, APAC</p>
-                <p className="mt-1 text-sm text-text-muted">Timezone is not a blocker.</p>
+                <p className="mt-1 text-sm text-text-muted">Timezone never gets in the way.</p>
               </div>
             </div>
             <div className="mt-4 rounded-2xl bg-white border border-ink/10 p-6">

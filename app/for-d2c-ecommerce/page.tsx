@@ -10,18 +10,18 @@ import GuaranteeBlock from "@/components/GuaranteeBlock";
 export const metadata = {
   title: "CRO for D2C Brands",
   description:
-    "Conversion rate optimisation for D2C brands on Shopify. Research-led experimentation that turns the traffic you&rsquo;re already paying for into revenue.",
+    "Conversion rate optimisation for D2C brands on Shopify. Research-led experimentation that turns the traffic you're already paying for into revenue.",
   alternates: { canonical: "/for-d2c-ecommerce" },
 };
 
 const pains = [
   {
     h: "Paid CAC is up, margin is down",
-    p: "Meta and Google keep asking for more to deliver the same result. The only lever that compounds in the other direction is site conversion, and most Shopify stores leave real revenue on the table in the surfaces nobody is actively testing.",
+    p: "Meta and Google keep asking for more to deliver the same result. The only lever that compounds in the other direction is site conversion, and on HPA the surfaces nobody was testing turned out to be worth seven figures.",
   },
   {
     h: "Every site change is a guess",
-    p: "Your team ships redesigns, copy tweaks, and new sections based on taste and opinion, and nobody knows which ones helped, hurt, or drifted. Revenue per visitor tells the truth. Most teams aren&rsquo;t measuring it.",
+    p: "Your team ships redesigns, copy tweaks, and new sections based on taste and opinion, and nobody knows which ones helped, hurt, or drifted. Revenue per visitor tells the truth. Most teams aren’t measuring it.",
   },
   {
     h: "The backlog is full, the calendar is empty",
@@ -30,9 +30,9 @@ const pains = [
 ];
 
 const surfaces = [
-  { h: "PDP above the fold", p: "The PDP is the highest-leverage surface on most sites. Three things tend to move the number: a headline that names the outcome, the top two objections handled in line, and genuine in-use imagery." },
+  { h: "PDP above the fold", p: "The PDP is the highest-leverage surface on most sites. Three things move it: a headline that names the outcome, the top two objections handled in line, and genuine in-use imagery." },
   { h: "Checkout and post-purchase", p: "Shopify checkout has more room to move than most teams realise. Post-purchase upsells, shipping-threshold nudges, and extra trust density at payment usually unlock AOV worth caring about." },
-  { h: "Collection pages for paid traffic", p: "If you run paid traffic to a collection, it&rsquo;s a landing page. Treat it like one: restate the promise, prime the category, and put proof above the product grid." },
+  { h: "Collection pages for paid traffic", p: "If you run paid traffic to a collection, it’s a landing page. Treat it like one: restate the promise, prime the category, and put proof above the product grid." },
   { h: "Homepage hero for returning traffic", p: "Problem-led heroes beat brand-voice heroes when the visitor is already comparing options, which describes most of your repeat traffic." },
   { h: "Cart drawer cross-sells", p: "Bundle apps get installed once and forgotten. Recommendation logic tuned to the actual basket lifts AOV, but only when you test which logic actually fires." },
 ];
@@ -116,10 +116,7 @@ export default function ForD2CPage() {
                     </span>
                     <div>
                       <h3 className="text-lg font-semibold text-text">{s.h}</h3>
-                      <p
-                        className="mt-1 text-text-muted"
-                        dangerouslySetInnerHTML={{ __html: s.p }}
-                      />
+                      <p className="mt-1 text-text-muted">{s.p}</p>
                     </div>
                   </li>
                 </Reveal>

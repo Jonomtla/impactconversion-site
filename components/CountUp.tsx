@@ -31,6 +31,11 @@ export default function CountUp({
         entries.forEach((e) => {
           if (e.isIntersecting && !started.current) {
             started.current = true;
+            // Respect reduced motion: jump straight to the final value.
+            if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+              setValue(to);
+              return;
+            }
             const start = performance.now();
             const step = (now: number) => {
               const t = Math.min(1, (now - start) / duration);

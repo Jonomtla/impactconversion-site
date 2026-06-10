@@ -1,15 +1,17 @@
+import Link from "next/link";
+
 export default function CTA() {
   return (
     <section id="book" className="relative overflow-hidden bg-ink text-cream py-24 md:py-32">
       <div className="relative mx-auto max-w-4xl px-6 text-center">
         <h2 className="text-balance text-4xl font-semibold tracking-tight md:text-6xl">
           Let&apos;s move your{" "}
-          <span className="text-gradient-glow">numbers.</span>
+          <span className="text-gradient-glow">revenue.</span>
         </h2>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-text-inv-muted">
-          Let&apos;s grab fifteen minutes to look at your funnel together, and
-          we&apos;ll tell you straight whether we are a fit, with no slide
-          deck or sales script in the way.
+          Fifteen minutes on your funnel together, and we&apos;ll tell you
+          straight whether we are a fit, with no slide deck or sales script
+          in the way.
         </p>
 
         {/* Risk reversal pills */}
@@ -34,7 +36,7 @@ export default function CTA() {
           </span>
         </div>
 
-        <a
+        <Link
           href="/contact#book"
           data-ga-event="book_call_click"
           data-ga-location="homepage_cta"
@@ -44,7 +46,7 @@ export default function CTA() {
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
             <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </a>
+        </Link>
         <p className="mt-6 text-sm text-text-inv-muted">
           Prefer email?{" "}
           <a href="mailto:jono@impactconversion.com" className="text-cream underline underline-offset-4">

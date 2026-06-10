@@ -17,7 +17,7 @@ export const metadata = {
 const outputs = [
   {
     h: "A ranked friction list in your customers' words",
-    p: "Not &lsquo;users seem confused at checkout&rsquo;. The exact sentence three of them wrote in the survey. Surveys, session recordings, funnel analysis, review mining, customer interviews. The output is a research artefact, not a slide deck.",
+    p: "Not ‘users seem confused at checkout’. The exact sentence three of them wrote in the survey. Surveys, session recordings, funnel analysis, review mining, customer interviews. The output is a research artefact, not a slide deck.",
   },
   {
     h: "A live testing pipeline that ships every fortnight",
@@ -29,27 +29,27 @@ const outputs = [
   },
   {
     h: "A learnings library that compounds",
-    p: "Every test, win or loss, generates a one-paragraph insight. After twelve months you have a research asset, not a list of variations. Next quarter&rsquo;s hypotheses come from this quarter&rsquo;s data.",
+    p: "Every test, win or loss, generates a one-paragraph insight. After twelve months you have a research asset, not a list of variations. Next quarter’s hypotheses come from this quarter’s data.",
   },
   {
     h: "Revenue moved",
-    p: "The only number we keep score on. Reported in your currency, in your P&amp;L, with the test code hardcoded into your theme or platform on the way through.",
+    p: "The only number we keep score on. Reported in your currency, in your P&L, with the test code hardcoded into your theme or platform on the way through.",
   },
 ];
 
 const surfaces = [
   { h: "PDP above the fold", p: "Headline that names the outcome, top two objections handled in line, in-use imagery. Most PDPs do one of these well. Almost none do all three." },
   { h: "Checkout", p: "Trust density at payment, shipping-threshold mechanics, post-purchase upsells. Shopify checkout has more headroom than most teams think, and Checkout Extensibility unlocks tests that were impossible eighteen months ago." },
-  { h: "Webinar and launch funnels", p: "For online education brands: opt-in headline, urgency mechanics that don&rsquo;t feel cheap, attendance-to-sale conversion in the replay window. The funnel between registration and purchase is where most of the revenue actually moves." },
-  { h: "Collection and category pages for paid traffic", p: "If you run ads to a collection, it&rsquo;s a landing page. Most teams treat it like a filing cabinet. Restate the promise, prime the category, put proof above the grid." },
+  { h: "Webinar and launch funnels", p: "For online education brands: opt-in headline, urgency mechanics that don’t feel cheap, attendance-to-sale conversion in the replay window. The funnel between registration and purchase is where most of the revenue actually moves." },
+  { h: "Collection and category pages for paid traffic", p: "If you run ads to a collection, it’s a landing page. Most teams treat it like a filing cabinet. Restate the promise, prime the category, put proof above the grid." },
   { h: "The free trial or onboarding flow", p: "For subscription and education brands: the first three sessions after signup decide whether the customer ever pays again. Most teams optimise the signup form and ignore everything after it." },
 ];
 
 const loop = [
-  { h: "Research", p: "Weeks one to four. Surveys, session recordings, funnel analysis, review mining, customer interviews. Output is a ranked friction list in the customer&rsquo;s voice, not ours." },
+  { h: "Research", p: "Weeks one to four. Surveys, session recordings, funnel analysis, review mining, customer interviews. Output is a ranked friction list in the customer’s voice, not ours." },
   { h: "Prioritise", p: "ICE-L scoring. We wrote about why ICE alone breaks. Top two or three tests scheduled with the primary metric locked in the brief." },
   { h: "Test", p: "Two to four experiments per month. Code we write, code your team reviews, code that ships when both sides sign off. We deploy through your existing testing tool." },
-  { h: "Compound", p: "Every test feeds the learnings library. We don&rsquo;t ship redesigns. We don&rsquo;t sell hours. The wins stack, the losses rule out hypotheses cheaply, and the program gets sharper every quarter." },
+  { h: "Compound", p: "Every test feeds the learnings library. We don’t ship redesigns. We don’t sell hours. The wins stack, the losses rule out hypotheses cheaply, and the program gets sharper every quarter." },
 ];
 
 const faqs = [
@@ -194,10 +194,7 @@ export default function CROServicePage() {
                     </span>
                     <div>
                       <h3 className="text-lg font-semibold text-text">{o.h}</h3>
-                      <p
-                        className="mt-1 text-text-muted"
-                        dangerouslySetInnerHTML={{ __html: o.p }}
-                      />
+                      <p className="mt-1 text-text-muted">{o.p}</p>
                     </div>
                   </li>
                 </Reveal>
@@ -222,10 +219,7 @@ export default function CROServicePage() {
                     </span>
                     <div>
                       <h3 className="text-lg font-semibold text-text">{s.h}</h3>
-                      <p
-                        className="mt-1 text-text-muted"
-                        dangerouslySetInnerHTML={{ __html: s.p }}
-                      />
+                      <p className="mt-1 text-text-muted">{s.p}</p>
                     </div>
                   </li>
                 </Reveal>
@@ -247,10 +241,7 @@ export default function CROServicePage() {
                   <div className="rounded-2xl border border-ink/10 bg-cream p-6">
                     <p className="text-sm font-bold uppercase tracking-[0.18em] text-purple">Step {i + 1}</p>
                     <h3 className="mt-2 text-xl font-semibold text-text">{l.h}</h3>
-                    <p
-                      className="mt-2 text-text-muted"
-                      dangerouslySetInnerHTML={{ __html: l.p }}
-                    />
+                    <p className="mt-2 text-text-muted">{l.p}</p>
                   </div>
                 </Reveal>
               ))}
@@ -300,10 +291,7 @@ export default function CROServicePage() {
                 <Reveal key={f.q}>
                   <div className="rounded-2xl border border-ink/10 bg-cream p-6">
                     <dt className="text-lg font-semibold text-text">{f.q}</dt>
-                    <dd
-                      className="mt-2 text-text-muted"
-                      dangerouslySetInnerHTML={{ __html: f.a }}
-                    />
+                    <dd className="mt-2 text-text-muted">{f.a}</dd>
                   </div>
                 </Reveal>
               ))}

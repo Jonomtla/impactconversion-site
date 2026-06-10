@@ -7,7 +7,7 @@ import TiltCard from "./motion/TiltCard";
 
 const pillars = [
   {
-    h: "You&apos;re leaking money right now",
+    h: "You’re leaking money right now",
     p: "Every click you buy is a deposit, and on most sites 97 out of 100 visitors walk away without spending a dollar. We find the holes in your funnel and close them, so more of the traffic you already paid for actually converts.",
     stat: "97 of 100",
     statLabel: "visitors leave without buying",
@@ -16,13 +16,13 @@ const pillars = [
   {
     h: "Conversion wins compound",
     p: "When you lift the conversion rate once, every downstream metric moves with it and keeps paying on the same ad budget. Winners stay live forever, so the revenue compounds month after month instead of resetting.",
-    stat: "Same budget",
-    statLabel: "30 to 60% more revenue",
+    stat: "$1M+",
+    statLabel: "added on the same ad spend",
     Visual: VirtuousLoop,
   },
   {
     h: "Guessing is expensive",
-    p: "Most agencies sell taste or templates, but we sell proof. Every change runs as a controlled experiment, so you see the result in your P&amp;L rather than in a Figma file.",
+    p: "Most agencies sell taste or templates, but we sell proof. Every change runs as a controlled experiment, so you see the result in your P&L rather than in a Figma file.",
     stat: "95% confidence",
     statLabel: "on metrics locked at launch",
     Visual: ABTestBars,
@@ -41,8 +41,8 @@ export default function Problem() {
             <span className="text-gradient-flow">conversion problem.</span>
           </h2>
           <p className="mt-6 text-lg text-text-muted">
-            Buying more cold traffic is the expensive answer, while converting
-            the traffic you already have is the cheap one, and it keeps paying
+            Buying more cold traffic is the expensive answer. Converting the
+            traffic you already have is the cheap one, and it keeps paying
             month after month.
           </p>
         </Reveal>
@@ -56,14 +56,12 @@ export default function Problem() {
                   <div className="-mx-2 mb-2">
                     <V />
                   </div>
-                  <h3
-                    className="mt-4 text-2xl font-semibold tracking-tight text-text md:text-[26px]"
-                    dangerouslySetInnerHTML={{ __html: p.h }}
-                  />
-                  <p
-                    className="mt-4 flex-1 text-text-muted leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: p.p }}
-                  />
+                  <h3 className="mt-4 text-2xl font-semibold tracking-tight text-text md:text-[26px]">
+                    {p.h}
+                  </h3>
+                  <p className="mt-4 flex-1 text-text-muted leading-relaxed">
+                    {p.p}
+                  </p>
                   <div className="mt-6 flex items-baseline gap-3 border-t border-ink/10 pt-5">
                     <span className="text-lg font-bold text-purple">
                       {p.stat}

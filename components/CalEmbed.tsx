@@ -8,15 +8,21 @@ import { analytics } from "@/lib/analytics";
 // calls show up as conversions rather than disappearing into the iframe.
 export default function CalEmbed() {
   useEffect(() => {
+    const callback = () => {
+      analytics.callBooked("contact_embed");
+    };
+    let cancelled = false;
     (async () => {
       const cal = await getCalApi();
-      cal("on", {
-        action: "bookingSuccessful",
-        callback: () => {
-          analytics.callBooked("contact_embed");
-        },
-      });
+      if (cancelled) return;
+      cal("on", { action: "bookingSuccessful", callback });
     })();
+    return () => {
+      cancelled = true;
+      getCalApi().then((cal) =>
+        cal("off", { action: "bookingSuccessful", callback })
+      );
+    };
   }, []);
 
   return (

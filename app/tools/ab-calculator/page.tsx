@@ -8,7 +8,7 @@ import ABCalculator from "@/components/tools/ab-calculator/Calculator";
 export const metadata = {
   title: { absolute: "A/B Test Significance & Duration Calculator · Impact Conversion" },
   description:
-    "Free A/B test calculator: check statistical significance and confidence, work out the sample size you need, and see how many more days your test must run. Pre-test go/no-go plus live conversion rate and revenue per visitor analysis.",
+    "Free A/B test calculator: check statistical significance, work out required sample size, and see how many more days your test must run. Built by a CRO agency.",
   alternates: { canonical: "/tools/ab-calculator" },
   keywords: [
     "a/b test calculator",

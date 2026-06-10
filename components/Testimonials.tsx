@@ -15,7 +15,7 @@ type T = {
 const testimonials: T[] = [
   {
     quote:
-      "We&rsquo;ve seen single wins that brought in six figures of additional revenue. The ROI is a no-brainer. Beyond the numbers, the testing process has instilled a culture of experimentation that&rsquo;s removed assumptions from how we make decisions.",
+      "We’ve seen single wins that brought in six figures of additional revenue. The ROI is a no-brainer. Beyond the numbers, the testing process has instilled a culture of experimentation that’s removed assumptions from how we make decisions.",
     name: "Ben Silcock",
     role: "Co-founder, High Performance Academy",
     initials: "BS",
@@ -38,7 +38,7 @@ const testimonials: T[] = [
   },
   {
     quote:
-      "Impact have been fantastic to work with. They&rsquo;ve provided actionable advice and the changes have made a real difference.",
+      "Impact have been fantastic to work with. They’ve provided actionable advice and the changes have made a real difference.",
     name: "Matthew Morrison",
     role: "Co-founder, Kite Therapy",
     photo: "/assets/avatar-matt.png",
@@ -87,10 +87,9 @@ export default function Testimonials() {
                     fill="currentColor"
                   />
                 </svg>
-                <blockquote
-                  className="mt-6 text-lg leading-relaxed text-text"
-                  dangerouslySetInnerHTML={{ __html: t.quote }}
-                />
+                <blockquote className="mt-6 text-lg leading-relaxed text-text">
+                  {t.quote}
+                </blockquote>
                 <div className="mt-8">
                   <div className="flex flex-wrap gap-6 border-t border-ink/10 pt-6">
                     {t.stats.map((s) => (

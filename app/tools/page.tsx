@@ -75,10 +75,7 @@ export default function ToolsPage() {
                     <h2 className="mt-3 text-2xl font-semibold text-text">
                       {t.title}
                     </h2>
-                    <p
-                      className="mt-3 text-text-muted"
-                      dangerouslySetInnerHTML={{ __html: t.blurb }}
-                    />
+                    <p className="mt-3 text-text-muted">{t.blurb}</p>
                     <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-purple group-hover:gap-3 transition-all">
                       Open calculator
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none">

@@ -18,22 +18,22 @@ const surfaces = [
   { h: "PDP above the fold", p: "Headline that names the outcome, top two objections in line, real in-use imagery. Most PDPs nail one. Few nail three. The lift here typically compounds across every paid traffic source you run." },
   { h: "Checkout", p: "Trust density at payment, shipping-threshold mechanics, address-to-shipping speed. Shopify Checkout Extensibility unlocks tests that were impossible eighteen months ago. The checkout is the funnel step where small lifts move the most revenue." },
   { h: "Post-purchase upsells", p: "The thank-you page is the highest-converting surface in the funnel and almost nobody tests it. For one client a single post-purchase offer hit a twenty-six percent take rate inside the first quarter." },
-  { h: "Collection pages used for paid traffic", p: "If you&rsquo;re paying Meta to send people to a collection, it&rsquo;s a landing page. Treat it like one. Restate the promise, prime the category, put proof above the grid." },
+  { h: "Collection pages used for paid traffic", p: "If you’re paying Meta to send people to a collection, it’s a landing page. Treat it like one. Restate the promise, prime the category, put proof above the grid." },
   { h: "Cart drawer cross-sells", p: "Recommendation logic that fires on basket composition lifts AOV in a way bundle-app defaults never will. The test is which logic, not whether to test." },
 ];
 
 const mistakes = [
   {
     h: "Editing the live theme and calling it a test",
-    p: "Save the theme, ship to everyone. That&rsquo;s not a test, that&rsquo;s a rollout. The variation needs to live behind a flag, the audience needs to be split properly, and the result needs to be measured against a clean control.",
+    p: "Save the theme, ship to everyone. That’s not a test, that’s a rollout. The variation needs to live behind a flag, the audience needs to be split properly, and the result needs to be measured against a clean control.",
   },
   {
-    h: "Stacking app overlays that don&rsquo;t talk to each other",
+    h: "Stacking app overlays that don’t talk to each other",
     p: "Three review apps, two upsell apps, an exit-intent modal, a wheel-spin. Each one added in isolation. Together they slow the site, double-fire on the same visitor, and tank conversion on mobile.",
   },
   {
     h: "Believing the Shopify Reports dashboard",
-    p: "Directional, not statistical. A twelve percent lift in conversion rate week-over-week could be a real test win or it could be Tuesday versus Thursday. The dashboard won&rsquo;t tell you which.",
+    p: "Directional, not statistical. A twelve percent lift in conversion rate week-over-week could be a real test win or it could be Tuesday versus Thursday. The dashboard won’t tell you which.",
   },
 ];
 
@@ -48,11 +48,11 @@ const loop = [
 const faqs = [
   {
     q: "Which Shopify testing tool do you recommend?",
-    a: "Intelligems if you want server-side rendering and tight Shopify integration. GrowthBook if budget is the constraint and you want to self-host. ABTasty or Convert if you already have a global enterprise license. We don&rsquo;t take referral fees from any of them.",
+    a: "Intelligems if you want server-side rendering and tight Shopify integration. GrowthBook if budget is the constraint and you want to self-host. ABTasty or Convert if you already have a global enterprise license. We don’t take referral fees from any of them.",
   },
   {
     q: "Will testing slow my site down?",
-    a: "Done badly, yes. Most flicker comes from client-side test scripts running before the page renders. Server-side rendering and properly placed anti-flicker snippets remove it. We won&rsquo;t ship a test that adds more than fifty milliseconds to LCP on mobile.",
+    a: "Done badly, yes. Most flicker comes from client-side test scripts running before the page renders. Server-side rendering and properly placed anti-flicker snippets remove it. We won’t ship a test that adds more than fifty milliseconds to LCP on mobile.",
   },
   {
     q: "Do you only work with Shopify Plus?",
@@ -184,10 +184,7 @@ export default function ShopifyCROPage() {
                     </span>
                     <div>
                       <h3 className="text-lg font-semibold text-text">{s.h}</h3>
-                      <p
-                        className="mt-1 text-text-muted"
-                        dangerouslySetInnerHTML={{ __html: s.p }}
-                      />
+                      <p className="mt-1 text-text-muted">{s.p}</p>
                     </div>
                   </li>
                 </Reveal>
@@ -218,14 +215,8 @@ export default function ShopifyCROPage() {
               {mistakes.map((m) => (
                 <Reveal key={m.h}>
                   <div className="h-full rounded-2xl border border-ink/10 bg-white p-8">
-                    <h3
-                      className="text-xl font-semibold text-text"
-                      dangerouslySetInnerHTML={{ __html: m.h }}
-                    />
-                    <p
-                      className="mt-3 text-text-muted"
-                      dangerouslySetInnerHTML={{ __html: m.p }}
-                    />
+                    <h3 className="text-xl font-semibold text-text">{m.h}</h3>
+                    <p className="mt-3 text-text-muted">{m.p}</p>
                   </div>
                 </Reveal>
               ))}
@@ -294,10 +285,7 @@ export default function ShopifyCROPage() {
                 <Reveal key={f.q}>
                   <div className="rounded-2xl border border-ink/10 bg-cream p-6">
                     <dt className="text-lg font-semibold text-text">{f.q}</dt>
-                    <dd
-                      className="mt-2 text-text-muted"
-                      dangerouslySetInnerHTML={{ __html: f.a }}
-                    />
+                    <dd className="mt-2 text-text-muted">{f.a}</dd>
                   </div>
                 </Reveal>
               ))}

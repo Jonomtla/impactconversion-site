@@ -8,24 +8,24 @@ import CTA from "@/components/CTA";
 import GuaranteeBlock from "@/components/GuaranteeBlock";
 
 export const metadata = {
-  title: "CRO Agency NZ · Conversion Rate Optimisation New Zealand",
+  title: { absolute: "CRO Agency NZ · Conversion Rate Optimisation New Zealand" },
   description:
-    "A New Zealand CRO agency for D2C brands. Research-led testing program, NZD pricing, local timezone, sized for the traffic NZ stores actually run. Based in Queenstown.",
+    "A New Zealand CRO agency for D2C brands, run from Queenstown. Research-led testing program, NZD pricing, local timezone, sized for the traffic NZ stores actually run.",
   alternates: { canonical: "/cro-agency-nz" },
 };
 
 const problems = [
   {
-    h: "Testing that doesn&rsquo;t move revenue",
-    p: "You&rsquo;re running tests, but the wins never add up to anything you can see in the P&amp;L. Most of them turn out to be guesses dressed up as experiments.",
+    h: "Testing that doesn’t move revenue",
+    p: "You’re running tests, but the wins never add up to anything you can see in the P&L. Most of them turn out to be guesses dressed up as experiments.",
   },
   {
     h: "A generic checklist instead of your store",
     p: "Plenty of agencies arrive with the same twenty changes they make for everyone. Add a sticky bar, swap a button colour, call it optimisation. None of it is grounded in how your buyers actually behave.",
   },
   {
-    h: "Offshore agencies that don&rsquo;t fit NZ",
-    p: "Results come back in your evening, you can&rsquo;t get on a call without staying up late, and a program built for a $100M US brand quietly assumes traffic your store doesn&rsquo;t have.",
+    h: "Offshore agencies that don’t fit NZ",
+    p: "Results come back in your evening, you can’t get on a call without staying up late, and a program built for a $100M US brand quietly assumes traffic your store doesn’t have.",
   },
 ];
 
@@ -44,14 +44,14 @@ const steps = [
   },
   {
     h: "Ship only what holds up",
-    p: "When a result won&rsquo;t survive the real world, we say so and move on. What ships is what we can still stand behind a month later.",
+    p: "When a result won’t survive the real world, we say so and move on. What ships is what we can still stand behind a month later.",
   },
 ];
 
 const fit = [
   {
     h: "Local timezone, local accountability",
-    p: "We&rsquo;re NZ-based, so you&rsquo;re not waiting until your evening for results or staying up late for a call. When a test needs a same-day decision, you get an answer the same day.",
+    p: "We’re NZ-based, so you’re not waiting until your evening for results or staying up late for a call. When a test needs a same-day decision, you get an answer the same day.",
   },
   {
     h: "NZD pricing, no FX surprises",
@@ -59,14 +59,14 @@ const fit = [
   },
   {
     h: "Sized for the traffic you actually run",
-    p: "NZ traffic is smaller than the US or AU, and that changes which tests are worth running and how long they need. We size every test up front, and if a surface can&rsquo;t detect a lift you&rsquo;d care about, we don&rsquo;t run it.",
+    p: "NZ traffic is smaller than the US or AU, and that changes which tests are worth running and how long they need. We size every test up front, and if a surface can’t detect a lift you’d care about, we don’t run it.",
   },
 ];
 
 const faqs = [
   {
     q: "Where are you based?",
-    a: "Queenstown, NZ. We work with clients across the country, plus AU and offshore. Local clients sometimes prefer in-person workshops, which we&rsquo;re happy to run quarterly.",
+    a: "Queenstown, NZ. We work with clients across the country, plus AU and offshore. Local clients sometimes prefer in-person workshops, which we’re happy to run quarterly.",
   },
   {
     q: "Do you only work with New Zealand brands?",
@@ -74,15 +74,15 @@ const faqs = [
   },
   {
     q: "What size brand do you work with?",
-    a: "revenue for NZ-based clients, and a little higher for larger markets. Under $1M, the traffic-volume math doesn&rsquo;t support a real testing program yet, so we&rsquo;d tell you to put that budget into traffic until it does.",
+    a: "As a rough floor, around $1M in annual revenue for NZ-based brands, and a little higher in larger markets. Under that, the traffic-volume math doesn’t support a real testing program yet, so we’d tell you to put that budget into traffic until it does.",
   },
   {
     q: "Will the small NZ market hold the program back?",
-    a: "Sometimes, on individual surfaces, and we handle it two ways. First, pre-test power analysis: if a surface can&rsquo;t detect a lift you&rsquo;d care about inside a reasonable window, we don&rsquo;t run that test. Second, longer windows on borderline surfaces, paired with stricter calling rules. Most NZ brands have enough traffic to run a sensible program, and we don&rsquo;t pretend otherwise when they don&rsquo;t.",
+    a: "Sometimes, on individual surfaces, and we handle it two ways. First, pre-test power analysis: if a surface can’t detect a lift you’d care about inside a reasonable window, we don’t run that test. Second, longer windows on borderline surfaces, paired with stricter calling rules. Most NZ brands have enough traffic to run a sensible program, and we don’t pretend otherwise when they don’t.",
   },
   {
     q: "Do you work with my testing tool?",
-    a: "Probably. We&rsquo;ve shipped tests through Intelligems, GrowthBook, Convert, ABTasty, and a few smaller platforms. If you don&rsquo;t have a tool installed yet, we&rsquo;ll help you pick one without taking a referral fee.",
+    a: "Probably. We’ve shipped tests through Intelligems, GrowthBook, Convert, ABTasty, and a few smaller platforms. If you don’t have a tool installed yet, we’ll help you pick one without taking a referral fee.",
   },
   {
     q: "Will you work with our existing dev team?",
@@ -147,7 +147,7 @@ export default function CROAgencyNZPage() {
                 A New Zealand CRO agency for D2C brands.
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
-                Conversion rate optimisation for New Zealand Shopify brands. Based in Queenstown. Every test starts with research into how your buyers actually shop, runs with the rigour your CFO can sign off, and is sized for the traffic NZ stores actually run.
+                Conversion rate optimisation for New Zealand Shopify brands, run from Queenstown. Every test starts with research into how your buyers really shop, runs with the rigour your CFO can sign off, and is sized for the traffic NZ stores actually run.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
@@ -193,14 +193,8 @@ export default function CROAgencyNZPage() {
               {problems.map((c) => (
                 <Reveal key={c.h}>
                   <div className="h-full rounded-2xl border border-ink/10 bg-white p-8">
-                    <h3
-                      className="text-xl font-semibold text-text"
-                      dangerouslySetInnerHTML={{ __html: c.h }}
-                    />
-                    <p
-                      className="mt-3 text-text-muted"
-                      dangerouslySetInnerHTML={{ __html: c.p }}
-                    />
+                    <h3 className="text-xl font-semibold text-text">{c.h}</h3>
+                    <p className="mt-3 text-text-muted">{c.p}</p>
                   </div>
                 </Reveal>
               ))}
@@ -234,14 +228,8 @@ export default function CROAgencyNZPage() {
                       {i + 1}
                     </span>
                     <div>
-                      <h3
-                        className="text-lg font-semibold text-cream"
-                        dangerouslySetInnerHTML={{ __html: s.h }}
-                      />
-                      <p
-                        className="mt-1 text-text-inv-muted"
-                        dangerouslySetInnerHTML={{ __html: s.p }}
-                      />
+                      <h3 className="text-lg font-semibold text-cream">{s.h}</h3>
+                      <p className="mt-1 text-text-inv-muted">{s.p}</p>
                     </div>
                   </li>
                 </Reveal>
@@ -302,10 +290,7 @@ export default function CROAgencyNZPage() {
                 <Reveal key={c.h}>
                   <div className="h-full rounded-2xl border border-ink/10 bg-cream p-8">
                     <h3 className="text-xl font-semibold text-text">{c.h}</h3>
-                    <p
-                      className="mt-3 text-text-muted"
-                      dangerouslySetInnerHTML={{ __html: c.p }}
-                    />
+                    <p className="mt-3 text-text-muted">{c.p}</p>
                   </div>
                 </Reveal>
               ))}
@@ -326,10 +311,7 @@ export default function CROAgencyNZPage() {
                 <Reveal key={f.q}>
                   <div className="rounded-2xl border border-ink/10 bg-white p-6">
                     <dt className="text-lg font-semibold text-text">{f.q}</dt>
-                    <dd
-                      className="mt-2 text-text-muted"
-                      dangerouslySetInnerHTML={{ __html: f.a }}
-                    />
+                    <dd className="mt-2 text-text-muted">{f.a}</dd>
                   </div>
                 </Reveal>
               ))}

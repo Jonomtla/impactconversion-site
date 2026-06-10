@@ -25,7 +25,7 @@ const pains = [
   },
   {
     h: "Evergreen funnels drift and nobody notices",
-    p: "Evergreen funnels decay. Markets shift, audiences shift, and without continuous research and testing you end up serving last year&rsquo;s message to this year&rsquo;s audience.",
+    p: "Evergreen funnels decay. Markets shift, audiences shift, and without continuous research and testing you end up serving last year’s message to this year’s audience.",
   },
 ];
 
@@ -33,7 +33,7 @@ const surfaces = [
   { h: "Webinar registration to show-up", p: "The biggest gap in the whole funnel usually hides here: the confirmation page, the email sequence, the SMS reminders, the pre-webinar engagement assets. Few teams test any of them." },
   { h: "The replay page", p: "This is where the money gets made. Proof density, urgency mechanics, offer-stack clarity, checkout friction: every one of them deserves testing." },
   { h: "Sales page above the fold", p: "Outcome-led headlines beat feature-led headlines by a wide margin for most online education brands. The headline has to do the work." },
-  { h: "Checkout and order bumps", p: "A one-page checkout with the right order bump moves real AOV. On HPA, our checkout upsell hit a 26 percent take rate. Most programs aren&rsquo;t testing this surface at all." },
+  { h: "Checkout and order bumps", p: "A one-page checkout with the right order bump moves real AOV. On HPA, our checkout upsell hit a 26 percent take rate. Most programs aren’t testing this surface at all." },
   { h: "Post-purchase upsell sequence", p: "The five-minute window after purchase is the highest-converting surface you own. Most brands leave it under-optimised." },
 ];
 
@@ -70,7 +70,7 @@ export default function ForOnlineEducationPage() {
                   Book a 15-min intro call
                 </Link>
                 <Link
-                  href="/case-studies/hpa"
+                  href="/case-studies/high-performance-academy"
                   className="inline-flex items-center gap-2 rounded-xl border border-cream/30 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:border-cream"
                 >
                   See the HPA case study
@@ -91,10 +91,7 @@ export default function ForOnlineEducationPage() {
               {pains.map((p) => (
                 <Reveal key={p.h}>
                   <div className="h-full rounded-2xl border border-ink/10 bg-white p-8">
-                    <h3
-                      className="text-xl font-semibold text-text"
-                      dangerouslySetInnerHTML={{ __html: p.h }}
-                    />
+                    <h3 className="text-xl font-semibold text-text">{p.h}</h3>
                     <p className="mt-3 text-text-muted">{p.p}</p>
                   </div>
                 </Reveal>
@@ -143,7 +140,7 @@ export default function ForOnlineEducationPage() {
               </p>
               <div className="mt-8">
                 <Link
-                  href="/case-studies/hpa"
+                  href="/case-studies/high-performance-academy"
                   className="inline-flex items-center gap-2 text-sm font-semibold text-purple hover:gap-3 transition-all"
                 >
                   Read the HPA case study

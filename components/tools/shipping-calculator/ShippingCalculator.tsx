@@ -129,7 +129,7 @@ function SliderInput({
           min={min}
           max={max}
           step={step}
-          value={Math.min(value, max)}
+          value={Math.max(min, Math.min(value, max))}
           onChange={(e) => onChange(parseFloat(e.target.value))}
           className="flex-1"
         />
@@ -151,11 +151,11 @@ function SliderInput({
 function VerdictBadge({ breakEvenPct }: { breakEvenPct: number }) {
   let color: string, bg: string, border: string, text: string, dot: string;
   if (breakEvenPct <= 3) {
-    color = 'text-[#72ab7f]'; bg = 'bg-[#72ab7f]/10'; border = 'border-[#72ab7f]/30'; text = 'Easy — low lift needed'; dot = 'bg-[#72ab7f]';
+    color = 'text-[#72ab7f]'; bg = 'bg-[#72ab7f]/10'; border = 'border-[#72ab7f]/30'; text = 'Easy: low lift needed'; dot = 'bg-[#72ab7f]';
   } else if (breakEvenPct <= 8) {
-    color = 'text-[#d4a84b]'; bg = 'bg-[#d4a84b]/10'; border = 'border-[#d4a84b]/30'; text = 'Moderate — achievable with good execution'; dot = 'bg-[#d4a84b]';
+    color = 'text-[#d4a84b]'; bg = 'bg-[#d4a84b]/10'; border = 'border-[#d4a84b]/30'; text = 'Moderate: achievable with good execution'; dot = 'bg-[#d4a84b]';
   } else {
-    color = 'text-[#e57373]'; bg = 'bg-[#e57373]/10'; border = 'border-[#e57373]/30'; text = 'Tough — needs significant uplift'; dot = 'bg-[#e57373]';
+    color = 'text-[#e57373]'; bg = 'bg-[#e57373]/10'; border = 'border-[#e57373]/30'; text = 'Tough: needs significant uplift'; dot = 'bg-[#e57373]';
   }
   return (
     <div className={`flex items-center gap-2 px-3 py-2 rounded-lg border ${bg} ${border}`}>
@@ -262,7 +262,8 @@ export default function ShippingCalculator() {
     });
   };
 
-  // Load from URL params
+  // Load from URL params (intentional load-once hydration from the URL)
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const p = new URLSearchParams(window.location.search);
@@ -283,6 +284,7 @@ export default function ShippingCalculator() {
     if (p.has('compare')) setCompareTwo(p.get('compare') === '2');
     if (p.has('client')) setClientName(p.get('client')!);
   }, []);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   // Compute orders above a threshold from bucket data
   const ordersAboveFromBuckets = useCallback((threshold: number, buckets: typeof ORDER_BUCKETS) => {
@@ -394,7 +396,6 @@ export default function ShippingCalculator() {
   })();
 
   const activeShippingLost = matrixVariation === 1 ? calcs.v1ShippingLost : calcs.v2ShippingLost;
-  const activeThreshold = matrixVariation === 1 ? threshold1 : threshold2;
 
   // Percentages for threshold inputs
   const t1Pct = annualOrders > 0 ? ((ordersAboveT1 / annualOrders) * 100).toFixed(1) : '0.0';
@@ -540,7 +541,7 @@ export default function ShippingCalculator() {
             </div>
 
             <div className="space-y-4">
-              <SliderInput label="Variation 1 — free shipping above" value={threshold1} onChange={handleThreshold1Change} min={50} max={1000} step={10} prefix={sym} />
+              <SliderInput label="Variation 1: free shipping above" value={threshold1} onChange={handleThreshold1Change} min={50} max={1000} step={10} prefix={sym} />
               <SliderInput
                 label="Orders above this threshold"
                 value={ordersAboveT1} onChange={setOrdersAboveT1}
@@ -551,7 +552,7 @@ export default function ShippingCalculator() {
               {compareTwo && (
                 <>
                   <div className="border-t border-[#9abbd8]/20 my-4" />
-                  <SliderInput label="Variation 2 — free shipping above" value={threshold2} onChange={handleThreshold2Change} min={50} max={1000} step={10} prefix={sym} />
+                  <SliderInput label="Variation 2: free shipping above" value={threshold2} onChange={handleThreshold2Change} min={50} max={1000} step={10} prefix={sym} />
                   <SliderInput
                     label="Orders above this threshold"
                     value={ordersAboveT2} onChange={setOrdersAboveT2}
@@ -745,7 +746,7 @@ export default function ShippingCalculator() {
           <span className="text-xs font-semibold text-[#4e7597]">
             {showWorstCase
               ? 'Assumes every new order also costs full CPA to acquire'
-              : 'Incremental orders don\'t cost ad spend — visitors are already on site'}
+              : 'Incremental orders don\'t cost ad spend. Visitors are already on site'}
           </span>
         </div>
 
@@ -843,7 +844,7 @@ export default function ShippingCalculator() {
           <div className="bg-white/10 rounded-xl p-4 border border-white/10">
             <p className="text-sm text-[#9abbd8]">
               <span className="text-white font-semibold">Variation 1</span> breaks even at just a{' '}
-              <span className="text-[#72ab7f] font-bold">{fmtPct(calcs.v1BEPct)} conversion lift</span> — that&apos;s{' '}
+              <span className="text-[#72ab7f] font-bold">{fmtPct(calcs.v1BEPct)} conversion lift</span>, which is{' '}
               <span className="text-white">{calcs.v1BEOrdersMo.toLocaleString()} extra orders/mo</span>.
             </p>
           </div>
@@ -870,7 +871,7 @@ export default function ShippingCalculator() {
 
           <div className="bg-white/10 rounded-xl p-4 border border-white/10">
             <p className="text-sm text-[#9abbd8]">
-              <span className="text-white font-semibold">Incremental orders don&apos;t cost CPA</span> — those visitors are already on site. The &ldquo;Realistic&rdquo; scenario is the right default.
+              <span className="text-white font-semibold">Incremental orders don&apos;t cost CPA</span>. Those visitors are already on site. The &ldquo;Realistic&rdquo; scenario is the right default.
             </p>
           </div>
         </div>
@@ -911,7 +912,7 @@ export default function ShippingCalculator() {
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                {showPasteData ? 'Hide' : 'I have order data — paste it here'}
+                {showPasteData ? 'Hide' : 'I have order data: paste it here'}
               </button>
 
               {showPasteData && (
@@ -989,7 +990,7 @@ export default function ShippingCalculator() {
         {showMethodology && (
           <div className="mt-3 max-w-2xl mx-auto text-left p-4 bg-[#f4faff] border border-[#9abbd8]/20 rounded-xl text-xs text-[#565656] animate-fade-in">
             <p>
-              This calculator models the net profitability of offering free shipping above a threshold. The cost is the shipping revenue you stop collecting from customers. The benefit is incremental orders from improved conversion and higher AOV from threshold-chasing behaviour. Fulfilment costs are not included as they&apos;re identical across test groups — the only variable is what you charge the customer.
+              This calculator models the net profitability of offering free shipping above a threshold. The cost is the shipping revenue you stop collecting from customers. The benefit is incremental orders from improved conversion and higher AOV from threshold-chasing behaviour. Fulfilment costs are not included as they&apos;re identical across test groups. The only variable is what you charge the customer.
             </p>
           </div>
         )}

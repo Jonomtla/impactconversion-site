@@ -35,7 +35,7 @@ export default function TermsForm() {
         setStatus("error");
         setErrorMsg(
           j?.error === "email_not_configured"
-            ? "The submission endpoint is not yet live — please email jono@impactconversion.com directly."
+            ? "The submission endpoint is not yet live. Please email jono@impactconversion.com directly."
             : "Something went wrong. Try again, or email jono@impactconversion.com."
         );
         analytics.termsSubmitError(j?.error ?? "unknown");
@@ -72,7 +72,7 @@ export default function TermsForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4" noValidate>
+    <form onSubmit={onSubmit} className="space-y-4">
       <div
         aria-hidden="true"
         style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}

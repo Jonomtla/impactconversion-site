@@ -23,9 +23,11 @@ const formatCurrency = (n: number) => '$' + Math.round(n).toLocaleString();
 const formatRPV = (n: number) => '$' + n.toFixed(2);
 const formatCAC = (n: number) => '$' + n.toFixed(2);
 const formatProfit = (n: number) => {
-  if (n >= 1000000) return '$' + (n / 1000000).toFixed(2) + 'M';
-  if (n >= 1000) return '$' + (n / 1000).toFixed(0) + 'k';
-  return '$' + n.toFixed(0);
+  const sign = n < 0 ? '-' : '';
+  const abs = Math.abs(n);
+  if (abs >= 1000000) return sign + '$' + (abs / 1000000).toFixed(2) + 'M';
+  if (abs >= 1000) return sign + '$' + (abs / 1000).toFixed(0) + 'k';
+  return sign + '$' + abs.toFixed(0);
 };
 
 function calculateForecastScenario(
@@ -128,8 +130,13 @@ export default function Calculator() {
     return () => observer.disconnect();
   }, []);
 
-  // Load from URL params on mount
+  // Load from URL params on mount (once: re-running would stomp user edits).
+  // Intentional load-once hydration from the URL, hence the lint exemption.
+  const loadedFromUrl = useRef(false);
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
+    if (loadedFromUrl.current) return;
+    loadedFromUrl.current = true;
     const paramMap: Record<string, (v: number) => void> = {
       sessions: setSessions,
       lift: setLift,
@@ -157,6 +164,7 @@ export default function Calculator() {
       }
     }
   }, [searchParams]);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   // Calculations
   const mult = yearly ? 12 : 1;
@@ -524,7 +532,7 @@ Book a free 15-min consult: https://impactconversion.com/contact#book`;
                   animationDelay={100}
                 />
                 <ResultItem
-                  label="Improved CAC"
+                  label="Improved CAC (if the lift comes from conversion rate)"
                   value={formatCAC(improvedCAC)}
                   variant="highlight"
                   animationDelay={200}
@@ -689,8 +697,6 @@ Book a free 15-min consult: https://impactconversion.com/contact#book`;
         </p>
         <a
           href="/contact#book"
-          target="_blank"
-          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-8 py-4 bg-purple hover:bg-purple-2 text-white font-bold rounded-xl transition-all hover-lift"
         >
           Book a 15-min consult

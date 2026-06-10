@@ -61,7 +61,7 @@ export default function GuaranteeBlock({
             <div className="flex-1">
               <h2
                 id="guarantee-heading"
-                className={`text-balance text-3xl font-semibold tracking-tight md:text-4xl ${
+                className={`text-balance text-4xl font-semibold tracking-tight md:text-5xl ${
                   isDark ? "text-cream" : "text-text"
                 }`}
               >

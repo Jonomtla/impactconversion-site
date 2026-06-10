@@ -8,9 +8,9 @@ import CTA from "@/components/CTA";
 import GuaranteeBlock from "@/components/GuaranteeBlock";
 
 export const metadata = {
-  title: "Services",
+  title: "CRO Services & Pricing",
   description:
-    "Three ways to engage with Impact Conversion. Conversion rate optimisation, Shopify CRO, and A/B testing. Same loop, different surface area. From NZD $4,000 per month.",
+    "Three CRO services from Impact Conversion: conversion rate optimisation, Shopify CRO, and A/B testing. One loop, different surface area. From NZD $4,000 per month.",
   alternates: { canonical: "/services" },
 };
 
@@ -24,13 +24,13 @@ const services = [
   {
     href: "/services/shopify-cro",
     label: "Shopify CRO",
-    headline: "For Shopify operators who suspect they&rsquo;re testing the wrong things.",
+    headline: "For Shopify operators who suspect they’re testing the wrong things.",
     body: "Same loop, Shopify-specific instrumentation. Checkout Extensibility tests, post-purchase upsells, mobile-first PDP rebuilds, cart drawer logic. Tool-agnostic. We deploy through Intelligems, GrowthBook, Convert, or ABTasty.",
   },
   {
     href: "/services/ab-testing",
     label: "A/B testing",
-    headline: "Statistical rigour for teams that have run testing programs that didn&rsquo;t move the revenue line.",
+    headline: "Statistical rigour for teams that have run testing programs that didn’t move the revenue line.",
     body: "Pre-test power analysis, primary metric locked at brief time, Bayesian peeking under rules, stable-signal calling. The methodology that catches the false positives most programs ship without noticing.",
   },
 ];
@@ -38,7 +38,7 @@ const services = [
 const loop = [
   {
     h: "Research",
-    p: "Surveys, session recordings, funnel analysis, review mining, customer interviews. Output is a ranked friction list in the customer&rsquo;s voice, not ours.",
+    p: "Surveys, session recordings, funnel analysis, review mining, customer interviews. Output is a ranked friction list in the customer’s voice, not ours.",
   },
   {
     h: "Prioritise",
@@ -84,7 +84,7 @@ export default function ServicesIndexPage() {
                 Services
               </p>
               <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.75rem)]">
-                Three ways to engage. Same loop, run on different surface area.
+                Three services. One loop, run on different surface area.
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
                 Every engagement runs the same four-stage loop: research, prioritise, test, compound. The service you pick decides the surface area we cover and the tooling we plug into. Pricing starts at NZD $4,000 per month.
@@ -126,10 +126,9 @@ export default function ServicesIndexPage() {
                     <p className="text-sm font-bold uppercase tracking-[0.18em] text-purple">
                       {s.label}
                     </p>
-                    <h3
-                      className="mt-3 text-xl font-semibold text-text"
-                      dangerouslySetInnerHTML={{ __html: s.headline }}
-                    />
+                    <h3 className="mt-3 text-xl font-semibold text-text">
+                      {s.headline}
+                    </h3>
                     <p className="mt-3 flex-1 text-text-muted">{s.body}</p>
                     <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-purple group-hover:gap-2.5 transition-all">
                       Read the service page
@@ -162,10 +161,7 @@ export default function ServicesIndexPage() {
                       Stage {i + 1}
                     </p>
                     <h3 className="mt-2 text-xl font-semibold text-text">{l.h}</h3>
-                    <p
-                      className="mt-2 text-text-muted"
-                      dangerouslySetInnerHTML={{ __html: l.p }}
-                    />
+                    <p className="mt-2 text-text-muted">{l.p}</p>
                   </div>
                 </Reveal>
               ))}

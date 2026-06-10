@@ -16,9 +16,13 @@ declare global {
 
 if (typeof window !== "undefined" && !window.gtag) {
   const dataLayer = (window.dataLayer = window.dataLayer || []);
-  const gtag = (...args: unknown[]) => {
-    dataLayer.push(args);
-  };
+  // gtag.js only processes Arguments objects pushed to dataLayer; a plain
+  // array from rest params is silently ignored.
+  function gtag(..._args: unknown[]) {
+    void _args;
+    // eslint-disable-next-line prefer-rest-params
+    dataLayer.push(arguments);
+  }
   window.gtag = gtag;
   gtag("js", new Date());
   gtag("config", GA_ID, {

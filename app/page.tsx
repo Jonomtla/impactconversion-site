@@ -10,11 +10,15 @@ import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
 export default function Home() {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main">
         <Hero />
         <Problem />
         <CaseStudy />

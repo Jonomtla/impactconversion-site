@@ -8,7 +8,7 @@ import CTA from "@/components/CTA";
 import GuaranteeBlock from "@/components/GuaranteeBlock";
 
 export const metadata = {
-  title: "CRO Agency Australia · Conversion Rate Optimisation",
+  title: { absolute: "CRO Agency Australia · Conversion Rate Optimisation" },
   description:
     "An Australia-focused CRO agency for D2C brands. Research-led testing program, local timezone, AUD pricing, statistical rigour your CFO can sign off. Book a 15-minute call.",
   alternates: { canonical: "/cro-agency-australia" },
@@ -16,16 +16,16 @@ export const metadata = {
 
 const problems = [
   {
-    h: "Testing that doesn&rsquo;t move revenue",
-    p: "You&rsquo;re running tests, but the wins never add up to anything you can see in the P&amp;L. Most of them turn out to be guesses dressed up as experiments.",
+    h: "Testing that doesn’t move revenue",
+    p: "You’re running tests, but the wins never add up to anything you can see in the P&L. Most of them turn out to be guesses dressed up as experiments.",
   },
   {
     h: "A generic checklist instead of your store",
     p: "Plenty of agencies arrive with the same twenty changes they make for everyone. Add a sticky bar, swap a button colour, call it optimisation. None of it is grounded in how your buyers actually behave.",
   },
   {
-    h: "Results you can&rsquo;t take to the board",
-    p: "A win you can&rsquo;t trust is worse than no win. When the call gets made on a hunch or a peek at half-significant data, it won&rsquo;t survive contact with the real world, and your CFO knows it.",
+    h: "Results you can’t take to the board",
+    p: "A win you can’t trust is worse than no win. When the call gets made on a hunch or a peek at half-significant data, it won’t survive contact with the real world, and your CFO knows it.",
   },
 ];
 
@@ -44,7 +44,7 @@ const steps = [
   },
   {
     h: "Ship only what holds up",
-    p: "When a result won&rsquo;t survive the real world, we say so and move on. What ships is what we can still stand behind a month later.",
+    p: "When a result won’t survive the real world, we say so and move on. What ships is what we can still stand behind a month later.",
   },
 ];
 
@@ -59,18 +59,18 @@ const fit = [
   },
   {
     h: "Your team, your tools",
-    p: "We work alongside your developers and inside the testing tool you already run. If you haven&rsquo;t picked one yet, we&rsquo;ll help you choose without taking a referral fee.",
+    p: "We work alongside your developers and inside the testing tool you already run. If you haven’t picked one yet, we’ll help you choose without taking a referral fee.",
   },
 ];
 
 const faqs = [
   {
     q: "Are you based in Australia?",
-    a: "No. We&rsquo;re based in New Zealand and work with Australian clients across AEDT and AEST. Calls land inside your business day, and test briefs are in your inbox by the time you start work. The timezone overlap is close enough that most clients forget we&rsquo;re not local.",
+    a: "No. We’re based in New Zealand and work with Australian clients across AEDT and AEST. Calls land inside your business day, and test briefs are in your inbox by the time you start work. The timezone overlap is close enough that most clients forget we’re not local.",
   },
   {
     q: "Which brands have you worked with?",
-    a: "We work with D2C brands in the revenue band. You can read the full case studies, including engagements that have run twelve months or longer.",
+    a: "D2C and online education brands, typically from around $1M in annual revenue up into the low tens of millions. Names like High Performance Academy, Animal Training Academy, and Kite Therapy. The full case studies are at /case-studies, including engagements that have run twelve months or longer.",
   },
   {
     q: "Do you charge in AUD?",
@@ -82,7 +82,7 @@ const faqs = [
   },
   {
     q: "Can you help us choose a CRO testing tool?",
-    a: "Yes. Intelligems for Shopify, GrowthBook if you want to self-host, ABTasty or Convert for enterprise. We don&rsquo;t take referral fees, so the recommendation is honest.",
+    a: "Yes. Intelligems for Shopify, GrowthBook if you want to self-host, ABTasty or Convert for enterprise. We don’t take referral fees, so the recommendation is honest.",
   },
 ];
 
@@ -183,14 +183,8 @@ export default function CROAgencyAustraliaPage() {
               {problems.map((c) => (
                 <Reveal key={c.h}>
                   <div className="h-full rounded-2xl border border-ink/10 bg-white p-8">
-                    <h3
-                      className="text-xl font-semibold text-text"
-                      dangerouslySetInnerHTML={{ __html: c.h }}
-                    />
-                    <p
-                      className="mt-3 text-text-muted"
-                      dangerouslySetInnerHTML={{ __html: c.p }}
-                    />
+                    <h3 className="text-xl font-semibold text-text">{c.h}</h3>
+                    <p className="mt-3 text-text-muted">{c.p}</p>
                   </div>
                 </Reveal>
               ))}
@@ -224,14 +218,8 @@ export default function CROAgencyAustraliaPage() {
                       {i + 1}
                     </span>
                     <div>
-                      <h3
-                        className="text-lg font-semibold text-cream"
-                        dangerouslySetInnerHTML={{ __html: s.h }}
-                      />
-                      <p
-                        className="mt-1 text-text-inv-muted"
-                        dangerouslySetInnerHTML={{ __html: s.p }}
-                      />
+                      <h3 className="text-lg font-semibold text-cream">{s.h}</h3>
+                      <p className="mt-1 text-text-inv-muted">{s.p}</p>
                     </div>
                   </li>
                 </Reveal>
@@ -292,10 +280,7 @@ export default function CROAgencyAustraliaPage() {
                 <Reveal key={c.h}>
                   <div className="h-full rounded-2xl border border-ink/10 bg-cream p-8">
                     <h3 className="text-xl font-semibold text-text">{c.h}</h3>
-                    <p
-                      className="mt-3 text-text-muted"
-                      dangerouslySetInnerHTML={{ __html: c.p }}
-                    />
+                    <p className="mt-3 text-text-muted">{c.p}</p>
                   </div>
                 </Reveal>
               ))}
@@ -316,10 +301,7 @@ export default function CROAgencyAustraliaPage() {
                 <Reveal key={f.q}>
                   <div className="rounded-2xl border border-ink/10 bg-white p-6">
                     <dt className="text-lg font-semibold text-text">{f.q}</dt>
-                    <dd
-                      className="mt-2 text-text-muted"
-                      dangerouslySetInnerHTML={{ __html: f.a }}
-                    />
+                    <dd className="mt-2 text-text-muted">{f.a}</dd>
                   </div>
                 </Reveal>
               ))}

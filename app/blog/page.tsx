@@ -8,7 +8,7 @@ import LeadMagnetForm from "@/components/LeadMagnetForm";
 import { posts } from "@/lib/blog";
 
 export const metadata = {
-  title: "Blog",
+  title: "CRO Blog · Research-Led Experimentation Essays",
   description:
     "Essays on conversion rate optimisation, research-led experimentation, and how to actually move the needle for D2C and online education brands.",
   alternates: { canonical: "/blog" },

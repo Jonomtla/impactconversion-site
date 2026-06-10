@@ -11,7 +11,7 @@ const steps = [
   {
     n: "01",
     h: "Research",
-    p: "Before we touch your site, we dig into why people actually leave, using surveys, session recordings, heatmaps, and analytics side by side. The fixes come out of your customers&apos; own words rather than a best-practice blog.",
+    p: "Before we touch your site, we dig into why people actually leave, using surveys, session recordings, heatmaps, and analytics side by side. The fixes come out of your customers’ own words rather than a best-practice blog.",
     Visual: ResearchVisual,
   },
   {
@@ -81,10 +81,9 @@ export default function How() {
                     <h3 className="mt-6 text-xl font-semibold tracking-tight text-text">
                       {s.h}
                     </h3>
-                    <p
-                      className="mt-3 text-text-muted leading-relaxed"
-                      dangerouslySetInnerHTML={{ __html: s.p }}
-                    />
+                    <p className="mt-3 text-text-muted leading-relaxed">
+                      {s.p}
+                    </p>
                   </div>
                 </StaggerItem>
               );

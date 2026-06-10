@@ -7,16 +7,17 @@ import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = {
-  title: "About",
+  title: "About · A Research-Led CRO Practice",
   description:
     "We run a narrow CRO practice on purpose. Two categories, one loop, no agency-hour billing. Direct-response copywriting school meets statistical testing rigour.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main">
         <section className="relative overflow-hidden bg-ink text-cream pt-40 pb-24 md:pt-52 md:pb-32">
           <div
             className="pointer-events-none absolute inset-0 opacity-40"

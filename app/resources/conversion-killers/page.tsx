@@ -10,12 +10,6 @@ export const metadata = {
   description:
     "A plain-English PDF on the seven patterns we see over and over in D2C funnels, and what to do about each one. Free.",
   alternates: { canonical: "/resources/conversion-killers" },
-  openGraph: {
-    title: "7 Conversion Killers quietly draining revenue from D2C sites",
-    description:
-      "A plain-English PDF on the seven patterns we see over and over in D2C funnels. Free.",
-    url: "https://impactconversion.com/resources/conversion-killers",
-  },
 };
 
 const killers = [

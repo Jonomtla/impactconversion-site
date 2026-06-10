@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { StaggerGroup, StaggerItem } from "./motion/Stagger";
 
 export default function Hero() {
@@ -29,7 +30,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-6xl px-6 py-24 md:py-28">
+      <div className="relative mx-auto w-full max-w-7xl px-6 py-24 md:py-28">
         <StaggerGroup className="max-w-4xl" stagger={0.1}>
           <StaggerItem>
             <div className="mb-7 flex items-center gap-3 text-[0.78rem] font-semibold tracking-[0.14em] text-purple-2">
@@ -52,7 +53,7 @@ export default function Hero() {
           </StaggerItem>
           <StaggerItem>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a
+              <Link
                 href="/contact#book"
                 data-ga-event="book_call_click"
                 data-ga-location="homepage_hero"
@@ -74,13 +75,13 @@ export default function Hero() {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/case-studies"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-cream/25 px-7 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-cream/5"
               >
                 See case studies
-              </a>
+              </Link>
             </div>
           </StaggerItem>
           <StaggerItem>

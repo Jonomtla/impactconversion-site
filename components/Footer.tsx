@@ -18,10 +18,8 @@ export default function Footer() {
               A CRO program for D2C and online education brands that
               want more from the traffic they already paid for.
             </p>
-            <a
+            <Link
               href="/contact#book"
-              target="_blank"
-              rel="noopener noreferrer"
               data-ga-event="book_call_click"
               data-ga-location="footer"
               className="mt-6 inline-flex items-center gap-2 rounded-xl bg-purple px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
@@ -30,7 +28,7 @@ export default function Footer() {
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                 <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </a>
+            </Link>
           </div>
 
           <div className="md:col-span-2">
@@ -47,7 +45,8 @@ export default function Footer() {
               <li><Link href="/tools" className="text-cream/90 hover:text-cream transition-colors">Free tools</Link></li>
               <li><Link href="/blog" className="text-cream/90 hover:text-cream transition-colors">Blog</Link></li>
               <li><Link href="/about" className="text-cream/90 hover:text-cream transition-colors">About</Link></li>
-              <li><a href="mailto:jono@impactconversion.com" className="text-cream/90 hover:text-cream transition-colors">Contact</a></li>
+              <li><Link href="/resources/conversion-killers" className="text-cream/90 hover:text-cream transition-colors">Free: 7 Conversion Killers PDF</Link></li>
+              <li><Link href="/contact" className="text-cream/90 hover:text-cream transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -56,10 +55,10 @@ export default function Footer() {
               Services
             </p>
             <ul className="mt-4 space-y-2 text-sm">
-              <li><Link href="/how-we-work" className="text-cream/90 hover:text-cream transition-colors">Conversion audits</Link></li>
-              <li><Link href="/how-we-work" className="text-cream/90 hover:text-cream transition-colors">90-day sprints</Link></li>
-              <li><Link href="/how-we-work" className="text-cream/90 hover:text-cream transition-colors">Ongoing programs</Link></li>
-              <li><Link href="/how-we-work" className="text-cream/90 hover:text-cream transition-colors">Landing page builds</Link></li>
+              <li><Link href="/services/conversion-rate-optimisation" className="text-cream/90 hover:text-cream transition-colors">Conversion rate optimisation</Link></li>
+              <li><Link href="/services/shopify-cro" className="text-cream/90 hover:text-cream transition-colors">Shopify CRO</Link></li>
+              <li><Link href="/services/ab-testing" className="text-cream/90 hover:text-cream transition-colors">A/B testing</Link></li>
+              <li><Link href="/services" className="text-cream/90 hover:text-cream transition-colors">All services</Link></li>
             </ul>
           </div>
 

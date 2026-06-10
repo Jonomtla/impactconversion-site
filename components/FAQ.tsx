@@ -17,11 +17,11 @@ const faqs = [
   },
   {
     q: "Do we have enough traffic to A/B test?",
-    a: "As a rough rule, around 800 conversions a month is enough, which works out to 20-30k sessions at a 3% conversion rate or 5-7k at a higher one. If you are not sure, book a call and we will tell you straight.",
+    a: "As a rough rule, around 800 conversions a month is enough, which works out to roughly 20-30k sessions at a 3% conversion rate. If you are not sure, book a call and we will tell you straight.",
   },
   {
     q: "Can you work alongside our in-house team?",
-    a: "Yes, and most of our clients have one. We share the backlog, run fortnightly calls, and stay available between them, so our wins become your team&apos;s wins. When the engagement ends, you keep the testing culture rather than inheriting a dependency.",
+    a: "Yes, and most of our clients have one. We share the backlog, run fortnightly calls, and stay available between them, so our wins become your team’s wins. When the engagement ends, you keep the testing culture rather than inheriting a dependency.",
   },
   {
     q: "Which industries do you work best in?",
@@ -65,7 +65,7 @@ export default function FAQ() {
               key={i}
               className="group rounded-2xl border border-ink/10 bg-white p-6 transition-colors open:border-purple/40 md:p-8"
             >
-              <summary className="flex cursor-pointer items-center justify-between gap-4 text-left text-lg font-medium text-text marker:content-['']">
+              <summary className="flex cursor-pointer items-center justify-between gap-4 text-left text-lg font-medium text-text marker:content-[''] [&::-webkit-details-marker]:hidden">
                 <span>{f.q}</span>
                 <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-ink/10 text-text-muted transition-transform group-open:rotate-45 group-open:border-purple group-open:text-purple">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
@@ -73,10 +73,9 @@ export default function FAQ() {
                   </svg>
                 </span>
               </summary>
-              <p
-                className="mt-4 text-text-muted leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: f.a }}
-              />
+              <p className="mt-4 text-text-muted leading-relaxed">
+                {f.a}
+              </p>
             </details>
           ))}
         </div>

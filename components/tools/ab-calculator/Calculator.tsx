@@ -232,7 +232,7 @@ export default function ABCalculator() {
             </div>
           </div>
         </div>
-        <CommonStats />
+        {CommonStats()}
       </>
     );
   }
@@ -266,8 +266,8 @@ export default function ABCalculator() {
             </div>
           </div>
         </div>
-        <TestSetup />
-        <CommonStats />
+        {TestSetup()}
+        {CommonStats()}
       </>
     );
   }
@@ -318,8 +318,8 @@ export default function ABCalculator() {
             Load example: high-AOV PDP test snapshot
           </button>
         </div>
-        <TestSetup />
-        <CommonStats />
+        {TestSetup()}
+        {CommonStats()}
       </>
     );
   }
@@ -676,10 +676,12 @@ export default function ABCalculator() {
       {/* inputs + verdict */}
       <div className="grid gap-6 lg:grid-cols-5">
         <div className="rounded-2xl border border-ink/10 bg-white p-5 md:p-6 lg:col-span-2">
-          {mode === "pre" ? <PreInputs /> : mode === "cvr" ? <CvrInputs /> : <RpvInputs />}
+          {/* Called as functions, not JSX components: a new component type each
+              render would remount the subtree and drop input focus per keystroke */}
+          {mode === "pre" ? PreInputs() : mode === "cvr" ? CvrInputs() : RpvInputs()}
         </div>
         <div className="rounded-2xl border border-ink/10 bg-ink p-5 md:p-6 text-cream lg:col-span-3">
-          <Verdict />
+          {Verdict()}
         </div>
       </div>
 
@@ -698,7 +700,7 @@ export default function ABCalculator() {
             {mode === "pre" ? "expected lift" : "current observed lift"}
           </span>
         </div>
-        <Grid />
+        {Grid()}
         <p className="mt-4 text-[11.5px] leading-relaxed text-text-muted">{foot}</p>
       </div>
 
@@ -709,7 +711,7 @@ export default function ABCalculator() {
         </h3>
         <p className="mb-2.5 text-xs text-text-muted">{graphSub}</p>
         <div className="rounded-2xl border border-ink/10 bg-white p-3.5 pb-1.5">
-          <Graph />
+          {Graph()}
         </div>
       </div>
     </div>

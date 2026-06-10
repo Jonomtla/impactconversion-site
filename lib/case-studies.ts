@@ -100,7 +100,7 @@ export const caseStudies: CaseStudy[] = [
       "35% win rate across 180 shipped experiments.",
     ],
     quote:
-      "Working with Impact Conversion has been epic. We&rsquo;ve seen single wins that brought in six figures of additional revenue, which makes the ROI a no-brainer. Beyond the numbers, the testing process has instilled a culture of experimentation within our marketing team which has removed assumptions and helped us make better decisions.",
+      "Working with Impact Conversion has been epic. We’ve seen single wins that brought in six figures of additional revenue, which makes the ROI a no-brainer. Beyond the numbers, the testing process has instilled a culture of experimentation within our marketing team which has removed assumptions and helped us make better decisions.",
     quoteBy: "Ben Silcock",
     quoteRole: "Co-founder, High Performance Academy",
     heroImage: "/assets/case-studies/hpa-hero.png",
@@ -115,7 +115,7 @@ export const caseStudies: CaseStudy[] = [
     tagline: "36% more customers from a $1 offer.",
     headline: "One mobile page. CAC cut in half.",
     summary:
-      "HPA&rsquo;s evergreen $1 promo on a $99 course performed beautifully on Meta and converted at 14% on mobile, where 95% of the traffic landed. The reason was simple: visitors thought it was a scam. We rewrote the first two sections to address that head-on. Mobile conversion rose 36%.",
+      "HPA’s evergreen $1 promo on a $99 course performed beautifully on Meta, then stalled on the mobile page where 95% of the traffic landed and conversion sat at 14%. Session recordings told us why: visitors thought it was a scam. We rewrote the first two sections to address that head-on, and mobile conversion rose 36%.",
     heroStats: [
       { v: "+36%", l: "Conversion lift", sub: "99.8% confidence" },
       { v: "280", l: "New customers/mo", sub: "Incremental" },
@@ -139,7 +139,7 @@ export const caseStudies: CaseStudy[] = [
         heading: "What we changed",
         body: [
           "We rebuilt the first two sections of the mobile page. Above the fold now explained exactly what the $1 bought, exactly what wasn&rsquo;t included (no recurring charge, no hidden fees), and why HPA was doing this in the first place.",
-          "Plain. Specific. Addressed the objection straight on rather than dancing around it.",
+          "Plain and specific, and it addressed the objection straight on rather than dancing around it.",
         ],
       },
       {
@@ -157,7 +157,7 @@ export const caseStudies: CaseStudy[] = [
       "CAC effectively halved on the paid channel funnelling into this offer.",
     ],
     quote:
-      "We&rsquo;ve seen single wins that brought in six figures of additional revenue, which makes the ROI a no-brainer.",
+      "We’ve seen single wins that brought in six figures of additional revenue, which makes the ROI a no-brainer.",
     quoteBy: "Ben Silcock",
     quoteRole: "Co-founder, High Performance Academy",
     heroImage: "/assets/case-studies/hpa-loss-leader.png",
@@ -171,7 +171,7 @@ export const caseStudies: CaseStudy[] = [
     tagline: "Membership up 57% in nine months. Revenue up 63%.",
     headline: "Membership up 57%. In nine months.",
     summary:
-      "By the time ATA came to us, their quarterly launch model was running on fumes: each cohort smaller than the last, churn climbing, and most new leads were casual pet owners rather than the professional trainers the program served. We rebuilt the acquisition model. Lead magnet to trial offer.",
+      "By the time ATA came to us, their quarterly launch model was running on fumes: each cohort smaller than the last, churn climbing, and most new leads were casual pet owners rather than the professional trainers the program served. We rebuilt the acquisition model, from lead magnet through to a $1 trial offer.",
     heroStats: [
       { v: "+57%", l: "Membership", sub: "In 9 months" },
       { v: "+43%", l: "YoY members", sub: "Sustained growth" },
@@ -202,7 +202,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "Fixing the leads first",
         body: [
-          "We added a single question to the signup form: &ldquo;Why do you want this training?&rdquo; Fed responses through a Looker Studio dashboard back into Meta&rsquo;s audience signals. Rewrote ad copy to speak directly to professional trainers.",
+          "We added a single question to the signup form: &ldquo;Why do you want this training?&rdquo; We fed the responses through a Looker Studio dashboard back into Meta&rsquo;s audience signals, and rewrote the ad copy to speak directly to professional trainers.",
           "Unqualified leads dropped out. Qualified leads went up 30%. The list stopped growing for growth&rsquo;s sake and started filtering for fit.",
         ],
       },
@@ -243,21 +243,21 @@ export const caseStudies: CaseStudy[] = [
     tagline: "Clarity beat persuasion.",
     headline: "More leads. Better leads. Lower CAC.",
     summary:
-      "Kite is a VC-backed Australian startup making therapy more accessible to families of children with autism and developmental delays, by coaching parents to lead it. Paid was pulling traffic. The site wasn&rsquo;t pulling its weight, until a heuristic review surfaced four issues nobody had flagged.",
+      "Kite is a VC-backed Australian startup making therapy more accessible to families of children with autism and developmental delays, by coaching parents to lead it. Paid was pulling traffic. The site wasn’t pulling its weight, until a heuristic review caught four issues nobody else had.",
     heroStats: [
-      { v: "↑", l: "Lead volume", sub: "Clearer UVP" },
-      { v: "↑", l: "Lead quality", sub: "Pre-qualified up front" },
-      { v: "↓", l: "CAC", sub: "Sustainable paid scale" },
-      { v: "4", l: "Root causes", sub: "Surfaced by heuristic review" },
+      { v: "4", l: "Root causes", sub: "Found in heuristic review" },
+      { v: "Higher", l: "Lead volume", sub: "Clearer UVP" },
+      { v: "Higher", l: "Lead quality", sub: "Pre-qualified up front" },
+      { v: "Lower", l: "CAC", sub: "Sustainable paid scale" },
     ],
     stats: [
-      { v: "↑", l: "Lead submissions" },
-      { v: "↑", l: "Lead quality" },
-      { v: "↓", l: "CAC" },
+      { v: "Higher", l: "Lead submissions" },
+      { v: "Higher", l: "Lead quality" },
+      { v: "Lower", l: "CAC" },
     ],
     chapters: [
       {
-        heading: "Paid was working. The site wasn&rsquo;t.",
+        heading: "Paid was working. The site wasn’t.",
         body: [
           "Kite&rsquo;s proposition was strong. Make therapy more accessible for families by coaching parents to lead it. Testimonials backed it up. Paid was pulling traffic.",
           "But the leads weren&rsquo;t matching the fit profile. Cost per acquisition was trending the wrong way. The site, bluntly, wasn&rsquo;t helping the paid channel do its job.",
@@ -284,7 +284,7 @@ export const caseStudies: CaseStudy[] = [
       "CAC trended down on paid because the site finally matched the ad intent.",
     ],
     quote:
-      "Impact have been fantastic to work with. They&rsquo;ve provided actionable advice and the changes have made a real difference.",
+      "Impact have been fantastic to work with. They’ve provided actionable advice and the changes have made a real difference.",
     quoteBy: "Matthew Morrison",
     quoteRole: "Co-founder, Kite Therapy",
     photo: "/assets/avatar-matt.png",

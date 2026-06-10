@@ -24,7 +24,7 @@ export default function CaseStudy() {
               We embedded a full testing program, rebuilt their hypothesis
               pipeline around customer research, and shipped experiments week
               after week. Eighteen months in, the same ad spend produces seven
-              figures more revenue, and the guarantee kicks in if it doesn&apos;t.
+              figures more revenue.
             </p>
             <blockquote className="mt-10 border-l-2 border-purple-2 pl-6 text-lg italic text-cream">
               &ldquo;We&apos;ve seen single wins that brought in six figures of
@@ -37,7 +37,7 @@ export default function CaseStudy() {
             </blockquote>
             <Link
               href="/case-studies/high-performance-academy"
-              className="mt-8 inline-flex items-center gap-2 rounded-full border border-cream/20 bg-cream/5 px-5 py-2.5 text-sm font-semibold text-cream transition-all hover:bg-cream/10 hover:border-purple-2/40"
+              className="mt-8 inline-flex items-center gap-2 rounded-xl border border-cream/20 bg-cream/5 px-5 py-2.5 text-sm font-semibold text-cream transition-all hover:bg-cream/10 hover:border-purple-2/40"
             >
               Read the full case study
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
