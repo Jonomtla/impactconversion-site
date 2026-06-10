@@ -17,7 +17,7 @@ const sections: { title: string; body: string[] }[] = [
   {
     title: "Who we are",
     body: [
-      "This privacy policy applies to impactconversion.com and the services offered by Peak Digital Ltd trading as Impact Conversion (NZBN 9429046780916), a New Zealand company based in Queenstown. For any privacy-related questions, contact jono@impactconversion.com.",
+      "This privacy policy applies to impactconversion.com and the services offered by Impact Conversion Limited (NZBN 9429046780916), a New Zealand company based in Queenstown. For any privacy-related questions, contact jono@impactconversion.com.",
     ],
   },
   {
