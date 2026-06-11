@@ -7,7 +7,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 export const metadata = {
   title: "Privacy policy",
   description:
-    "How Impact Conversion Ltd (Peak Digital Ltd) collects, uses, and protects your personal information.",
+    "How Impact Conversion Limited collects, uses, and protects your personal information.",
   alternates: { canonical: "/privacy" },
 };
 

@@ -8,7 +8,7 @@ import TermsForm from "./TermsForm";
 export const metadata = {
   title: "Terms of engagement",
   description:
-    "Impact Conversion Ltd (Peak Digital Ltd) terms of engagement for CRO services. Review and accept to begin an engagement.",
+    "Impact Conversion Limited terms of engagement for CRO services. Review and accept to begin an engagement.",
   alternates: { canonical: "/terms-of-service" },
   robots: { index: false, follow: false },
 };
@@ -19,6 +19,7 @@ const sections: { title: string; clauses: string[] }[] = [
     clauses: [
       "You may engage us to provide services by signing a written proposal, providing an authorised purchase order, or confirming in writing or verbally.",
       "These terms apply to each engagement unless replaced by a later written agreement.",
+      "Where these terms conflict with a signed proposal, the proposal prevails in respect of scope, fees and payment, and these terms govern all other matters.",
       "Our duties under these terms are owed solely to you. We do not accept responsibility to third parties.",
       "We may update these terms from time to time by notice on our website or by email.",
     ],
@@ -35,7 +36,8 @@ const sections: { title: string; clauses: string[] }[] = [
   {
     title: "3. Fees",
     clauses: [
-      "Invoices are payable on the 20th of the month following the invoice date.",
+      "Unless a proposal states otherwise, invoices are payable on the 20th of the month following the invoice date.",
+      "Where a signed proposal sets out a specific payment schedule (for example a deposit or staged milestone payments), that schedule applies in place of the above.",
       "All payments must be made in cleared funds without deduction or set-off.",
       "If an amount remains unpaid 14 days after the due date we may suspend services until paid.",
       "Interest may be charged on overdue amounts at 2% per month, calculated daily.",
@@ -45,7 +47,7 @@ const sections: { title: string; clauses: string[] }[] = [
   {
     title: "4. Copyright and intellectual property",
     clauses: [
-      "All work remains the property of Peak Digital Ltd trading as Impact Conversion until payment in full.",
+      "All work remains the property of Impact Conversion Limited until payment in full.",
       "Upon full payment you own the final deliverables created for you during the invoiced period.",
       "Pre-existing materials, methods, templates, software, code libraries and tools remain Impact's intellectual property.",
       "Third-party materials remain subject to the relevant licensor terms.",
@@ -143,9 +145,9 @@ export default function TermsOfServicePage() {
                 Terms of engagement
               </h1>
               <p className="mt-5 text-lg text-text-inv-muted">
-                The working agreement between you and Peak Digital Ltd trading
-                as Impact Conversion. Read through, and if you&rsquo;re happy,
-                accept at the bottom to formalise the engagement.
+                The working agreement between you and Impact Conversion
+                Limited. Read through, and if you&rsquo;re happy, accept at the
+                bottom to formalise the engagement.
               </p>
             </Reveal>
           </div>
@@ -156,7 +158,7 @@ export default function TermsOfServicePage() {
             <Reveal>
               <div className="rounded-2xl border border-ink/10 bg-white p-8 md:p-10">
                 <p className="text-sm text-text-muted">
-                  Peak Digital Ltd trading as Impact Conversion
+                  Impact Conversion Limited (NZBN 9429051688387)
                   (&ldquo;Impact&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) and
                   the client (&ldquo;you&rdquo;) agree to the following terms
                   for every engagement.
