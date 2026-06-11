@@ -7,7 +7,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 export const metadata = {
   title: "Privacy policy",
   description:
-    "How Impact Conversion Ltd (Peak Digital Ltd) collects, uses, and protects your personal information.",
+    "How Impact Conversion Limited collects, uses, and protects your personal information.",
   alternates: { canonical: "/privacy" },
 };
 
@@ -17,7 +17,7 @@ const sections: { title: string; body: string[] }[] = [
   {
     title: "Who we are",
     body: [
-      "This privacy policy applies to impactconversion.com and the services offered by Impact Conversion Limited (NZBN 9429046780916), a New Zealand company based in Queenstown. For any privacy-related questions, contact jono@impactconversion.com.",
+      "This privacy policy applies to impactconversion.com and the services offered by Impact Conversion Limited (NZBN 9429051688387), a New Zealand company based in Queenstown. For any privacy-related questions, contact jono@impactconversion.com.",
     ],
   },
   {
