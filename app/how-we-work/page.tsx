@@ -10,7 +10,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 export const metadata = {
   title: "How we work",
   description:
-    "Research. Prioritise. Test. Compound. The four-step loop every Impact Conversion engagement runs, from conversion audits to 90-day sprints and ongoing CRO programs.",
+    "Research. Prioritise. Test. Compound. The four-stage method every Impact Conversion engagement runs, from conversion audits to ongoing monthly CRO programs.",
   alternates: { canonical: "/how-we-work" },
 };
 
@@ -97,10 +97,11 @@ export default function HowWeWorkPage() {
                 <span className="text-gradient-glow">Boring on purpose.</span>
               </h1>
               <p className="mt-8 text-lg text-text-inv-muted md:text-xl">
-                There is no secret method, just a disciplined one. Here is the
-                loop and exactly what you get out of it, with the guarantee
-                sitting underneath every engagement: you see a revenue uplift,
-                or you don&apos;t pay.
+                The same four-stage method runs on every engagement, in the
+                same order, month after month. Here is the loop and exactly
+                what you get out of it, with the guarantee sitting underneath
+                every engagement: you see a revenue uplift, or you don&apos;t
+                pay.
               </p>
             </Reveal>
           </div>
@@ -118,7 +119,7 @@ export default function HowWeWorkPage() {
               <p className="mt-6 text-lg text-text-muted">
                 Most clients start with an audit or a sprint, and once the
                 loop is running and winning, they roll into the ongoing
-                program. Pricing starts at NZD $4,000 per month and scales
+                program. Pricing starts at $5,000 per month and scales
                 with scope, confirmed on the intro call, and every engagement
                 carries the same guarantee: you see a revenue uplift, or you
                 don&apos;t pay.

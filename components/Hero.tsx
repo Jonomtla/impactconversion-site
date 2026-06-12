@@ -46,8 +46,8 @@ export default function Hero() {
           </StaggerItem>
           <StaggerItem>
             <p className="mt-7 max-w-2xl text-pretty text-lg leading-relaxed text-cream/80 md:text-xl">
-              We find the leaks in your funnel, run research-led tests, and only
-              ship wins that hold up in your P&amp;L. The winners stay live. The
+              We dig into why your buyers leave, run real A/B tests to fix it,
+              and keep only the changes that lift revenue in your P&amp;L. That
               revenue compounds on the same ad spend, month after month.
             </p>
           </StaggerItem>
@@ -76,19 +76,7 @@ export default function Hero() {
                   />
                 </svg>
               </Link>
-              <Link
-                href="/case-studies"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-cream/25 px-7 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-cream/5"
-              >
-                See case studies
-              </Link>
             </div>
-          </StaggerItem>
-          <StaggerItem>
-            <p className="mt-7 max-w-xl text-sm leading-relaxed text-cream/55">
-              Fifteen minutes on your funnel together, and you leave with a
-              straight answer on whether a program is worth running.
-            </p>
           </StaggerItem>
         </StaggerGroup>
       </div>

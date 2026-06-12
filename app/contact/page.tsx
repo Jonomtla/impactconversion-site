@@ -23,7 +23,7 @@ const expect = [
   {
     n: "02",
     h: "We show you how we’d approach it",
-    p: "We walk you through where we would look first, what the early tests would be, and what a 90-day sprint would most likely ship on your funnel.",
+    p: "We walk you through where we would look first, what the early tests would be, and what the first 90 days would most likely ship on your funnel.",
   },
   {
     n: "03",

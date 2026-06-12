@@ -14,9 +14,9 @@ export default function ABTestBars() {
 
       {/* Confidence label pill */}
       <g>
-        <rect x="125" y="20" width="150" height="30" rx="15" fill="rgba(124,90,236,0.12)" />
+        <rect x="100" y="20" width="200" height="30" rx="15" fill="rgba(124,90,236,0.12)" />
         <text x="200" y="40" textAnchor="middle" className="fill-[var(--color-purple)] text-[13px] font-bold uppercase tracking-[0.18em]">
-          95% confidence
+          99% confidence
         </text>
       </g>
 

@@ -6,36 +6,15 @@ import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTA from "@/components/CTA";
 import GuaranteeBlock from "@/components/GuaranteeBlock";
+import How from "@/components/How";
+import VirtuousLoop from "@/components/VirtuousLoop";
 
 export const metadata = {
   title: "Conversion Rate Optimisation Services",
   description:
-    "Research-led conversion rate optimisation for D2C and online education brands. We find the leaks, ship the fixes, and prove the lift with statistical rigour.",
+    "Research-led conversion rate optimisation for direct-to-consumer brands. We find why visitors leave, ship the fixes, and compound the wins that move revenue.",
   alternates: { canonical: "/services/conversion-rate-optimisation" },
 };
-
-const outputs = [
-  {
-    h: "A ranked friction list in your customers' words",
-    p: "Not ‘users seem confused at checkout’. The exact sentence three of them wrote in the survey. Surveys, session recordings, funnel analysis, review mining, customer interviews. The output is a research artefact, not a slide deck.",
-  },
-  {
-    h: "A live testing pipeline that ships every fortnight",
-    p: "Two to four experiments per month, prioritised by expected revenue and the cost of being wrong. ICE-L scoring. Pre-test power analysis. The brief locks the primary metric before launch.",
-  },
-  {
-    h: "Verdicts that hold under scrutiny",
-    p: "Tests called only when they meet the rule: at least 95% probability-to-beat-baseline, three consecutive stable days, primary and secondary metrics in agreement, minimum order count per arm.",
-  },
-  {
-    h: "A learnings library that compounds",
-    p: "Every test, win or loss, generates a one-paragraph insight. After twelve months you have a research asset, not a list of variations. Next quarter’s hypotheses come from this quarter’s data.",
-  },
-  {
-    h: "Revenue moved",
-    p: "The only number we keep score on. Reported in your currency, in your P&L, with the test code hardcoded into your theme or platform on the way through.",
-  },
-];
 
 const surfaces = [
   { h: "PDP above the fold", p: "Headline that names the outcome, top two objections handled in line, in-use imagery. Most PDPs do one of these well. Almost none do all three." },
@@ -45,25 +24,18 @@ const surfaces = [
   { h: "The free trial or onboarding flow", p: "For subscription and education brands: the first three sessions after signup decide whether the customer ever pays again. Most teams optimise the signup form and ignore everything after it." },
 ];
 
-const loop = [
-  { h: "Research", p: "Weeks one to four. Surveys, session recordings, funnel analysis, review mining, customer interviews. Output is a ranked friction list in the customer’s voice, not ours." },
-  { h: "Prioritise", p: "ICE-L scoring. We wrote about why ICE alone breaks. Top two or three tests scheduled with the primary metric locked in the brief." },
-  { h: "Test", p: "Two to four experiments per month. Code we write, code your team reviews, code that ships when both sides sign off. We deploy through your existing testing tool." },
-  { h: "Compound", p: "Every test feeds the learnings library. We don’t ship redesigns. We don’t sell hours. The wins stack, the losses rule out hypotheses cheaply, and the program gets sharper every quarter." },
-];
-
 const faqs = [
   {
     q: "How long until I see results?",
-    a: "The first shipped win usually lands inside the first ninety days. Compounding revenue typically shows up in months four to nine, once the learnings library has enough volume to feed back into hypothesis quality.",
+    a: "The first shipped win usually lands inside the first ninety days. From there the wins compound, because each test sharpens the next.",
   },
   {
     q: "Who does the work?",
-    a: "Jono runs strategy and test-calling. A specialist developer writes test code under code review. You see who is on every Loom and every test brief.",
+    a: "Us. Senior consultants and senior developers, start to finish. You don't get passed to a junior, and there is no account manager in the middle. You deal directly with the people designing and running your tests.",
   },
   {
-    q: "Do you work with brands outside D2C and online education?",
-    a: "Sometimes. The discipline travels. The pattern recognition is sharper in the two categories we work in every day, which is why we lead with them.",
+    q: "Do you work with brands outside D2C?",
+    a: "We focus on D2C. Sometimes the discipline travels, but that is where we are sharpest.",
   },
   {
     q: "Do you run paid media or SEO?",
@@ -71,11 +43,11 @@ const faqs = [
   },
   {
     q: "What happens if a test loses?",
-    a: "Most do. Industry average sits around twenty percent win rate. Ours is closer to thirty-five percent. Losses still feed the learnings library and rule out hypotheses cheaply.",
+    a: "Most tests lose, across the whole industry. Losses still earn their keep: each one rules out a hypothesis cheaply and sharpens the next.",
   },
   {
     q: "What does it cost?",
-    a: "Engagements start at NZD $4,000 per month. We run in 90-day sprints, and most clients run multiple sprints back to back. The retainer covers research, prioritisation, two to four shipped experiments per month, the test code, the learnings library, and monthly review calls.",
+    a: "Engagements start at $5,000 per month, billed monthly. Some clients kick off with a 90-day sprint and then move to month-to-month. The retainer covers research, prioritisation, the experiments we ship, the test code, the learnings library, and regular review calls.",
   },
 ];
 
@@ -108,7 +80,7 @@ const serviceSchema = {
     { "@type": "Country", name: "United Kingdom" },
   ],
   description:
-    "Research-led conversion rate optimisation for D2C and online education brands.",
+    "Research-led conversion rate optimisation for direct-to-consumer brands.",
 };
 
 export default function CROServicePage() {
@@ -134,10 +106,10 @@ export default function CROServicePage() {
                 Services · Conversion rate optimisation
               </p>
               <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.75rem)]">
-                Conversion rate optimisation for D2C and online education brands.
+                Conversion rate optimisation for direct-to-consumer brands.
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
-                You already pay for the traffic. Most of it leaves without doing the thing you wanted them to do. We find out why, fix the worst of it first, and prove the lift with the kind of statistical discipline most agencies skip.
+                You already pay for the traffic. Most of it leaves without doing what you wanted. We find out why, test the changes that actually move your revenue, and compound those wins into growth over time.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
@@ -163,45 +135,22 @@ export default function CROServicePage() {
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
               <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                The head of growth, founder, or CMO at a D2C brand.
+                For the head of growth at a direct-to-consumer brand.
               </h2>
               <p className="mt-5 text-lg text-text-muted">
-                You run paid traffic at scale. You have a CRO tool installed or could install one in an afternoon. You suspect your current testing program is making noise without moving the revenue line.
+                You run paid traffic at scale. You have a CRO tool installed, or could install one in an afternoon. You suspect your current testing program is making noise without moving the revenue line.
               </p>
               <p className="mt-4 text-lg text-text-muted">
-                If your store doesn&rsquo;t work yet. You need enough traffic volume to detect real lifts. If you want &lsquo;ten quick conversion tips&rsquo;, wrong room.
+                Every month that leak compounds. The ad budget climbs, the conversion rate sits flat, and the revenue you should be capturing walks back out the door. Buying more traffic only makes the leak more expensive.
+              </p>
+              <p className="mt-4 text-lg text-text-muted">
+                So we close it. Research-led testing on the surfaces that touch the most revenue, shipped as real experiments, and kept only when they prove out in your P&amp;L.
               </p>
             </Reveal>
           </div>
         </section>
 
-        <section className="bg-white py-20 md:py-24">
-          <div className="mx-auto max-w-5xl px-6">
-            <Reveal>
-              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                Five outputs from every engagement.
-              </h2>
-              <p className="mt-5 text-lg text-text-muted">
-                Most conversion rate optimisation agencies sell you a list of recommendations and call it a strategy. We run a research-led testing program built around five things you can hold in your hand.
-              </p>
-            </Reveal>
-            <ol className="mt-10 space-y-5">
-              {outputs.map((o, i) => (
-                <Reveal key={o.h}>
-                  <li className="flex gap-5 rounded-2xl border border-ink/10 bg-cream p-6">
-                    <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-purple text-sm font-bold text-white">
-                      {i + 1}
-                    </span>
-                    <div>
-                      <h3 className="text-lg font-semibold text-text">{o.h}</h3>
-                      <p className="mt-1 text-text-muted">{o.p}</p>
-                    </div>
-                  </li>
-                </Reveal>
-              ))}
-            </ol>
-          </div>
-        </section>
+        <How />
 
         <section className="bg-cream py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
@@ -232,19 +181,25 @@ export default function CROServicePage() {
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
               <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                One loop. Same shape on every engagement.
+                One winner stays live. The revenue compounds.
               </h2>
+              <p className="mt-5 text-lg text-text-muted">
+                Every win is a permanent change to your site, so it keeps paying on the same ad spend month after month. Stack a year of them and the curve bends.
+              </p>
             </Reveal>
-            <div className="mt-10 grid gap-6 md:grid-cols-2">
-              {loop.map((l, i) => (
-                <Reveal key={l.h}>
-                  <div className="rounded-2xl border border-ink/10 bg-cream p-6">
-                    <p className="text-sm font-bold uppercase tracking-[0.18em] text-purple">Step {i + 1}</p>
-                    <h3 className="mt-2 text-xl font-semibold text-text">{l.h}</h3>
-                    <p className="mt-2 text-text-muted">{l.p}</p>
-                  </div>
-                </Reveal>
-              ))}
+            <div className="mt-10 rounded-3xl border border-ink/10 bg-cream p-8 md:p-12">
+              <VirtuousLoop />
+            </div>
+            <div className="mt-8">
+              <Link
+                href="/tools/rpv-calculator"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-purple hover:gap-3 transition-all"
+              >
+                Model your own uplift in the revenue-per-visitor calculator
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
             </div>
           </div>
         </section>
@@ -256,7 +211,7 @@ export default function CROServicePage() {
                 Verified results from clients running this loop.
               </h2>
               <p className="mt-5 text-lg text-text-muted">
-                One D2C client, eighteen months of the loop: $1.2M in added revenue, a thirty-five percent win rate across 180 tests, a sixty-nine percent lift on the homepage that compounded for the rest of the engagement, a twenty-six percent take rate on a single post-purchase upsell.
+                One D2C client, eighteen months of the loop: $1.2M in added revenue across 180 tests, a sixty-nine percent lift on the homepage that compounded for the rest of the engagement, and a twenty-six percent take rate on a single post-purchase upsell.
               </p>
               <p className="mt-4 text-lg text-text-muted">
                 One membership-education client: membership up fifty-seven percent and recurring revenue up sixty-three percent over nine months. Year-on-year members up forty-three percent. Qualified leads up thirty percent.

@@ -10,7 +10,7 @@ import GuaranteeBlock from "@/components/GuaranteeBlock";
 export const metadata = {
   title: "A/B Testing Agency · Statistical Rigour for D2C Brands",
   description:
-    "An A/B testing agency that runs tests with proper power analysis, Bayesian peeking rules, and verdicts that hold under scrutiny. For D2C and online education brands.",
+    "An A/B testing agency that runs tests with proper power analysis, Bayesian peeking rules, and verdicts that hold under scrutiny. For direct-to-consumer brands.",
   alternates: { canonical: "/services/ab-testing" },
 };
 
@@ -41,13 +41,7 @@ const rules = [
   { h: "Descriptive language at handoff", p: "‘During the test we observed +28 percent CVR uplift with 96 percent confidence’, not ‘you got a +28 percent lift’. We don’t promise replication. We hardcode and watch." },
 ];
 
-const platforms = [
-  { name: "Intelligems", note: "Preferred for Shopify. Server-side rendering, native theme integration." },
-  { name: "GrowthBook", note: "Open-source, self-hostable. Strong feature flag and stats engine." },
-  { name: "Convert", note: "Solid generalist. Good for non-Shopify D2C." },
-  { name: "ABTasty", note: "Enterprise license already in place? Fine. Otherwise expensive." },
-  { name: "Optimizely", note: "Works. Capable. Expensive. We don’t lead with it." },
-];
+const platforms = ["Intelligems", "GrowthBook", "Convert", "ABTasty", "Optimizely"];
 
 const faqs = [
   {
@@ -95,7 +89,7 @@ const serviceSchema = {
     url: "https://impactconversion.com",
   },
   description:
-    "A/B testing agency for D2C and online education brands. Statistical rigour, Bayesian methodology, verdicts that hold.",
+    "A/B testing agency for direct-to-consumer brands. Statistical rigour, Bayesian methodology, verdicts that hold.",
 };
 
 export default function ABTestingPage() {
@@ -201,16 +195,18 @@ export default function ABTestingPage() {
                 We deploy through your existing testing tool, or help you pick one. The methodology matters more than the platform. These are the tools we ship through most often.
               </p>
             </Reveal>
-            <div className="mt-10 grid gap-4 md:grid-cols-2">
-              {platforms.map((p) => (
-                <Reveal key={p.name}>
-                  <div className="rounded-2xl border border-ink/10 bg-white p-6">
-                    <h3 className="text-lg font-semibold text-text">{p.name}</h3>
-                    <p className="mt-2 text-sm text-text-muted">{p.note}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
+            <Reveal>
+              <div className="mt-10 flex flex-wrap gap-3">
+                {platforms.map((name) => (
+                  <span
+                    key={name}
+                    className="inline-flex items-center rounded-xl border border-ink/10 bg-white px-5 py-3 text-base font-semibold text-text"
+                  >
+                    {name}
+                  </span>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </section>
 

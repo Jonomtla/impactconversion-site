@@ -6,10 +6,10 @@ import { analytics } from "@/lib/analytics";
 
 // Inline Cal.com embed with a GA4 hook on bookingSuccessful so booked
 // calls show up as conversions rather than disappearing into the iframe.
-export default function CalEmbed() {
+export default function CalEmbed({ location = "contact_embed" }: { location?: string }) {
   useEffect(() => {
     const callback = () => {
-      analytics.callBooked("contact_embed");
+      analytics.callBooked(location);
     };
     let cancelled = false;
     (async () => {
@@ -23,7 +23,7 @@ export default function CalEmbed() {
         cal("off", { action: "bookingSuccessful", callback })
       );
     };
-  }, []);
+  }, [location]);
 
   return (
     <Cal

@@ -19,6 +19,11 @@ const nextConfig: NextConfig = {
         destination: "/tools/rpv-calculator",
         permanent: true,
       },
+      {
+        source: "/blog/ice-l-prioritisation",
+        destination: "/blog",
+        permanent: true,
+      },
     ];
   },
 };

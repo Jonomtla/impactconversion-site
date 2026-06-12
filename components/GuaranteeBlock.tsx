@@ -1,8 +1,4 @@
-import Link from "next/link";
-
 type Props = {
-  /** Where "See the terms" should point. Defaults to the engagements section on how-we-work. */
-  termsHref?: string;
   /** Light mode sits on cream/white pages; dark mode sits on ink/dark sections. */
   tone?: "light" | "dark";
 };
@@ -16,7 +12,6 @@ type Props = {
  * consistent across the site.
  */
 export default function GuaranteeBlock({
-  termsHref = "/how-we-work#engagements",
   tone = "light",
 }: Props) {
   const isDark = tone === "dark";
@@ -74,29 +69,8 @@ export default function GuaranteeBlock({
               >
                 That is the deal on every 90-day sprint we run. If the program
                 does not produce a measurable revenue uplift by the end of the
-                quarter, we refund the final 50% of the sprint fee. No
-                asterisks, no vanity metrics, and no hiding behind &ldquo;we
-                ran some experiments.&rdquo;
+                quarter, we refund the final 50% of the sprint fee.
               </p>
-            </div>
-
-            {/* CTA */}
-            <div className="flex-shrink-0">
-              <Link
-                href={termsHref}
-                className="inline-flex items-center gap-2 rounded-xl bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
-              >
-                See the terms
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M5 12h14M13 5l7 7-7 7"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Link>
             </div>
           </div>
         </div>

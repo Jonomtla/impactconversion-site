@@ -33,7 +33,7 @@ export default function StickyMobileCTA() {
   return (
     <div
       aria-hidden={!visible}
-      className={`fixed inset-x-0 bottom-0 z-40 border-t border-ink/10 bg-cream/95 px-4 py-3 backdrop-blur-md transition-transform duration-300 md:hidden ${
+      className={`fixed inset-x-0 bottom-0 z-40 border-t border-ink/10 bg-cream/95 px-4 py-3 backdrop-blur-md transition-transform duration-300 ${
         visible ? "translate-y-0" : "translate-y-full"
       }`}
     >
@@ -41,8 +41,8 @@ export default function StickyMobileCTA() {
         href="/contact#book"
         tabIndex={visible ? 0 : -1}
         data-ga-event="book_call_click"
-        data-ga-location="sticky_mobile"
-        className="flex w-full items-center justify-center gap-2 rounded-xl bg-purple px-5 py-3 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-purple-2"
+        data-ga-location="sticky_cta"
+        className="mx-auto flex w-full max-w-md items-center justify-center gap-2 rounded-xl bg-purple px-5 py-3 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-purple-2 md:max-w-xs"
       >
         Book a 15-min intro call
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none">

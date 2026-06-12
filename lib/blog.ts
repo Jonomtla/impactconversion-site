@@ -109,15 +109,6 @@ export const posts: Post[] = [
     tag: "Research",
   },
   {
-    slug: "ice-l-prioritisation",
-    title: "ICE-L: the prioritisation filter we actually use",
-    description:
-      "Why ICE scores fall apart in practice, what the L adds, and how to stop arguing about which test to run next.",
-    date: "April 2026",
-    readTime: "5 min read",
-    tag: "Methodology",
-  },
-  {
     slug: "why-most-cro-programs-fail",
     title: "Why most CRO programs fail in the first 90 days",
     description:

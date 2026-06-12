@@ -22,9 +22,9 @@ export default function Home() {
         <Hero />
         <Problem />
         <CaseStudy />
-        <GuaranteeBlock />
         <How />
         <Testimonials />
+        <GuaranteeBlock />
         <About />
         <FAQ />
         <CTA />

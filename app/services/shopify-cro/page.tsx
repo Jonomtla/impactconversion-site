@@ -6,11 +6,12 @@ import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTA from "@/components/CTA";
 import GuaranteeBlock from "@/components/GuaranteeBlock";
+import How from "@/components/How";
 
 export const metadata = {
   title: "Shopify CRO · Conversion Rate Optimisation for Shopify",
   description:
-    "Shopify conversion rate optimisation for D2C brands. Research-led testing on PDP, checkout, and post-purchase. 35% win rate, $1M+ added revenue on a single engagement.",
+    "Shopify conversion rate optimisation for D2C brands. Research-led testing on PDP, checkout, and post-purchase. $1M+ added revenue on a single engagement.",
   alternates: { canonical: "/services/shopify-cro" },
 };
 
@@ -37,18 +38,10 @@ const mistakes = [
   },
 ];
 
-const loop = [
-  { h: "Research", p: "Weeks one to four. GA4 funnel audit, review mining on Trustpilot and Shopify reviews, on-site survey, session recordings, customer interviews." },
-  { h: "Prioritise", p: "Top five hypotheses ranked by expected revenue and the cost of being wrong. ICE-L scoring. Pre-test power analysis for surfaces where AOV variance is high." },
-  { h: "Test", p: "Two to four shipped experiments per month. We write the code, your team reviews, we deploy through your testing tool. Integrations with Intelligems, GrowthBook, Convert, and ABTasty." },
-  { h: "Call wins properly", p: "At least 95% probability-to-beat-baseline, three consecutive stable days, primary and secondary metrics in agreement, minimum order volume per arm." },
-  { h: "Hardcode and learn", p: "Wins go into your theme and into the learnings library. Losses go into the learnings library. After twelve months you have a research asset, not a list of failed experiments." },
-];
-
 const faqs = [
   {
     q: "Which Shopify testing tool do you recommend?",
-    a: "Intelligems if you want server-side rendering and tight Shopify integration. GrowthBook if budget is the constraint and you want to self-host. ABTasty or Convert if you already have a global enterprise license. We don’t take referral fees from any of them.",
+    a: "We're tool-agnostic. We deploy through whatever you run, whether that's Intelligems, GrowthBook, Convert, or ABTasty, and we don't take referral fees from any of them. The tool matters far less than how the test is designed and called.",
   },
   {
     q: "Will testing slow my site down?",
@@ -64,7 +57,7 @@ const faqs = [
   },
   {
     q: "How long is the engagement?",
-    a: "We run in 90-day sprints. The first sprint covers research and the first two shipped tests. Most clients run multiple sprints back to back, because the second and third are where the compounding kicks in.",
+    a: "We work month to month. Some clients kick off with a 90-day sprint to cover research and the first tests, then move to ongoing monthly, because the compounding really shows up from the second quarter on.",
   },
   {
     q: "Do you take a percentage of the revenue uplift?",
@@ -130,7 +123,7 @@ export default function ShopifyCROPage() {
                 Shopify conversion rate optimisation for D2C brands.
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
-                Shopify makes it easy to launch a store. It does not make it easy to find the leaks. We run a research-led testing program on the surfaces that actually move revenue on Shopify, and we call wins with the kind of statistical rigour your CFO can sign off.
+                Shopify makes it easy to launch a store. It does not make it easy to find the leaks. We run a research-led testing program on the surfaces that actually move revenue on Shopify, and we only keep the wins that prove out in your P&amp;L.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
@@ -156,13 +149,16 @@ export default function ShopifyCROPage() {
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
               <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                Shopify stores doing that suspect they&rsquo;re testing the wrong things.
+                For Shopify operators who suspect they&rsquo;re testing the wrong things.
               </h2>
               <p className="mt-5 text-lg text-text-muted">
-                You have GA4 or can install it next week. You have a testing tool installed, or you&rsquo;re choosing one. Your team has tested some things but isn&rsquo;t sure which moved revenue and which moved noise.
+                You have GA4, or can install it next week. You have a testing tool running, or you&rsquo;re choosing one. Your team has tested some things, but you&rsquo;re not sure which moved revenue and which moved noise.
               </p>
               <p className="mt-4 text-lg text-text-muted">
-                If you&rsquo;re under $1M ARR, save your budget for traffic. The volume math doesn&rsquo;t support a Shopify CRO program yet.
+                Meanwhile the ad budget climbs and the conversion rate sits flat. Every untested surface is revenue walking back out the door, and more traffic only makes that leak more expensive.
+              </p>
+              <p className="mt-4 text-lg text-text-muted">
+                So we close it. Research-led testing on the Shopify surfaces that touch the most revenue, shipped as real experiments, and kept only when they prove out in your P&amp;L.
               </p>
             </Reveal>
           </div>
@@ -224,26 +220,7 @@ export default function ShopifyCROPage() {
           </div>
         </section>
 
-        <section className="bg-white py-20 md:py-24">
-          <div className="mx-auto max-w-4xl px-6">
-            <Reveal>
-              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                Same loop. Shopify-specific instrumentation.
-              </h2>
-            </Reveal>
-            <div className="mt-10 grid gap-6 md:grid-cols-2">
-              {loop.map((l, i) => (
-                <Reveal key={l.h}>
-                  <div className="rounded-2xl border border-ink/10 bg-cream p-6">
-                    <p className="text-sm font-bold uppercase tracking-[0.18em] text-purple">Step {i + 1}</p>
-                    <h3 className="mt-2 text-xl font-semibold text-text">{l.h}</h3>
-                    <p className="mt-2 text-text-muted">{l.p}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
+        <How />
 
         <section className="bg-cream py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
@@ -251,7 +228,7 @@ export default function ShopifyCROPage() {
               <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
                 One D2C client. Eighteen months. The loop, properly run.
               </h2>
-              <div className="mt-10 grid gap-6 md:grid-cols-4">
+              <div className="mt-10 grid gap-6 md:grid-cols-3">
                 <div className="rounded-2xl border border-ink/10 bg-white p-6">
                   <p className="text-3xl font-bold text-purple">$1M-$2M</p>
                   <p className="mt-2 text-sm text-text-muted">added revenue across the engagement</p>
@@ -259,10 +236,6 @@ export default function ShopifyCROPage() {
                 <div className="rounded-2xl border border-ink/10 bg-white p-6">
                   <p className="text-3xl font-bold text-purple">180</p>
                   <p className="mt-2 text-sm text-text-muted">tests shipped through the program</p>
-                </div>
-                <div className="rounded-2xl border border-ink/10 bg-white p-6">
-                  <p className="text-3xl font-bold text-purple">35%</p>
-                  <p className="mt-2 text-sm text-text-muted">win rate, roughly double industry average</p>
                 </div>
                 <div className="rounded-2xl border border-ink/10 bg-white p-6">
                   <p className="text-3xl font-bold text-purple">26%</p>

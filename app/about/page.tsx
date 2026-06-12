@@ -9,7 +9,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 export const metadata = {
   title: "About · A Research-Led CRO Practice",
   description:
-    "We run a narrow CRO practice on purpose. Two categories, one loop, no agency-hour billing. Direct-response copywriting school meets statistical testing rigour.",
+    "We run a narrow CRO practice on purpose. One discipline, one method, no agency-hour billing. Direct-response copywriting school meets proper testing rigour.",
   alternates: { canonical: "/about" },
 };
 

@@ -18,7 +18,7 @@ const testimonials: T[] = [
       "We’ve seen single wins that brought in six figures of additional revenue. The ROI is a no-brainer. Beyond the numbers, the testing process has instilled a culture of experimentation that’s removed assumptions from how we make decisions.",
     name: "Ben Silcock",
     role: "Co-founder, High Performance Academy",
-    initials: "BS",
+    photo: "/assets/avatar-ben.png",
     featured: true,
     stats: [
       { k: "$1M+", v: "Extra revenue" },
@@ -30,7 +30,7 @@ const testimonials: T[] = [
       "Having Impact on our team has been a major asset. The support and expertise we needed to finally make our funnel work. The project has been a game changer.",
     name: "Ryan Cartlidge",
     role: "Founder, Animal Training Academy",
-    initials: "RC",
+    photo: "/assets/avatar-ryan.png",
     stats: [
       { k: "+57%", v: "Membership / 9mo" },
       { k: "+63%", v: "MRR / 9mo" },
@@ -60,7 +60,7 @@ export default function Testimonials() {
           </h2>
           <p className="mt-6 text-lg text-text-muted">
             We stay away from viral redesigns and rip-and-replace rebuilds, and
-            instead ship tests that hit significance and move the line in the
+            instead ship tests that prove out and move the line in the
             P&amp;L where it actually matters.
           </p>
         </Reveal>

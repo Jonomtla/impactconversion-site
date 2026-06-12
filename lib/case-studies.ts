@@ -80,7 +80,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "The program that kept paying",
         body: [
-          "We scaled the testing cadence from zero to between five and ten live tests a month. Research kept feeding new hypotheses into the ICE-L prioritisation queue. Wins stayed live. Losses got documented.",
+          "We scaled the testing cadence from zero to between five and ten live tests a month. Research kept feeding new hypotheses into the prioritisation queue. Wins stayed live. Losses got documented.",
           "180 tests in 18 months, at a 35% win rate (roughly double the industry typical), with single wins bringing in six figures of additional revenue. None of it required an extra dollar of paid media.",
         ],
       },

@@ -17,13 +17,13 @@ const steps = [
   {
     n: "02",
     h: "Prioritise",
-    p: "Every idea gets scored on impact, confidence, and effort, so the test slots go to the changes most likely to move revenue rather than the ones that happen to be easy to ship.",
+    p: "We rank every idea by how much revenue it can move and how likely it is to work, so the test slots go to the changes that matter most, not the ones that happen to be easy to ship.",
     Visual: PrioritiseVisual,
   },
   {
     n: "03",
     h: "Test",
-    p: "Every change runs as a proper A/B test, with the sample size and primary metric locked before launch, so the decisions rest on real data rather than opinion.",
+    p: "Every change runs as a real A/B test against the live site, and we let enough of your traffic see it to know the result is real, so the decision rests on evidence rather than opinion.",
     Visual: TestVisual,
   },
   {
@@ -39,13 +39,17 @@ export default function How() {
     <section id="how" className="bg-cream-2 py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
+          <div className="mb-5 flex items-center gap-3 text-[0.78rem] font-semibold tracking-[0.14em] text-purple">
+            <span className="h-px w-7 bg-purple/60" />
+            THE IMPACT CONVERSION METHOD
+          </div>
           <h2 className="text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
             Research the problem. Test the answer. Compound the wins.
           </h2>
           <p className="mt-6 text-lg text-text-muted">
-            There is no secret method, just a disciplined loop that runs on
-            every engagement with the same four stages month after month. That
-            repetition is what makes the results compound.
+            The same four stages run on every engagement, in the same order,
+            month after month. The discipline of never skipping a stage is what
+            turns one-off wins into revenue that compounds.
           </p>
         </Reveal>
 

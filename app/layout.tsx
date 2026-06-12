@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: "%s · Impact Conversion",
   },
   description:
-    "Conversion rate optimisation for D2C and online education brands. Research-led testing, statistical rigour, 35% win rate, $1M+ added revenue on a single engagement.",
+    "Conversion rate optimisation for direct-to-consumer brands. Research-led testing that compounds revenue on the same ad spend. $1M+ added on a single engagement.",
   // No title/description/url here: each page's og tags then inherit that
   // page's own resolved title and description instead of the homepage's.
   openGraph: {

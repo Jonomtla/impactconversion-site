@@ -8,16 +8,12 @@ const faqs = [
     a: "Most clients see their first winning test inside twelve weeks, though traffic volume and purchase cycle shift the timing. We go after the biggest, most likely wins first, so the program usually pays for itself well before it ends.",
   },
   {
-    q: "Isn't this expensive?",
-    a: "It depends on the alternative you are comparing it to. A full redesign runs $50k to $150k and nobody can promise the new site beats the old one, whereas six months of testing costs less and every winner you ship stays live forever. Every 90-day sprint also carries the guarantee: you see a revenue uplift by the end of the quarter, or we refund the final 50% of the sprint fee.",
-  },
-  {
     q: "What makes you different from other agencies?",
     a: "We only do CRO, so nobody on our team is quietly trying to sell you a rebrand. Strategy, dev, and design are in-house, so tests ship fast. And we refuse to report on vanity metrics, because every test has to map to revenue or we will not run it.",
   },
   {
     q: "Do we have enough traffic to A/B test?",
-    a: "As a rough rule, around 800 conversions a month is enough, which works out to roughly 20-30k sessions at a 3% conversion rate. If you are not sure, book a call and we will tell you straight.",
+    a: "As a rough rule, $1M+ a year in online revenue, or around 1,000 orders a month, is enough to test fast. If you are not sure, book a call and we will tell you straight.",
   },
   {
     q: "Can you work alongside our in-house team?",
@@ -25,7 +21,7 @@ const faqs = [
   },
   {
     q: "Which industries do you work best in?",
-    a: "D2C and online education, though we have also shipped work in SaaS, subscriptions, and tourism. If you sell online and you care about lifetime value, chances are we can help.",
+    a: "Direct-to-consumer mostly, though we have also shipped work in online education, SaaS, subscriptions, and tourism.",
   },
   {
     q: "How do we start?",

@@ -146,23 +146,9 @@ export default function ForD2CPage() {
                 Weeks one and two are deep discovery research, where we survey
                 your recent buyers, mine session recordings, and audit the top
                 five funnels. The following ten weeks cover eight to twelve
-                experiments, scored by ICE-L, shipped through a proper testing
-                platform, and reported against revenue per visitor.
+                experiments, ranked by how much revenue they can move, shipped
+                as real A/B tests, and reported against revenue per visitor.
               </p>
-              <div className="mt-10 grid gap-6 md:grid-cols-3">
-                <div className="rounded-2xl border border-ink/10 bg-white p-6">
-                  <p className="text-3xl font-bold text-purple">35%</p>
-                  <p className="mt-2 text-sm text-text-muted">typical win rate on properly researched tests</p>
-                </div>
-                <div className="rounded-2xl border border-ink/10 bg-white p-6">
-                  <p className="text-3xl font-bold text-purple">2 cycles</p>
-                  <p className="mt-2 text-sm text-text-muted">minimum test duration, with no peeking or early stops</p>
-                </div>
-                <div className="rounded-2xl border border-ink/10 bg-white p-6">
-                  <p className="text-3xl font-bold text-purple">RPV</p>
-                  <p className="mt-2 text-sm text-text-muted">primary metric, locked before launch</p>
-                </div>
-              </div>
             </Reveal>
           </div>
         </section>

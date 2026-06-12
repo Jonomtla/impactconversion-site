@@ -1,11 +1,13 @@
 import Link from "next/link";
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import WavyLines from "@/components/WavyLines";
 import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import CTA from "@/components/CTA";
 import GuaranteeBlock from "@/components/GuaranteeBlock";
+import How from "@/components/How";
+import GeoBookingBand from "@/components/GeoBookingBand";
 
 export const metadata = {
   title: { absolute: "CRO Agency NZ · Conversion Rate Optimisation New Zealand" },
@@ -26,25 +28,6 @@ const problems = [
   {
     h: "Offshore agencies that don’t fit NZ",
     p: "Results come back in your evening, you can’t get on a call without staying up late, and a program built for a $100M US brand quietly assumes traffic your store doesn’t have.",
-  },
-];
-
-const steps = [
-  {
-    h: "Research how your buyers actually shop",
-    p: "Review mining, on-site surveys, session recordings, funnel analysis. We find where your revenue is leaking before we touch a thing.",
-  },
-  {
-    h: "Prioritise by opportunity and measurability",
-    p: "Every idea gets ranked by how much it could move and how cleanly we can prove it. The biggest, most measurable leaks go first.",
-  },
-  {
-    h: "Test with rigour you can sign off",
-    p: "Each test is sized up front with a power analysis and run to a significance threshold we agree before launch. We call winners on the numbers, not on a feeling.",
-  },
-  {
-    h: "Ship only what holds up",
-    p: "When a result won’t survive the real world, we say so and move on. What ships is what we can still stand behind a month later.",
   },
 ];
 
@@ -77,8 +60,12 @@ const faqs = [
     a: "As a rough floor, around $1M in annual revenue for NZ-based brands, and a little higher in larger markets. Under that, the traffic-volume math doesn’t support a real testing program yet, so we’d tell you to put that budget into traffic until it does.",
   },
   {
+    q: "What does it cost?",
+    a: "Engagements start at NZD $5,000 per month, priced and invoiced in NZD, and scale with scope. The retainer covers research, prioritisation, the experiments we ship, the test code, and regular review calls. Every engagement carries the guarantee: you see a revenue uplift, or you don’t pay.",
+  },
+  {
     q: "Will the small NZ market hold the program back?",
-    a: "Sometimes, on individual surfaces, and we handle it two ways. First, pre-test power analysis: if a surface can’t detect a lift you’d care about inside a reasonable window, we don’t run that test. Second, longer windows on borderline surfaces, paired with stricter calling rules. Most NZ brands have enough traffic to run a sensible program, and we don’t pretend otherwise when they don’t.",
+    a: "Sometimes, on individual surfaces. Before any test launches we check the page gets enough traffic to detect a lift you’d care about inside a reasonable window, and if it can’t, we don’t run that test. Borderline surfaces get longer windows. Most NZ brands have enough traffic to run a sensible program, and we don’t pretend otherwise when they don’t.",
   },
   {
     q: "Do you work with my testing tool?",
@@ -137,40 +124,92 @@ export default function CROAgencyNZPage() {
         {/* Hero */}
         <section className="relative overflow-hidden bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
           <WavyLines />
-          <div className="relative mx-auto max-w-4xl px-6">
+          <div className="relative mx-auto max-w-6xl px-6">
             <Breadcrumbs items={[{ label: "CRO Agency NZ" }]} />
             <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
-                For New Zealand brands
-              </p>
-              <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.75rem)]">
-                A New Zealand CRO agency for D2C brands.
-              </h1>
-              <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
-                Conversion rate optimisation for New Zealand Shopify brands, run from Queenstown. Every test starts with research into how your buyers really shop, runs with the rigour your CFO can sign off, and is sized for the traffic NZ stores actually run.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  href="/contact#book"
-                  data-ga-event="book_call_click"
-                  data-ga-location="geo_nz_hero"
-                  className="inline-flex items-center gap-2 rounded-xl bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
-                >
-                  Book a 15-min intro call
-                </Link>
-                <Link
-                  href="/services/conversion-rate-optimisation"
-                  className="inline-flex items-center gap-2 rounded-xl border border-cream/30 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:border-cream"
-                >
-                  How we run engagements
-                </Link>
+              <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+                <div className="lg:col-span-8">
+                  <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
+                    CRO agency · New Zealand
+                  </p>
+                  <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.75rem)]">
+                    More revenue from the traffic your NZ store already gets.
+                  </h1>
+                  <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
+                    Research-led A/B testing for New Zealand Shopify brands, run
+                    from Queenstown. We find why your buyers leave, fix it, and
+                    keep only the changes that lift revenue.
+                  </p>
+                  <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3">
+                    <a
+                      href="#book"
+                      data-ga-event="book_call_click"
+                      data-ga-location="geo_nz_hero"
+                      className="inline-flex items-center gap-2 rounded-xl bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
+                    >
+                      Book a 15-min intro call
+                    </a>
+                    <span className="text-sm text-text-inv-muted">
+                      From NZD $5,000/month, priced and invoiced in NZD
+                    </span>
+                  </div>
+                </div>
+                <div className="lg:col-span-4">
+                  <div className="rounded-2xl border border-cream/10 bg-ink-2 p-6">
+                    <div className="flex items-center gap-3">
+                      <Image
+                        src="/assets/avatar-jono.png"
+                        alt="Jono Matla"
+                        width={56}
+                        height={56}
+                        className="h-14 w-14 rounded-full object-cover"
+                      />
+                      <div>
+                        <p className="font-semibold text-cream">Jono Matla</p>
+                        <p className="text-sm text-text-inv-muted">
+                          Founder · Queenstown
+                        </p>
+                      </div>
+                    </div>
+                    <p className="mt-4 text-sm leading-relaxed text-text-inv-muted">
+                      &ldquo;You deal directly with the person designing and
+                      running your tests.&rdquo;
+                    </p>
+                    <p className="mt-3 text-sm font-medium text-purple-2">
+                      Your timezone, same-day answers
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-text-inv-muted">
-                <span><strong className="font-semibold text-cream">$1M-$2M</strong> added on one engagement</span>
-                <span><strong className="font-semibold text-cream">180 tests</strong> shipped</span>
-                <span><strong className="font-semibold text-cream">12-month+</strong> retained clients</span>
+              <div className="mt-10 grid gap-4 sm:grid-cols-3">
+                <div className="rounded-xl border border-cream/10 bg-ink-2 px-5 py-4">
+                  <p className="text-2xl font-semibold text-cream">$1M+</p>
+                  <p className="mt-1 text-sm text-text-inv-muted">added on one engagement</p>
+                </div>
+                <div className="rounded-xl border border-cream/10 bg-ink-2 px-5 py-4">
+                  <p className="text-2xl font-semibold text-cream">180</p>
+                  <p className="mt-1 text-sm text-text-inv-muted">tests shipped</p>
+                </div>
+                <div className="rounded-xl border border-cream/10 bg-ink-2 px-5 py-4">
+                  <p className="text-2xl font-semibold text-cream">12+ months</p>
+                  <p className="mt-1 text-sm text-text-inv-muted">typical client tenure</p>
+                </div>
               </div>
             </Reveal>
+          </div>
+        </section>
+
+        {/* Trust bar */}
+        <section className="border-b border-ink/5 bg-cream py-6">
+          <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-10 gap-y-4 px-6">
+            <span className="text-xs font-semibold uppercase tracking-[0.14em] text-text-muted">
+              Trusted by
+            </span>
+            <Image src="/assets/logos/hpa.png" alt="High Performance Academy" width={800} height={525} className="h-10 w-auto opacity-70 grayscale mix-blend-multiply" />
+            <Image src="/assets/logos/steadyrack.png" alt="Steadyrack" width={800} height={123} className="h-5 w-auto opacity-70 grayscale mix-blend-multiply" />
+            <Image src="/assets/logos/ata.png" alt="Animal Training Academy" width={800} height={475} className="h-9 w-auto opacity-70 grayscale mix-blend-multiply" />
+            <Image src="/assets/logos/kite-therapy.png" alt="Kite Therapy" width={800} height={140} className="h-5 w-auto opacity-70 grayscale mix-blend-multiply" />
+            <Image src="/assets/logos/topmusic.png" alt="Topmusic" width={800} height={154} className="h-6 w-auto opacity-70 grayscale mix-blend-multiply" />
           </div>
         </section>
 
@@ -202,80 +241,7 @@ export default function CROAgencyNZPage() {
           </div>
         </section>
 
-        {/* Mechanism (dark band) */}
-        <section className="bg-ink text-cream py-20 md:py-24">
-          <div className="mx-auto max-w-4xl px-6">
-            <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
-                How we work
-              </p>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight md:text-4xl">
-                It isn&rsquo;t a playbook. It&rsquo;s research.
-              </h2>
-              <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
-                There&rsquo;s no fixed list of changes that works on every store. What lifts revenue on yours is hiding in how your specific buyers shop, so that&rsquo;s where every engagement starts. It&rsquo;s the same approach behind{" "}
-                <Link href="/blog/what-evergreen-cro-research-looks-like" className="font-medium text-purple-2 hover:underline">
-                  evergreen CRO research
-                </Link>
-                .
-              </p>
-            </Reveal>
-            <ol className="mt-10 space-y-5">
-              {steps.map((s, i) => (
-                <Reveal key={s.h}>
-                  <li className="flex gap-5 rounded-2xl border border-cream/10 bg-ink-2 p-6">
-                    <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-purple text-sm font-bold text-white">
-                      {i + 1}
-                    </span>
-                    <div>
-                      <h3 className="text-lg font-semibold text-cream">{s.h}</h3>
-                      <p className="mt-1 text-text-inv-muted">{s.p}</p>
-                    </div>
-                  </li>
-                </Reveal>
-              ))}
-            </ol>
-          </div>
-        </section>
-
-        {/* Proof */}
-        <section className="bg-cream py-20 md:py-24">
-          <div className="mx-auto max-w-4xl px-6">
-            <Reveal>
-              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                Eighteen months on one D2C engagement.
-              </h2>
-              <p className="mt-5 max-w-2xl text-lg text-text-muted">
-                The same loop, run properly, compounding month after month.
-              </p>
-              <div className="mt-10 grid gap-6 md:grid-cols-3">
-                <div className="rounded-2xl border border-ink/10 bg-white p-6">
-                  <p className="text-3xl font-bold text-purple">$1M-$2M</p>
-                  <p className="mt-2 text-sm text-text-muted">added revenue across the engagement</p>
-                </div>
-                <div className="rounded-2xl border border-ink/10 bg-white p-6">
-                  <p className="text-3xl font-bold text-purple">180 tests</p>
-                  <p className="mt-2 text-sm text-text-muted">shipped, with a thirty-five percent win rate</p>
-                </div>
-                <div className="rounded-2xl border border-ink/10 bg-white p-6">
-                  <p className="text-3xl font-bold text-purple">69%</p>
-                  <p className="mt-2 text-sm text-text-muted">lift on the homepage that compounded for the rest of the engagement</p>
-                </div>
-              </div>
-              <div className="mt-8">
-                <Link
-                  href="/case-studies"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-purple hover:gap-3 transition-all"
-                >
-                  Read the full case studies
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </Link>
-              </div>
-            </Reveal>
-          </div>
-        </section>
+        <How />
 
         {/* Practical fit */}
         <section className="bg-white py-20 md:py-24">
@@ -295,8 +261,23 @@ export default function CROAgencyNZPage() {
                 </Reveal>
               ))}
             </div>
+            <Reveal>
+              <div className="mt-8">
+                <Link
+                  href="/case-studies"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-purple hover:gap-3 transition-all"
+                >
+                  Read the full case studies
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
+              </div>
+            </Reveal>
           </div>
         </section>
+
+        <GuaranteeBlock />
 
         {/* FAQ */}
         <section className="bg-cream py-20 md:py-24">
@@ -319,8 +300,10 @@ export default function CROAgencyNZPage() {
           </div>
         </section>
 
-        <GuaranteeBlock />
-        <CTA />
+        <GeoBookingBand
+          gaLocation="geo_nz_booking"
+          timezoneNote="Times shown in NZST. Booked directly with Jono."
+        />
       </main>
       <Footer />
     </>

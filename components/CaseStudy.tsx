@@ -15,16 +15,10 @@ export default function CaseStudy() {
               Performance Academy.
             </h2>
             <p className="mt-6 text-lg text-text-inv-muted">
-              HPA teaches automotive engineering to over 100,000 students
-              across 175 countries, and by the time they came to us the ad
-              spend was scaling fine while the site conversion rate refused to
-              follow.
-            </p>
-            <p className="mt-4 text-lg text-text-inv-muted">
-              We embedded a full testing program, rebuilt their hypothesis
-              pipeline around customer research, and shipped experiments week
-              after week. Eighteen months in, the same ad spend produces seven
-              figures more revenue.
+              HPA was scaling ad spend, but the site&apos;s conversion rate
+              would not follow. We embedded a research-led testing program and
+              shipped experiments week after week. Eighteen months in, the same
+              ad spend produces seven figures more revenue.
             </p>
             <blockquote className="mt-10 border-l-2 border-purple-2 pl-6 text-lg italic text-cream">
               &ldquo;We&apos;ve seen single wins that brought in six figures of
@@ -60,13 +54,13 @@ export default function CaseStudy() {
                 </HeroMetric>
               </StaggerItem>
               <StaggerItem>
-                <Metric label="Tests shipped" sub="Over 18 months">
+                <Metric label="Tests shipped" sub="Research-led, properly called">
                   <CountUp to={180} />
                 </Metric>
               </StaggerItem>
               <StaggerItem>
-                <Metric label="Win rate" sub="Roughly 2x industry typical">
-                  <CountUp to={35} suffix="%" />
+                <Metric label="Months of compounding" sub="And still running">
+                  <CountUp to={18} />
                 </Metric>
               </StaggerItem>
             </StaggerGroup>
