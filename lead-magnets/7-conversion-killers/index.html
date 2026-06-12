@@ -21,68 +21,72 @@
     --inv-muted: #a8aec9;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--cream); font-size: 15px; line-height: 1.65; }
+  body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--cream); font-size: 14px; line-height: 1.58; }
   @page { size: 210mm 297mm; margin: 0; }
 
-  .page { width: 210mm; min-height: 297mm; padding: 18mm 20mm; break-after: page; position: relative; }
+  .page { width: 210mm; min-height: 297mm; padding: 14mm 20mm 20mm; break-after: page; position: relative; }
   .page:last-child { break-after: auto; }
 
-  /* Cover */
-  .cover { background: var(--ink); color: var(--cream); display: flex; flex-direction: column; justify-content: space-between; }
+  .cover { background: var(--ink); color: var(--cream); display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 16mm; }
   .cover .logo { font-weight: 900; font-size: 28px; letter-spacing: -0.02em; }
   .cover .logo span { color: var(--purple-2); }
   .cover .logo small { display: block; font-size: 9px; font-weight: 600; letter-spacing: 0.3em; color: var(--inv-muted); margin-top: 2px; }
-  .cover-mid { margin: 30mm 0; }
+  .cover-mid { margin: 28mm 0; }
   .cover .eyebrow { color: var(--purple-2); font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; }
   .cover h1 { font-size: 46px; font-weight: 900; line-height: 1.05; letter-spacing: -0.03em; margin-top: 16px; max-width: 150mm; }
-  .cover .sub { color: var(--inv-muted); font-size: 17px; margin-top: 18px; max-width: 130mm; }
+  .cover .sub { color: var(--inv-muted); font-size: 17px; margin-top: 18px; max-width: 132mm; }
   .cover-foot { display: flex; justify-content: space-between; align-items: flex-end; color: var(--inv-muted); font-size: 12px; }
   .cover-foot b { color: var(--cream); font-weight: 600; display: block; font-size: 13px; }
   .cover-chips { display: flex; gap: 10px; margin-top: 22px; }
   .chip { border: 1px solid rgba(250,247,242,0.2); border-radius: 99px; padding: 6px 14px; font-size: 12px; color: var(--inv-muted); }
 
-  /* Shared */
   .eyebrow { color: var(--purple); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
-  h2 { font-size: 27px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-top: 8px; break-after: avoid; }
+  h2 { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-top: 8px; break-after: avoid; }
+  h3 { font-size: 16px; font-weight: 700; margin-top: 18px; break-after: avoid; }
   .lede { color: var(--muted); font-size: 15px; margin-top: 12px; }
-  .section-head { margin-bottom: 9mm; }
-  p + p { margin-top: 10px; }
+  .section-head { margin-bottom: 8mm; }
+  p + p { margin-top: 9px; }
+  body > section p b { color: var(--text); }
 
-  .card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; break-inside: avoid; }
+  .card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 13px 16px; break-inside: avoid; }
   .card h4 { font-size: 14px; font-weight: 700; }
-  .card p { font-size: 13.5px; color: var(--muted); margin-top: 6px; }
+  .card p { font-size: 13px; color: var(--muted); margin-top: 5px; }
+  .card ul { margin: 6px 0 0 16px; font-size: 13px; color: var(--muted); }
+  .card li + li { margin-top: 3px; }
 
-  .sym-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 12px; }
-  .label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-top: 22px; break-after: avoid; }
+  .sym-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 10px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+  .label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-top: 16px; break-after: avoid; }
 
-  .fix { display: flex; gap: 14px; background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; margin-top: 10px; break-inside: avoid; }
-  .fix .n { flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--purple); color: #fff; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; }
-  .fix h4 { font-size: 14.5px; font-weight: 700; }
-  .fix p { font-size: 13.5px; color: var(--muted); margin-top: 4px; }
+  .fix { display: flex; gap: 12px; background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 12px 16px; margin-top: 8px; break-inside: avoid; }
+  .fix .n { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--purple); color: #fff; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; }
+  .fix h4 { font-size: 14px; font-weight: 700; }
+  .fix p { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .fix ul { margin: 6px 0 0 16px; font-size: 13px; color: var(--muted); }
+  .fix li + li { margin-top: 3px; }
 
-  .callout { background: var(--purple-soft); border-radius: 14px; padding: 16px 20px; font-size: 13.5px; color: #3C3489; margin-top: 14px; break-inside: avoid; }
+  .callout { background: var(--purple-soft); border-radius: 14px; padding: 12px 16px; font-size: 12.5px; color: #3C3489; margin-top: 10px; break-inside: avoid; }
   .callout b { color: #26215C; }
+  .callout ul { margin: 6px 0 0 16px; }
+  .callout li + li { margin-top: 3px; }
 
-  .killer-band { background: var(--ink); color: var(--cream); border-radius: 16px; padding: 20px 24px; display: flex; align-items: center; gap: 18px; margin-bottom: 8mm; }
-  .killer-band .num { font-size: 38px; font-weight: 900; color: var(--purple-2); line-height: 1; }
-  .killer-band h2 { margin: 0; font-size: 23px; color: var(--cream); }
+  .killer-band { background: var(--ink); color: var(--cream); border-radius: 16px; padding: 15px 20px; display: flex; align-items: center; gap: 16px; margin-bottom: 5mm; }
+  .killer-band .num { font-size: 36px; font-weight: 900; color: var(--purple-2); line-height: 1; }
+  .killer-band h2 { margin: 0; font-size: 22px; color: var(--cream); }
 
-  .foot { position: absolute; bottom: 10mm; left: 20mm; right: 20mm; display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 8px; }
-  .cover .foot { display: none; }
+  .foot { position: absolute; bottom: 9mm; left: 20mm; right: 20mm; display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 7px; }
 
-  /* Score page */
-  .score-row { display: flex; justify-content: space-between; align-items: center; background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; margin-top: 8px; font-size: 14px; font-weight: 600; }
+  .score-row { display: flex; justify-content: space-between; align-items: center; background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 13px 18px; margin-top: 8px; font-size: 14px; font-weight: 600; }
   .boxes { display: flex; gap: 14px; color: var(--muted); font-weight: 500; font-size: 13px; }
   .boxes span { display: inline-flex; align-items: center; gap: 5px; }
   .bx { display: inline-block; width: 13px; height: 13px; border: 1.5px solid var(--muted); border-radius: 3px; }
-  .bands { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 16px; }
+  .bands { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 14px; }
 
-  /* CTA page */
   .cta-page { background: var(--ink); color: var(--cream); display: flex; flex-direction: column; justify-content: center; }
   .cta-page h2 { color: var(--cream); font-size: 34px; }
   .cta-page .lede { color: var(--inv-muted); max-width: 135mm; }
   .btn { display: inline-block; background: var(--purple); color: #fff; font-weight: 700; font-size: 16px; padding: 14px 28px; border-radius: 12px; text-decoration: none; margin-top: 24px; }
-  .cta-card { background: var(--ink-2); border: 1px solid rgba(250,247,242,0.12); border-radius: 14px; padding: 18px 22px; margin-top: 14px; font-size: 14px; color: var(--inv-muted); }
+  .cta-card { background: var(--ink-2); border: 1px solid rgba(250,247,242,0.12); border-radius: 14px; padding: 17px 21px; margin-top: 14px; font-size: 14px; color: var(--inv-muted); }
   .cta-card b { color: var(--cream); }
 </style>
 </head>
@@ -94,7 +98,7 @@
   <div class="cover-mid">
     <p class="eyebrow">Free playbook · D2C ecommerce</p>
     <h1>The 7 Conversion Killers of D2C Ecommerce Stores</h1>
-    <p class="sub">The patterns we see on almost every audit, the damage each one causes, and the fastest way to fix it. Plain English, no fluff.</p>
+    <p class="sub">A field-tested playbook for store owners who want faster lifts without guesswork. Symptoms to spot, fast fixes to ship, and a score that tells you where to focus first.</p>
     <div class="cover-chips">
       <span class="chip">Symptoms to spot</span>
       <span class="chip">Fast fixes</span>
@@ -112,140 +116,240 @@
   <div class="section-head">
     <p class="eyebrow">Before you start</p>
     <h2>How to use this playbook</h2>
-    <p class="lede">Twenty minutes with this document should leave you with two or three fixes you can ship this month, and a score that tells you where your funnel leaks worst.</p>
   </div>
-  <div class="fix"><div class="n">1</div><div><h4>Skim all seven killers and mark where you nod</h4><p>Each killer opens with the symptoms. If you recognise more than one symptom, you probably have the problem.</p></div></div>
-  <div class="fix"><div class="n">2</div><div><h4>Ship the fast fixes you can do this week</h4><p>Every killer ends with fixes ordered roughly by effort. Start with the ones that need a copy change, not a rebuild.</p></div></div>
-  <div class="fix"><div class="n">3</div><div><h4>Score yourself at the end</h4><p>Seven killers, zero to two points each. The score tells you whether you are leaking everywhere or just need to tighten one stage.</p></div></div>
+  <div class="fix"><div class="n">1</div><div><h4>Skim the 7 killers and mark where you are weakest</h4><p>Each killer opens with symptoms. If you nod more than once, you likely have the issue.</p></div></div>
+  <div class="fix"><div class="n">2</div><div><h4>Implement the fast fixes</h4><p>Start with the ones you can ship this week. Most killers have at least one fix that needs a copy change, not a rebuild.</p></div></div>
+  <div class="fix"><div class="n">3</div><div><h4>Score yourself at the end</h4><p>Seven killers, zero to two points each. If you want, send me your score at jono@impactconversion.com and I will map the fastest 30-day lift plan.</p></div></div>
 
   <p class="label">Who this is for</p>
   <div class="card">
-    <p>D2C ecommerce brands doing <b>1,000+ orders a month or $1M+ a year in online revenue</b>. That is the volume where A/B testing reads become reliable. If you are under that, the fixes still apply, but skip the testing advice and use the low-traffic notes instead: ship the change, watch revenue per visitor for a few weeks, and favour bigger swings over small tweaks.</p>
+    <p>D2C ecommerce and digital product businesses doing <b>1,000+ orders a month or $1M+ a year in online revenue</b>. That is the volume where A/B testing reads become reliable. If you are below that, the fixes still apply: use the low-traffic path in killer 7 so you do not stall.</p>
   </div>
-  <div class="callout"><b>One rule before everything else:</b> every killer in this document is found by research, not by opinion. When you are unsure whether a killer applies to you, ask your buyers. A one-question post-purchase survey ("What almost stopped you from buying today?") finds more leaks than any checklist, including this one.</div>
+  <div class="callout"><b>Why these seven:</b> after years of running research-led testing programs, the same patterns show up on almost every audit. None of them are exotic. All of them are expensive. Fix the ones that apply to you and you will capture revenue you have already paid to acquire.</div>
   <div class="foot"><span>The 7 Conversion Killers of D2C Ecommerce Stores</span><span>impactconversion.com</span></div>
 </section>
 
-<!-- KILLER 1 -->
+<!-- KILLER 1 (2 pages) -->
 <section class="page">
-  <div class="killer-band"><span class="num">01</span><h2>The hero that talks about you instead of them</h2></div>
-  <p>Most homepage heroes name the product, the brand, and the year founded, and never name the problem the buyer is trying to solve. The visitor gives you about five seconds before they decide whether to scroll, and a hero about you wastes all five of them.</p>
+  <div class="killer-band"><span class="num">01</span><h2>You don't know why people buy (or don't)</h2></div>
+  <p>I know how it is. Shipping products, designing new landing pages, coming up with new ads to test. It is exciting work, the work you enjoy, and it makes you feel like you are moving the needle. Customer research, on the other hand, sounds boring, and for the most part it is. But if you are writing headlines, objection-handling copy, or ads without first understanding what actually causes your customer to convert, you are stabbing in the dark.</p>
   <p class="label">How to spot it</p>
   <div class="sym-grid">
-    <div class="card"><h4>The 5-second test fails</h4><p>Show your homepage to someone outside the company for five seconds. If they cannot say who it is for and what they get, you have this killer.</p></div>
-    <div class="card"><h4>The logo-swap test fails</h4><p>Put a competitor's logo on your hero. If the page still reads fine, your headline is generic enough to belong to anyone.</p></div>
-    <div class="card"><h4>Thin scroll, fast exits</h4><p>Scroll maps show visitors stalling at the fold. Cold traffic bounces while returning visitors convert fine, because they already know what you do.</p></div>
+    <div class="card"><h4>Your page isn't converting, and you're unsure why</h4><p>Good business is providing a solution to a problem someone has. If you do not understand the problem, or what motivates them to buy your solution, your business is running on an assumption. And the moment you started marketing the company, you crossed a line you cannot go back on: you can never be your target market again.</p></div>
+    <div class="card"><h4>Opinion-based shipping</h4><p>"It annoys me, so it must annoy customers" is spending money on an assumption. You see your website every day in ways your customers never do. Of course you are tired of the page you have seen a thousand times. It might be working, and you are changing it because you are bored of it.</p></div>
+    <div class="card"><h4>Made-up messaging</h4><p>If your headlines and product names come from a brainstorm in a board room, your messaging reflects what you believe is important. It will keep missing the actual motivations, anxieties, triggers, and desired outcomes of your buyers.</p></div>
   </div>
-  <p class="label">The fix</p>
-  <div class="fix"><div class="n">1</div><div><h4>Lead with the outcome, not the brand</h4><p>One sentence that names who the product is for and the result they get. Pull the exact words from your reviews and post-purchase surveys. Your customers have already written your best headline.</p></div></div>
-  <div class="fix"><div class="n">2</div><div><h4>Put your top two objections in the subhead</h4><p>Whatever almost stops people from buying (price, fit, durability, shipping time) gets answered directly under the headline, not buried in an FAQ.</p></div></div>
-  <div class="fix"><div class="n">3</div><div><h4>Anchor proof at the fold</h4><p>One review, one stat, or one recognisable logo within the first screen. A claim without proof next to it is just a slogan.</p></div></div>
-  <div class="foot"><span>Killer 01 · The hero that talks about you</span><span>impactconversion.com</span></div>
+  <p class="label">The fix: three ways to start, in order</p>
+  <div class="fix"><div class="n">1</div><div><h4>Talk to your customers</h4><p>Email your list and ask to jump on a call. Add an incentive, like a voucher giveaway, and aim for at least 5 to 10 conversations. Ask:</p>
+  <ul>
+    <li>Who they are, and why they were interested in the first place</li>
+    <li>How they heard about you, and how hard it was to find a solution to their problem</li>
+    <li>Which competitors they considered, and what made them choose you instead</li>
+    <li>What almost stopped them from buying</li>
+    <li>Their biggest fear or concern with buying from you, and what got them over it</li>
+    <li>Whether the product met their expectations, and why</li>
+  </ul>
+  <p>Then run the same questions as a survey to your list for volume. Do the calls first: they tell you which questions the survey should ask.</p></div></div>
+  <div class="foot"><span>Killer 01 · Why people buy</span><span>impactconversion.com</span></div>
 </section>
 
-<!-- KILLER 2 -->
 <section class="page">
-  <div class="killer-band"><span class="num">02</span><h2>Price anchoring that works against you</h2></div>
-  <p>The first price a buyer sees sets the anchor for every cart that follows. Most D2C sites lead with their cheapest SKU, on the homepage, in collections, and in ads, which quietly caps average order value across the entire range.</p>
-  <p class="label">How to spot it</p>
+  <div class="fix"><div class="n">2</div><div><h4>On-site surveys</h4><p>Same idea, but in the moment, which gets you different answers. Use an on-site survey tool and ask at key points in the journey:</p>
+  <ul>
+    <li><b>On purchase success:</b> "What was the one thing that almost stopped you from purchasing today?" and, separately, "What convinced you to buy from us today?"</li>
+    <li><b>On landing pages</b> (desktop on exit intent, mobile around average engagement time): "What appeals to you most about our products?", "What, if anything, holds you back from purchasing?", "What could we do to make your decision easier?"</li>
+    <li><b>On the homepage:</b> "What was the purpose of your visit today?", "Were you able to complete it?", and the follow-up "why not?" when the answer is no.</li>
+  </ul>
+  <p>Run one survey on the purchase journey at a time, for at least a week or about 100 valid responses per key segment.</p></div></div>
+  <div class="fix"><div class="n">3</div><div><h4>User testing, if budget allows</h4><p>Ten tests in total, five mobile and five desktop, on your main funnel. Define clear goals, qualify hard (100% target market, never purchased from you), focus on tasks before opinions, give minimal guidance, ask them to think aloud, and keep each session to 20 or 30 minutes on one or two core flows.</p></div></div>
+  <p class="label">What to do with the research</p>
+  <p>Compile everything into one document and categorise it: <b>motivations, values, frictions, anxieties, objections</b>. Compare converters and non-converters. You are answering two questions: "what convinced customers to buy?" and "what almost stopped them?"</p>
+  <p>From there, theorise ways to amplify what convinces people and counter what stops them. Put the ideas in a spreadsheet and rank them by expected conversion impact against implementation difficulty. That ranked list is your testing roadmap for the next quarter.</p>
+  <div class="callout"><b>A caution on AI analysis:</b> the easy path is dumping the data into an AI tool and asking for insight. It works as a first pass, but the tools still make things up. Check the quotes are real before you base a landing page on them.</div>
+  <div class="foot"><span>Killer 01 · Why people buy</span><span>impactconversion.com</span></div>
+</section>
+
+<!-- KILLER 2 (2 pages) -->
+<section class="page">
+  <div class="killer-band"><span class="num">02</span><h2>Weak value proposition (and not being consistent)</h2></div>
+  <p>Have you ever seen a great ad, been almost sold on the product from the ad alone, then clicked through to a page that does not live up to the hype? It actively reduced your probability of purchasing. You could be making the same mistake.</p>
+  <p class="label">The three versions of this mistake</p>
   <div class="sym-grid">
-    <div class="card"><h4>AOV hugs your entry price</h4><p>Average order value sits close to your cheapest product, and items per order hovers near one.</p></div>
-    <div class="card"><h4>Collections sort cheap-first</h4><p>Your default collection sort, your featured products, and your best-sellers row all open on the lowest-priced items.</p></div>
-    <div class="card"><h4>Premium SKUs are invisible</h4><p>Your highest-margin products get a fraction of the product-page traffic, and almost none of it from internal navigation.</p></div>
+    <div class="card"><h4>The landing page doesn't match the ad</h4><p>Testing different angles and claims in ads is fine. But if the landing page does not back up the claim that earned the click, conversion suffers. Symptoms: high bounce, low scroll below the fold, high exits from the pricing section, and survey answers showing confusion about the offer.</p></div>
+    <div class="card"><h4>The page doesn't match the awareness stage</h4><p>Problem-aware visitors get feature lists. Solution-aware visitors cannot see why you are different. Product-aware visitors cannot find the risk removal. The pattern: engagement with weak progression to checkout, plus feedback like "not sure if this solves my situation" and "what's the refund?"</p></div>
+    <div class="card"><h4>There is no unique value proposition at all</h4><p>If someone lands on your site, can they answer "who is this for?" and "why should I care?" in five seconds? Is your offer actually different, or do five other companies claim the same thing?</p></div>
   </div>
+  <div class="callout"><b>The car analogy:</b> everyone knows what a car is. They know the problem (too far to walk) and the solution (a vehicle). The advertiser's job is to make them product aware: sell the specific car, in their price range, with the features they are in market for. Nobody selling cars re-explains walking. Match your message to what your buyer already knows.</div>
+  <p class="label">A quick test</p>
+  <div class="card"><p>Walk someone new through your landing page and ask: <b>What's in it for me? Why should I choose you over the alternative? Why is that a good thing? Can you prove it?</b> If they cannot answer those, you have a value proposition problem.</p></div>
+  <div class="foot"><span>Killer 02 · Value proposition</span><span>impactconversion.com</span></div>
+</section>
+
+<section class="page">
   <p class="label">The fix</p>
-  <div class="fix"><div class="n">1</div><div><h4>Lead with the product you want to sell</h4><p>Put your hero SKU or your bundle first in collections and on the homepage. Let the cheap option be the downgrade people choose, not the default they start from.</p></div></div>
-  <div class="fix"><div class="n">2</div><div><h4>Show the range on the product page</h4><p>A good-better-best presentation on the PDP lets the buyer anchor on the middle or top option. Single-option pages anchor on whatever the ad promised, which is usually the discount.</p></div></div>
-  <div class="fix"><div class="n">3</div><div><h4>Test the anchor, not just the price</h4><p>Before discounting anything, test the order in which prices appear. Re-ordering is free. Discounting never is.</p></div></div>
-  <div class="callout"><b>Low-traffic note:</b> price and anchoring changes move real money in both directions. If you cannot A/B test, change one thing at a time and watch revenue per visitor weekly, not conversion rate alone.</div>
-  <div class="foot"><span>Killer 02 · Price anchoring</span><span>impactconversion.com</span></div>
+  <div class="fix"><div class="n">1</div><div><h4>Restore ad-to-page scent</h4><p>When someone clicks an ad, they arrive with a specific promise in mind, and the landing page should feel like the same conversation. Echo the ad's key phrase in the H1 or first subhead line, keep the same angle and benefit, and repeat any incentive you offered. Running multiple angles? Swap the headline, proof, and CTA based on campaign parameters so every visitor sees the page that matches the promise they clicked.</p></div></div>
+  <div class="fix"><div class="n">2</div><div><h4>Tune the hero to the awareness stage</h4>
+  <ul>
+    <li><b>Problem-aware</b> visitors need to see you understand the problem and the cost of doing nothing before you promise the transformation.</li>
+    <li><b>Solution-aware</b> visitors want your unique mechanism and why it beats the alternatives.</li>
+    <li><b>Product-aware</b> visitors are deciding now: surface price, guarantee, outcomes, and make the CTA immediate.</li>
+    <li><b>Unaware</b> visitors need the big-idea hook first, then the problem, then the outcome.</li>
+  </ul></div></div>
+  <div class="fix"><div class="n">3</div><div><h4>Clarify the UVP and prove it</h4><p>State a single-sentence promise that answers who it is for, the outcome, the timeframe, and the most common objection. Use it as your H1 and repeat it in the title tag. Name your mechanism: the inputs that make you different, the process, and the measurable output versus alternatives. Quantify benefits wherever you legitimately can.</p>
+  <p>Then hold the <b>evidence adjacency rule:</b> every important claim sits next to proof within one scroll, on desktop and mobile. A testimonial, a stat, a recognisable logo, or a quick demo.</p></div></div>
+  <p class="label">Validation checks</p>
+  <div class="sym-grid">
+    <div class="card"><h4>5-second test</h4><p>Can a fresh user say who it is for and what they get?</p></div>
+    <div class="card"><h4>Logo-swap test</h4><p>Would the page read the same with a competitor's logo on it?</p></div>
+    <div class="card"><h4>Scent check</h4><p>Does the headline repeat the ad's key promise and phrasing?</p></div>
+  </div>
+  <div class="foot"><span>Killer 02 · Value proposition</span><span>impactconversion.com</span></div>
 </section>
 
 <!-- KILLER 3 -->
 <section class="page">
-  <div class="killer-band"><span class="num">03</span><h2>PDPs that answer questions nobody is asking</h2></div>
-  <p>When the FAQ block covers returns and shipping but says nothing about whether the product fits the buyer's specific situation, you are usually one paragraph of copy away from the sale. The product page is where the buying decision actually happens, and most of them are written from the spec sheet instead of from the customer's questions.</p>
+  <div class="killer-band"><span class="num">03</span><h2>The trust and authority gap</h2></div>
+  <p>If your website does not earn people's trust, you might as well throw away half your customers. The factors that move trust run much wider than testimonials:</p>
+  <div class="grid-2" style="margin-top:12px;">
+    <div class="card"><ul>
+      <li>Does the site look visually trustworthy, like a professional entity?</li>
+      <li>Is there a real founder or team behind it, with a track record?</li>
+      <li>Are your guarantees specific and strong, or weak, or missing?</li>
+      <li>Are you running fake countdowns people can see through?</li>
+    </ul></div>
+    <div class="card"><ul>
+      <li>Do your testimonials back up the outcome you claim to deliver?</li>
+      <li>Do you have third-party reviews? Can a buyer find your about and contact pages easily?</li>
+      <li>Are recognisable payment methods visible near the CTA?</li>
+      <li>How many others have bought, and do you show it?</li>
+    </ul></div>
+  </div>
   <p class="label">How to spot it</p>
   <div class="sym-grid">
-    <div class="card"><h4>Support asks the same questions</h4><p>Your support inbox and chat keep answering the same three pre-sale questions. Those questions are missing from the PDP.</p></div>
-    <div class="card"><h4>Reviews get read, copy does not</h4><p>Heatmaps show buyers skipping your description and digging through reviews. They are hunting for the answer your copy did not give.</p></div>
-    <div class="card"><h4>High traffic, weak add-to-cart</h4><p>The PDP gets plenty of visits and decent time on page, but add-to-cart stays flat. People are interested and unconvinced.</p></div>
+    <div class="card"><h4>Low conversion rates</h4><p>Obviously. But trust is the cause more often than most teams think.</p></div>
+    <div class="card"><h4>Bounce patterns that hunt for trust</h4><p>Design-related distrust bounces fast. Claim-related distrust engages, then searches the site for proof, then leaves.</p></div>
+    <div class="card"><h4>Pre-sale inquiries</h4><p>"Is this legit?", "Can I see case studies?", "Do you have a guarantee?" If support keeps hearing these, the page is not surfacing enough trust.</p></div>
   </div>
   <p class="label">The fix</p>
-  <div class="fix"><div class="n">1</div><div><h4>Mine your reviews and tickets for the real questions</h4><p>Pull the last 100 reviews and 50 support conversations. List every question and hesitation. The five most common ones become PDP copy, placed above the fold, not in a collapsed FAQ.</p></div></div>
-  <div class="fix"><div class="n">2</div><div><h4>Write for the use case, not the spec</h4><p>"300g" is a spec. "Light enough to forget it is in your pack" is an answer. Every spec on the page should be translated into what it means for the buyer.</p></div></div>
-  <div class="fix"><div class="n">3</div><div><h4>Show the product in use</h4><p>Real in-use imagery beats studio renders for first-time buyers. They are trying to picture themselves using it. Help them.</p></div></div>
-  <div class="foot"><span>Killer 03 · PDP copy</span><span>impactconversion.com</span></div>
+  <div class="grid-2">
+    <div class="card"><h4>Testimonials, case studies, reviews</h4><p>Use text and video, place them next to products and CTAs rather than at the bottom of the page, and keep them fresh.</p></div>
+    <div class="card"><h4>Recognisable logos</h4><p>Partner, client, or press logos at strategic points: homepage, landing pages, just before checkout. Only logos your audience will recognise.</p></div>
+    <div class="card"><h4>Strong guarantees</h4><p>Specific and actionable beats vague: "30-day no-questions-asked refund," stated prominently in plain language.</p></div>
+    <div class="card"><h4>Hard data behind claims</h4><p>Attribute numbers to sources, and visualise the key ones so they get seen.</p></div>
+  </div>
+  <div class="callout"><b>Proof ladder, do and don't:</b> do timestamp outcomes, include denominators ("12,400 customers" beats "thousands"), and link to third-party sources. Don't use stock headshots, vague praise, or "as seen in" logos that don't map to the offer. And kill dishonest countdowns: if you run real deadlines, show the real deadline and why it exists.</div>
+  <div class="foot"><span>Killer 03 · Trust and authority</span><span>impactconversion.com</span></div>
 </section>
 
 <!-- KILLER 4 -->
 <section class="page">
-  <div class="killer-band"><span class="num">04</span><h2>Free shipping thresholds that cost you margin</h2></div>
-  <p>A free-shipping threshold that looks like a conversion win can quietly be a profit loser once fulfilment cost is counted. Most thresholds get set once, by gut feel, and never get modelled against real basket data again.</p>
+  <div class="killer-band"><span class="num">04</span><h2>Above-the-fold fog</h2></div>
+  <p>The term comes from newspapers: folded on the stand, only the top half showed, so publishers put their best work above the fold. On a landing page it is everything visible before scrolling, and 100% of the traffic that lands sees it. No other part of the page has that reach.</p>
   <p class="label">How to spot it</p>
   <div class="sym-grid">
-    <div class="card"><h4>The threshold is a round number</h4><p>If your threshold is $50 or $100 because it sounded right, it has never been modelled. Real basket data almost never lands on a round number.</p></div>
-    <div class="card"><h4>Orders cluster just over it</h4><p>A spike of orders sitting barely above the threshold means buyers are padding carts with low-margin filler to qualify, and you are paying to ship it.</p></div>
-    <div class="card"><h4>Shipping appears late</h4><p>If the buyer first learns the shipping cost inside checkout, you get the worst of both: full fulfilment cost on some orders and abandonment on the rest.</p></div>
+    <div class="card"><h4>The 5-second test fails</h4><p>Visitors cannot tell who it is for, what they get, or why it is different within five seconds.</p></div>
+    <div class="card"><h4>No action, no scroll</h4><p>Click maps show more attention on the navigation and logo than the primary CTA. Scroll depth is thin. Cold traffic wants detail before "Buy now" and cannot find it.</p></div>
+    <div class="card"><h4>Weak or misplaced proof</h4><p>Decorative stock imagery, no testimonial or stat near the fold, and low video play rates. Quick scrolls, quick exits.</p></div>
   </div>
-  <p class="label">The fix</p>
-  <div class="fix"><div class="n">1</div><div><h4>Model the threshold on your own basket data</h4><p>Take your real order distribution and compute what each candidate threshold does to margin after fulfilment, not just to conversion. The right threshold sits just above a natural cluster in your order values, where a small nudge moves the most orders up.</p></div></div>
-  <div class="fix"><div class="n">2</div><div><h4>Make the threshold work for AOV</h4><p>A progress bar in the cart ("$12 away from free shipping") paired with a sensible suggested add-on turns the threshold from a cost into an AOV lever.</p></div></div>
-  <div class="fix"><div class="n">3</div><div><h4>State shipping early</h4><p>Whatever your policy is, surface it on the PDP and in the cart. Surprise shipping cost at checkout is one of the most reliable abandonment triggers in ecommerce.</p></div></div>
-  <div class="callout"><b>Do the maths first:</b> we built a free calculator that models exactly this from your order data: <b>impactconversion.com/tools/shipping-calculator</b></div>
-  <div class="foot"><span>Killer 04 · Shipping thresholds</span><span>impactconversion.com</span></div>
+  <p class="label">The fix: what belongs above the fold</p>
+  <div class="fix"><div class="n">1</div><div><h4>Your headline</h4><p>The clear value proposition from killer 2. Who it is for and the outcome they get.</p></div></div>
+  <div class="fix"><div class="n">2</div><div><h4>A subheadline that earns the claim</h4><p>Expand on the headline and explain why you can do what you just claimed.</p></div></div>
+  <div class="fix"><div class="n">3</div><div><h4>A primary call to action</h4><p>Make the next step obvious. One action, not three.</p></div></div>
+  <div class="fix"><div class="n">4</div><div><h4>Credibility indicators</h4><p>At least one trust element visible without scrolling: proof, testimonial, or guarantee.</p></div></div>
+  <div class="fix"><div class="n">5</div><div><h4>Key visuals</h4><p>Obvious product photos or short video that reinforce the offer. Show the thing.</p></div></div>
+  <div class="callout"><b>5-second test protocol:</b> show the hero to ten fresh users and ask: who is this for, what do I get, what should I do next? Pass if at least seven of ten answer all three without scrolling. The fold is where testing pays back fastest, because every visitor sees it. Test messaging variations, risk reduction, and trust anchors here before anywhere else.</div>
+  <div class="foot"><span>Killer 04 · Above the fold</span><span>impactconversion.com</span></div>
 </section>
 
 <!-- KILLER 5 -->
 <section class="page">
-  <div class="killer-band"><span class="num">05</span><h2>The checkout that re-introduces doubt</h2></div>
-  <p>You spend the whole site building trust, then the checkout asks for a coupon code the buyer does not have, surfaces a strange shipping fee, and demands an account before payment. Every one of those moments hands the buyer a reason to leave at the exact point they had decided to stay.</p>
+  <div class="killer-band"><span class="num">05</span><h2>Friction everywhere: speed, forms, payments, logins</h2></div>
   <p class="label">How to spot it</p>
   <div class="sym-grid">
-    <div class="card"><h4>Checkout abandonment is the leak</h4><p>Funnel data shows healthy add-to-cart and cart-to-checkout, then a cliff between checkout start and purchase.</p></div>
-    <div class="card"><h4>The coupon field leaks</h4><p>Session recordings show buyers leaving checkout to hunt for discount codes. Some come back. Many do not.</p></div>
-    <div class="card"><h4>Rage clicks and form restarts</h4><p>Recordings show repeated taps on fields, validation errors on mobile, and buyers re-typing details the form lost.</p></div>
+    <div class="card"><h4>Slow pages</h4><p>Load speed is the most common form of friction, and the most measurable. Mobile cold traffic feels it worst.</p></div>
+    <div class="card"><h4>Abandonment and rage clicks</h4><p>Cart abandonment at specific steps, rage clicks in session recordings, and people failing to find things through navigation or search.</p></div>
+    <div class="card"><h4>Support tickets for simple things</h4><p>Track support requests per 1,000 purchases. Rising tickets for basic tasks means the site is making people work.</p></div>
   </div>
   <p class="label">The fix</p>
-  <div class="fix"><div class="n">1</div><div><h4>Guest checkout, always</h4><p>Never force account creation before payment. Create the account silently after the order if you need it.</p></div></div>
-  <div class="fix"><div class="n">2</div><div><h4>Tame the coupon field</h4><p>Collapse it behind a small link, and if you run a public welcome offer, auto-apply it. The field should never advertise that other people are paying less.</p></div></div>
-  <div class="fix"><div class="n">3</div><div><h4>Audit the form like a buyer on a phone</h4><p>Ten or fewer visible fields, autofill enabled, the right mobile keyboards, inline validation, and express payment options (Apple Pay, Google Pay, PayPal) above the manual form.</p></div></div>
-  <div class="fix"><div class="n">4</div><div><h4>Keep trust visible at the point of payment</h4><p>Recognisable payment marks, the guarantee, and the returns policy belong within sight of the pay button. Doubt peaks right before commitment.</p></div></div>
-  <div class="foot"><span>Killer 05 · Checkout doubt</span><span>impactconversion.com</span></div>
+  <div class="fix"><div class="n">1</div><div><h4>No login before checkout</h4><p>I have personally run tests where removing forced login before checkout was worth $300k+ a year. If you need accounts, create them after payment, not before.</p></div></div>
+  <div class="fix"><div class="n">2</div><div><h4>Fix Core Web Vitals where it counts</h4><p>Run PageSpeed Insights on your highest-traffic templates first. Compress media, defer non-critical scripts. Targets: LCP 2.5s or faster, CLS 0.1 or lower, INP 200ms or faster, measured with real-user data where possible.</p></div></div>
+  <div class="fix"><div class="n">3</div><div><h4>Map the jobs your visitors came to do</h4><p>Figure out whether the navigation gets people to their goal fast. Test menu structures against direct category routing, and check how many people actually use the nav and what for.</p></div></div>
+  <div class="fix"><div class="n">4</div><div><h4>Checkout field audit</h4><p>Ten or fewer visible fields for guest checkout, optional fields clearly marked, autofill enabled, correct mobile keyboards for email and numbers, inline validation as people type, guest checkout always available.</p></div></div>
+  <div class="fix"><div class="n">5</div><div><h4>Geo-matched payments</h4><p>Mirror the top payment methods for each market you sell into (Apple Pay, Google Pay, PayPal, BNPL, local options), show prices in the buyer's currency with tax handled the way they expect, and keep recognisable processor marks near the CTA.</p></div></div>
+  <div class="foot"><span>Killer 05 · Friction</span><span>impactconversion.com</span></div>
 </section>
 
 <!-- KILLER 6 -->
 <section class="page">
-  <div class="killer-band"><span class="num">06</span><h2>Upsells that feel like upsells</h2></div>
-  <p>Bundles and cross-sells work when they extend the job the buyer hired the product to do. They stall when they look like the store is just trying to add another line to the order. The difference is relevance, timing, and how the offer is framed.</p>
+  <div class="killer-band"><span class="num">06</span><h2>Leaving money on the table post-purchase</h2></div>
+  <p>The moment someone buys is when trust and motivation peak. If you do not extend that momentum, you cap lifetime value, mute referrals, and make every new-customer dollar work harder than it has to.</p>
   <p class="label">How to spot it</p>
-  <div class="sym-grid">
-    <div class="card"><h4>Attach rates in the low single digits</h4><p>Your cart cross-sell or order bump gets shown to everyone and taken by almost no one. Shown is not the same as relevant.</p></div>
-    <div class="card"><h4>One recommendation for every basket</h4><p>The same three products get recommended no matter what is in the cart, because the app shipped with defaults and nobody changed them.</p></div>
-    <div class="card"><h4>Buyers call it pushy</h4><p>Survey responses or support tickets describe the extras as confusing or pushy. Mismatched offers cost trust as well as the sale.</p></div>
+  <div class="grid-2">
+    <div class="card"><h4>Weak repeat-purchase rate</h4><p>90-day cohorts repurchase under 10% and the 12-month repeat rate never clears 20%. You are underserving existing fans.</p></div>
+    <div class="card"><h4>Low average order value</h4><p>Items per order hovers at 1.0 and order-bump attach sits in the low single digits. Buyers were never shown, or never trusted, a logical add-on.</p></div>
+    <div class="card"><h4>Flat revenue per visitor</h4><p>Traffic climbs, add-to-cart looks fine, but dollars per session will not budge. You are squeezing the same juice out of every first purchase and never compounding.</p></div>
+    <div class="card"><h4>Stalled upsells</h4><p>Post-purchase offers see short dwell and under 5% take. Support grumbles about pushy or confusing extras. The offer is mismatched or badly timed.</p></div>
   </div>
+  <div class="callout"><b>Quick diagnostics:</b> pull 90, 180, and 365-day repurchase rates by month of first purchase, the bump and upsell attach rates, and tag refund and support themes to see what blocks the second sale.</div>
   <p class="label">The fix</p>
-  <div class="fix"><div class="n">1</div><div><h4>Match the offer to the basket</h4><p>The cross-sell should complete the job: the case for the camera, the refill for the bottle, the second unit for the household. Rule-based beats algorithm-default at most D2C catalogue sizes.</p></div></div>
-  <div class="fix"><div class="n">2</div><div><h4>Frame it as completing the kit</h4><p>"Complete the set" outperforms "You may also like" because it gives a reason. Price the add-on meaningfully below the main item so the decision feels small.</p></div></div>
-  <div class="fix"><div class="n">3</div><div><h4>Test which logic fires, not whether to upsell</h4><p>The question is never upsell or no upsell. It is which offer, at which moment, to which basket. Treat each as a separate test.</p></div></div>
-  <div class="foot"><span>Killer 06 · Upsells</span><span>impactconversion.com</span></div>
+  <div class="fix"><div class="n">1</div><div><h4>Smart order bumps at checkout</h4><p>A tightly related add-on priced at 15 to 30% of the main product, framed as completing the kit. Target a 15 to 25% attach rate. The maths stacks fast: a 20% attach on a $49 bump across 1,000 monthly orders is roughly $9.8k a month, from one change.</p></div></div>
+  <div class="fix"><div class="n">2</div><div><h4>One-click post-purchase upsells</h4><p>Immediately after payment, one yes-or-no offer with no card re-entry. Tight hook, benefit bullets, one social-proof tile. A 5 to 10% take is a good baseline; one client's post-purchase offer hit 26%.</p></div></div>
+  <div class="fix"><div class="n">3</div><div><h4>48-hour activation sprint</h4><p>A short email or SMS sequence that gets the product used: welcome with a clear next step, a getting-started nudge, a social-proof touch, a quick survey. Usage drives the second order.</p></div></div>
+  <div class="fix"><div class="n">4</div><div><h4>Review and referral at the win moment</h4><p>Trigger the ask at the first win with the product, not three minutes after checkout. Happy scores get the referral ask, low scores route to support.</p></div></div>
+  <div class="foot"><span>Killer 06 · Post-purchase</span><span>impactconversion.com</span></div>
 </section>
 
-<!-- KILLER 7 -->
+<!-- KILLER 7 (2 pages) -->
 <section class="page">
-  <div class="killer-band"><span class="num">07</span><h2>Post-purchase pages that sell nothing</h2></div>
-  <p>The thank-you page holds the highest-intent traffic on your entire site. The buyer just paid. Trust and momentum will never be higher. Most brands use that moment to say thanks and send a receipt, leaving a large pile of margin sitting on the floor.</p>
+  <div class="killer-band"><span class="num">07</span><h2>No experimentation or measurement discipline</h2></div>
+  <p>Testing is how you stop guessing. Without it, shiny redesigns and "best practices" become expensive coin flips, and variance can make a bad change look good for a day before it sinks performance for weeks.</p>
+  <p>But messy testing is not much better. Calling tests early creates false positives, and underpowered experiments create confidence without truth, so you scale the wrong ideas and stall. Proper testing de-risks build time, finds the cheapest path to lift, and compounds learning.</p>
+  <div class="callout"><b>Quick definitions:</b>
+  <ul>
+    <li><b>MDE:</b> the smallest lift worth caring about</li>
+    <li><b>Power (aim for ~80%):</b> whether your traffic can detect that lift</li>
+    <li><b>Statistical significance:</b> the reason you do not call winners early</li>
+    <li><b>SRM:</b> a broken traffic split. Pause and fix before reading anything.</li>
+  </ul></div>
   <p class="label">How to spot it</p>
   <div class="sym-grid">
-    <div class="card"><h4>The thank-you page is a receipt</h4><p>Order number, delivery estimate, nothing else. No offer, no referral ask, no reason to come back.</p></div>
-    <div class="card"><h4>Repeat rate stalls</h4><p>Your 90-day repurchase rate sits under ten percent and nothing in the post-purchase flow is working to change it.</p></div>
-    <div class="card"><h4>Items per order is stuck at one</h4><p>Nobody is ever shown a sensible second offer at the moment they are most likely to take it.</p></div>
+    <div class="card"><h4>Redesigns that fall flat</h4><p>You ship a full new page and watch conversion fall once the novelty wears off, with no way to isolate which change caused it.</p></div>
+    <div class="card"><h4>A win rate that makes no sense</h4><p>You test, but wins are rare and inconsistent, because hypotheses are not grounded in research.</p></div>
+    <div class="card"><h4>Uplifts that never reach revenue</h4><p>Occasional green dashboards, but the revenue line barely moves: wrong metric, sample too small, or the change does not survive across devices and regions.</p></div>
   </div>
   <p class="label">The fix</p>
-  <div class="fix"><div class="n">1</div><div><h4>One-click post-purchase offer</h4><p>A single yes-or-no offer straight after payment, no re-entering card details. One client's post-purchase offer hit a 26 percent take rate and lifted AOV 15 percent. This surface is routinely the easiest win in the whole funnel.</p></div></div>
-  <div class="fix"><div class="n">2</div><div><h4>Make the first week earn the second order</h4><p>A short post-purchase email sequence that helps the buyer get value from what they bought converts better than a discount blast ever will. Usage drives repurchase.</p></div></div>
-  <div class="fix"><div class="n">3</div><div><h4>Ask for the review at the win moment</h4><p>Trigger the review and referral ask when the product lands and gets used, not three minutes after checkout. Timing is most of the response rate.</p></div></div>
-  <div class="foot"><span>Killer 07 · Post-purchase</span><span>impactconversion.com</span></div>
+  <div class="fix"><div class="n">1</div><div><h4>Check you have the volume, then test properly</h4><p>Around 1,000 orders a month is where A/B test reads become reliable. Use a simple protocol: research, hypothesis, sample-size calculation, run, post-test analysis, log. And read impact across the full funnel (visit, add to cart, checkout, purchase), not a single click metric.</p></div></div>
+  <div class="fix"><div class="n">2</div><div><h4>Prioritise ruthlessly</h4><p>Score every idea by expected revenue impact, how confident the evidence makes you, and the effort to ship. Sort, and run the top items within capacity. Fewer tests, done right, raise both win rate and revenue.</p></div></div>
+  <div class="foot"><span>Killer 07 · Experimentation</span><span>impactconversion.com</span></div>
+</section>
+
+<section class="page">
+  <p class="label">Common pitfalls</p>
+  <div class="sym-grid">
+    <div class="card"><h4>Underpowered tests</h4><p>Calculate the minimum detectable effect first, then wait for enough sample. Hope is not a sample size.</p></div>
+    <div class="card"><h4>Novelty effects</h4><p>Compare early and late cohorts. Do not ship day-one wins.</p></div>
+    <div class="card"><h4>Broken splits</h4><p>Check the traffic split matches what you set. If it is off, pause and fix before reading results.</p></div>
+  </div>
+  <div class="grid-2">
+    <div class="card"><h4>Uneven device and geo mix</h4><p>Segment before you ship. A win that only holds on desktop in one country is not a win.</p></div>
+    <div class="card"><h4>Confounded changes</h4><p>On lower traffic, isolate variables. A variant with five changes cannot tell you which one worked.</p></div>
+  </div>
+  <p class="label">Where to start testing</p>
+  <div class="card"><ul>
+    <li>High-friction areas of your landing pages: around the CTA and key decision points</li>
+    <li>The elements above the fold (killer 4): every visitor sees them</li>
+    <li>The homepage hero: nail the value proposition from killer 2</li>
+    <li>Navigation: can you get the visitor to done faster?</li>
+    <li>And every fix in this playbook: each one is a hypothesis worth testing rather than assuming</li>
+  </ul></div>
+  <p class="label">If you have low traffic</p>
+  <div class="grid-2">
+    <div class="card"><h4>Bigger swings, not micro tweaks</h4><p>Offer packaging, pricing, guarantees, and hero messaging. Use directional metrics (revenue per visitor, add-to-cart, AOV) rather than chasing significance.</p></div>
+    <div class="card"><h4>Qualitative-heavy loops</h4><p>Interviews, user tests, on-site polls. Smoke tests for demand: soft launches, waitlists, pre-sale pages with clear refund policies.</p></div>
+    <div class="card"><h4>Longer windows, sequential ships</h4><p>Extend test windows or batch releases, and watch cohort trends rather than day-to-day numbers.</p></div>
+    <div class="card"><h4>Log everything</h4><p>Document learnings in a simple log so decisions compound, win or lose. Twelve months in, the log is the asset.</p></div>
+  </div>
+  <div class="foot"><span>Killer 07 · Experimentation</span><span>impactconversion.com</span></div>
 </section>
 
 <!-- SCORE -->
@@ -253,35 +357,34 @@
   <div class="section-head">
     <p class="eyebrow">Score yourself</p>
     <h2>Where does your store stand?</h2>
-    <p class="lede">Zero, one, or two points per killer. 0 = big problem, no system in place. 1 = some effort, inconsistent. 2 = handled: documented, measured, consistent.</p>
+    <p class="lede">Zero, one, or two points per killer. 0 = big problem, no system in place. 1 = some effort, inconsistent or partial. 2 = dialled: documented, measured, consistent.</p>
   </div>
-  <div class="score-row"><span>01 · Hero names the buyer's problem</span><span class="boxes"><span><i class="bx"></i>0</span><span><i class="bx"></i>1</span><span><i class="bx"></i>2</span></span></div>
-  <div class="score-row"><span>02 · Price anchoring works for you</span><span class="boxes"><span><i class="bx"></i>0</span><span><i class="bx"></i>1</span><span><i class="bx"></i>2</span></span></div>
-  <div class="score-row"><span>03 · PDP answers the real questions</span><span class="boxes"><span><i class="bx"></i>0</span><span><i class="bx"></i>1</span><span><i class="bx"></i>2</span></span></div>
-  <div class="score-row"><span>04 · Shipping threshold modelled on data</span><span class="boxes"><span><i class="bx"></i>0</span><span><i class="bx"></i>1</span><span><i class="bx"></i>2</span></span></div>
-  <div class="score-row"><span>05 · Checkout free of doubt and friction</span><span class="boxes"><span><i class="bx"></i>0</span><span><i class="bx"></i>1</span><span><i class="bx"></i>2</span></span></div>
-  <div class="score-row"><span>06 · Upsells extend the job, attach well</span><span class="boxes"><span><i class="bx"></i>0</span><span><i class="bx"></i>1</span><span><i class="bx"></i>2</span></span></div>
-  <div class="score-row"><span>07 · Post-purchase actively sells</span><span class="boxes"><span><i class="bx"></i>0</span><span><i class="bx"></i>1</span><span><i class="bx"></i>2</span></span></div>
+  <div class="score-row"><span>01 · Know why people buy (and don't)</span><span class="boxes"><span><i class="bx"></i>0</span><span><i class="bx"></i>1</span><span><i class="bx"></i>2</span></span></div>
+  <div class="score-row"><span>02 · Value proposition clarity and consistency</span><span class="boxes"><span><i class="bx"></i>0</span><span><i class="bx"></i>1</span><span><i class="bx"></i>2</span></span></div>
+  <div class="score-row"><span>03 · Trust and authority</span><span class="boxes"><span><i class="bx"></i>0</span><span><i class="bx"></i>1</span><span><i class="bx"></i>2</span></span></div>
+  <div class="score-row"><span>04 · Above-the-fold clarity</span><span class="boxes"><span><i class="bx"></i>0</span><span><i class="bx"></i>1</span><span><i class="bx"></i>2</span></span></div>
+  <div class="score-row"><span>05 · Frictionless speed and checkout</span><span class="boxes"><span><i class="bx"></i>0</span><span><i class="bx"></i>1</span><span><i class="bx"></i>2</span></span></div>
+  <div class="score-row"><span>06 · Post-purchase LTV engine</span><span class="boxes"><span><i class="bx"></i>0</span><span><i class="bx"></i>1</span><span><i class="bx"></i>2</span></span></div>
+  <div class="score-row"><span>07 · Experimentation discipline</span><span class="boxes"><span><i class="bx"></i>0</span><span><i class="bx"></i>1</span><span><i class="bx"></i>2</span></span></div>
   <p class="label">Read your total (out of 14)</p>
   <div class="bands">
-    <div class="card"><h4>0 to 6</h4><p>You are leaking revenue at almost every stage. The good news: the first few fixes will be the cheapest revenue you ever add.</p></div>
+    <div class="card"><h4>0 to 6</h4><p>You are leaking revenue everywhere. The good news: the first few fixes will be the cheapest revenue you ever add.</p></div>
     <div class="card"><h4>7 to 10</h4><p>The foundations are there. A focused 30-day push on your two weakest killers usually pays for itself.</p></div>
-    <div class="card"><h4>11 to 14</h4><p>You are close. The gains now come from testing discipline and speed, not from obvious fixes.</p></div>
+    <div class="card"><h4>11 to 14</h4><p>You are close. Tighten process and speed; the gains now come from testing discipline, not obvious fixes.</p></div>
   </div>
-  <div class="callout"><b>The honest caveat:</b> a checklist finds the common leaks. It cannot find yours specifically. That takes research on your buyers and proper A/B tests on your traffic, which is exactly what we do all day.</div>
   <div class="foot"><span>Score yourself</span><span>impactconversion.com</span></div>
 </section>
 
 <!-- CTA -->
 <section class="page cta-page">
-  <p class="eyebrow" style="color: var(--purple-2);">Next step, if you want one</p>
+  <p class="eyebrow" style="color: var(--purple-2);">Ready to turn your score into revenue?</p>
   <h2>Want us to find your leaks for you?</h2>
-  <p class="lede">Book a free 15-minute intro call. We will look at your funnel together and tell you straight whether a CRO program is worth running on your traffic. No pitch deck, no sales script.</p>
+  <p class="lede">Book a free 15-minute intro call. We will look at your funnel together and tell you straight whether a CRO program is worth running on your traffic. No pitch deck, no sales script. Send your score from the previous page and you will get a straight answer on where to focus first.</p>
   <div>
     <a class="btn" href="https://impactconversion.com/contact">Book a 15-min intro call &rarr;</a>
   </div>
-  <div class="cta-card"><b>The guarantee on every 90-day sprint:</b> you see a revenue uplift, or we refund the final 50% of the sprint fee. The full terms are at impactconversion.com/guarantee.</div>
-  <div class="cta-card">Prefer email? <b>jono@impactconversion.com</b>. If you send your score from the previous page, you will get a straight answer on where to focus first.</div>
+  <div class="cta-card"><b>The guarantee on every 90-day sprint:</b> you see a revenue uplift, or we refund the final 50% of the sprint fee. The full terms, in plain English, are at impactconversion.com/guarantee.</div>
+  <div class="cta-card">Prefer email? <b>jono@impactconversion.com</b></div>
   <p style="margin-top: 30px; font-size: 12px; color: var(--inv-muted);">Impact Conversion · Queenstown, New Zealand · impactconversion.com</p>
 </section>
 

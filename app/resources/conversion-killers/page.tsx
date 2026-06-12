@@ -15,38 +15,38 @@ export const metadata = {
 const killers = [
   {
     n: "01",
-    t: "The hero that talks about you instead of them",
-    b: "Most homepage heroes name the product, the brand, and the year founded, without ever naming the problem the buyer is trying to solve, so one rewrite usually pays for itself many times over.",
+    t: "You don't know why people buy (or don't)",
+    b: "If you are writing headlines, objection-handling copy, or ads without understanding what actually causes your customer to convert, you are stabbing in the dark. Three research methods to fix it, with the exact questions to ask.",
   },
   {
     n: "02",
-    t: "Price anchoring that works against you",
-    b: "The first price a buyer sees sets the anchor for every cart that follows, and most D2C sites lead with their cheapest SKU, which quietly caps AOV across the entire range.",
+    t: "Weak value proposition (and not being consistent)",
+    b: "The ad makes a promise, the page does not back it up, and the visitor leaves. How to restore ad-to-page scent, match the message to the buyer&rsquo;s awareness stage, and pass the 5-second test.",
   },
   {
     n: "03",
-    t: "PDPs that answer questions nobody is asking",
-    b: "When the FAQ block covers returns and shipping but says nothing about whether the product fits the buyer&rsquo;s specific use case, you are usually one paragraph of copy away from the sale.",
+    t: "The trust and authority gap",
+    b: "If your website does not earn trust, you might as well throw away half your customers. The full list of factors that move trust, and how to fix each one.",
   },
   {
     n: "04",
-    t: "Free shipping thresholds that cost you margin",
-    b: "A free-shipping threshold that looks like a conversion win can quietly be a profit loser once you account for increased fulfilment cost, so the threshold needs to be modelled on real basket data.",
+    t: "Above-the-fold fog",
+    b: "Everything visible before scrolling is seen by 100% of your traffic, and no other part of the page has that reach. The five elements that belong there, plus the 5-second test protocol.",
   },
   {
     n: "05",
-    t: "The checkout that re-introduces doubt",
-    b: "You spend the whole site building trust, and then the checkout asks for a coupon code, surfaces a strange shipping fee, and hands the buyer one more reason to leave.",
+    t: "Friction everywhere: speed, forms, payments, logins",
+    b: "Removing forced login before checkout alone has been worth $300k+ a year in our testing. Speed targets, checkout field audits, and the friction fixes that pay fastest.",
   },
   {
     n: "06",
-    t: "Upsells that feel like upsells",
-    b: "Bundles and cross-sells work when they extend the job the buyer hired the product to do, and they stall whenever they look like the store is just trying to add another line to the order.",
+    t: "Leaving money on the table post-purchase",
+    b: "The moment someone buys is when trust and motivation peak. Order bumps, one-click upsells, and activation sequences that compound lifetime value instead of capping it.",
   },
   {
     n: "07",
-    t: "Post-purchase pages that sell nothing",
-    b: "The thank-you page holds the highest-intent traffic on the entire site, and most brands use it simply to say thank you, leaving a large pile of margin sitting on the floor.",
+    t: "No experimentation or measurement discipline",
+    b: "Testing is how you stop guessing, and messy testing is barely better than none. The protocol, the pitfalls, and the low-traffic path if you are not at testing volume yet.",
   },
 ];
 
@@ -83,7 +83,7 @@ export default function ConversionKillersPage() {
               <p className="mt-6 text-lg text-text-inv-muted md:text-xl">
                 These are the patterns we see on almost every audit, along
                 with the damage each one causes and the fastest way to fix it.
-                Ten pages, plain English, no fluff.
+                Fourteen pages, plain English, no fluff.
               </p>
             </Reveal>
           </div>
@@ -116,7 +116,7 @@ export default function ConversionKillersPage() {
                 <LeadMagnetForm
                   source="conversion_killers_pdf"
                   heading="Email me the PDF"
-                  subhead="Ten pages, arriving in under a minute, and you can unsubscribe any time."
+                  subhead="Fourteen pages, arriving in under a minute, and you can unsubscribe any time."
                 />
               </div>
             </div>

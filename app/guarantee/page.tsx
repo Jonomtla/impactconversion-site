@@ -19,23 +19,19 @@ const terms = [
   },
   {
     h: "What counts as a measurable uplift",
-    p: "At least one experiment shipped during the sprint shows a lift on its primary revenue metric, measured by your A/B testing platform against a live control, at the confidence threshold we agree in the test brief before launch. Revenue per visitor or conversion rate, locked in writing before the test starts, never picked after the results come in.",
+    p: "At least one experiment shipped during the sprint shows a lift on its primary metric, measured by your A/B testing platform against a live control, at the confidence threshold we agree in the test brief before launch. The primary metric is conversion rate or revenue per visitor, locked in writing before the test starts, never picked after the results come in. A conversion rate lift counts: pure revenue effects are often statistically hard to detect even when they are real, so the metric is agreed up front rather than argued about at the end.",
   },
   {
     h: "How it is measured",
     p: "Split-test data only. Variant against control, running at the same time, on the same traffic. We do not use before-and-after comparisons, because seasonality and ad-spend changes make them meaningless. The numbers come from the testing platform you can log into yourself.",
   },
   {
-    h: "What we need from you",
-    p: "Test code reviewed and approved within five business days of hand-off, no unannounced site changes to surfaces under test, and the sprint running its full 90 days. If launches stall on your side, the clock pauses rather than the guarantee lapsing.",
+    h: "The guarantee needs you to do the work too",
+    p: "Test code reviewed and approved within five business days of hand-off, access to your store, analytics, and testing tool granted at kick-off, and no unannounced changes to surfaces under test. If responses, approvals, or access stall long enough to block the program from running, the guarantee no longer applies. If that line is ever close, we will tell you in writing at the time, not at the end of the sprint.",
   },
   {
     h: "If there is no uplift",
     p: "We refund the final 50% of the sprint fee within 14 days. You keep everything the sprint produced: the research, the test code, and the documented learnings.",
-  },
-  {
-    h: "Ongoing programs",
-    p: "Monthly engagements carry the same standard, reviewed quarterly: if a quarter ships no measurable winner, we will say so plainly and you can walk away with no notice period.",
   },
 ];
 
