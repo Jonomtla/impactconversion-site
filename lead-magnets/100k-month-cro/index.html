@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>How to Generate $100,000 a Month in Extra Revenue Using CRO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF7F2;
+    --cream-2: #F1ECE3;
+    --ink: #14172a;
+    --ink-2: #1e2238;
+    --purple: #6a48d7;
+    --purple-2: #9b8ce8;
+    --purple-soft: #EDE7FF;
+    --warm: #ff7a59;
+    --border: #E8E4DE;
+    --text: #14172a;
+    --muted: #5a5e77;
+    --inv-muted: #a8aec9;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--cream); font-size: 14px; line-height: 1.58; }
+  @page { size: 210mm 297mm; margin: 0; }
+
+  .page { width: 210mm; min-height: 297mm; padding: 14mm 20mm 20mm; break-after: page; position: relative; }
+  .page:last-child { break-after: auto; }
+
+  .cover { background: var(--ink); color: var(--cream); display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 16mm; }
+  .cover .logo { font-weight: 900; font-size: 28px; letter-spacing: -0.02em; }
+  .cover .logo span { color: var(--purple-2); }
+  .cover .logo small { display: block; font-size: 9px; font-weight: 600; letter-spacing: 0.3em; color: var(--inv-muted); margin-top: 2px; }
+  .cover-mid { margin: 26mm 0; }
+  .cover .eyebrow { color: var(--purple-2); font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; }
+  .cover h1 { font-size: 42px; font-weight: 900; line-height: 1.07; letter-spacing: -0.03em; margin-top: 16px; max-width: 158mm; }
+  .cover .sub { color: var(--inv-muted); font-size: 17px; margin-top: 18px; max-width: 138mm; }
+  .cover-foot { display: flex; justify-content: space-between; align-items: flex-end; color: var(--inv-muted); font-size: 12px; }
+  .cover-foot b { color: var(--cream); font-weight: 600; display: block; font-size: 13px; }
+  .cover-chips { display: flex; gap: 10px; margin-top: 22px; }
+  .chip { border: 1px solid rgba(250,247,242,0.2); border-radius: 99px; padding: 6px 14px; font-size: 12px; color: var(--inv-muted); }
+
+  .eyebrow { color: var(--purple); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
+  h2 { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-top: 8px; break-after: avoid; }
+  .lede { color: var(--muted); font-size: 15px; margin-top: 12px; }
+  .section-head { margin-bottom: 7mm; }
+  p + p { margin-top: 9px; }
+  body > section p b { color: var(--text); }
+
+  .card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 13px 16px; break-inside: avoid; }
+  .card h4 { font-size: 14px; font-weight: 700; }
+  .card p { font-size: 13px; color: var(--muted); margin-top: 5px; }
+  .card ul { margin: 6px 0 0 16px; font-size: 13px; color: var(--muted); }
+  .card li + li { margin-top: 3px; }
+
+  .sym-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 10px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+  .label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-top: 16px; break-after: avoid; }
+
+  .fix { display: flex; gap: 12px; background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 12px 16px; margin-top: 8px; break-inside: avoid; }
+  .fix .n { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--purple); color: #fff; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; }
+  .fix h4 { font-size: 14px; font-weight: 700; }
+  .fix p { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .fix ul { margin: 6px 0 0 16px; font-size: 13px; color: var(--muted); }
+  .fix li + li { margin-top: 3px; }
+
+  .callout { background: var(--purple-soft); border-radius: 14px; padding: 12px 16px; font-size: 12.5px; color: #3C3489; margin-top: 10px; break-inside: avoid; }
+  .callout b { color: #26215C; }
+
+  .key-band { background: var(--ink); color: var(--cream); border-radius: 16px; padding: 15px 20px; display: flex; align-items: center; gap: 16px; margin-bottom: 5mm; }
+  .key-band .num { font-size: 13px; font-weight: 700; color: var(--purple-2); letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap; }
+  .key-band h2 { margin: 0; font-size: 21px; color: var(--cream); }
+
+  .stat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 12px; }
+  .stat { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; text-align: center; break-inside: avoid; }
+  .stat .v { font-size: 30px; font-weight: 900; color: var(--purple); letter-spacing: -0.02em; }
+  .stat .l { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  .quote { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--purple); border-radius: 0 14px 14px 0; padding: 16px 20px; margin-top: 12px; break-inside: avoid; }
+  .quote p { font-size: 15px; line-height: 1.55; }
+  .quote .who { font-size: 12.5px; color: var(--muted); margin-top: 8px; }
+
+  .shot { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-top: 12px; }
+  .shot img { width: 100%; display: block; }
+
+  .foot { position: absolute; bottom: 9mm; left: 20mm; right: 20mm; display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 7px; }
+
+  .cta-page { background: var(--ink); color: var(--cream); display: flex; flex-direction: column; justify-content: center; }
+  .cta-page h2 { color: var(--cream); font-size: 34px; }
+  .cta-page .lede { color: var(--inv-muted); max-width: 135mm; }
+  .btn { display: inline-block; background: var(--purple); color: #fff; font-weight: 700; font-size: 16px; padding: 14px 28px; border-radius: 12px; text-decoration: none; margin-top: 24px; }
+  .cta-card { background: var(--ink-2); border: 1px solid rgba(250,247,242,0.12); border-radius: 14px; padding: 17px 21px; margin-top: 14px; font-size: 14px; color: var(--inv-muted); }
+  .cta-card b { color: var(--cream); }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="page cover">
+  <div class="logo">IMPACT<span>.</span><small>CONVERSION</small></div>
+  <div class="cover-mid">
+    <p class="eyebrow">Free guide · CRO</p>
+    <h1>How to Generate $100,000 a Month in Extra Revenue Using CRO</h1>
+    <p class="sub">Most businesses overpay 2 to 5x for customer acquisition by pouring everything into ads and ignoring the rest of the funnel. This guide walks through the four keys behind a real engagement that added $1.2M a year for one client, from the traffic they already had.</p>
+    <div class="cover-chips">
+      <span class="chip">The four keys</span>
+      <span class="chip">Real numbers from 180 tests</span>
+      <span class="chip">The method behind it</span>
+    </div>
+  </div>
+  <div class="cover-foot">
+    <div><b>Jono Matla</b>Founder, Impact Conversion</div>
+    <div>impactconversion.com</div>
+  </div>
+</section>
+
+<!-- WHO + BACKGROUND -->
+<section class="page">
+  <div class="section-head">
+    <p class="eyebrow">Before you start</p>
+    <h2>Who this is for</h2>
+  </div>
+  <div class="card"><ul>
+    <li>You are already spending on paid ads, likely from $40k a month up to $5-10k a day.</li>
+    <li>People convert, but you know there is more in it.</li>
+    <li>Ads and organic are working, but it feels like a constant uphill battle of new creative, platform changes, and scale that will not come.</li>
+    <li>You may have tested before, put no real research behind it, and got average results with few wins.</li>
+    <li>You are D2C: ecommerce, digital products, e-learning, coaching. Anything that earns its revenue through the website.</li>
+  </ul></div>
+  <p class="label">So here's the thing</p>
+  <div class="card"><p>If you want more conversions <b>and</b> higher lifetime value. If you want to scale your ads without losing profitability. If you are sick of relying on marketing agencies who cannot tell you what is working and have no clear understanding of your customer. And if you want a clear roadmap for converting more customers at this scale. Then this guide is for you.</p></div>
+  <p class="label">Quick background</p>
+  <div class="card"><ul>
+    <li>We have helped drive millions in additional revenue through hundreds of CRO tests and the strategies around them.</li>
+    <li>Specialised in D2C ecommerce, digital products, and e-learning.</li>
+    <li>Clients ranging from $300k a year to $10M+ a year.</li>
+    <li>The case study running through this guide: <b>over $1.2M in additional revenue from 180 tests across 18 months</b>. Not from more traffic. From the traffic they already had.</li>
+  </ul></div>
+  <div class="foot"><span>How to Generate $100,000 a Month in Extra Revenue Using CRO</span><span>impactconversion.com</span></div>
+</section>
+
+<!-- CORE THESIS -->
+<section class="page">
+  <div class="section-head">
+    <p class="eyebrow">The core thesis</p>
+    <h2>There are only three ways to get more revenue</h2>
+    <p class="lede">Revenue = Traffic x Conversion Rate x Lifetime Value. Conversion rate and lifetime value are multipliers: improve either, and every dollar of traffic you already buy works harder.</p>
+  </div>
+  <div class="card"><p>The key idea is that there are four keys to a high-ROI CRO program. Done right, the program returns many times the time and resources you put into it. Skip a step and it will not return for you, because each key feeds the next.</p></div>
+  <p class="label">The four keys</p>
+  <div class="fix"><div class="n">1</div><div><h4>Understand your customer, and your numbers</h4><p>Why people buy, why they leave, and what a conversion improvement is actually worth to you.</p></div></div>
+  <div class="fix"><div class="n">2</div><div><h4>Focus on what actually moves conversion and LTV</h4><p>Most teams improve design and call it CRO. The leverage lives elsewhere.</p></div></div>
+  <div class="fix"><div class="n">3</div><div><h4>Run the compounding method</h4><p>Research-led tests, ruthlessly prioritised, shipped continuously, with every win echoed across the whole business.</p></div></div>
+  <div class="fix"><div class="n">4</div><div><h4>Keep score in revenue</h4><p>Not clicks, not engagement. The program is measured in your P&amp;L, which is how this engagement reached $100k a month.</p></div></div>
+  <div class="foot"><span>The core thesis</span><span>impactconversion.com</span></div>
+</section>
+
+<!-- KEY 1 PAGE 1 -->
+<section class="page">
+  <div class="key-band"><span class="num">Key 1</span><h2>Understand your customer, and your numbers</h2></div>
+  <p>This is the biggest mistake marketers make when they start testing or try to improve conversion. You redesign landing pages without knowing why people are not buying in the first place (hint: it is usually not the design). You cannot scale your ads and keep blaming the platform or the creative instead of looking at the funnel, the money model, or your margins. You know the website needs updating, and "surely" all the updates in your head will be an upgrade.</p>
+  <p>It all leads to no clarity. You do not know which levers to pull to grow, progress slows, margins get squeezed, and even when the ad account looks great, the P&amp;L does not match.</p>
+  <p class="label">Do you know why people buy from you?</p>
+  <p>If you do not understand the core motivations, fears, and incentives behind your customers, you will never unlock scale. If you are thinking "I know what my customer wants" but have not actually asked them in the past year, here is why:</p>
+  <div class="sym-grid">
+    <div class="card"><h4>You were the customer, once</h4><p>Perhaps you were your target customer when you started, and could genuinely put yourself in their shoes.</p></div>
+    <div class="card"><h4>The market carried you</h4><p>You may have got this far on a great market rather than great message-market fit.</p></div>
+    <div class="card"><h4>You lost the outsider view</h4><p>The longer you work on the business, the more you lose the ability to see it as a customer without research.</p></div>
+  </div>
+  <div class="callout"><b>The fix is the research loop from our 7 Conversion Killers playbook:</b> customer interviews, on-site surveys, and user testing, compiled into motivations, frictions, anxieties, and objections, comparing converters against non-converters.</div>
+  <div class="foot"><span>Key 1 · Customer and numbers</span><span>impactconversion.com</span></div>
+</section>
+
+<!-- KEY 1 PAGE 2 -->
+<section class="page">
+  <div class="section-head">
+    <p class="eyebrow">Key 1 continued</p>
+    <h2>Run the math on your conversion</h2>
+    <p class="lede">There is a decent chance your website or landing pages are the bottleneck in your marketing. Any work here multiplies out to every ad dollar.</p>
+  </div>
+  <p>Say you spend $20,000 a month on ads at an average of $2 per click. That brings in around 10,000 visitors a month.</p>
+  <div class="stat-row">
+    <div class="stat"><div class="v">$100</div><div class="l">cost per customer at 2% conversion (200 customers)</div></div>
+    <div class="stat"><div class="v">$40</div><div class="l">cost per customer at 5% conversion (500 customers)</div></div>
+    <div class="stat"><div class="v">60%</div><div class="l">drop in acquisition cost, same ad spend</div></div>
+  </div>
+  <p style="margin-top:12px;">The same spend now delivers two and a half times the customers for no extra budget. On a $20k spend at a 1.8 ROAS pulling $36k in revenue, lifting the page from 2% to 5% takes that to roughly $90k. An extra $54k every month without buying more traffic, before you even touch AOV.</p>
+  <div class="callout"><b>A warning on benchmarks:</b> do not measure yourself against industry benchmarks unless you have a massive market and competition. Benchmarks are an easy road to complacency when the benchmark itself could be the problem.</div>
+  <p class="label">The point stands</p>
+  <div class="card"><ul>
+    <li>Figure out what an investment in CRO is worth to you. The value scales as you grow, with more transactions and higher LTV.</li>
+    <li>Understand exactly what motivates your customers to buy, and what holds non-converters back.</li>
+    <li>Then decide whether conversion is the biggest lever you can pull. At real ad spend, it usually is.</li>
+  </ul></div>
+  <div class="foot"><span>Key 1 · Customer and numbers</span><span>impactconversion.com</span></div>
+</section>
+
+<!-- KEY 2 PAGE 1 -->
+<section class="page">
+  <div class="key-band"><span class="num">Key 2</span><h2>Focus on what actually moves conversion and LTV</h2></div>
+  <p class="label">You aren't improving conversion, you're improving design</p>
+  <p>You would be surprised how many stories I have heard about people investing tens or hundreds of thousands on new websites and landing pages, only for conversion to halve when it goes live.</p>
+  <div class="grid-2">
+    <div class="card"><h4>Designers design. They don't convert.</h4><p>Stop getting designers to design your landing page. It will look nice. It will not necessarily convert. Some of the ugliest pages I have seen convert the best. Good design can help, but it is almost never the biggest lever.</p></div>
+    <div class="card"><h4>Big rebuilds are slow and blind</h4><p>Month-long landing page projects and six-month website rebuilds move too slowly and cannot tell you which change did what. Small, iterative, measured changes are the way.</p></div>
+  </div>
+  <p class="label">If you're sick of not being able to scale ads</p>
+  <div class="callout"><b>Maybe the issue is not in your ad account.</b> It is like trying to fill a bucket with a bigger hose when the real problem is a hole in the bottom. You can keep paying for a bigger hose (more ad spend, more agencies), but until you fix the leak (conversion rate), most of that extra water just runs out.</div>
+  <p class="label">Not every idea is a winner</p>
+  <div class="card"><p>Not every new landing page element or upgrade wins. That is exactly why we test. Plenty of marketers will tell you every page they have touched increased conversion and they have never had a bad outcome. That is not the case, for anyone. At least half of all ideas will not win, which is why you move through iterations fast and find the big levers.</p></div>
+  <div class="foot"><span>Key 2 · Where to focus</span><span>impactconversion.com</span></div>
+</section>
+
+<!-- KEY 2 PAGE 2 -->
+<section class="page">
+  <div class="section-head">
+    <p class="eyebrow">Key 2 continued</p>
+    <h2>Focus where there is pain</h2>
+    <p class="lede">The highest-leverage surfaces are the ones every buyer touches under pressure: the fold, the point of action, and the moment money changes hands.</p>
+  </div>
+  <div class="fix"><div class="n">1</div><div><h4>The elements 100% of visitors see</h4><p>Above the fold on your highest-traffic pages. Headline, subhead, call to action, proof. Wins here multiply across every traffic source you run.</p></div></div>
+  <div class="fix"><div class="n">2</div><div><h4>The point of action</h4><p>Around the buy button is where doubt peaks. Risk reversal, guarantee, payment marks, and the answer to "what happens next" belong within sight of the CTA, not at the bottom of the page.</p></div></div>
+  <div class="fix"><div class="n">3</div><div><h4>Price presentation</h4><p>How the price is framed (payment plans, anchoring against the cost of doing nothing, what is included) often moves more than the price itself.</p></div></div>
+  <div class="fix"><div class="n">4</div><div><h4>The post-purchase moment</h4><p>Order bumps and one-click upsells at the moment trust peaks. This is where LTV gets built, and it is the most under-tested surface in most funnels.</p></div></div>
+  <div class="callout"><b>From the 180-test program:</b> the biggest single wins came from messaging at the fold, checkout friction removal, and post-purchase offers. Not from redesigns.</div>
+  <div class="foot"><span>Key 2 · Where to focus</span><span>impactconversion.com</span></div>
+</section>
+
+<!-- KEY 3 PAGE 1 -->
+<section class="page">
+  <div class="key-band"><span class="num">Key 3</span><h2>Run the compounding method, not spaghetti CRO</h2></div>
+  <p class="label">The wrong way</p>
+  <div class="card"><h4>Spaghetti CRO</h4><p>Change button colours. Run full-page redesigns. Hope for jackpots. Test random ideas with no research behind them. Random testing is gambling with a dashboard attached, and it is why most testing programs quietly die after a quarter.</p></div>
+  <p class="label">The right way</p>
+  <div class="card"><h4>The compounding method</h4><p>Every incremental gain becomes the launchpad for the next. Each test is grounded in research, each result feeds the next hypothesis, and each win gets reused across the business. It is the same methodology the biggest ecommerce companies in the world run their growth on.</p></div>
+  <p class="label">The four steps</p>
+  <div class="fix"><div class="n">1</div><div><h4>Deep discovery, not guesswork</h4><p>Crawl the analytics, interview buyers, survey on-site, and find the hidden chokepoints. The research tells you where the revenue is leaking before you touch a thing.</p></div></div>
+  <div class="fix"><div class="n">2</div><div><h4>Ruthless prioritisation</h4><p>Every idea ranked by how much revenue it can move, how strong the evidence behind it is, what it costs to ship, and its effect on lifetime value. The top of the list gets the test slots. Nothing ships on opinion.</p></div></div>
+  <div class="fix"><div class="n">3</div><div><h4>An always-on testing engine</h4><p>While most competitors run one test a quarter, this program ran 180 tests across 18 months. A constant drumbeat of experiments means a constant drumbeat of insights, and losses get turned into learnings instead of sunk cost.</p></div></div>
+  <div class="fix"><div class="n">4</div><div><h4>Echo wins across everything</h4><p>A winning insight becomes email subject lines, ad hooks, upsell offers, and customer messaging. One discovery multiplies everywhere. That is the compound effect.</p></div></div>
+  <div class="foot"><span>Key 3 · The method</span><span>impactconversion.com</span></div>
+</section>
+
+<!-- EVIDENCE -->
+<section class="page">
+  <div class="section-head">
+    <p class="eyebrow">The evidence</p>
+    <h2>What 180 tests actually looks like</h2>
+    <p class="lede">This is the live test-tracking sheet from the engagement: every test logged with its location, category, primary metric, observed uplift, confidence, and estimated annual revenue impact.</p>
+  </div>
+  <div class="shot"><img src="test-tracking.png" alt="Test tracking spreadsheet showing 180 logged tests with uplift, confidence, and revenue impact columns"></div>
+  <div class="grid-2">
+    <div class="card"><h4>Systematic, across the whole funnel</h4><p>Homepage, sales pages, checkout, navigation, upsells, content pages. Each win building on the last.</p></div>
+    <div class="card"><h4>Insights flow outward</h4><p>Winning messages fed ads, email, checkout, and upsells, so the same research kept paying in channels we never touched directly.</p></div>
+  </div>
+  <div class="callout"><b>Read the columns that matter:</b> observed uplift at a stated confidence, with an estimated annual revenue impact per win. Every test is called against data, and the losses are logged with the same discipline as the wins.</div>
+  <div class="foot"><span>The evidence</span><span>impactconversion.com</span></div>
+</section>
+
+<!-- RESULTS -->
+<section class="page">
+  <div class="section-head">
+    <p class="eyebrow">Key 4 · Keep score in revenue</p>
+    <h2>The numbers, and what they mean</h2>
+  </div>
+  <div class="stat-row">
+    <div class="stat"><div class="v">$1.2M</div><div class="l">additional annual revenue</div></div>
+    <div class="stat"><div class="v">50%</div><div class="l">CAC reduction on one funnel</div></div>
+    <div class="stat"><div class="v">180</div><div class="l">tests across 18 months</div></div>
+  </div>
+  <p style="margin-top:12px;">That $1.2M a year is the $100,000 a month in the title. It did not come from one silver bullet. It came from research-led wins on the surfaces that matter, shipped continuously, and echoed across the funnel until the compounding took over. While competitors' acquisition costs rose, this client's fell.</p>
+  <div class="quote">
+    <p>&ldquo;Working with Impact Conversion has been epic. We&rsquo;ve seen single wins that brought in six figures of additional revenue, which makes the ROI a no-brainer.&rdquo;</p>
+    <p class="who">Ben Silcock · Co-founder, High Performance Academy</p>
+  </div>
+  <div class="callout"><b>The honest caveat:</b> these are the results of one engagement at one client's traffic volume. Your numbers will differ. The method is what transfers: research, prioritisation, always-on testing, and wins echoed everywhere. That, and refusing to count anything but revenue as the score.</div>
+  <div class="foot"><span>The results</span><span>impactconversion.com</span></div>
+</section>
+
+<!-- CTA -->
+<section class="page cta-page">
+  <p class="eyebrow" style="color: var(--purple-2);">Want this run on your funnel?</p>
+  <h2>Let's look at your numbers together.</h2>
+  <p class="lede">Book a free 15-minute intro call. We will walk your funnel, run the conversion math on your actual spend, and tell you straight whether a CRO program is worth running on your traffic. No pitch deck, no sales script.</p>
+  <div>
+    <a class="btn" href="https://impactconversion.com/contact">Book a 15-min intro call &rarr;</a>
+  </div>
+  <div class="cta-card"><b>The guarantee on every 90-day sprint:</b> you see a revenue uplift, or we refund the final 50% of the sprint fee. The full terms, in plain English, are at impactconversion.com/guarantee.</div>
+  <div class="cta-card">Prefer email? <b>jono@impactconversion.com</b></div>
+  <p style="margin-top: 30px; font-size: 12px; color: var(--inv-muted);">Impact Conversion · Queenstown, New Zealand · impactconversion.com</p>
+</section>
+
+</body>
+</html>
