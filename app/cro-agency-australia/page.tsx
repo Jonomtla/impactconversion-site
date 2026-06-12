@@ -53,7 +53,7 @@ const faqs = [
   },
   {
     q: "Which brands have you worked with?",
-    a: "D2C and online education brands, typically from around $1M in annual revenue up into the low tens of millions. Names like High Performance Academy, Animal Training Academy, and Kite Therapy. The full case studies are at /case-studies, including engagements that have run twelve months or longer.",
+    a: "D2C and online education brands doing 1,000+ orders a month or $1M+ a year in online revenue, up into the low tens of millions. Names like High Performance Academy, Animal Training Academy, and Kite Therapy. The full case studies are at /case-studies, including engagements that have run twelve months or longer.",
   },
   {
     q: "What does it cost?",
@@ -177,8 +177,8 @@ export default function CROAgencyAustraliaPage() {
                   <p className="mt-1 text-sm text-text-inv-muted">tests shipped</p>
                 </div>
                 <div className="rounded-xl border border-cream/10 bg-ink-2 px-5 py-4">
-                  <p className="text-2xl font-semibold text-cream">12+ months</p>
-                  <p className="mt-1 text-sm text-text-inv-muted">typical client tenure</p>
+                  <p className="text-2xl font-semibold text-cream">69%</p>
+                  <p className="mt-1 text-sm text-text-inv-muted">largest single-test lift</p>
                 </div>
               </div>
             </Reveal>
@@ -193,7 +193,6 @@ export default function CROAgencyAustraliaPage() {
             </span>
             <Image src="/assets/logos/hpa.png" alt="High Performance Academy" width={800} height={525} className="h-10 w-auto opacity-70 grayscale mix-blend-multiply" />
             <Image src="/assets/logos/steadyrack.png" alt="Steadyrack" width={800} height={123} className="h-5 w-auto opacity-70 grayscale mix-blend-multiply" />
-            <Image src="/assets/logos/ata.png" alt="Animal Training Academy" width={800} height={475} className="h-9 w-auto opacity-70 grayscale mix-blend-multiply" />
             <Image src="/assets/logos/kite-therapy.png" alt="Kite Therapy" width={800} height={140} className="h-5 w-auto opacity-70 grayscale mix-blend-multiply" />
             <Image src="/assets/logos/topmusic.png" alt="Topmusic" width={800} height={154} className="h-6 w-auto opacity-70 grayscale mix-blend-multiply" />
           </div>

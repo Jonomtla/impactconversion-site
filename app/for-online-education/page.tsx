@@ -54,8 +54,8 @@ export default function ForOnlineEducationPage() {
                 More buyers from the funnel you already have.
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
-                We run research-led CRO for online education brands doing $5M
-                to $20M a year on Kajabi, Teachable, or custom platforms.
+                We run research-led CRO for online education brands doing $1M+
+                a year on Kajabi, Teachable, or custom platforms.
                 Eighteen months at High Performance Academy added one to two
                 million in revenue on the same ad spend. Every engagement runs
                 the same promise. Revenue uplift, or you don&rsquo;t pay.

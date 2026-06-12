@@ -83,7 +83,7 @@ export default function ConversionKillersPage() {
               <p className="mt-6 text-lg text-text-inv-muted md:text-xl">
                 These are the patterns we see on almost every audit, along
                 with the damage each one causes and the fastest way to fix it.
-                Fourteen pages, plain English, no fluff.
+                Ten pages, plain English, no fluff.
               </p>
             </Reveal>
           </div>
@@ -116,7 +116,7 @@ export default function ConversionKillersPage() {
                 <LeadMagnetForm
                   source="conversion_killers_pdf"
                   heading="Email me the PDF"
-                  subhead="Fourteen pages, arriving in under a minute, and you can unsubscribe any time."
+                  subhead="Ten pages, arriving in under a minute, and you can unsubscribe any time."
                 />
               </div>
             </div>

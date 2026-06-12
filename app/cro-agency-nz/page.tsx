@@ -57,7 +57,7 @@ const faqs = [
   },
   {
     q: "What size brand do you work with?",
-    a: "As a rough floor, around $1M in annual revenue for NZ-based brands, and a little higher in larger markets. Under that, the traffic-volume math doesn’t support a real testing program yet, so we’d tell you to put that budget into traffic until it does.",
+    a: "As a rough floor, 1,000+ orders a month or $1M+ a year in online revenue. Under that, the traffic-volume math doesn’t support a real testing program yet, so we’d tell you to put that budget into traffic until it does.",
   },
   {
     q: "What does it cost?",
@@ -191,8 +191,8 @@ export default function CROAgencyNZPage() {
                   <p className="mt-1 text-sm text-text-inv-muted">tests shipped</p>
                 </div>
                 <div className="rounded-xl border border-cream/10 bg-ink-2 px-5 py-4">
-                  <p className="text-2xl font-semibold text-cream">12+ months</p>
-                  <p className="mt-1 text-sm text-text-inv-muted">typical client tenure</p>
+                  <p className="text-2xl font-semibold text-cream">69%</p>
+                  <p className="mt-1 text-sm text-text-inv-muted">largest single-test lift</p>
                 </div>
               </div>
             </Reveal>
@@ -207,7 +207,6 @@ export default function CROAgencyNZPage() {
             </span>
             <Image src="/assets/logos/hpa.png" alt="High Performance Academy" width={800} height={525} className="h-10 w-auto opacity-70 grayscale mix-blend-multiply" />
             <Image src="/assets/logos/steadyrack.png" alt="Steadyrack" width={800} height={123} className="h-5 w-auto opacity-70 grayscale mix-blend-multiply" />
-            <Image src="/assets/logos/ata.png" alt="Animal Training Academy" width={800} height={475} className="h-9 w-auto opacity-70 grayscale mix-blend-multiply" />
             <Image src="/assets/logos/kite-therapy.png" alt="Kite Therapy" width={800} height={140} className="h-5 w-auto opacity-70 grayscale mix-blend-multiply" />
             <Image src="/assets/logos/topmusic.png" alt="Topmusic" width={800} height={154} className="h-6 w-auto opacity-70 grayscale mix-blend-multiply" />
           </div>

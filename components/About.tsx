@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -27,8 +28,35 @@ export default function About() {
                 Who we work with
               </p>
               <p className="mt-2 text-base text-text">
-                Direct-to-consumer brands with enough traffic to test fast
-                and enough revenue on the line to care.
+                Direct-to-consumer brands doing 1,000+ orders a month or
+                $1M+ a year in online revenue.
+              </p>
+            </div>
+            <div className="mt-4 rounded-2xl bg-white border border-ink/10 p-6">
+              <div className="flex items-center gap-4">
+                <Image
+                  src="/assets/avatar-jono.png"
+                  alt="Jono Matla"
+                  width={64}
+                  height={64}
+                  className="h-16 w-16 rounded-full object-cover"
+                />
+                <div>
+                  <p className="text-lg font-semibold text-text">Jono Matla</p>
+                  <p className="text-sm text-text-muted">Founder</p>
+                  <a
+                    href="https://www.linkedin.com/company/impactconversion"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-0.5 inline-block text-sm font-medium text-purple hover:underline"
+                  >
+                    LinkedIn
+                  </a>
+                </div>
+              </div>
+              <p className="mt-4 text-base text-text">
+                Every engagement is run by Jono directly. No account
+                managers, no juniors, no hand-offs.
               </p>
             </div>
           </div>
