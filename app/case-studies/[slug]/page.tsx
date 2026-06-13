@@ -47,7 +47,7 @@ export default async function CaseStudyPage({
   const study = getCaseStudy(slug);
   if (!study) notFound();
 
-  const others = caseStudies.filter((c) => c.slug !== study.slug);
+  const others = caseStudies.filter((c) => c.slug !== study.slug && !c.draft);
 
   const url = `https://impactconversion.com/case-studies/${study.slug}`;
   const articleSchema = {
@@ -73,6 +73,12 @@ export default async function CaseStudyPage({
 
   return (
     <>
+      {study.draft ? (
+        <div className="bg-[#ff7a59] px-4 py-2.5 text-center text-sm font-semibold text-[#14172a]">
+          DRAFT — internal preview, pending {study.name} approval. Figures not
+          yet signed off. Do not publish or share externally.
+        </div>
+      ) : null}
       <Nav />
       <main id="main">
         <script
@@ -202,30 +208,32 @@ export default async function CaseStudyPage({
             </Reveal>
 
             {/* Quote */}
-            <Reveal className="mt-16">
-              <blockquote className="border-l-2 border-purple pl-6 text-xl italic leading-relaxed text-text md:text-2xl">
-                <span>{`“${study.quote}”`}</span>
-                <footer className="mt-6 flex items-center gap-3 not-italic">
-                  {study.photo ? (
-                    <Image
-                      src={study.photo}
-                      alt={study.quoteBy}
-                      width={44}
-                      height={44}
-                      className="h-11 w-11 rounded-full object-cover"
-                    />
-                  ) : null}
-                  <div>
-                    <div className="text-sm font-semibold text-text">
-                      {study.quoteBy}
+            {study.quote ? (
+              <Reveal className="mt-16">
+                <blockquote className="border-l-2 border-purple pl-6 text-xl italic leading-relaxed text-text md:text-2xl">
+                  <span>{`“${study.quote}”`}</span>
+                  <footer className="mt-6 flex items-center gap-3 not-italic">
+                    {study.photo ? (
+                      <Image
+                        src={study.photo}
+                        alt={study.quoteBy ?? ""}
+                        width={44}
+                        height={44}
+                        className="h-11 w-11 rounded-full object-cover"
+                      />
+                    ) : null}
+                    <div>
+                      <div className="text-sm font-semibold text-text">
+                        {study.quoteBy}
+                      </div>
+                      <div className="text-sm text-text-muted">
+                        {study.quoteRole}
+                      </div>
                     </div>
-                    <div className="text-sm text-text-muted">
-                      {study.quoteRole}
-                    </div>
-                  </div>
-                </footer>
-              </blockquote>
-            </Reveal>
+                  </footer>
+                </blockquote>
+              </Reveal>
+            ) : null}
           </div>
         </section>
 

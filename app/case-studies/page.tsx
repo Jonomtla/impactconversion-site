@@ -19,7 +19,7 @@ export const metadata = {
 
 export default function CaseStudiesPage() {
   const featured = caseStudies.find((c) => c.featured) ?? caseStudies[0];
-  const rest = caseStudies.filter((c) => c.slug !== featured.slug);
+  const rest = caseStudies.filter((c) => c.slug !== featured.slug && !c.draft);
 
   return (
     <>
