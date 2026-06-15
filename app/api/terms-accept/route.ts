@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { appendTosRow } from "@/lib/sheets";
 
 // Runtime: Node so we can use the Resend SDK without edge constraints.
 export const runtime = "nodejs";
@@ -103,6 +104,26 @@ export async function POST(req: Request) {
       console.error("[terms-accept] resend error", error);
       return NextResponse.json({ error: "send_failed" }, { status: 502 });
     }
+
+    // Best-effort: log to the Google Sheet legal register. A Sheets failure
+    // must never break the submission; the Resend email is the backstop.
+    try {
+      await appendTosRow([
+        timestamp,
+        name,
+        email,
+        company,
+        role || "—",
+        agree ? "Yes" : "No",
+        ip,
+        ua,
+        "impactconversion.com/terms-of-service",
+        "", // Status / Notes — left blank for manual annotation
+      ]);
+    } catch (e) {
+      console.error("[terms-accept] sheet log failed (non-fatal)", e);
+    }
+
     return NextResponse.json({ ok: true });
   } catch (e) {
     console.error("[terms-accept] unexpected", e);
