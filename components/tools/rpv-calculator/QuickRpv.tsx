@@ -37,8 +37,8 @@ export default function QuickRpv({
       <div className="flex items-center gap-1 border-b border-ink/10 bg-cream-2/60 px-4 pt-3 sm:px-6" role="tablist" aria-label="Calculator mode">
         {(
           [
-            { key: 'site', label: 'Whole site' },
-            { key: 'pages', label: 'By page' },
+            { key: 'site', label: 'Whole site', badge: null },
+            { key: 'pages', label: 'By page', badge: 'Most useful' },
           ] as const
         ).map((t) => (
           <button
@@ -46,13 +46,18 @@ export default function QuickRpv({
             role="tab"
             aria-selected={mode === t.key}
             onClick={() => setMode(t.key)}
-            className={`relative px-4 py-2.5 text-sm font-semibold rounded-t-xl transition-colors ${
+            className={`relative flex items-center gap-2 px-4 py-2.5 text-sm font-semibold rounded-t-xl transition-colors ${
               mode === t.key
                 ? 'bg-white text-text border border-b-0 border-ink/10 -mb-px'
                 : 'text-text-muted hover:text-text'
             }`}
           >
             {t.label}
+            {t.badge && (
+              <span className="rounded-full bg-purple px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
+                {t.badge}
+              </span>
+            )}
           </button>
         ))}
       </div>
