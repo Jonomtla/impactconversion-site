@@ -24,6 +24,12 @@ interface ForecastChartProps {
   isRevenueMode?: boolean;
 }
 
+const COLORS = {
+  conservative: '#a8aec9', // muted (matches --color-text-inv-muted family)
+  target: '#6a48d7', // brand purple
+  best: '#ff7a59', // brand warm accent
+};
+
 const formatValue = (value: number) => {
   const abs = Math.abs(value);
   const sign = value < 0 ? '-' : '';
@@ -45,16 +51,16 @@ interface CustomTooltipProps {
 const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white border-2 border-[#9abbd8]/30 rounded-xl p-4 shadow-lg">
-        <p className="text-[#10222b] font-semibold mb-2">{label}</p>
+      <div className="bg-white border border-ink/15 rounded-xl p-4 shadow-lg">
+        <p className="text-text font-semibold mb-2">{label}</p>
         {payload.map((entry, index) => (
           <div key={index} className="flex items-center gap-2 text-sm">
             <div
               className="w-3 h-3 rounded-full"
               style={{ backgroundColor: entry.color }}
             />
-            <span className="text-[#565656]">{entry.name}:</span>
-            <span className="text-[#10222b] font-semibold">{formatValue(entry.value)}</span>
+            <span className="text-text-muted">{entry.name}:</span>
+            <span className="text-text font-semibold">{formatValue(entry.value)}</span>
           </div>
         ))}
       </div>
@@ -69,7 +75,7 @@ export default function ForecastChart({
   bestData,
   isRevenueMode = false,
 }: ForecastChartProps) {
-  // Show cumulative net profit/revenue (after investment) over 12 months
+  // Cumulative net profit/revenue (after investment) over 12 months.
   // Lines crossing $0 = break-even point. M12 values match the scenario cards.
   const chartData = Array.from({ length: 12 }, (_, i) => ({
     month: `M${i + 1}`,
@@ -80,28 +86,23 @@ export default function ForecastChart({
   }));
 
   return (
-    <div className="bg-white border-2 border-[#9abbd8]/20 p-6 rounded-2xl card-shadow animate-fade-in-up">
-      <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center gap-2">
-          <h4 className="text-sm font-semibold text-[#10222b]">Cumulative Net {isRevenueMode ? 'Revenue' : 'Profit'} (After Investment)</h4>
-          {isRevenueMode && (
-            <span className="text-[10px] font-semibold bg-[#9abbd8]/20 text-[#4e7597] px-2 py-1 rounded">
-              TOPLINE REVENUE
-            </span>
-          )}
-        </div>
+    <div className="mt-6">
+      <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+        <h4 className="text-sm font-semibold text-text">
+          Cumulative net {isRevenueMode ? 'revenue' : 'profit'} after investment
+        </h4>
         <div className="flex items-center gap-4 text-xs">
           <div className="flex items-center gap-1.5">
-            <div className="w-3 h-3 rounded-full bg-[#4e7597]" />
-            <span className="text-[#565656]">Conservative</span>
+            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS.conservative }} />
+            <span className="text-text-muted">Conservative</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <div className="w-3 h-3 rounded-full bg-[#72ab7f]" />
-            <span className="text-[#565656]">Target</span>
+            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS.target }} />
+            <span className="text-text-muted">Target</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <div className="w-3 h-3 rounded-full bg-[#7e84e5]" />
-            <span className="text-[#565656]">Best Case</span>
+            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS.best }} />
+            <span className="text-text-muted">Best case</span>
           </div>
         </div>
       </div>
@@ -111,29 +112,29 @@ export default function ForecastChart({
           <AreaChart data={chartData}>
             <defs>
               <linearGradient id="colorConservative" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#4e7597" stopOpacity={0.3}/>
-                <stop offset="95%" stopColor="#4e7597" stopOpacity={0}/>
+                <stop offset="5%" stopColor={COLORS.conservative} stopOpacity={0.25}/>
+                <stop offset="95%" stopColor={COLORS.conservative} stopOpacity={0}/>
               </linearGradient>
               <linearGradient id="colorTarget" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#72ab7f" stopOpacity={0.3}/>
-                <stop offset="95%" stopColor="#72ab7f" stopOpacity={0}/>
+                <stop offset="5%" stopColor={COLORS.target} stopOpacity={0.25}/>
+                <stop offset="95%" stopColor={COLORS.target} stopOpacity={0}/>
               </linearGradient>
               <linearGradient id="colorBest" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#7e84e5" stopOpacity={0.3}/>
-                <stop offset="95%" stopColor="#7e84e5" stopOpacity={0}/>
+                <stop offset="5%" stopColor={COLORS.best} stopOpacity={0.2}/>
+                <stop offset="95%" stopColor={COLORS.best} stopOpacity={0}/>
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="rgba(154, 187, 216, 0.2)" />
-            <ReferenceLine y={0} stroke="#bfbfbf" strokeWidth={1.5} strokeDasharray="4 4" label={{ value: 'Break-even', position: 'right', fontSize: 10, fill: '#999' }} />
+            <CartesianGrid strokeDasharray="3 3" stroke="rgba(20, 23, 42, 0.08)" />
+            <ReferenceLine y={0} stroke="#5a5e77" strokeWidth={1.5} strokeDasharray="4 4" label={{ value: 'Break-even', position: 'right', fontSize: 10, fill: '#5a5e77' }} />
             <XAxis
               dataKey="month"
-              tick={{ fontSize: 11, fill: '#565656' }}
+              tick={{ fontSize: 11, fill: '#5a5e77' }}
               tickLine={false}
               axisLine={false}
             />
             <YAxis
               tickFormatter={formatValue}
-              tick={{ fontSize: 11, fill: '#565656' }}
+              tick={{ fontSize: 11, fill: '#5a5e77' }}
               tickLine={false}
               axisLine={false}
               width={60}
@@ -142,7 +143,7 @@ export default function ForecastChart({
             <Area
               type="monotone"
               dataKey="conservative"
-              stroke="#4e7597"
+              stroke={COLORS.conservative}
               strokeWidth={2}
               fillOpacity={1}
               fill="url(#colorConservative)"
@@ -151,8 +152,8 @@ export default function ForecastChart({
             <Area
               type="monotone"
               dataKey="target"
-              stroke="#72ab7f"
-              strokeWidth={2}
+              stroke={COLORS.target}
+              strokeWidth={2.5}
               fillOpacity={1}
               fill="url(#colorTarget)"
               name="Target (20%)"
@@ -160,11 +161,11 @@ export default function ForecastChart({
             <Area
               type="monotone"
               dataKey="best"
-              stroke="#7e84e5"
+              stroke={COLORS.best}
               strokeWidth={2}
               fillOpacity={1}
               fill="url(#colorBest)"
-              name="Best Case (40%)"
+              name="Best case (40%)"
             />
           </AreaChart>
         </ResponsiveContainer>
