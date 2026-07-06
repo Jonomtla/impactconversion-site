@@ -13,6 +13,9 @@ interface PageRpvProps {
    * when the totals were used to fill the Whole site tab (so the note can say so).
    */
   onImportTotals?: (sessions: number, revenue: number) => boolean;
+  /** Text pasted while another tab was showing; imported on mount. */
+  pendingImport?: string | null;
+  onPendingConsumed?: () => void;
 }
 
 interface Row {
@@ -47,7 +50,7 @@ const normalizePath = (p: string): string => {
   return s;
 };
 
-export default function PageRpv({ siteRpv, onImportTotals }: PageRpvProps) {
+export default function PageRpv({ siteRpv, onImportTotals, pendingImport, onPendingConsumed }: PageRpvProps) {
   const [rows, setRows] = useState<Row[]>([{ ...EMPTY_ROW }, { ...EMPTY_ROW }, { ...EMPTY_ROW }]);
   const [importNote, setImportNote] = useState<string | null>(null);
   const [importError, setImportError] = useState<string | null>(null);
@@ -200,6 +203,15 @@ export default function PageRpv({ siteRpv, onImportTotals }: PageRpvProps) {
     reader.onerror = () => setImportError('Could not read that file. Try re-downloading the CSV.');
     reader.readAsText(file);
   };
+
+  // Text pasted while the Whole site tab was showing lands here on mount.
+  useEffect(() => {
+    if (pendingImport) {
+      importText(pendingImport, 'paste');
+      onPendingConsumed?.();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pendingImport]);
 
   // Copy rows in GA4 or Shopify, click this tab, hit paste. No download step at all.
   useEffect(() => {

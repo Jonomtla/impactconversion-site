@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import InputField from './InputField';
 import BenchmarkScale from './BenchmarkScale';
 import PageRpv from './PageRpv';
+import { parseGa4Csv } from './parseGa4Csv';
 import { formatRPV, formatCurrency } from './format';
 
 interface QuickRpvProps {
@@ -26,6 +27,27 @@ export default function QuickRpv({
   onOrdersChange,
 }: QuickRpvProps) {
   const [mode, setMode] = useState<Mode>('site');
+  const [pendingImport, setPendingImport] = useState<string | null>(null);
+
+  // Pasting page data anywhere on the calculator should just work: when the
+  // Whole site tab is showing, a parseable paste switches to By page and
+  // imports there.
+  useEffect(() => {
+    if (mode !== 'site') return;
+    const onPaste = (e: ClipboardEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target && ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName)) return;
+      const text = e.clipboardData?.getData('text');
+      if (!text || !text.trim()) return;
+      const result = parseGa4Csv(text);
+      if ('error' in result) return;
+      e.preventDefault();
+      setPendingImport(text);
+      setMode('pages');
+    };
+    document.addEventListener('paste', onPaste);
+    return () => document.removeEventListener('paste', onPaste);
+  }, [mode]);
 
   const rpv = sessions > 0 ? revenue / sessions : 0;
   const cvr = sessions > 0 && orders > 0 ? (orders / sessions) * 100 : 0;
@@ -133,6 +155,8 @@ export default function QuickRpv({
         <div className="p-5 sm:p-8">
           <PageRpv
             siteRpv={sessions > 0 && revenue > 0 ? rpv : null}
+            pendingImport={pendingImport}
+            onPendingConsumed={() => setPendingImport(null)}
             onImportTotals={(totalSessions, totalRevenue) => {
               // Fill the Whole site tab from the import, but never stomp
               // numbers the user typed themselves.
