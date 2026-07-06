@@ -1,14 +1,16 @@
-export interface PageRow {
+export interface ImportedRow {
   page: string;
-  sessions: number;
-  revenue: number;
+  sessions: number | null;
+  revenue: number | null;
 }
 
+export type ImportKind = 'full' | 'sessions-only' | 'revenue-only';
+
 export interface ParseResult {
-  rows: PageRow[];
-  pageColumn: string;
-  sessionsColumn: string;
-  revenueColumn: string;
+  kind: ImportKind;
+  rows: ImportedRow[];
+  sessionsColumn: string | null;
+  revenueColumn: string | null;
   skipped: number;
   /** True when columns were inferred positionally (headerless paste). */
   assumed: boolean;
@@ -50,12 +52,12 @@ function parseNumber(raw: string): number {
 }
 
 /**
- * Parse GA4 page data in whatever shape it arrives:
- * - CSV download from a GA4 report (comment lines starting "#" are skipped)
- * - Rows copied straight out of the GA4 table and pasted (tab-separated,
- *   usually without a header row; columns are then inferred positionally:
- *   first column page, second sessions, last revenue, which matches the
- *   Landing page report's column order)
+ * Parse page-level analytics data in whatever shape it arrives:
+ * - GA4 CSV download or copied table rows (sessions + revenue together)
+ * - Shopify exploration exports/copies, which split across two reports:
+ *   sessions by landing_page_path, and total_sales by order_landing_page_path.
+ *   Those arrive as sessions-only / revenue-only imports and get merged
+ *   by the caller.
  */
 export function parseGa4Csv(text: string): ParseResult | { error: string } {
   const rawLines = text
@@ -63,35 +65,36 @@ export function parseGa4Csv(text: string): ParseResult | { error: string } {
     .filter((l) => l.trim() !== '' && !l.trim().startsWith('#'));
 
   if (rawLines.length === 0) {
-    return { error: 'That looks empty. Export the Landing page report from GA4 as CSV, or copy rows straight out of the GA4 table and paste them here.' };
+    return { error: 'That looks empty. Export or copy a report with pages, sessions, and revenue, then try again.' };
   }
 
-  // GA4 CSV downloads are comma-separated; rows copied from the GA4 table are tab-separated.
+  // CSV downloads are comma-separated; rows copied from GA4/Shopify tables are tab-separated.
   const delimiter = rawLines.some((l) => l.includes('\t')) ? '\t' : ',';
 
-  // Find the header row: the first line naming both a sessions and a revenue column.
+  // Find the header row: the first line naming a sessions and/or revenue column.
+  // GA4 calls revenue "Total revenue"; Shopify calls it "Total sales".
   let headerIdx = -1;
   let headers: string[] = [];
-  let sawSessionsHeader = false;
+  let kind: ImportKind = 'full';
   for (let i = 0; i < Math.min(rawLines.length, 10); i++) {
     const cells = splitLine(rawLines[i], delimiter);
     const hasSessions = cells.some((c) => /session/i.test(c));
-    // GA4 calls it revenue; Shopify exports call it total sales.
     const hasRevenue = cells.some((c) => /revenue|total sales/i.test(c));
-    if (hasSessions) sawSessionsHeader = true;
-    if (hasSessions && hasRevenue) {
+    if (hasSessions || hasRevenue) {
       headerIdx = i;
       headers = cells;
+      kind = hasSessions && hasRevenue ? 'full' : hasSessions ? 'sessions-only' : 'revenue-only';
       break;
     }
   }
 
   let pageIdx: number;
-  let sessionsIdx: number;
-  let revenueIdx: number;
+  let sessionsIdx = -1;
+  let revenueIdx = -1;
   let assumed = false;
   let dataLines: string[];
-  let columnNames: { page: string; sessions: string; revenue: string };
+  let sessionsColumn: string | null = null;
+  let revenueColumn: string | null = null;
 
   if (headerIdx !== -1) {
     const findColumn = (patterns: RegExp[]): number => {
@@ -101,25 +104,23 @@ export function parseGa4Csv(text: string): ParseResult | { error: string } {
       }
       return -1;
     };
-    pageIdx = findColumn([/^landing page/i, /^page path/i, /^page title/i, /page/i]);
-    sessionsIdx = findColumn([/^sessions$/i, /session/i]);
-    revenueIdx = findColumn([/^total revenue$/i, /^purchase revenue$/i, /^total sales$/i, /revenue|total sales/i]);
+    pageIdx = findColumn([/^landing page/i, /^order landing page/i, /^page path/i, /^page title/i, /page/i]);
+    if (kind !== 'revenue-only') sessionsIdx = findColumn([/^sessions$/i, /session/i]);
+    if (kind !== 'sessions-only')
+      revenueIdx = findColumn([/^total revenue$/i, /^purchase revenue$/i, /^total sales$/i, /revenue|total sales/i]);
     if (pageIdx === -1) {
       return {
-        error: 'Couldn’t find a page column. Use the Landing page report (Reports → Engagement → Landing page) so each row is a page.',
+        error:
+          'Couldn’t find a page column. Use a report broken down by page (GA4 Landing page report, or Shopify grouped by landing page path).',
       };
     }
     dataLines = rawLines.slice(headerIdx + 1);
-    columnNames = { page: headers[pageIdx], sessions: headers[sessionsIdx], revenue: headers[revenueIdx] };
-  } else if (sawSessionsHeader) {
-    // A header row with Sessions but no revenue column anywhere.
-    return {
-      error:
-        'Found a Sessions column but no revenue column. In GA4, click the pencil (Customize report) on the Landing page report and add "Total revenue" as a metric, or copy the rows including the revenue column.',
-    };
+    sessionsColumn = sessionsIdx !== -1 ? headers[sessionsIdx] : null;
+    revenueColumn = revenueIdx !== -1 ? headers[revenueIdx] : null;
   } else {
-    // No header at all: rows pasted straight from the GA4 table. Infer
-    // positions from the Landing page report's column order.
+    // No header at all: rows pasted straight from a GA4 table. Infer positions
+    // from the Landing page report's column order. Two-column data is ambiguous
+    // (sessions or revenue?), so require the header for partial imports.
     const candidate = rawLines.filter((l) => {
       const cells = splitLine(l, delimiter);
       return cells.length >= 3 && (cells[0].startsWith('/') || cells[0] === '(not set)');
@@ -127,7 +128,7 @@ export function parseGa4Csv(text: string): ParseResult | { error: string } {
     if (candidate.length === 0) {
       return {
         error:
-          'Couldn’t recognise that as GA4 page data. Either download the Landing page report as CSV, or copy whole rows (page, sessions … revenue) from the GA4 table and paste them.',
+          'Couldn’t recognise that as page data. Copy whole rows including the header row, or download the report as CSV and drop it here.',
       };
     }
     const width = splitLine(candidate[0], delimiter).length;
@@ -135,45 +136,52 @@ export function parseGa4Csv(text: string): ParseResult | { error: string } {
     sessionsIdx = 1;
     revenueIdx = width - 1;
     assumed = true;
+    kind = 'full';
     dataLines = candidate;
-    columnNames = {
-      page: 'first column as page',
-      sessions: 'second column as Sessions',
-      revenue: 'last column as Total revenue',
-    };
+    sessionsColumn = 'second column as Sessions';
+    revenueColumn = 'last column as Total revenue';
   }
 
-  const rows: PageRow[] = [];
+  const rows: ImportedRow[] = [];
   let skipped = 0;
   for (const line of dataLines) {
     const cells = splitLine(line, delimiter);
-    // GA4 appends grand-total and date-breakdown blocks after a blank line;
-    // rows that don't parse cleanly are counted, not fatal.
     const page = cells[pageIdx];
-    const sessions = parseNumber(cells[sessionsIdx] ?? '');
-    const revenue = parseNumber(cells[revenueIdx] ?? '');
-    if (headerIdx === -1 && page && !page.startsWith('/') && page !== '(not set)') {
+    // Skip summary/total rows and unattributed buckets ("None", "Summary", "(not set)").
+    if (!page || !page.startsWith('/')) {
       skipped++;
       continue;
     }
-    if (!page || !Number.isFinite(sessions) || sessions <= 0 || !Number.isFinite(revenue)) {
+    const sessions = sessionsIdx !== -1 ? parseNumber(cells[sessionsIdx] ?? '') : NaN;
+    const revenue = revenueIdx !== -1 ? parseNumber(cells[revenueIdx] ?? '') : NaN;
+    const hasSessions = Number.isFinite(sessions) && sessions > 0;
+    const hasRevenue = Number.isFinite(revenue) && revenue >= 0;
+    if (
+      (kind === 'full' && (!hasSessions || !hasRevenue)) ||
+      (kind === 'sessions-only' && !hasSessions) ||
+      (kind === 'revenue-only' && !hasRevenue)
+    ) {
       skipped++;
       continue;
     }
-    rows.push({ page, sessions: Math.round(sessions), revenue });
+    rows.push({
+      page,
+      sessions: hasSessions ? Math.round(sessions) : null,
+      revenue: hasRevenue ? revenue : null,
+    });
   }
 
   if (rows.length === 0) {
-    return { error: 'No usable rows found. Check each row has a page, Sessions, and Total revenue.' };
+    return { error: 'No usable rows found. Check each row has a page path plus Sessions and/or revenue.' };
   }
 
-  rows.sort((a, b) => b.sessions - a.sessions);
+  rows.sort((a, b) => (b.sessions ?? b.revenue ?? 0) - (a.sessions ?? a.revenue ?? 0));
 
   return {
-    rows: rows.slice(0, 100),
-    pageColumn: columnNames.page,
-    sessionsColumn: columnNames.sessions,
-    revenueColumn: columnNames.revenue,
+    kind,
+    rows: rows.slice(0, 150),
+    sessionsColumn,
+    revenueColumn,
     skipped,
     assumed,
   };

@@ -9,8 +9,8 @@ interface PageRpvProps {
   /** Site-wide RPV from the Whole site tab; fallback baseline for singleton page types. */
   siteRpv: number | null;
   /**
-   * Called with summed sessions/revenue after an import. Returns true when the
-   * totals were used to fill the Whole site tab (so the note can say so).
+   * Called with summed sessions/revenue after a complete import. Returns true
+   * when the totals were used to fill the Whole site tab (so the note can say so).
    */
   onImportTotals?: (sessions: number, revenue: number) => boolean;
 }
@@ -18,18 +18,34 @@ interface PageRpvProps {
 interface Row {
   page: string;
   sessions: number;
-  revenue: number;
+  /** null = not provided yet (e.g. Shopify sessions report pasted, revenue report pending). */
+  revenue: number | null;
   /** Set when the user overrides the auto-detected type. */
   typeOverride?: PageType;
 }
 
-const EMPTY_ROW: Row = { page: '', sessions: 0, revenue: 0 };
+const EMPTY_ROW: Row = { page: '', sessions: 0, revenue: null };
 const COLLAPSED_COUNT = 12;
+
+// Store-agnostic deep links: admin.shopify.com redirects to the logged-in
+// user's own store and runs the prefilled query. Verified July 2026.
+const SHOPIFY_SESSIONS_URL =
+  'https://admin.shopify.com/analytics/reports/explore?ql=' +
+  encodeURIComponent('FROM sessions SHOW sessions GROUP BY landing_page_path SINCE -30d UNTIL today ORDER BY sessions DESC');
+const SHOPIFY_REVENUE_URL =
+  'https://admin.shopify.com/analytics/reports/explore?ql=' +
+  encodeURIComponent('FROM sales SHOW total_sales, orders GROUP BY order_landing_page_path SINCE -30d UNTIL today ORDER BY total_sales DESC');
 
 const cellInput =
   'w-full rounded-lg border border-ink/15 bg-white px-3 py-2 text-sm font-medium text-text placeholder:text-text-muted/50 focus:outline-none focus:border-purple focus:ring-2 focus:ring-purple/10 transition-colors';
 
 const rowType = (r: Row): PageType => r.typeOverride ?? detectPageType(r.page);
+
+const normalizePath = (p: string): string => {
+  let s = p.split('?')[0].trim().toLowerCase();
+  if (s.length > 1 && s.endsWith('/')) s = s.slice(0, -1);
+  return s;
+};
 
 export default function PageRpv({ siteRpv, onImportTotals }: PageRpvProps) {
   const [rows, setRows] = useState<Row[]>([{ ...EMPTY_ROW }, { ...EMPTY_ROW }, { ...EMPTY_ROW }]);
@@ -40,13 +56,13 @@ export default function PageRpv({ siteRpv, onImportTotals }: PageRpvProps) {
   const fileRef = useRef<HTMLInputElement>(null);
 
   const validRows = useMemo(
-    () => rows.filter((r) => r.sessions > 0 && r.revenue >= 0 && r.page.trim() !== ''),
+    () => rows.filter((r) => r.page.trim() !== '' && r.sessions > 0 && r.revenue !== null),
     [rows]
   );
 
   const overallAvg = useMemo(() => {
     const totalSessions = validRows.reduce((s, r) => s + r.sessions, 0);
-    const totalRevenue = validRows.reduce((s, r) => s + r.revenue, 0);
+    const totalRevenue = validRows.reduce((s, r) => s + (r.revenue ?? 0), 0);
     return totalSessions > 0 ? totalRevenue / totalSessions : 0;
   }, [validRows]);
 
@@ -58,7 +74,7 @@ export default function PageRpv({ siteRpv, onImportTotals }: PageRpvProps) {
       const t = rowType(r);
       const g = groups.get(t) ?? { sessions: 0, revenue: 0, count: 0 };
       g.sessions += r.sessions;
-      g.revenue += r.revenue;
+      g.revenue += r.revenue ?? 0;
       g.count++;
       groups.set(t, g);
     }
@@ -81,14 +97,14 @@ export default function PageRpv({ siteRpv, onImportTotals }: PageRpvProps) {
   };
 
   const maxRpv = useMemo(
-    () => Math.max(0, ...validRows.map((r) => (r.sessions > 0 ? r.revenue / r.sessions : 0))),
+    () => Math.max(0, ...validRows.map((r) => (r.sessions > 0 ? (r.revenue ?? 0) / r.sessions : 0))),
     [validRows]
   );
 
   const opportunities = useMemo(() => {
     return validRows
       .map((r) => {
-        const rpv = r.revenue / r.sessions;
+        const rpv = (r.revenue ?? 0) / r.sessions;
         const baseline = baselineFor(r);
         const gain = baseline && rpv < baseline.value ? (baseline.value - rpv) * r.sessions : 0;
         return { ...r, rpv, gain, baseline };
@@ -107,18 +123,70 @@ export default function PageRpv({ siteRpv, onImportTotals }: PageRpvProps) {
       setImportError(result.error);
       return;
     }
-    setRows(result.rows.map((r) => ({ ...r })));
+
+    let merged: Row[];
+    let matchNote = '';
+    if (result.kind === 'full') {
+      merged = result.rows.map((r) => ({ page: r.page, sessions: r.sessions ?? 0, revenue: r.revenue }));
+    } else {
+      // Partial import (Shopify splits sessions and revenue across two
+      // reports): merge into existing rows by normalised path.
+      const map = new Map<string, Row>();
+      for (const r of rows) {
+        if (r.page.trim() !== '') map.set(normalizePath(r.page), { ...r });
+      }
+      let matchedCount = 0;
+      for (const inc of result.rows) {
+        const key = normalizePath(inc.page);
+        const existing = map.get(key);
+        if (existing) {
+          if (inc.sessions !== null) existing.sessions = inc.sessions;
+          if (inc.revenue !== null) existing.revenue = inc.revenue;
+          matchedCount++;
+        } else {
+          map.set(key, { page: inc.page, sessions: inc.sessions ?? 0, revenue: inc.revenue });
+        }
+      }
+      merged = [...map.values()];
+      if (matchedCount > 0) matchNote = ` (${matchedCount} matched pages you already had)`;
+    }
+
+    setRows(merged.length > 0 ? merged : [{ ...EMPTY_ROW }]);
     setShowAll(false);
-    const totalSessions = result.rows.reduce((s, r) => s + r.sessions, 0);
-    const totalRevenue = result.rows.reduce((s, r) => s + r.revenue, 0);
-    const filledSite = onImportTotals ? onImportTotals(totalSessions, totalRevenue) : false;
+
+    const complete = merged.filter((r) => r.sessions > 0 && r.revenue !== null);
+    const missingRevenue = merged.filter((r) => r.sessions > 0 && r.revenue === null).length;
+    const missingSessions = merged.filter((r) => r.sessions === 0 && r.revenue !== null).length;
+
+    let filledSite = false;
+    if (complete.length > 0 && onImportTotals) {
+      filledSite = onImportTotals(
+        complete.reduce((s, r) => s + r.sessions, 0),
+        complete.reduce((s, r) => s + (r.revenue ?? 0), 0)
+      );
+    }
+
+    const what =
+      result.kind === 'full'
+        ? `${result.rows.length} pages (${result.sessionsColumn} + ${result.revenueColumn})`
+        : result.kind === 'sessions-only'
+          ? `sessions for ${result.rows.length} pages${matchNote}`
+          : `revenue for ${result.rows.length} pages${matchNote}`;
+    const nextStep =
+      missingRevenue > 0
+        ? ` Now add the revenue report (${missingRevenue} pages still need it).`
+        : missingSessions > 0
+          ? ` Now add the sessions report (${missingSessions} pages still need it).`
+          : '';
+
     setImportNote(
-      `${source === 'paste' ? 'Pasted' : 'Imported'} ${result.rows.length} pages` +
+      `${source === 'paste' ? 'Pasted' : 'Imported'} ${what}` +
         (result.assumed
           ? ' (no header row, so read the first column as page, second as Sessions, last as Total revenue; spot-check an RPV or two)'
-          : ` (${result.sessionsColumn} + ${result.revenueColumn})`) +
+          : '') +
         (result.skipped > 0 ? `, skipped ${result.skipped} rows without usable numbers` : '') +
         '. Page types detected from the URLs.' +
+        nextStep +
         (filledSite ? ' The Whole site tab now has your totals too.' : '') +
         ' Everything stays in your browser.'
     );
@@ -129,11 +197,11 @@ export default function PageRpv({ siteRpv, onImportTotals }: PageRpvProps) {
     setImportNote(null);
     const reader = new FileReader();
     reader.onload = () => importText(String(reader.result ?? ''), 'file');
-    reader.onerror = () => setImportError('Could not read that file. Try re-downloading the CSV from GA4.');
+    reader.onerror = () => setImportError('Could not read that file. Try re-downloading the CSV.');
     reader.readAsText(file);
   };
 
-  // Copy rows in GA4, click this tab, hit paste. No download step at all.
+  // Copy rows in GA4 or Shopify, click this tab, hit paste. No download step at all.
   useEffect(() => {
     const onPaste = (e: ClipboardEvent) => {
       const target = e.target as HTMLElement | null;
@@ -146,7 +214,7 @@ export default function PageRpv({ siteRpv, onImportTotals }: PageRpvProps) {
     document.addEventListener('paste', onPaste);
     return () => document.removeEventListener('paste', onPaste);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [onImportTotals]);
+  }, [rows, onImportTotals]);
 
   const updateRow = (i: number, patch: Partial<Row>) => {
     setRows((prev) => prev.map((r, idx) => (idx === i ? { ...r, ...patch } : r)));
@@ -178,16 +246,16 @@ export default function PageRpv({ siteRpv, onImportTotals }: PageRpvProps) {
           Compare revenue per visitor across your landing pages
         </p>
         <p className="mt-1 text-sm text-text-muted">
-          Three ways in: copy rows straight out of your GA4 Landing page report and paste here
-          (Cmd+V), drop the CSV download, or fill in the rows by hand. Each page is judged against
-          your own average for its page type. Nothing is uploaded; everything is read in your browser.
+          Copy rows straight out of GA4 or Shopify and paste here (Cmd+V), drop a CSV, or fill in
+          the rows by hand. Each page is judged against your own average for its page type.
+          Nothing is uploaded; everything is read in your browser.
         </p>
         <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
           <button
             onClick={() => fileRef.current?.click()}
             className="rounded-xl bg-ink px-5 py-2.5 text-sm font-semibold text-cream hover:bg-ink-2 transition-colors"
           >
-            Import GA4 CSV
+            Import CSV
           </button>
           <button
             onClick={() => setRows((prev) => [...prev, { ...EMPTY_ROW }])}
@@ -201,28 +269,62 @@ export default function PageRpv({ siteRpv, onImportTotals }: PageRpvProps) {
           type="file"
           accept=".csv,text/csv"
           className="sr-only"
-          aria-label="Import GA4 CSV file"
+          aria-label="Import CSV file"
           onChange={(e) => {
             const file = e.target.files?.[0];
             if (file) handleFile(file);
             e.target.value = '';
           }}
         />
-        <details className="mt-4 text-left text-sm text-text-muted max-w-xl mx-auto">
-          <summary className="cursor-pointer font-medium text-text hover:text-purple transition-colors text-center">
-            How to export this from GA4
-          </summary>
-          <ol className="mt-3 list-decimal space-y-1 pl-5">
-            <li>In GA4 go to Reports → Engagement → Landing page (or Pages and screens).</li>
-            <li>Set your date range (a full month is ideal) and make sure Sessions and Total revenue are shown as columns. If Total revenue is missing, click the pencil (Customize report) and add it as a metric.</li>
-            <li>Fastest: select the rows in the table, copy, then paste here with Cmd+V. Or click Share (top right) → Download file → CSV and drop the file here.</li>
-          </ol>
-          <p className="mt-3">
-            Shopify exports with Sessions and Total sales columns paste here too. GA4&rsquo;s
-            landing-page report is still the most reliable per-page source, since Shopify&rsquo;s
-            standard reports don&rsquo;t tie revenue to landing pages on every plan.
-          </p>
-        </details>
+        <div className="mt-4 grid gap-2 text-left text-sm text-text-muted max-w-xl mx-auto">
+          <details>
+            <summary className="cursor-pointer font-medium text-text hover:text-purple transition-colors text-center">
+              Get it from GA4
+            </summary>
+            <ol className="mt-3 list-decimal space-y-1 pl-5">
+              <li>Go to Reports → Engagement → Landing page (or Pages and screens).</li>
+              <li>Set your date range (a full month is ideal) and make sure Sessions and Total revenue are shown as columns. If Total revenue is missing, click the pencil (Customize report) and add it as a metric.</li>
+              <li>Fastest: select the rows in the table, copy, then paste here with Cmd+V. Or click Share (top right) → Download file → CSV and drop the file here.</li>
+            </ol>
+          </details>
+          <details>
+            <summary className="cursor-pointer font-medium text-text hover:text-purple transition-colors text-center">
+              Get it from Shopify
+            </summary>
+            <p className="mt-3">
+              Shopify splits this across two reports. These links open them prefilled in your own
+              admin (log in to Shopify first):
+            </p>
+            <ol className="mt-2 list-decimal space-y-1 pl-5">
+              <li>
+                <a
+                  href={SHOPIFY_SESSIONS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-purple underline-offset-2 hover:underline"
+                >
+                  Sessions by landing page
+                </a>
+                : copy the table rows including the header, paste here.
+              </li>
+              <li>
+                <a
+                  href={SHOPIFY_REVENUE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-purple underline-offset-2 hover:underline"
+                >
+                  Revenue by landing page
+                </a>
+                : copy and paste the same way. The two get merged by page automatically.
+              </li>
+            </ol>
+            <p className="mt-2">
+              Shopify attributes revenue to the landing page of the ordering session, so treat
+              per-page RPV from Shopify as directional.
+            </p>
+          </details>
+        </div>
       </div>
 
       {importNote && (
@@ -297,10 +399,10 @@ export default function PageRpv({ siteRpv, onImportTotals }: PageRpvProps) {
           </thead>
           <tbody>
             {visibleRows.map((row, i) => {
-              const rpv = row.sessions > 0 ? row.revenue / row.sessions : 0;
-              const barPct = maxRpv > 0 ? Math.min(100, (rpv / maxRpv) * 100) : 0;
+              const rpv = row.sessions > 0 && row.revenue !== null ? row.revenue / row.sessions : null;
+              const barPct = rpv !== null && maxRpv > 0 ? Math.min(100, (rpv / maxRpv) * 100) : 0;
               const baseline = baselineFor(row);
-              const belowBaseline = baseline !== null && rpv > 0 && rpv < baseline.value;
+              const belowBaseline = baseline !== null && rpv !== null && rpv < baseline.value;
               const detected = detectPageType(row.page);
               return (
                 <tr key={i} className="border-t border-ink/5">
@@ -349,18 +451,20 @@ export default function PageRpv({ siteRpv, onImportTotals }: PageRpvProps) {
                       type="number"
                       inputMode="decimal"
                       min={0}
-                      value={row.revenue || ''}
-                      onChange={(e) => updateRow(i, { revenue: parseFloat(e.target.value) || 0 })}
+                      value={row.revenue ?? ''}
+                      onChange={(e) =>
+                        updateRow(i, { revenue: e.target.value === '' ? null : parseFloat(e.target.value) || 0 })
+                      }
                       placeholder="9,500"
                       aria-label={`Page ${i + 1} revenue`}
                       className={cellInput}
                     />
                   </td>
                   <td className={`py-1.5 pr-3 font-semibold tabular-nums ${belowBaseline ? 'text-accent-warm' : 'text-text'}`}>
-                    {rpv > 0 ? formatRPV(rpv) : '—'}
+                    {rpv !== null ? formatRPV(rpv) : '—'}
                   </td>
                   <td className="py-1.5">
-                    {rpv > 0 && (
+                    {rpv !== null && (
                       <div className="h-2 w-full rounded-full bg-cream-2">
                         <div
                           className={`h-2 rounded-full ${belowBaseline ? 'bg-accent-warm/70' : 'bg-purple/70'}`}
