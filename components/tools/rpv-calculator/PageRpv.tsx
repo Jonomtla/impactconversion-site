@@ -217,6 +217,11 @@ export default function PageRpv({ siteRpv, onImportTotals }: PageRpvProps) {
             <li>Set your date range (a full month is ideal) and make sure Sessions and Total revenue are shown as columns. If Total revenue is missing, click the pencil (Customize report) and add it as a metric.</li>
             <li>Fastest: select the rows in the table, copy, then paste here with Cmd+V. Or click Share (top right) → Download file → CSV and drop the file here.</li>
           </ol>
+          <p className="mt-3">
+            Shopify exports with Sessions and Total sales columns paste here too. GA4&rsquo;s
+            landing-page report is still the most reliable per-page source, since Shopify&rsquo;s
+            standard reports don&rsquo;t tie revenue to landing pages on every plan.
+          </p>
         </details>
       </div>
 

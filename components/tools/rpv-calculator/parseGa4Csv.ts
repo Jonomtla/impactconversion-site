@@ -76,7 +76,8 @@ export function parseGa4Csv(text: string): ParseResult | { error: string } {
   for (let i = 0; i < Math.min(rawLines.length, 10); i++) {
     const cells = splitLine(rawLines[i], delimiter);
     const hasSessions = cells.some((c) => /session/i.test(c));
-    const hasRevenue = cells.some((c) => /revenue/i.test(c));
+    // GA4 calls it revenue; Shopify exports call it total sales.
+    const hasRevenue = cells.some((c) => /revenue|total sales/i.test(c));
     if (hasSessions) sawSessionsHeader = true;
     if (hasSessions && hasRevenue) {
       headerIdx = i;
@@ -102,7 +103,7 @@ export function parseGa4Csv(text: string): ParseResult | { error: string } {
     };
     pageIdx = findColumn([/^landing page/i, /^page path/i, /^page title/i, /page/i]);
     sessionsIdx = findColumn([/^sessions$/i, /session/i]);
-    revenueIdx = findColumn([/^total revenue$/i, /^purchase revenue$/i, /revenue/i]);
+    revenueIdx = findColumn([/^total revenue$/i, /^purchase revenue$/i, /^total sales$/i, /revenue|total sales/i]);
     if (pageIdx === -1) {
       return {
         error: 'Couldn’t find a page column. Use the Landing page report (Reports → Engagement → Landing page) so each row is a page.',

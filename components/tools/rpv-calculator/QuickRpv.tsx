@@ -89,7 +89,8 @@ export default function QuickRpv({
               />
               <p className="text-xs text-text-muted pt-1">
                 Any period works as long as sessions and revenue cover the same one.
-                Numbers straight from GA4 or Shopify analytics.
+                In GA4 both are on Reports → Engagement; on Shopify, Sessions and Total
+                sales are front and centre on the Analytics dashboard.
               </p>
             </div>
 
