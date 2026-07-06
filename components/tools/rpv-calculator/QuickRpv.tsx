@@ -26,7 +26,7 @@ export default function QuickRpv({
   onRevenueChange,
   onOrdersChange,
 }: QuickRpvProps) {
-  const [mode, setMode] = useState<Mode>('site');
+  const [mode, setMode] = useState<Mode>('pages');
   const [pendingImport, setPendingImport] = useState<string | null>(null);
 
   // Pasting page data anywhere on the calculator should just work: when the
@@ -59,8 +59,8 @@ export default function QuickRpv({
       <div className="flex items-center gap-1 border-b border-ink/10 bg-cream-2/60 px-4 pt-3 sm:px-6" role="tablist" aria-label="Calculator mode">
         {(
           [
-            { key: 'site', label: 'Whole site', badge: null },
             { key: 'pages', label: 'By page', badge: 'Most useful' },
+            { key: 'site', label: 'Whole site', badge: null },
           ] as const
         ).map((t) => (
           <button
