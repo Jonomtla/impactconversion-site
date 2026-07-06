@@ -51,25 +51,102 @@ function parseNumber(raw: string): number {
   return Number.isFinite(n) ? n : NaN;
 }
 
+const isRowLabel = (l: string) => l.startsWith('/') || /^(none|summary|\(not set\))$/i.test(l);
+
+/**
+ * Shopify's report grid copies with one cell per line (no tabs): header labels
+ * first, then repeating groups of [path, metric, metric...]. Verified against
+ * real explorations, July 2026.
+ */
+function parseLineMode(lines: string[]): ParseResult | { error: string } {
+  let i = 0;
+  const headerLines: string[] = [];
+  while (i < lines.length && !isRowLabel(lines[i])) {
+    headerLines.push(lines[i]);
+    i++;
+  }
+  const metricHeaders = headerLines.filter((h) => h !== '' && !/landing page|page path/i.test(h));
+  const sessionsPos = metricHeaders.findIndex((h) => /session/i.test(h));
+  const revenuePos = metricHeaders.findIndex((h) => /revenue|total sales/i.test(h));
+  if (metricHeaders.length === 0 || (sessionsPos === -1 && revenuePos === -1)) {
+    return { error: 'Couldn’t find Sessions or revenue in what you copied. Select the whole table including its header row and copy again.' };
+  }
+  const kind: ImportKind =
+    sessionsPos !== -1 && revenuePos !== -1 ? 'full' : sessionsPos !== -1 ? 'sessions-only' : 'revenue-only';
+
+  const rows: ImportedRow[] = [];
+  let skipped = 0;
+  while (i < lines.length) {
+    const label = lines[i];
+    i++;
+    const values: number[] = [];
+    while (i < lines.length && !isRowLabel(lines[i]) && values.length < metricHeaders.length) {
+      values.push(parseNumber(lines[i]));
+      i++;
+    }
+    if (!label.startsWith('/')) {
+      skipped++;
+      continue;
+    }
+    const sessions = sessionsPos !== -1 ? values[sessionsPos] : NaN;
+    const revenue = revenuePos !== -1 ? values[revenuePos] : NaN;
+    const hasSessions = Number.isFinite(sessions) && sessions > 0;
+    const hasRevenue = Number.isFinite(revenue) && revenue >= 0;
+    if (
+      (kind === 'full' && (!hasSessions || !hasRevenue)) ||
+      (kind === 'sessions-only' && !hasSessions) ||
+      (kind === 'revenue-only' && !hasRevenue)
+    ) {
+      skipped++;
+      continue;
+    }
+    rows.push({
+      page: label,
+      sessions: hasSessions ? Math.round(sessions) : null,
+      revenue: hasRevenue ? revenue : null,
+    });
+  }
+  if (rows.length === 0) {
+    return { error: 'No usable rows found. Check each row has a page path plus Sessions and/or revenue.' };
+  }
+  rows.sort((a, b) => (b.sessions ?? b.revenue ?? 0) - (a.sessions ?? a.revenue ?? 0));
+  return {
+    kind,
+    rows: rows.slice(0, 150),
+    sessionsColumn: sessionsPos !== -1 ? metricHeaders[sessionsPos] : null,
+    revenueColumn: revenuePos !== -1 ? metricHeaders[revenuePos] : null,
+    skipped,
+    assumed: false,
+  };
+}
+
 /**
  * Parse page-level analytics data in whatever shape it arrives:
  * - GA4 CSV download or copied table rows (sessions + revenue together)
  * - Shopify exploration exports/copies, which split across two reports:
  *   sessions by landing_page_path, and total_sales by order_landing_page_path.
  *   Those arrive as sessions-only / revenue-only imports and get merged
- *   by the caller.
+ *   by the caller. Shopify grid copies arrive one cell per line.
  */
 export function parseGa4Csv(text: string): ParseResult | { error: string } {
   const rawLines = text
     .split(/\r?\n/)
-    .filter((l) => l.trim() !== '' && !l.trim().startsWith('#'));
+    .map((l) => l.trim())
+    .filter((l) => l !== '' && !l.startsWith('#'));
 
   if (rawLines.length === 0) {
     return { error: 'That looks empty. Export or copy a report with pages, sessions, and revenue, then try again.' };
   }
 
-  // CSV downloads are comma-separated; rows copied from GA4/Shopify tables are tab-separated.
-  const delimiter = rawLines.some((l) => l.includes('\t')) ? '\t' : ',';
+  // Shopify's grid copies without any delimiter: one cell per line.
+  const hasTabs = rawLines.some((l) => l.includes('\t'));
+  const lineModeHeader = /^(landing page path|order landing page path|sessions|total sales|orders)$/i;
+  if (!hasTabs && rawLines.some((l) => lineModeHeader.test(l))) {
+    return parseLineMode(rawLines);
+  }
+
+  // CSV downloads are comma-separated; rows copied from GA4 tables are tab-separated.
+  const delimiter = hasTabs ? '\t' : ',';
 
   // Find the header row: the first line naming a sessions and/or revenue column.
   // GA4 calls revenue "Total revenue"; Shopify calls it "Total sales".
