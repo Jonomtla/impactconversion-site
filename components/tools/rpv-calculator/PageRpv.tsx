@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { parseGa4Csv } from './parseGa4Csv';
 import { PAGE_TYPES, type PageType, detectPageType } from './pageType';
 import { formatRPV, formatCompact } from './format';
@@ -8,6 +8,11 @@ import { formatRPV, formatCompact } from './format';
 interface PageRpvProps {
   /** Site-wide RPV from the Whole site tab; fallback baseline for singleton page types. */
   siteRpv: number | null;
+  /**
+   * Called with summed sessions/revenue after an import. Returns true when the
+   * totals were used to fill the Whole site tab (so the note can say so).
+   */
+  onImportTotals?: (sessions: number, revenue: number) => boolean;
 }
 
 interface Row {
@@ -26,7 +31,7 @@ const cellInput =
 
 const rowType = (r: Row): PageType => r.typeOverride ?? detectPageType(r.page);
 
-export default function PageRpv({ siteRpv }: PageRpvProps) {
+export default function PageRpv({ siteRpv, onImportTotals }: PageRpvProps) {
   const [rows, setRows] = useState<Row[]>([{ ...EMPTY_ROW }, { ...EMPTY_ROW }, { ...EMPTY_ROW }]);
   const [importNote, setImportNote] = useState<string | null>(null);
   const [importError, setImportError] = useState<string | null>(null);
@@ -94,27 +99,54 @@ export default function PageRpv({ siteRpv }: PageRpvProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [validRows, typeAverages, siteRpv, overallAvg]);
 
+  const importText = (text: string, source: 'file' | 'paste') => {
+    setImportError(null);
+    setImportNote(null);
+    const result = parseGa4Csv(text);
+    if ('error' in result) {
+      setImportError(result.error);
+      return;
+    }
+    setRows(result.rows.map((r) => ({ ...r })));
+    setShowAll(false);
+    const totalSessions = result.rows.reduce((s, r) => s + r.sessions, 0);
+    const totalRevenue = result.rows.reduce((s, r) => s + r.revenue, 0);
+    const filledSite = onImportTotals ? onImportTotals(totalSessions, totalRevenue) : false;
+    setImportNote(
+      `${source === 'paste' ? 'Pasted' : 'Imported'} ${result.rows.length} pages` +
+        (result.assumed
+          ? ' (no header row, so read the first column as page, second as Sessions, last as Total revenue; spot-check an RPV or two)'
+          : ` (${result.sessionsColumn} + ${result.revenueColumn})`) +
+        (result.skipped > 0 ? `, skipped ${result.skipped} rows without usable numbers` : '') +
+        '. Page types detected from the URLs.' +
+        (filledSite ? ' The Whole site tab now has your totals too.' : '') +
+        ' Everything stays in your browser.'
+    );
+  };
+
   const handleFile = (file: File) => {
     setImportError(null);
     setImportNote(null);
     const reader = new FileReader();
-    reader.onload = () => {
-      const result = parseGa4Csv(String(reader.result ?? ''));
-      if ('error' in result) {
-        setImportError(result.error);
-        return;
-      }
-      setRows(result.rows.map((r) => ({ ...r })));
-      setShowAll(false);
-      setImportNote(
-        `Imported ${result.rows.length} pages (${result.sessionsColumn} + ${result.revenueColumn})` +
-          (result.skipped > 0 ? `, skipped ${result.skipped} rows without usable numbers` : '') +
-          '. Page types detected from the URLs. Everything stays in your browser.'
-      );
-    };
+    reader.onload = () => importText(String(reader.result ?? ''), 'file');
     reader.onerror = () => setImportError('Could not read that file. Try re-downloading the CSV from GA4.');
     reader.readAsText(file);
   };
+
+  // Copy rows in GA4, click this tab, hit paste. No download step at all.
+  useEffect(() => {
+    const onPaste = (e: ClipboardEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target && ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName)) return;
+      const text = e.clipboardData?.getData('text');
+      if (!text || !text.trim()) return;
+      e.preventDefault();
+      importText(text, 'paste');
+    };
+    document.addEventListener('paste', onPaste);
+    return () => document.removeEventListener('paste', onPaste);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [onImportTotals]);
 
   const updateRow = (i: number, patch: Partial<Row>) => {
     setRows((prev) => prev.map((r, idx) => (idx === i ? { ...r, ...patch } : r)));
@@ -146,9 +178,9 @@ export default function PageRpv({ siteRpv }: PageRpvProps) {
           Compare revenue per visitor across your landing pages
         </p>
         <p className="mt-1 text-sm text-text-muted">
-          Drop a GA4 landing-page CSV here, or fill in the rows by hand. Each page is judged
-          against your own average for its page type. Nothing is uploaded; the file is read in
-          your browser.
+          Three ways in: copy rows straight out of your GA4 Landing page report and paste here
+          (Cmd+V), drop the CSV download, or fill in the rows by hand. Each page is judged against
+          your own average for its page type. Nothing is uploaded; everything is read in your browser.
         </p>
         <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
           <button
@@ -182,8 +214,8 @@ export default function PageRpv({ siteRpv }: PageRpvProps) {
           </summary>
           <ol className="mt-3 list-decimal space-y-1 pl-5">
             <li>In GA4 go to Reports → Engagement → Landing page (or Pages and screens).</li>
-            <li>Set your date range (a full month is ideal) and make sure Sessions and Total revenue are shown as columns.</li>
-            <li>Click Share (top right) → Download file → CSV, then drop it here.</li>
+            <li>Set your date range (a full month is ideal) and make sure Sessions and Total revenue are shown as columns. If Total revenue is missing, click the pencil (Customize report) and add it as a metric.</li>
+            <li>Fastest: select the rows in the table, copy, then paste here with Cmd+V. Or click Share (top right) → Download file → CSV and drop the file here.</li>
           </ol>
         </details>
       </div>

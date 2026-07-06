@@ -130,7 +130,17 @@ export default function QuickRpv({
         </div>
       ) : (
         <div className="p-5 sm:p-8">
-          <PageRpv siteRpv={sessions > 0 && revenue > 0 ? rpv : null} />
+          <PageRpv
+            siteRpv={sessions > 0 && revenue > 0 ? rpv : null}
+            onImportTotals={(totalSessions, totalRevenue) => {
+              // Fill the Whole site tab from the import, but never stomp
+              // numbers the user typed themselves.
+              if (sessions > 0 || revenue > 0) return false;
+              onSessionsChange(totalSessions);
+              onRevenueChange(totalRevenue);
+              return true;
+            }}
+          />
         </div>
       )}
     </div>
