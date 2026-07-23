@@ -27,7 +27,7 @@ const testimonials: T[] = [
   },
   {
     quote:
-      "Having Impact on our team has been a major asset. The support and expertise we needed to finally make our funnel work. The project has been a game changer.",
+      "Having Impact on our team has been a major asset. The support and expertise we needed to finally make our funnel work. The project has been a game changer for our business and turned it around.",
     name: "Ryan Cartlidge",
     role: "Founder, Animal Training Academy",
     photo: "/assets/avatar-ryan.png",
@@ -55,13 +55,12 @@ export default function Testimonials() {
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
           <h2 className="text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
-            Boring is the point.{" "}
-            <span className="text-gradient-flow">Compounding is the result.</span>
+            The <span className="text-gradient-flow">social proof</span>{" "}
+            section
           </h2>
           <p className="mt-6 text-lg text-text-muted">
-            We stay away from viral redesigns and rip-and-replace rebuilds, and
-            instead ship tests that prove out and move the line in the
-            P&amp;L where it actually matters.
+            We usually test one of these sections for our clients. So we
+            should probably have one too.
           </p>
         </Reveal>
 

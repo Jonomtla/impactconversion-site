@@ -7,20 +7,27 @@ import TiltCard from "./motion/TiltCard";
 
 const pillars = [
   {
-    h: "You’re leaking money right now",
-    p: "Every click you buy is a deposit, and on most sites the vast majority walk away without spending a dollar. We find the holes in your funnel and close them, so more of the traffic you already paid for actually converts.",
+    h: "Make your website work for more of the market",
+    p: "For every person who converts on your website, there are probably 3 others that would have, if they found the information they needed. They were in the market for your product, but the section of your website they saw didn’t help overcome their fears or concerns enough. We find out what stops people converting, and where they look, so these customers convert better.",
     Visual: LeakyFunnel,
   },
   {
-    h: "Conversion wins compound",
-    p: "When you lift revenue per visitor once, every downstream metric moves with it and keeps paying on the same ad budget. Each one is a permanent change to the website, so the revenue compounds month after month.",
+    h: "The irony of conversion rate optimisation",
+    p: "Conversion rate optimisation has made people obsessed with their conversion rate. The reality is, increasing the average order value is just as important. Our process tests bumps, upsells, and cross sells to increase your margin each time you acquire a customer.",
     Visual: VirtuousLoop,
   },
   {
-    h: "Guessing is expensive",
-    p: "Most agencies sell taste or templates, but we sell proof. Every change runs as a controlled experiment, so you see the result in your P&L rather than in a Figma file.",
+    h: "Get current customers to buy at a higher price",
+    p: "Most companies raise their prices when they’re forced to. COGS go up. The margins don't make sense. And they send some long winded email explaining why. The reality is pricing can be far more than just COGS and margin, and it can be tested to find the optimal price point for your customers (and your growth).",
     Visual: ABTestBars,
   },
+];
+
+const fourWays = [
+  "Get more customers.",
+  "Get your current customers to spend more.",
+  "Get your current customers to buy more regularly.",
+  "And raise your prices.",
 ];
 
 export default function Problem() {
@@ -29,15 +36,50 @@ export default function Problem() {
       <div className="relative mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
           <h2 className="text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
-            You don&apos;t have a traffic problem.
-            <br />
-            You have a{" "}
-            <span className="text-gradient-flow">conversion problem.</span>
+            Donating more money to Zuck than ever, but{" "}
+            <span className="text-gradient-flow">
+              not much more to show for it?
+            </span>
           </h2>
           <p className="mt-6 text-lg text-text-muted">
-            Buying more cold traffic is the expensive answer. Converting the
-            traffic you already have is the better one, and it keeps paying
-            month after month.
+            Everyone says their ads are costing more than ever. They&apos;re
+            spending more, not only on ad budgets, but creative teams, media
+            buying, all to get more customers to their site.
+          </p>
+          <p className="mt-4 text-lg text-text-muted">
+            The problem is, if you&apos;re just pouring more water into a leaky
+            bucket, you&apos;re never going to actually get the growth that
+            you&apos;re after.
+          </p>
+          <p className="mt-4 text-lg text-text-muted">
+            You could keep pushing up budgets, making more creative, or hire a
+            new Meta ads agency. But we all know how that typically goes. More
+            spending. Less margin. Volatile results. At the mercy of the
+            algorithm and the platform.
+          </p>
+          <p className="mt-4 text-lg text-text-muted">
+            Or, you could figure out what actually converts your customers. Why
+            do they land from an ad, and then leave? Why do they add to cart
+            and are never heard from again? And what makes your best customers
+            buy again and again?
+          </p>
+          <p className="mt-4 text-lg font-medium text-text">
+            There are only 4 ways to get your business to grow.
+          </p>
+          <ul className="mt-4 space-y-2 text-lg text-text-muted">
+            {fourWays.map((w) => (
+              <li key={w} className="flex items-start gap-3">
+                <span className="mt-[0.7em] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-purple" />
+                {w}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 text-lg text-text-muted">
+            Ads only really influence 2 of those 4 effectively. Our CRO
+            programs have been proven to address all four.
+          </p>
+          <p className="mt-4 text-lg font-medium text-text">
+            Here&apos;s how:
           </p>
         </Reveal>
 

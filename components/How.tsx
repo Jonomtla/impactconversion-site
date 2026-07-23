@@ -11,25 +11,25 @@ const steps = [
   {
     n: "01",
     h: "Research",
-    p: "Before we touch your site, we dig into why people actually leave, using surveys, session recordings, heatmaps, and analytics side by side. The fixes come out of your customers’ own words rather than a best-practice blog.",
+    p: "Before we touch your site, we dig into why people actually leave, why they don’t convert, and why they do. The fixes come out of your customers’ own words rather than a best-practice checklist.",
     Visual: ResearchVisual,
   },
   {
     n: "02",
     h: "Prioritise",
-    p: "We rank every idea by how much revenue it can move and how likely it is to work, so the test slots go to the changes that matter most, not the ones that happen to be easy to ship.",
+    p: "We rank every idea by how valuable it is to you, so the tests go to the changes that matter most, not the ones that happen to be easy to build.",
     Visual: PrioritiseVisual,
   },
   {
     n: "03",
     h: "Test",
-    p: "Every change runs as a real A/B test against the live site, and we let enough of your traffic see it to know the result is real, so the decision rests on evidence rather than opinion.",
+    p: "Every change is built, tested, and analysed so you know exactly what improves your sales and what doesn’t. No relying on algorithms, guessing or opinions.",
     Visual: TestVisual,
   },
   {
     n: "04",
     h: "Compound",
-    p: "One test moves a single needle, but thirty tests move the business. Month after month the winners stack up, and the revenue curve bends in the right direction.",
+    p: "One 5% increase in conversion makes a difference. 12 of those winning tests month after month transforms the business in a year.",
     Visual: CompoundVisual,
   },
 ];
@@ -47,9 +47,9 @@ export default function How() {
             Research the problem. Test the answer. Compound the wins.
           </h2>
           <p className="mt-6 text-lg text-text-muted">
-            The same four stages run on every engagement, in the same order,
-            month after month. The discipline of never skipping a stage is what
-            turns one-off wins into revenue that compounds.
+            The Impact Conversion Method is our answer to your ad spend
+            problem. It&apos;s been proven in 4 different verticals so far,
+            and driven more sales for every client we&apos;ve worked with.
           </p>
         </Reveal>
 

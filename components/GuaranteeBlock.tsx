@@ -71,17 +71,17 @@ export default function GuaranteeBlock({
               >
                 That is the deal on every 90-day sprint we run. If the program
                 does not produce a measurable revenue uplift by the end of the
-                quarter, we refund the final 50% of the sprint fee.
+                quarter, we refund the final 50% of the 90-day fee.
               </p>
             </div>
 
             {/* CTA */}
-            <div className="flex-shrink-0">
+            <div className="flex flex-shrink-0 flex-col items-start gap-3 md:items-center">
               <Link
-                href="/guarantee"
+                href="/contact#book"
                 className="inline-flex items-center gap-2 rounded-xl bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
               >
-                See the terms
+                Get in touch
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M5 12h14M13 5l7 7-7 7"
@@ -91,6 +91,14 @@ export default function GuaranteeBlock({
                     strokeLinejoin="round"
                   />
                 </svg>
+              </Link>
+              <Link
+                href="/guarantee"
+                className={`text-sm font-medium underline underline-offset-4 ${
+                  isDark ? "text-text-inv-muted hover:text-cream" : "text-text-muted hover:text-text"
+                }`}
+              >
+                See the terms
               </Link>
             </div>
           </div>
