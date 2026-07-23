@@ -30,11 +30,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/privacy`, changeFrequency: "yearly", priority: 0.3 },
   ];
 
-  const caseStudyRoutes: MetadataRoute.Sitemap = caseStudies.map((c) => ({
-    url: `${BASE}/case-studies/${c.slug}`,
-    changeFrequency: "monthly",
-    priority: 0.8,
-  }));
+  const caseStudyRoutes: MetadataRoute.Sitemap = caseStudies
+    .filter((c) => !c.draft)
+    .map((c) => ({
+      url: `${BASE}/case-studies/${c.slug}`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    }));
 
   const blogRoutes: MetadataRoute.Sitemap = posts.map((p) => ({
     url: `${BASE}/blog/${p.slug}`,
