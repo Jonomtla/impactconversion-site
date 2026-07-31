@@ -49,8 +49,8 @@ export default function GuaranteePage() {
                 The guarantee
               </p>
               <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.75rem)]">
-                You see a revenue uplift, or you don&rsquo;t pay. Here are the
-                terms.
+                You see a revenue uplift, or we refund half the sprint fee.
+                Here are the terms.
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
                 A guarantee only means something if you can see exactly how it

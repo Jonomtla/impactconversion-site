@@ -50,8 +50,9 @@ export default function CaseStudiesPage() {
               <p className="mx-auto mt-8 max-w-2xl text-lg text-text-inv-muted md:text-xl">
                 These are real programs where the tests shipped, hit
                 significance, and showed up in the P&amp;L rather than in a
-                deck. Every engagement runs on the same promise: you see a
-                revenue uplift, or you don&apos;t pay.
+                deck. Every 90-day sprint carries the same guarantee: you see
+                a revenue uplift by the end, or we refund the final 50% of the
+                sprint fee.
               </p>
             </Reveal>
           </div>

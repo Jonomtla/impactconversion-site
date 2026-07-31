@@ -1,17 +1,18 @@
-import Link from "next/link";
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import WavyLines from "@/components/WavyLines";
 import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import CTA from "@/components/CTA";
 import GuaranteeBlock from "@/components/GuaranteeBlock";
 import How from "@/components/How";
+import GeoBookingBand from "@/components/GeoBookingBand";
+import VerifiedProofStrip from "@/components/VerifiedProofStrip";
 
 export const metadata = {
   title: "Shopify CRO · Conversion Rate Optimisation for Shopify",
   description:
-    "Shopify conversion rate optimisation for D2C brands. Research-led testing on PDP, checkout, and post-purchase. $1M+ added revenue on a single engagement.",
+    "Shopify conversion rate optimisation for D2C brands. Research-led testing on PDP, checkout, and post-purchase. $1M-$2M added revenue on a single engagement.",
   alternates: { canonical: "/services/shopify-cro" },
 };
 
@@ -120,30 +121,42 @@ export default function ShopifyCROPage() {
                 Services · Shopify CRO
               </p>
               <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.75rem)]">
-                Shopify conversion rate optimisation for D2C brands.
+                Turn more of your Shopify traffic into orders.
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
-                Shopify makes it easy to launch a store. It does not make it easy to find the leaks. We run a research-led testing program on the surfaces that actually move revenue on Shopify, and we only keep the wins that prove out in your P&amp;L.
+                Shopify makes it easy to launch a store. It does not make it easy to find the leaks. We run a research-led testing program on the surfaces that actually move revenue on Shopify, and we only keep the wins that prove out in your P&amp;L. Start with a free 15-minute Leaky Funnel Game Plan: we look at your funnel live, show you where it leaks, and you keep the plan either way.
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  href="/contact#book"
+              <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3">
+                <a
+                  href="#book"
                   data-ga-event="book_call_click"
                   data-ga-location="services_shopify_hero"
                   className="inline-flex items-center gap-2 rounded-xl bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
                 >
-                  Book a 15-min intro call
-                </Link>
-                <Link
-                  href="/services/conversion-rate-optimisation"
-                  className="inline-flex items-center gap-2 rounded-xl border border-cream/30 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:border-cream"
-                >
-                  Full conversion rate optimisation services
-                </Link>
+                  Book your free Game Plan
+                </a>
+                <span className="text-sm text-text-inv-muted">
+                  Engagements from $5,000/month
+                </span>
               </div>
             </Reveal>
           </div>
         </section>
+
+        {/* Trust bar */}
+        <section className="border-b border-ink/5 bg-cream py-6">
+          <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-10 gap-y-4 px-6">
+            <span className="text-xs font-semibold uppercase tracking-[0.14em] text-text-muted">
+              Trusted by
+            </span>
+            <Image src="/assets/logos/hpa.png" alt="High Performance Academy" width={800} height={525} className="h-10 w-auto opacity-70 grayscale mix-blend-multiply" />
+            <Image src="/assets/logos/steadyrack.png" alt="Steadyrack" width={800} height={123} className="h-5 w-auto opacity-70 grayscale mix-blend-multiply" />
+            <Image src="/assets/logos/kite-therapy.png" alt="Kite Therapy" width={800} height={140} className="h-5 w-auto opacity-70 grayscale mix-blend-multiply" />
+            <Image src="/assets/logos/topmusic.png" alt="Topmusic" width={800} height={154} className="h-6 w-auto opacity-70 grayscale mix-blend-multiply" />
+          </div>
+        </section>
+
+        <VerifiedProofStrip />
 
         <section className="bg-cream py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
@@ -186,17 +199,6 @@ export default function ShopifyCROPage() {
                 </Reveal>
               ))}
             </ol>
-            <div className="mt-10 text-center">
-              <Link
-                href="/blog/cro-for-shopify-where-to-look"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-purple hover:gap-3 transition-all"
-              >
-                Read the full Shopify CRO breakdown
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
-            </div>
           </div>
         </section>
 
@@ -246,36 +248,6 @@ export default function ShopifyCROPage() {
           </div>
         </section>
 
-        <section className="bg-cream py-12 md:py-16">
-          <div className="mx-auto max-w-4xl px-6">
-            <Reveal>
-              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-text-muted">
-                Try the free tools we use on engagements
-              </p>
-              <div className="mt-4 flex flex-wrap gap-x-8 gap-y-3">
-                <Link
-                  href="/tools/shipping-calculator"
-                  className="inline-flex items-center gap-1.5 text-base font-semibold text-purple hover:gap-2.5 transition-all"
-                >
-                  Free shipping threshold calculator
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </Link>
-                <Link
-                  href="/tools/rpv-calculator"
-                  className="inline-flex items-center gap-1.5 text-base font-semibold text-purple hover:gap-2.5 transition-all"
-                >
-                  Revenue-per-visitor calculator
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </Link>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
         <section className="bg-white py-20 md:py-24">
           <div className="mx-auto max-w-3xl px-6">
             <Reveal>
@@ -296,8 +268,11 @@ export default function ShopifyCROPage() {
           </div>
         </section>
 
-        <GuaranteeBlock />
-        <CTA />
+        <GuaranteeBlock ctaHref="#book" />
+        <GeoBookingBand
+          gaLocation="services_shopify_booking"
+          timezoneNote="Times shown in your timezone. Booked directly with Jono."
+        />
       </main>
       <Footer />
     </>

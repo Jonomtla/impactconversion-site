@@ -37,13 +37,13 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "After expanding their course catalogue without updating the site to match, HPA had hit the wall every scaling brand hits: more ad spend, same conversion rate, no compounding. Customer research found the actual motivation. Eighteen months of testing rolled it through every page. Seven figures added. Same ad spend.",
     heroStats: [
-      { v: "$1M+", l: "Extra revenue", sub: "Without extra ad spend" },
+      { v: "$1M-$2M", l: "Extra revenue", sub: "Without extra ad spend" },
       { v: "35%", l: "Win rate", sub: "Roughly 2x industry typical" },
       { v: "180", l: "Tests shipped", sub: "From a standing start" },
       { v: "69%", l: "Homepage lift", sub: "New-visitor purchases" },
     ],
     stats: [
-      { v: "$1M+", l: "Extra revenue" },
+      { v: "$1M-$2M", l: "Extra revenue" },
       { v: "35%", l: "Win rate" },
       { v: "180", l: "Tests shipped" },
       { v: "69%", l: "Lift on homepage" },

@@ -21,7 +21,7 @@ const testimonials: T[] = [
     photo: "/assets/avatar-ben.png",
     featured: true,
     stats: [
-      { k: "$1M+", v: "Extra revenue" },
+      { k: "$1M-$2M", v: "Extra revenue" },
       { k: "35%", v: "Win rate" },
     ],
   },

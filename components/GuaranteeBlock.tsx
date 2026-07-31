@@ -3,18 +3,22 @@ import Link from "next/link";
 type Props = {
   /** Light mode sits on cream/white pages; dark mode sits on ink/dark sections. */
   tone?: "light" | "dark";
+  /** Where the CTA points. Pages with an on-page booking embed pass "#book". */
+  ctaHref?: string;
 };
 
 /**
- * The "Revenue uplift, or you don't pay" guarantee block.
+ * The guarantee block: revenue uplift by the end of the 90-day sprint, or we
+ * refund the final 50% of the sprint fee.
  *
  * Use it near case studies, on /how-we-work, and anywhere trust friction is
  * high (ICP pages, final CTAs). The headline copy should not be reworded
  * without updating the inline mentions elsewhere so the promise stays
- * consistent across the site.
+ * consistent across the site, and it must always match the terms on /guarantee.
  */
 export default function GuaranteeBlock({
   tone = "light",
+  ctaHref = "/contact#book",
 }: Props) {
   const isDark = tone === "dark";
 
@@ -48,9 +52,9 @@ export default function GuaranteeBlock({
                 <br />
                 uplift
                 <br />
-                or you
+                or 50%
                 <br />
-                don&apos;t pay
+                back
               </span>
             </div>
 
@@ -62,7 +66,7 @@ export default function GuaranteeBlock({
                   isDark ? "text-cream" : "text-text"
                 }`}
               >
-                You see a revenue uplift, or you don&apos;t pay.
+                You see a revenue uplift, or half the sprint fee comes back.
               </h2>
               <p
                 className={`mt-4 max-w-2xl text-base leading-relaxed md:text-lg ${
@@ -78,7 +82,7 @@ export default function GuaranteeBlock({
             {/* CTA */}
             <div className="flex flex-shrink-0 flex-col items-start gap-3 md:items-center">
               <Link
-                href="/contact#book"
+                href={ctaHref}
                 className="inline-flex items-center gap-2 rounded-xl bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
               >
                 Get in touch

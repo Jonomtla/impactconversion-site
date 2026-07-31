@@ -57,8 +57,9 @@ export default function ForOnlineEducationPage() {
                 We run research-led CRO for online education brands doing $1M+
                 a year on Kajabi, Teachable, or custom platforms.
                 Eighteen months at High Performance Academy added one to two
-                million in revenue on the same ad spend. Every engagement runs
-                the same promise. Revenue uplift, or you don&rsquo;t pay.
+                million in revenue on the same ad spend. Every 90-day sprint
+                carries the same guarantee. Revenue uplift by the end, or we
+                refund the final 50% of the sprint fee.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link

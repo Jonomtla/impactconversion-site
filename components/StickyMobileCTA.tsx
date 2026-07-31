@@ -3,9 +3,21 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function StickyMobileCTA() {
+// Pages with an on-page booking embed: send the tap to the embed, not /contact.
+const ON_PAGE_BOOKING = new Set([
+  "/cro-agency-nz",
+  "/cro-agency-australia",
+  "/services/shopify-cro",
+]);
+
+export default function StickyMobileCTA({
+  href = "/contact#book",
+}: {
+  href?: string;
+}) {
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
+  const target = ON_PAGE_BOOKING.has(pathname) ? "#book" : href;
 
   // Hide on the /contact page (already has the primary CTA above the fold)
   const hide = pathname === "/contact" || pathname.startsWith("/terms-of-service");
@@ -38,13 +50,15 @@ export default function StickyMobileCTA() {
       }`}
     >
       <a
-        href="/contact#book"
+        href={target}
         tabIndex={visible ? 0 : -1}
         data-ga-event="book_call_click"
         data-ga-location="sticky_cta"
         className="mx-auto flex w-full max-w-md items-center justify-center gap-2 rounded-xl bg-purple px-5 py-3 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-purple-2 md:max-w-xs"
       >
-        Book a 15-min intro call
+        {ON_PAGE_BOOKING.has(pathname)
+          ? "Book your free Game Plan"
+          : "Book a 15-min intro call"}
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
           <path
             d="M5 12h14M13 5l7 7-7 7"

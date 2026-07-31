@@ -8,11 +8,12 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import GuaranteeBlock from "@/components/GuaranteeBlock";
 import How from "@/components/How";
 import GeoBookingBand from "@/components/GeoBookingBand";
+import VerifiedProofStrip from "@/components/VerifiedProofStrip";
 
 export const metadata = {
   title: { absolute: "CRO Agency Australia · Conversion Rate Optimisation" },
   description:
-    "An Australia-focused CRO agency for D2C brands. Research-led testing program, local timezone, AUD pricing from $5,000 per month. Book a 15-minute call.",
+    "An Australia-focused CRO agency for D2C brands. Research-led testing program, local timezone, AUD pricing from $5,000 per month. Book a free 15-minute Leaky Funnel Game Plan.",
   alternates: { canonical: "/cro-agency-australia" },
 };
 
@@ -57,7 +58,7 @@ const faqs = [
   },
   {
     q: "What does it cost?",
-    a: "Engagements start at AUD $5,000 per month, priced and invoiced in AUD, and scale with scope. The retainer covers research, prioritisation, the experiments we ship, the test code, and regular review calls. Every engagement carries the guarantee: you see a revenue uplift, or you don’t pay.",
+    a: "Engagements start at AUD $5,000 per month, priced and invoiced in AUD, and scale with scope. The retainer covers research, prioritisation, the experiments we ship, the test code, and regular review calls. Every 90-day sprint carries the guarantee: if there is no measurable revenue uplift by the end, we refund the final 50% of the sprint fee.",
   },
   {
     q: "Will you work with our existing dev team?",
@@ -124,7 +125,9 @@ export default function CROAgencyAustraliaPage() {
                   <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
                     Research-led A/B testing for Australian Shopify brands. We
                     find why your buyers leave, fix it, and keep only the
-                    changes that lift revenue.
+                    changes that lift revenue. Start with a free 15-minute
+                    Leaky Funnel Game Plan: we look at your funnel live, show
+                    you where it leaks, and you keep the plan either way.
                   </p>
                   <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3">
                     <a
@@ -133,7 +136,7 @@ export default function CROAgencyAustraliaPage() {
                       data-ga-location="geo_au_hero"
                       className="inline-flex items-center gap-2 rounded-xl bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
                     >
-                      Book a 15-min intro call
+                      Book your free Game Plan
                     </a>
                     <span className="text-sm text-text-inv-muted">
                       From AUD $5,000/month, priced and invoiced in AUD
@@ -169,7 +172,7 @@ export default function CROAgencyAustraliaPage() {
               </div>
               <div className="mt-10 grid gap-4 sm:grid-cols-3">
                 <div className="rounded-xl border border-cream/10 bg-ink-2 px-5 py-4">
-                  <p className="text-2xl font-semibold text-cream">$1M+</p>
+                  <p className="text-2xl font-semibold text-cream">$1M-$2M</p>
                   <p className="mt-1 text-sm text-text-inv-muted">added on one engagement</p>
                 </div>
                 <div className="rounded-xl border border-cream/10 bg-ink-2 px-5 py-4">
@@ -177,8 +180,8 @@ export default function CROAgencyAustraliaPage() {
                   <p className="mt-1 text-sm text-text-inv-muted">tests shipped</p>
                 </div>
                 <div className="rounded-xl border border-cream/10 bg-ink-2 px-5 py-4">
-                  <p className="text-2xl font-semibold text-cream">69%</p>
-                  <p className="mt-1 text-sm text-text-inv-muted">largest single-test lift</p>
+                  <p className="text-2xl font-semibold text-cream">28%</p>
+                  <p className="mt-1 text-sm text-text-inv-muted">verified lift, still holding</p>
                 </div>
               </div>
             </Reveal>
@@ -198,6 +201,8 @@ export default function CROAgencyAustraliaPage() {
           </div>
         </section>
 
+        <VerifiedProofStrip />
+
         {/* Problem */}
         <section className="bg-cream py-20 md:py-24">
           <div className="mx-auto max-w-5xl px-6">
@@ -206,11 +211,7 @@ export default function CROAgencyAustraliaPage() {
                 Most CRO programs stall for the same three reasons.
               </h2>
               <p className="mt-5 max-w-2xl text-lg text-text-muted">
-                If you&rsquo;re already testing and the numbers aren&rsquo;t moving, the problem usually isn&rsquo;t effort. It&rsquo;s one of these three, and they&rsquo;re a big part of{" "}
-                <Link href="/blog/why-most-cro-programs-fail" className="font-medium text-purple hover:underline">
-                  why most CRO programs fail
-                </Link>
-                .
+                If you&rsquo;re already testing and the numbers aren&rsquo;t moving, the problem usually isn&rsquo;t effort. It&rsquo;s one of these three.
               </p>
             </Reveal>
             <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -262,7 +263,7 @@ export default function CROAgencyAustraliaPage() {
           </div>
         </section>
 
-        <GuaranteeBlock />
+        <GuaranteeBlock ctaHref="#book" />
 
         {/* FAQ */}
         <section className="bg-cream py-20 md:py-24">
