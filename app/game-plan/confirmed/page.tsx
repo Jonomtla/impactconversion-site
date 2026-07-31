@@ -1,4 +1,6 @@
 import Link from "next/link";
+import AdsConversionOnLoad from "@/components/AdsConversionOnLoad";
+import { ADS_LABELS } from "@/lib/analytics";
 
 export const metadata = {
   title: "You're booked · The Leaky Funnel Game Plan",
@@ -10,6 +12,7 @@ export const metadata = {
 export default function GamePlanConfirmed() {
   return (
     <main id="main" className="min-h-screen bg-cream-2">
+      <AdsConversionOnLoad sendTo={ADS_LABELS.bookAppointment} />
       <div className="mx-auto w-full max-w-3xl px-6 py-14 md:py-16">
         <p className="text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-purple">
           Booked

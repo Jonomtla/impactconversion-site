@@ -6,6 +6,9 @@
 export {};
 
 const GA_ID = "G-LDW54LST21";
+// Google Ads. Conversions are sent as gtag events with a send_to label;
+// see lib/analytics.ts adsConversion().
+const ADS_ID = "AW-17540678529";
 
 declare global {
   interface Window {
@@ -29,6 +32,7 @@ if (typeof window !== "undefined" && !window.gtag) {
     page_referrer: document.referrer || undefined,
     send_page_view: true,
   });
+  gtag("config", ADS_ID);
 
   const s = document.createElement("script");
   s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
