@@ -17,7 +17,7 @@ export const metadata = {
 export default function Home() {
   return (
     <>
-      <Nav />
+      <Nav variant="light" />
       <main id="main">
         <Hero />
         <Problem />
