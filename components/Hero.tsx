@@ -1,45 +1,51 @@
 import Link from "next/link";
 import { StaggerGroup, StaggerItem } from "./motion/Stagger";
+import WavyLines from "./WavyLines";
 
 export default function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[78vh] items-center overflow-hidden bg-ink text-cream"
+      className="relative flex min-h-[78vh] items-center overflow-hidden bg-cream-2 text-ink"
     >
-      {/* Crisp hairline grid, not a blurred glow */}
+      {/* Soft color blobs, echoing the deck covers */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.05]"
+        className="hero-blob-a pointer-events-none absolute -right-40 -top-72 h-[640px] w-[640px] rounded-full"
         style={{
-          backgroundImage:
-            "linear-gradient(var(--color-cream) 1px, transparent 1px), linear-gradient(90deg, var(--color-cream) 1px, transparent 1px)",
-          backgroundSize: "76px 76px",
-          maskImage:
-            "radial-gradient(120% 90% at 15% 0%, #000 35%, transparent 80%)",
+          background:
+            "radial-gradient(circle, rgba(124,90,236,0.16), transparent 65%)",
         }}
       />
-      {/* Purple light sweeping up-and-to-the-right, lighting the grid as it passes */}
       <div
         aria-hidden
-        className="hero-grid-sweep pointer-events-none absolute inset-0 opacity-30"
+        className="hero-blob-b pointer-events-none absolute -bottom-80 -left-44 h-[700px] w-[700px] rounded-full"
         style={{
-          backgroundImage:
-            "linear-gradient(var(--color-purple-2) 1px, transparent 1px), linear-gradient(90deg, var(--color-purple-2) 1px, transparent 1px)",
-          backgroundSize: "76px 76px",
+          background:
+            "radial-gradient(circle, rgba(240,112,80,0.14), transparent 65%)",
         }}
       />
+
+      <WavyLines />
 
       <div className="relative mx-auto w-full max-w-7xl px-6 py-24 md:py-28">
         <StaggerGroup className="max-w-4xl" stagger={0.1}>
           <StaggerItem>
             <h1 className="text-balance font-black leading-[0.95] tracking-[-0.035em] text-[clamp(2.6rem,7vw,5.5rem)]">
               Make your website{" "}
-              <span className="text-purple-2">work as hard as your ads.</span>
+              <span
+                className="bg-clip-text text-transparent"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(90deg, #7c5aec 0%, #b06090 55%, #f07050 100%)",
+                }}
+              >
+                work as hard as your ads.
+              </span>
             </h1>
           </StaggerItem>
           <StaggerItem>
-            <p className="mt-7 max-w-2xl text-pretty text-lg leading-relaxed text-cream/80 md:text-xl">
+            <p className="mt-7 max-w-2xl text-pretty text-lg leading-relaxed text-ink/70 md:text-xl">
               Spending more and more on ads every month, but less to show for
               it? Let&apos;s fix that at the source.
             </p>
