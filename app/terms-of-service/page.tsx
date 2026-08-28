@@ -36,11 +36,14 @@ const sections: { title: string; clauses: string[] }[] = [
   {
     title: "3. Fees",
     clauses: [
-      "Unless a proposal states otherwise, invoices are payable on the 20th of the month following the invoice date.",
+      "Unless a proposal states otherwise, invoices are payable within 7 days of the invoice date.",
+      "Recurring fees (including retainers) are invoiced monthly in advance.",
+      "The first invoice under an engagement is payable before services commence.",
       "Where a signed proposal sets out a specific payment schedule (for example a deposit or staged milestone payments), that schedule applies in place of the above.",
       "All payments must be made in cleared funds without deduction or set-off.",
-      "If an amount remains unpaid 14 days after the due date we may suspend services until paid.",
-      "Interest may be charged on overdue amounts at 2% per month, calculated daily.",
+      "If an amount remains unpaid 14 days after the due date we may suspend services until paid. Suspension does not relieve you of the obligation to pay fees for the suspension period under a recurring engagement.",
+      "Interest may be charged on overdue amounts at 2% per month, calculated daily from the due date until payment.",
+      "You must pay all costs we incur in recovering any overdue amount, including debt collection agency fees, legal costs on a solicitor and own client basis, and court costs.",
       "All fees, estimates and rates are exclusive of GST.",
     ],
   },
@@ -76,6 +79,7 @@ const sections: { title: string; clauses: string[] }[] = [
       "A party must not start court or arbitration proceedings until it has given written notice of the dispute.",
       "If not resolved within 10 business days, the dispute must be referred to mediation.",
       "If not resolved within 20 business days after a mediator is appointed, either party may commence court proceedings.",
+      "Nothing in this clause prevents us from taking debt recovery action for undisputed overdue invoices.",
     ],
   },
   {
@@ -91,9 +95,9 @@ const sections: { title: string; clauses: string[] }[] = [
     title: "9. Termination",
     clauses: [
       "Either party may terminate for material breach not remedied within 30 days of written notice.",
-      "If you do not pay on the due date, we may issue a 7-day demand.",
-      "Either party may terminate on 30 days' written notice for convenience.",
-      "On termination you must pay for services performed up to the termination date.",
+      "If you do not pay on the due date, we may issue a 7-day demand and may terminate if it is not met.",
+      "Either party may terminate on 30 days' written notice for convenience, subject to any minimum term in a signed proposal.",
+      "On termination you must pay for services performed up to the termination date, and any fees invoiced in advance for the notice period remain payable.",
     ],
   },
   {
