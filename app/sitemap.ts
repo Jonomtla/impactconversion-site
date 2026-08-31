@@ -26,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/tools/rpv-calculator`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/tools/shipping-calculator`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/resources/conversion-killers`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/resources/free-money-playbook`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/blog`, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/privacy`, changeFrequency: "yearly", priority: 0.3 },
   ];
