@@ -43,14 +43,14 @@ export default function FreeMoneyPlaybookPage() {
         <span className="text-lg font-black tracking-tight">
           IMPACT<span className="text-purple">.</span>
         </span>
-        <span className="text-xs font-semibold uppercase tracking-[0.14em] text-text-muted">
+        <span className="hidden text-xs font-semibold uppercase tracking-[0.14em] text-text-muted sm:inline">
           Free playbook for Shopify brands
         </span>
       </header>
 
       {/* Hero: promise + form above the fold */}
       <section className="mx-auto grid w-full max-w-5xl gap-10 px-6 pb-16 pt-6 md:grid-cols-12 md:gap-12 md:pb-20 md:pt-10">
-        <div className="md:col-span-7">
+        <div className="order-2 md:order-1 md:col-span-7">
           <p className="text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-purple">
             Free playbook + AI skill
           </p>
@@ -75,7 +75,7 @@ export default function FreeMoneyPlaybookPage() {
             />
           </div>
         </div>
-        <div className="md:col-span-5">
+        <div className="order-1 md:order-2 md:col-span-5">
           <div className="md:sticky md:top-8">
             <FormCard location="top" />
             <p className="mt-4 text-sm text-text-muted">

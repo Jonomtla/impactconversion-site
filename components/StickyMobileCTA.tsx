@@ -20,7 +20,11 @@ export default function StickyMobileCTA({
   const target = ON_PAGE_BOOKING.has(pathname) ? "#book" : href;
 
   // Hide on the /contact page (already has the primary CTA above the fold)
-  const hide = pathname === "/contact" || pathname.startsWith("/terms-of-service");
+  const hide =
+    pathname === "/contact" ||
+    pathname.startsWith("/terms-of-service") ||
+    pathname.startsWith("/resources/free-money-playbook") ||
+    pathname.startsWith("/game-plan");
 
   useEffect(() => {
     const onScroll = () => {
