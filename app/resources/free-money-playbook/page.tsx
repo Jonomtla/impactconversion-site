@@ -50,7 +50,8 @@ export default function FreeMoneyPlaybookPage() {
 
       {/* Hero: promise + form above the fold */}
       <section className="mx-auto grid w-full max-w-5xl gap-10 px-6 pb-16 pt-6 md:grid-cols-12 md:gap-12 md:pb-20 md:pt-10">
-        <div className="order-2 md:order-1 md:col-span-7">
+        <div className="contents md:col-span-7 md:block">
+          <div className="order-1">
           <p className="text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-purple">
             Free playbook + AI skill
           </p>
@@ -65,7 +66,8 @@ export default function FreeMoneyPlaybookPage() {
             you what to offer them, at what price, in what order, and how to
             have it live by tonight.
           </p>
-          <div className="mt-8 overflow-hidden rounded-2xl border border-ink/10 bg-white shadow-sm">
+          </div>
+          <div className="order-3 mt-0 overflow-hidden rounded-2xl border border-ink/10 bg-white shadow-sm md:mt-8">
             <Image
               src="/assets/free-money-cover.png"
               alt="The Closest Thing to Free Money: the post-purchase upsell playbook"
@@ -75,7 +77,7 @@ export default function FreeMoneyPlaybookPage() {
             />
           </div>
         </div>
-        <div className="order-1 md:order-2 md:col-span-5">
+        <div className="order-2 md:col-span-5">
           <div className="md:sticky md:top-8">
             <FormCard location="top" />
             <p className="mt-4 text-sm text-text-muted">
