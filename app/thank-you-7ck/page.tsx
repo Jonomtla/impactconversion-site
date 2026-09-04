@@ -1,8 +1,5 @@
 import Link from "next/link";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import Reveal from "@/components/motion/Reveal";
-import WavyLines from "@/components/WavyLines";
+import CalEmbed from "@/components/CalEmbed";
 
 export const metadata = {
   title: "Your copy is on its way",
@@ -12,66 +9,84 @@ export const metadata = {
 
 export default function ThankYou7ckPage() {
   return (
-    <>
-      <Nav />
-      <main id="main">
-        <section className="relative overflow-hidden bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
-          <WavyLines />
-          <div
-            className="pointer-events-none absolute inset-0 opacity-40"
-            style={{
-              background:
-                "radial-gradient(ellipse at 80% 30%, var(--color-purple) 0%, transparent 55%)",
-            }}
-          />
-          <div className="relative mx-auto max-w-3xl px-6">
-            <Reveal>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
-                You&rsquo;re in
-              </p>
-              <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.5rem)]">
-                Your copy is{" "}
-                <span className="text-gradient-glow">on its way.</span>
-              </h1>
-              <p className="mt-6 text-lg text-text-inv-muted md:text-xl">
-                Check your email for the playbook. If it is not there in a
-                couple of minutes, look in spam or promotions and drag it to
-                your inbox.
-              </p>
-            </Reveal>
-          </div>
-        </section>
+    <main id="main" className="bg-cream text-text">
+      <header className="mx-auto w-full max-w-5xl px-6 py-5">
+        <span className="text-lg font-black tracking-tight">
+          IMPACT<span className="text-purple">.</span>
+        </span>
+      </header>
 
-        <section className="bg-cream py-16 md:py-20">
-          <div className="mx-auto max-w-3xl px-6">
-            <Reveal>
-              <div className="rounded-2xl border border-ink/10 bg-white p-8 shadow-sm md:p-10">
-                <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple">
-                  Wait, before you go
-                </p>
-                <h2 className="mt-4 text-2xl font-bold tracking-tight text-text md:text-3xl">
-                  Want to see what this looks like on your brand?
-                </h2>
-                <p className="mt-4 text-text-muted md:text-lg">
-                  The playbook shows you the system. On a short call we can run
-                  it against your actual store: where the money is hiding, what
-                  to build first, and what it is roughly worth. No pitch deck,
-                  just your numbers.
-                </p>
-                <Link
-                  href="/contact#book"
-                  data-ga-event="book_call_click"
-                  data-ga-location="free_money_thank_you"
-                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-purple px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
-                >
-                  Book a free call
-                </Link>
-              </div>
-            </Reveal>
+      <section className="mx-auto w-full max-w-3xl px-6 pb-12 pt-4 md:pt-8">
+        <h1 className="text-balance font-black leading-[0.98] tracking-[-0.03em] text-[clamp(2.2rem,5vw,3.6rem)]">
+          Your copy is <span className="text-gradient-flow">on its way.</span>
+        </h1>
+        <p className="mt-5 text-lg leading-relaxed text-text-muted">
+          Check your email for the guide. If it is not there in a couple of
+          minutes, look in spam or promotions and drag it to your inbox.
+        </p>
+      </section>
+
+      <section className="bg-cream-2 py-14 md:py-16">
+        <div className="mx-auto w-full max-w-3xl px-6">
+          <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl">
+            Upsells are one lever. Most stores have four or five more.
+          </h2>
+          <div className="mt-6 grid gap-4 text-lg leading-relaxed text-text-muted">
+            <p>
+              Post-purchase offers lift what each order is worth. That is the
+              easy win, which is why I gave it away.
+            </p>
+            <p>
+              But if your conversion rate has slipped, your ad costs keep
+              climbing, or buyers are leaking out of your product pages, the
+              upsell patches one hole in a bigger bucket.
+            </p>
+            <p>
+              The bigger bucket is what we do. Impact Conversion runs CRO for 8
+              and 9 figure D2C brands: we research why people do and don&rsquo;t
+              buy, test the fixes on your live store, and go back weeks later to
+              verify the money is still there. Every win is a permanent change
+              to the site, so it compounds.
+            </p>
           </div>
-        </section>
-      </main>
-      <Footer />
-    </>
+        </div>
+      </section>
+
+      <section id="book" className="py-14 md:py-16">
+        <div className="mx-auto w-full max-w-3xl px-6">
+          <p className="text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-purple">
+            One-off, no retainer
+          </p>
+          <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight md:text-4xl">
+            The Leaky Funnel Audit
+          </h2>
+          <div className="mt-5 grid gap-4 text-lg leading-relaxed text-text-muted">
+            <p>
+              A one-off audit of your store. We read your reviews and surveys,
+              watch where buyers drop, and hand you a ranked list of what to
+              fix first and what each fix is worth. Fixed fee, yours to keep,
+              no ongoing engagement required.
+            </p>
+            <p>
+              Pick a time below for a fifteen-minute Leaky Funnel Game Plan
+              call. We look at your store live, tell you straight whether the
+              audit is worth it for you, and scope it if it is.
+            </p>
+          </div>
+          <div className="mt-8 overflow-hidden rounded-2xl border border-ink/10 bg-white shadow-sm">
+            <CalEmbed location="free_money_thank_you" />
+          </div>
+        </div>
+      </section>
+
+      <footer className="border-t border-ink/10 py-8">
+        <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 text-sm text-text-muted">
+          <span>Impact Conversion · Queenstown, NZ</span>
+          <Link href="/privacy" className="hover:text-text">
+            Privacy
+          </Link>
+        </div>
+      </footer>
+    </main>
   );
 }

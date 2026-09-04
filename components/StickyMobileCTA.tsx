@@ -24,6 +24,7 @@ export default function StickyMobileCTA({
     pathname === "/contact" ||
     pathname.startsWith("/terms-of-service") ||
     pathname.startsWith("/resources/free-money-playbook") ||
+    pathname.startsWith("/thank-you-7ck") ||
     pathname.startsWith("/game-plan");
 
   useEffect(() => {
