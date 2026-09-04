@@ -39,6 +39,11 @@ export default function FreeMoneyForm({ location }: { location: string }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...data, source: location, eventId, url: window.location.href }),
       });
+      if (res.status === 400) {
+        setError("That email address doesn't look right. Check it and try again.");
+        setSubmitting(false);
+        return;
+      }
       if (!res.ok) throw new Error("bad_status");
       const qualified = QUALIFIED.has(String(data.revenue));
       track("lead_submit", { location, qualified });

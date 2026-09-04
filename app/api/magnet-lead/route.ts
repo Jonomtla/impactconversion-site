@@ -85,17 +85,32 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "not_configured" }, { status: 500 });
   }
 
-  const res = await fetch(`https://api.kit.com/v4/forms/${KIT_FORM_ID}/subscribers`, {
+  const kitHeaders = { "Content-Type": "application/json", "X-Kit-Api-Key": kitKey };
+  // Kit v4: the form endpoint only accepts subscribers that already exist, so
+  // create (or upsert) the subscriber first, then add them to the form so the
+  // form's incentive email and tag rule fire.
+  const created = await fetch("https://api.kit.com/v4/subscribers", {
     method: "POST",
-    headers: { "Content-Type": "application/json", "X-Kit-Api-Key": kitKey },
+    headers: kitHeaders,
     body: JSON.stringify({
       email_address: email,
       first_name: name || undefined,
       fields: { store_revenue: revenue || undefined },
     }),
   });
-  if (!res.ok) {
-    console.error("[magnet-lead] kit subscribe failed", res.status, await res.text());
+  if (!created.ok) {
+    const text = await created.text();
+    console.error("[magnet-lead] kit create failed", created.status, text);
+    const status = created.status === 422 ? 400 : 502;
+    return NextResponse.json({ error: status === 400 ? "invalid_email" : "kit_failed" }, { status });
+  }
+  const added = await fetch(`https://api.kit.com/v4/forms/${KIT_FORM_ID}/subscribers`, {
+    method: "POST",
+    headers: kitHeaders,
+    body: JSON.stringify({ email_address: email }),
+  });
+  if (!added.ok) {
+    console.error("[magnet-lead] kit form add failed", added.status, await added.text());
     return NextResponse.json({ error: "kit_failed" }, { status: 502 });
   }
 
