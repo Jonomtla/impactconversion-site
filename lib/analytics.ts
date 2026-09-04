@@ -7,7 +7,15 @@ declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
     dataLayer?: unknown[];
+    fbq?: (...args: unknown[]) => void;
   }
+}
+
+// Meta pixel standard event. No-ops if the pixel has not loaded.
+export function metaEvent(event: string, params: GtagEventParams = {}) {
+  if (typeof window === "undefined") return;
+  if (typeof window.fbq !== "function") return;
+  window.fbq("track", event, params);
 }
 
 export function track(event: string, params: GtagEventParams = {}) {

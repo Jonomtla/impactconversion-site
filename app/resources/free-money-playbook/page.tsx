@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import LeadMagnetForm from "@/components/LeadMagnetForm";
+import FreeMoneyForm from "@/components/FreeMoneyForm";
 
 export const metadata = {
   title: "The Closest Thing to Free Money: the post-purchase upsell guide",
@@ -67,12 +67,7 @@ export default function FreeMoneyPlaybookPage() {
         </div>
         <div className="order-2 md:col-span-5">
           <div className="md:sticky md:top-8">
-            <LeadMagnetForm
-              formUid="b06fe8dacc"
-              source="free_money_top"
-              heading="Email me the guide"
-              subhead="Free. No pitch, no drip sequence. Unsubscribe any time."
-            />
+            <FreeMoneyForm location="top" />
           </div>
         </div>
       </section>
@@ -120,12 +115,7 @@ export default function FreeMoneyPlaybookPage() {
 
       <section className="py-14 md:py-16">
         <div className="mx-auto w-full max-w-xl px-6">
-          <LeadMagnetForm
-            formUid="b06fe8dacc"
-            source="free_money_bottom"
-            heading="Email me the guide"
-            subhead="Free. No pitch, no drip sequence. Unsubscribe any time."
-          />
+          <FreeMoneyForm location="bottom" />
         </div>
       </section>
 
