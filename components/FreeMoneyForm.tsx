@@ -6,9 +6,11 @@ import { track, metaEvent } from "@/lib/analytics";
 
 export const REVENUE_OPTIONS = [
   "Under $1M / year",
-  "$1M to $10M / year",
-  "$10M to $100M / year",
-  "Over $100M / year",
+  "$1M to $2M / year",
+  "$2M to $5M / year",
+  "$5M to $10M / year",
+  "$10M to $20M / year",
+  "Over $20M / year",
 ];
 
 // Anything at or above $1M a year is a qualified lead for Meta optimisation.
