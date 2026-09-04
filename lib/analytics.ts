@@ -12,10 +12,15 @@ declare global {
 }
 
 // Meta pixel standard event. No-ops if the pixel has not loaded.
-export function metaEvent(event: string, params: GtagEventParams = {}) {
+export function metaEvent(
+  event: string,
+  params: GtagEventParams = {},
+  eventId?: string,
+) {
   if (typeof window === "undefined") return;
   if (typeof window.fbq !== "function") return;
-  window.fbq("track", event, params);
+  if (eventId) window.fbq("track", event, params, { eventID: eventId });
+  else window.fbq("track", event, params);
 }
 
 export function track(event: string, params: GtagEventParams = {}) {

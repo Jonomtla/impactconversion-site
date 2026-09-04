@@ -31,17 +31,22 @@ export default function FreeMoneyForm({ location }: { location: string }) {
       return;
     }
     setSubmitting(true);
+    // Shared with the server-side Conversions API call so Meta dedupes the pair.
+    const eventId = crypto.randomUUID();
     try {
       const res = await fetch("/api/magnet-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, source: location }),
+        body: JSON.stringify({ ...data, source: location, eventId, url: window.location.href }),
       });
       if (!res.ok) throw new Error("bad_status");
       const qualified = QUALIFIED.has(String(data.revenue));
       track("lead_submit", { location, qualified });
-      if (qualified) metaEvent("Lead", { content_name: "free-money-playbook" });
-      else metaEvent("CompleteRegistration", { content_name: "free-money-playbook" });
+      metaEvent(
+        qualified ? "Lead" : "CompleteRegistration",
+        { content_name: "free-money-playbook" },
+        eventId,
+      );
       router.push("/thank-you-7ck");
     } catch {
       setError("Something broke on our end. Try again, or email jono@impactconversion.com.");

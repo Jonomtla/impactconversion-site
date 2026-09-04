@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { createHash } from "node:crypto";
 
 export const runtime = "nodejs";
 
@@ -12,8 +13,55 @@ type Body = {
   name?: string;
   revenue?: string;
   source?: string;
+  eventId?: string;
+  url?: string;
   website?: string; // honeypot
 };
+
+const META_PIXEL_ID = "810167591458471";
+const sha256 = (v: string) => createHash("sha256").update(v.trim().toLowerCase()).digest("hex");
+
+// Conversions API: same event name + event_id as the browser pixel call, so
+// Meta dedupes and still records the lead when the browser event is blocked.
+async function sendMetaEvent(opts: {
+  name: string;
+  eventId?: string;
+  email: string;
+  firstName: string;
+  url?: string;
+  ip?: string;
+  ua?: string;
+}) {
+  const token = process.env.META_CAPI_TOKEN;
+  if (!token) return;
+  const body = {
+    data: [
+      {
+        event_name: opts.name,
+        event_time: Math.floor(Date.now() / 1000),
+        event_id: opts.eventId,
+        action_source: "website",
+        event_source_url: opts.url,
+        user_data: {
+          em: [sha256(opts.email)],
+          fn: opts.firstName ? [sha256(opts.firstName)] : undefined,
+          client_ip_address: opts.ip,
+          client_user_agent: opts.ua,
+        },
+        custom_data: { content_name: "free-money-playbook" },
+      },
+    ],
+  };
+  try {
+    const res = await fetch(
+      `https://graph.facebook.com/v21.0/${META_PIXEL_ID}/events?access_token=${token}`,
+      { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) },
+    );
+    if (!res.ok) console.error("[magnet-lead] capi failed", res.status, await res.text());
+  } catch (err) {
+    console.error("[magnet-lead] capi error", err);
+  }
+}
 
 export async function POST(req: Request) {
   let body: Body;
@@ -51,8 +99,19 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "kit_failed" }, { status: 502 });
   }
 
+  const qualified = Boolean(revenue) && revenue !== "Under $1M / year";
+  await sendMetaEvent({
+    name: qualified ? "Lead" : "CompleteRegistration",
+    eventId: body.eventId,
+    email,
+    firstName: name,
+    url: body.url,
+    ip: req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || undefined,
+    ua: req.headers.get("user-agent") || undefined,
+  });
+
   const apiKey = process.env.RESEND_API_KEY;
-  if (apiKey && revenue && revenue !== "Under $1M / year") {
+  if (apiKey && qualified) {
     try {
       await new Resend(apiKey).emails.send({
         from: process.env.RESEND_FROM_EMAIL ?? "Impact Conversion <onboarding@resend.dev>",
