@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { createHash } from "node:crypto";
+import { isFreemail } from "@/lib/freemail";
 
 export const runtime = "nodejs";
 
@@ -77,6 +78,9 @@ export async function POST(req: Request) {
   const revenue = (body.revenue ?? "").trim();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return NextResponse.json({ error: "invalid_email" }, { status: 400 });
+  }
+  if (isFreemail(email)) {
+    return NextResponse.json({ error: "freemail" }, { status: 400 });
   }
 
   const kitKey = process.env.KIT_API_KEY;

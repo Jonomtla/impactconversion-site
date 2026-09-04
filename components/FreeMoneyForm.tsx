@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { track, metaEvent } from "@/lib/analytics";
+import { isFreemail } from "@/lib/freemail";
 
 export const REVENUE_OPTIONS = [
   "Under $1M / year",
@@ -30,6 +31,11 @@ export default function FreeMoneyForm({ location }: { location: string }) {
       setError("We need an email to send the guide to.");
       return;
     }
+    if (isFreemail(String(data.email))) {
+      track("lead_freemail_blocked", { location });
+      setError("Use your work email so we know which brand this is for.");
+      return;
+    }
     setSubmitting(true);
     // Shared with the server-side Conversions API call so Meta dedupes the pair.
     const eventId = crypto.randomUUID();
@@ -40,7 +46,12 @@ export default function FreeMoneyForm({ location }: { location: string }) {
         body: JSON.stringify({ ...data, source: location, eventId, url: window.location.href }),
       });
       if (res.status === 400) {
-        setError("That email address doesn't look right. Check it and try again.");
+        const { error: code } = (await res.json().catch(() => ({}))) as { error?: string };
+        setError(
+          code === "freemail"
+            ? "Use your work email so we know which brand this is for."
+            : "That email address doesn't look right. Check it and try again.",
+        );
         setSubmitting(false);
         return;
       }
