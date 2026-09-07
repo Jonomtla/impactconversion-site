@@ -19,16 +19,16 @@ export const metadata = {
 
 const problems = [
   {
-    h: "Testing that doesn’t move revenue",
-    p: "You’re running tests, but the wins never add up to anything you can see in the P&L. Most of them turn out to be guesses dressed up as experiments.",
+    h: "Tests that never reach a verdict",
+    p: "A test runs for three weeks, the numbers wobble, somebody calls it. On New Zealand traffic most experiments never gather enough data to separate a real lift from noise, so the program quietly ships coin flips and calls them wins.",
   },
   {
-    h: "A generic checklist instead of your store",
-    p: "Plenty of agencies arrive with the same twenty changes they make for everyone. Add a sticky bar, swap a button colour, call it optimisation. None of it is grounded in how your buyers actually behave.",
+    h: "A program sized for someone else’s traffic",
+    p: "Imported playbooks assume the visitor counts of a US brand. Run that same list on a NZ store and half the surfaces on it cannot produce a readable result no matter how long you leave them running.",
   },
   {
-    h: "Offshore agencies that don’t fit NZ",
-    p: "Results come back in your evening, you can’t get on a call without staying up late, and a program built for a $100M US brand quietly assumes traffic your store doesn’t have.",
+    h: "Offshore agencies that don’t fit how you work",
+    p: "Results land in your evening, a same-day decision takes two days, and the person who designed your test is three handoffs away from the call you are actually on.",
   },
 ];
 
@@ -91,21 +91,38 @@ const faqSchema = {
   })),
 };
 
-const localBusinessSchema = {
+// References the sitewide business entity declared in app/layout.tsx rather
+// than declaring a second, competing one. Google merges on @id; two unlinked
+// ProfessionalService nodes for the same business split the entity.
+const serviceSchema = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "Impact Conversion",
+  "@type": "Service",
+  "@id": "https://impactconversion.com/cro-agency-nz#service",
+  name: "Conversion Rate Optimisation, New Zealand",
   description:
-    "New Zealand conversion rate optimisation agency for D2C brands.",
-  url: "https://impactconversion.com/cro-agency-nz",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Queenstown",
-    addressCountry: "NZ",
-  },
-  areaServed: { "@type": "Country", name: "New Zealand" },
-  priceRange: "$$$",
+    "Research-led conversion rate optimisation and A/B testing for New Zealand D2C and ecommerce brands, with every test power-sized against local traffic volumes before launch.",
   serviceType: "Conversion Rate Optimisation",
+  url: "https://impactconversion.com/cro-agency-nz",
+  provider: { "@id": "https://impactconversion.com/#localbusiness" },
+  areaServed: [
+    { "@type": "Country", name: "New Zealand" },
+    { "@type": "AdministrativeArea", name: "Auckland" },
+    { "@type": "AdministrativeArea", name: "Wellington" },
+    { "@type": "AdministrativeArea", name: "Canterbury" },
+    { "@type": "AdministrativeArea", name: "Otago" },
+  ],
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "NZD",
+    price: "5000",
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      priceCurrency: "NZD",
+      price: "5000",
+      unitCode: "MON",
+      description: "From NZD $5,000 per month",
+    },
+  },
 };
 
 export default function CROAgencyNZPage() {
@@ -115,11 +132,15 @@ export default function CROAgencyNZPage() {
       <main id="main">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c"),
+          }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(serviceSchema).replace(/</g, "\\u003c"),
+          }}
         />
 
         {/* Hero */}
@@ -134,12 +155,13 @@ export default function CROAgencyNZPage() {
                     CRO agency · New Zealand
                   </p>
                   <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.75rem)]">
-                    More revenue from the traffic your NZ store already gets.
+                    New Zealand traffic is too scarce to spend on guesswork.
                   </h1>
                   <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
                     Research-led A/B testing for New Zealand Shopify brands, run
-                    from Queenstown. We find why your buyers leave, fix it, and
-                    keep only the changes that lift revenue. Start with a free
+                    from Queenstown. Every test is sized against your real
+                    traffic before it is briefed, so you find out whether a
+                    change actually worked instead of arguing about it. Start with a free
                     15-minute Leaky Funnel Game Plan: we look at your funnel
                     live, show you where it leaks, and you keep the plan either
                     way.
@@ -223,7 +245,7 @@ export default function CROAgencyNZPage() {
           <div className="mx-auto max-w-5xl px-6">
             <Reveal>
               <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                Most CRO programs stall for the same three reasons.
+                Why CRO programs stall on New Zealand traffic.
               </h2>
               <p className="mt-5 max-w-2xl text-lg text-text-muted">
                 If you&rsquo;re already testing and the numbers aren&rsquo;t moving, the problem usually isn&rsquo;t effort. It&rsquo;s one of these three.
@@ -249,7 +271,7 @@ export default function CROAgencyNZPage() {
           <div className="mx-auto max-w-5xl px-6">
             <Reveal>
               <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                The practical fit for New Zealand brands.
+                What a New Zealand agency actually changes.
               </h2>
             </Reveal>
             <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -278,6 +300,120 @@ export default function CROAgencyNZPage() {
           </div>
         </section>
 
+        {/* NZ traffic sizing — the NZ-specific substance */}
+        <section className="bg-cream py-20 md:py-24">
+          <div className="mx-auto max-w-5xl px-6">
+            <Reveal>
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+                How much traffic does a New Zealand store need to test?
+              </h2>
+              <p className="mt-5 max-w-3xl text-lg text-text-muted">
+                This is the question that decides whether a CRO program works
+                here, and most agencies will not answer it before they invoice
+                you. Three things set it: the conversion rate of the surface
+                today, the size of the lift you would actually care about, and
+                how many people reach that surface each week.
+              </p>
+            </Reveal>
+            <div className="mt-10 grid gap-6 md:grid-cols-3">
+              <Reveal>
+                <div className="h-full rounded-2xl border border-ink/10 bg-white p-8">
+                  <h3 className="text-xl font-semibold text-text">
+                    Surfaces that usually work
+                  </h3>
+                  <p className="mt-3 text-text-muted">
+                    Product pages, cart, and checkout carry most of your
+                    traffic, so they reach a readable result inside a sensible
+                    window on almost every NZ store above the revenue floor.
+                    This is where a NZ program should spend its first quarter.
+                  </p>
+                </div>
+              </Reveal>
+              <Reveal>
+                <div className="h-full rounded-2xl border border-ink/10 bg-white p-8">
+                  <h3 className="text-xl font-semibold text-text">
+                    Surfaces that often cannot
+                  </h3>
+                  <p className="mt-3 text-text-muted">
+                    Deep category pages, single campaign landing pages and
+                    niche collections frequently do not see enough visitors in
+                    New Zealand to detect anything short of an enormous lift.
+                    Testing them anyway produces numbers, not answers.
+                  </p>
+                </div>
+              </Reveal>
+              <Reveal>
+                <div className="h-full rounded-2xl border border-ink/10 bg-white p-8">
+                  <h3 className="text-xl font-semibold text-text">
+                    What we do about it
+                  </h3>
+                  <p className="mt-3 text-text-muted">
+                    Every test gets a power analysis before it is briefed. If a
+                    surface cannot detect a lift worth having, we either widen
+                    the window, change what we measure, or make the change on
+                    judgment and say plainly that it was judgment, not a
+                    result.
+                  </p>
+                </div>
+              </Reveal>
+            </div>
+            <Reveal>
+              <p className="mt-8 max-w-3xl text-text-muted">
+                The reason this matters more here than in the US is arithmetic,
+                not theory. Smaller samples make it far easier to record a win
+                that was never there, which is{" "}
+                <Link href="/blog/ab-tests-statistically-broken" className="font-medium text-purple hover:underline">
+                  how most A/B tests end up statistically broken
+                </Link>{" "}
+                and what makes{" "}
+                <Link href="/blog/cost-of-a-false-positive" className="font-medium text-purple hover:underline">
+                  a false positive so expensive
+                </Link>{" "}
+                once it is rolled out and quietly costing you revenue.
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Trans-Tasman */}
+        <section className="bg-white py-20 md:py-24">
+          <div className="mx-auto max-w-5xl px-6">
+            <Reveal>
+              <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
+                Selling into Australia as well?
+              </h2>
+              <p className="mt-5 max-w-3xl text-lg text-text-muted">
+                Most New Zealand brands that reach the revenue floor are already
+                shipping across the Tasman, and the two markets do not behave the
+                same way. Payment method order, GST display, shipping thresholds
+                and the freight expectations of an Australian buyer all differ
+                enough to change which tests belong at the top of the list.
+              </p>
+              <p className="mt-4 max-w-3xl text-text-muted">
+                We run both sides from the same program, so an AU rollout does
+                not mean a second agency and a second research phase. The{" "}
+                <Link href="/cro-agency-australia" className="font-medium text-purple hover:underline">
+                  CRO agency Australia
+                </Link>{" "}
+                page covers the AU-specific stack, and{" "}
+                <Link href="/blog/conversion-rate-optimisation-australia-anz-market" className="font-medium text-purple hover:underline">
+                  what changes across the ANZ market
+                </Link>{" "}
+                walks through the differences test by test. If Shopify is your
+                platform, the{" "}
+                <Link href="/services/shopify-cro" className="font-medium text-purple hover:underline">
+                  Shopify CRO
+                </Link>{" "}
+                service is the delivery shape, and{" "}
+                <Link href="/how-we-work" className="font-medium text-purple hover:underline">
+                  how we work
+                </Link>{" "}
+                sets out the loop end to end.
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
         <GuaranteeBlock ctaHref="#book" />
 
         {/* FAQ */}
@@ -285,7 +421,7 @@ export default function CROAgencyNZPage() {
           <div className="mx-auto max-w-3xl px-6">
             <Reveal>
               <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                Questions NZ operators ask before booking.
+                Straight answers for New Zealand operators.
               </h2>
             </Reveal>
             <dl className="mt-10 space-y-6">
