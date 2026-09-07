@@ -42,3 +42,10 @@ next-env.d.ts
 
 # local design dev tool (not part of the site)
 .claude/skills/impeccable/
+
+# local working notes and scratch, not site code
+/.design-explorations/
+/autoresearch/
+/reviews/
+/case-studies/
+/voc-sales-call-mining.md
