@@ -74,7 +74,7 @@ body {
   mask-size: 200% 200%;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  animation: hero-grid-sweep 16s ease-in-out infinite alternate;
+  animation: hero-grid-sweep 8s ease-out 1 forwards;
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-grid-sweep {
@@ -99,7 +99,7 @@ body {
   100% { stroke-dashoffset: -1; }
 }
 .fan-line {
-  animation: fan-flow 14s linear infinite;
+  animation: fan-flow 5s ease-out 1 forwards;
 }
 
 /* Virtuous loop: traveling arc around the circle */
@@ -107,7 +107,7 @@ body {
   to { stroke-dashoffset: -1; }
 }
 .loop-travel {
-  animation: loop-travel 6s linear infinite;
+  animation: loop-travel 4s ease-out 1 forwards;
 }
 
 /* Virtuous loop: node pulses */
@@ -116,7 +116,7 @@ body {
   50% { r: 7; opacity: 1; }
 }
 .loop-node {
-  animation: loop-node-pulse 3s ease-in-out infinite;
+  animation: loop-node-pulse 2.4s ease-in-out 1;
 }
 
 /* Leaky funnel: conversion drop falls from top to bottom */
@@ -127,7 +127,7 @@ body {
   100% { transform: translate(0, 140px); opacity: 0; }
 }
 .convert-drop {
-  animation: convert-drop 3.5s ease-in infinite;
+  animation: convert-drop 3.5s ease-in 1;
 }
 
 /* Leaky funnel: drops escape sideways (leaks) */
@@ -137,7 +137,7 @@ body {
   100% { transform: translate(-40px, 30px); opacity: 0; }
 }
 .leak-drop-left {
-  animation: leak-left 2.8s ease-in infinite;
+  animation: leak-left 2.8s ease-in 1;
 }
 @keyframes leak-right {
   0%, 40% { transform: translate(0, 0); opacity: 0; }
@@ -145,27 +145,27 @@ body {
   100% { transform: translate(40px, 30px); opacity: 0; }
 }
 .leak-drop-right {
-  animation: leak-right 2.8s ease-in infinite;
+  animation: leak-right 2.8s ease-in 1;
 }
 
 /* A/B test bars: grow up + checkmark reveal */
 @keyframes ab-grow-a {
-  0%, 100% { transform: scaleY(0); }
-  10%, 80% { transform: scaleY(1); }
+  0% { transform: scaleY(0); }
+  10%, 100% { transform: scaleY(1); }
 }
 @keyframes ab-grow-b {
-  0%, 100% { transform: scaleY(0); }
-  20%, 80% { transform: scaleY(1); }
+  0% { transform: scaleY(0); }
+  20%, 100% { transform: scaleY(1); }
 }
 .ab-bar-a {
   transform-box: fill-box;
   transform-origin: bottom;
-  animation: ab-grow-a 5s ease-out infinite;
+  animation: ab-grow-a 3.6s ease-out 1 forwards;
 }
 .ab-bar-b {
   transform-box: fill-box;
   transform-origin: bottom;
-  animation: ab-grow-b 5s ease-out infinite;
+  animation: ab-grow-b 3.6s ease-out 1 forwards;
 }
 .ab-check {
   transform-box: fill-box;
@@ -173,10 +173,10 @@ body {
 @keyframes ab-check-reveal {
   0%, 60% { transform: scale(0); opacity: 0; }
   70%, 85% { transform: scale(1); opacity: 1; }
-  100% { transform: scale(1); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
 }
 .ab-check {
-  animation: ab-check-reveal 5s ease-out infinite;
+  animation: ab-check-reveal 3.6s ease-out 1 forwards;
 }
 
 /* Research stage: scanning magnifier */
@@ -189,68 +189,79 @@ body {
 }
 .research-scan {
   transform-box: fill-box;
-  animation: research-scan 6s ease-in-out infinite;
+  animation: research-scan 4s ease-in-out 1;
 }
 @keyframes research-ping {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 1; }
+  0% { opacity: 0.2; }
+  50%, 100% { opacity: 1; }
 }
-.research-ping-1 { animation: research-ping 2.4s ease-in-out infinite; }
-.research-ping-2 { animation: research-ping 2.4s ease-in-out 0.6s infinite; }
-.research-ping-3 { animation: research-ping 2.4s ease-in-out 1.2s infinite; }
+.research-ping-1 { animation: research-ping 2.4s ease-in-out 1 forwards; }
+.research-ping-2 { animation: research-ping 2.4s ease-in-out 0.6s 1 forwards; }
+.research-ping-3 { animation: research-ping 2.4s ease-in-out 1.2s 1 forwards; }
 
 /* Prioritise stage: items re-ordering */
 @keyframes sort-rise-1 {
-  0%, 100% { transform: translateY(30px); }
-  40%, 80% { transform: translateY(0); }
+  0% { transform: translateY(30px); }
+  40%, 100% { transform: translateY(0); }
 }
 @keyframes sort-rise-2 {
-  0%, 100% { transform: translateY(30px); }
-  50%, 80% { transform: translateY(0); }
+  0% { transform: translateY(30px); }
+  50%, 100% { transform: translateY(0); }
 }
 @keyframes sort-rise-3 {
-  0%, 100% { transform: translateY(30px); }
-  60%, 80% { transform: translateY(0); }
+  0% { transform: translateY(30px); }
+  60%, 100% { transform: translateY(0); }
 }
 .sort-item-1 {
   transform-box: fill-box;
-  animation: sort-rise-1 5s ease-in-out infinite;
+  animation: sort-rise-1 3.2s ease-out 1 forwards;
 }
 .sort-item-2 {
   transform-box: fill-box;
-  animation: sort-rise-2 5s ease-in-out infinite;
+  animation: sort-rise-2 3.2s ease-out 1 forwards;
 }
 .sort-item-3 {
   transform-box: fill-box;
-  animation: sort-rise-3 5s ease-in-out infinite;
+  animation: sort-rise-3 3.2s ease-out 1 forwards;
 }
 
 /* Compound stage: stacked bars growing */
 @keyframes compound-grow-1 {
-  0%, 100% { transform: scaleY(0); }
-  10%, 90% { transform: scaleY(1); }
+  0% { transform: scaleY(0); }
+  10%, 100% { transform: scaleY(1); }
 }
 @keyframes compound-grow-2 {
-  0%, 100% { transform: scaleY(0); }
-  25%, 90% { transform: scaleY(1); }
+  0% { transform: scaleY(0); }
+  25%, 100% { transform: scaleY(1); }
 }
 @keyframes compound-grow-3 {
-  0%, 100% { transform: scaleY(0); }
-  40%, 90% { transform: scaleY(1); }
+  0% { transform: scaleY(0); }
+  40%, 100% { transform: scaleY(1); }
 }
 @keyframes compound-grow-4 {
-  0%, 100% { transform: scaleY(0); }
-  55%, 90% { transform: scaleY(1); }
+  0% { transform: scaleY(0); }
+  55%, 100% { transform: scaleY(1); }
 }
 @keyframes compound-grow-5 {
-  0%, 100% { transform: scaleY(0); }
-  70%, 90% { transform: scaleY(1); }
+  0% { transform: scaleY(0); }
+  70%, 100% { transform: scaleY(1); }
 }
-.compound-bar-1 { transform-box: fill-box; transform-origin: bottom; animation: compound-grow-1 5s ease-out infinite; }
-.compound-bar-2 { transform-box: fill-box; transform-origin: bottom; animation: compound-grow-2 5s ease-out infinite; }
-.compound-bar-3 { transform-box: fill-box; transform-origin: bottom; animation: compound-grow-3 5s ease-out infinite; }
-.compound-bar-4 { transform-box: fill-box; transform-origin: bottom; animation: compound-grow-4 5s ease-out infinite; }
-.compound-bar-5 { transform-box: fill-box; transform-origin: bottom; animation: compound-grow-5 5s ease-out infinite; }
+.compound-bar-1 { transform-box: fill-box; transform-origin: bottom; animation: compound-grow-1 3.5s ease-out 1 forwards; }
+.compound-bar-2 { transform-box: fill-box; transform-origin: bottom; animation: compound-grow-2 3.5s ease-out 1 forwards; }
+.compound-bar-3 { transform-box: fill-box; transform-origin: bottom; animation: compound-grow-3 3.5s ease-out 1 forwards; }
+.compound-bar-4 { transform-box: fill-box; transform-origin: bottom; animation: compound-grow-4 3.5s ease-out 1 forwards; }
+.compound-bar-5 { transform-box: fill-box; transform-origin: bottom; animation: compound-grow-5 3.5s ease-out 1 forwards; }
+
+.faq-answer-grid {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 260ms ease, opacity 200ms ease;
+}
+details[open] > .faq-answer-grid {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
 
 /* Shifting gradient for parallax sections */
 @keyframes gradient-drift {
@@ -339,4 +350,5 @@ body {
     animation: none;
   }
   .hover-lift { transition: none; }
+  .faq-answer-grid { transition: none; }
 }

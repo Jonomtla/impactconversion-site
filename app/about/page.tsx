@@ -9,7 +9,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 export const metadata = {
   title: "About · A Research-Led CRO Practice",
   description:
-    "We run a narrow CRO practice on purpose. One discipline, one method, no agency-hour billing. Direct-response copywriting school meets proper testing rigour.",
+    "A focused CRO practice combining customer research, direct-response copywriting and controlled experiments.",
   alternates: { canonical: "/about" },
 };
 
@@ -60,11 +60,11 @@ export default function AboutPage() {
               {[
                 {
                   h: "Research is louder than opinion",
-                  p: "If a test is not tied to a real customer voice, it is just a guess in a nice font, so we listen first and build from what your buyers actually say.",
+                  p: "If a test is not tied to customer evidence, it is a guess in a nice font. We listen first and build from what your buyers say and do.",
                 },
                 {
-                  h: "Small wins compound",
-                  p: "One viral test is a lottery ticket, whereas thirty disciplined wins stacked over a year is how serious revenue actually moves.",
+                  h: "Each result sharpens the next test",
+                  p: "We keep successful changes live, document the losses, and use both results to choose the next test. That is how the program improves over time.",
                 },
                 {
                   h: "Honesty beats storytelling",

@@ -6,7 +6,7 @@ type Props = {
 };
 
 /**
- * The "Revenue uplift, or you don't pay" guarantee block.
+ * The 90-day revenue-uplift guarantee block.
  *
  * Use it near case studies, on /how-we-work, and anywhere trust friction is
  * high (ICP pages, final CTAs). The headline copy should not be reworded
@@ -44,13 +44,11 @@ export default function GuaranteeBlock({
                   isDark ? "text-purple-2" : "text-purple"
                 }`}
               >
-                Revenue
+                Revenue uplift
                 <br />
-                uplift
+                or 50%
                 <br />
-                or you
-                <br />
-                don&apos;t pay
+                back
               </span>
             </div>
 
@@ -62,7 +60,7 @@ export default function GuaranteeBlock({
                   isDark ? "text-cream" : "text-text"
                 }`}
               >
-                You see a revenue uplift, or you don&apos;t pay.
+                You see a revenue uplift, or half the sprint fee comes back.
               </h2>
               <p
                 className={`mt-4 max-w-2xl text-base leading-relaxed md:text-lg ${
@@ -71,17 +69,17 @@ export default function GuaranteeBlock({
               >
                 That is the deal on every 90-day sprint we run. If the program
                 does not produce a measurable revenue uplift by the end of the
-                quarter, we refund the final 50% of the sprint fee.
+                quarter, we refund the final 50% of the 90-day fee.
               </p>
             </div>
 
             {/* CTA */}
-            <div className="flex-shrink-0">
+            <div className="flex flex-shrink-0 flex-col items-start gap-3 md:items-center">
               <Link
-                href="/guarantee"
+                href="/contact#book"
                 className="inline-flex items-center gap-2 rounded-xl bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
               >
-                See the terms
+                Get in touch
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M5 12h14M13 5l7 7-7 7"
@@ -91,6 +89,14 @@ export default function GuaranteeBlock({
                     strokeLinejoin="round"
                   />
                 </svg>
+              </Link>
+              <Link
+                href="/guarantee"
+                className={`text-sm font-medium underline underline-offset-4 ${
+                  isDark ? "text-text-inv-muted hover:text-cream" : "text-text-muted hover:text-text"
+                }`}
+              >
+                See the terms
               </Link>
             </div>
           </div>

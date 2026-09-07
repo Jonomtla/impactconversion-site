@@ -38,7 +38,7 @@ const services: Service[] = [
     name: "90-Day Optimisation Sprint",
     featured: true,
     blurb:
-      "Twelve focused weeks with 8 to 12 tests in market, and you see a revenue uplift by the end of the sprint or you don’t pay. The fastest way to prove the loop works on your site.",
+      "Twelve focused weeks with 8 to 12 tests in market. If the sprint produces no measurable revenue uplift, we refund the final 50% of the sprint fee.",
     inclusions: [
       "Weeks 1-2 deep-dive research",
       "8-12 experiments in market",
@@ -50,7 +50,7 @@ const services: Service[] = [
   {
     name: "Ongoing CRO Program",
     blurb:
-      "Three to five live tests every month with continuous research feeding the pipeline, for teams that want the compounding to start and never stop.",
+      "Three to five live tests every month, with continuous research determining what enters the pipeline next.",
     inclusions: [
       "Continuous research pipeline",
       "3-5 live experiments at all times",
@@ -100,8 +100,8 @@ export default function HowWeWorkPage() {
                 The same four-stage method runs on every engagement, in the
                 same order, month after month. Here is the loop and exactly
                 what you get out of it, with the guarantee sitting underneath
-                every engagement: you see a revenue uplift, or you don&apos;t
-                pay.
+                every 90-day sprint: you see a measurable revenue uplift, or
+                we refund the final 50% of the sprint fee.
               </p>
             </Reveal>
           </div>

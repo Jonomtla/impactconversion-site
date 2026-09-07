@@ -33,22 +33,15 @@ export default function Hero() {
       <div className="relative mx-auto w-full max-w-7xl px-6 py-24 md:py-28">
         <StaggerGroup className="max-w-4xl" stagger={0.1}>
           <StaggerItem>
-            <div className="mb-7 flex items-center gap-3 text-[0.78rem] font-semibold tracking-[0.14em] text-purple-2">
-              <span className="h-px w-7 bg-purple-2/70" />
-              CONVERSION RATE OPTIMISATION
-            </div>
-          </StaggerItem>
-          <StaggerItem>
             <h1 className="text-balance font-black leading-[0.95] tracking-[-0.035em] text-[clamp(2.6rem,7vw,5.5rem)]">
-              You already paid for the traffic.{" "}
-              <span className="text-purple-2">Make it pay you back.</span>
+              Make your website{" "}
+              <span className="text-purple-2">work as hard as your ads.</span>
             </h1>
           </StaggerItem>
           <StaggerItem>
             <p className="mt-7 max-w-2xl text-pretty text-lg leading-relaxed text-cream/80 md:text-xl">
-              We dig into why your buyers leave, run real A/B tests to fix it,
-              and keep only the changes that lift revenue in your P&amp;L. That
-              revenue compounds on the same ad spend, month after month.
+              Spending more and more on ads every month, but less to show for
+              it? Let&apos;s fix that at the source.
             </p>
           </StaggerItem>
           <StaggerItem>
@@ -59,7 +52,7 @@ export default function Hero() {
                 data-ga-location="homepage_hero"
                 className="group inline-flex items-center justify-center gap-2 rounded-xl bg-purple px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
               >
-                Book a 15-min intro call
+                Let&apos;s have a chat
                 <svg
                   width="16"
                   height="16"

@@ -1,27 +1,27 @@
 const faqs = [
   {
-    q: "What does a CRO agency actually do?",
-    a: "We find where buyers leave your funnel and why, turn those findings into testable ideas, ship proper A/B tests, and then keep the winners, kill the losers, and queue up the next round.",
+    q: "What does a CRO agency do?",
+    a: "We find where buyers leave your funnel and why, turn those findings into testable ideas, run controlled experiments, and use the results to decide what changes.",
   },
   {
     q: "How fast will I see ROI?",
-    a: "Most clients see their first winning test inside twelve weeks, though traffic volume and purchase cycle shift the timing. We go after the biggest, most likely wins first, so the program usually pays for itself well before it ends.",
+    a: "Most clients see their first winning test inside twelve weeks. We usually aim for at least a 10x ROI on our fee in the first year. We go after the biggest, most likely wins first, so the program usually pays for itself well before it ends.",
   },
   {
     q: "What makes you different from other agencies?",
-    a: "We only do CRO, so nobody on our team is quietly trying to sell you a rebrand. Strategy, dev, and design are in-house, so tests ship fast. And we refuse to report on vanity metrics, because every test has to map to revenue or we will not run it.",
+    a: "We only do CRO. Jono and a small group of specialists run the work, and research, design, development and analysis are included in the engagement.",
   },
   {
     q: "Do we have enough traffic to A/B test?",
-    a: "As a rough rule, $1M+ a year in online revenue, or around 1,000 orders a month, is enough to test fast. If you are not sure, book a call and we will tell you straight.",
+    a: "As a rough rule, $2M+ a year in online revenue, or around 1,000 orders a month, is enough to test. If you are not sure, book a call and we will tell you straight.",
   },
   {
     q: "Can you work alongside our in-house team?",
-    a: "Yes, and most of our clients have one. We share the backlog, run fortnightly calls, and stay available between them, so our wins become your team’s wins. When the engagement ends, you keep the testing culture rather than inheriting a dependency.",
+    a: "Yes. We share the research, backlog and test results, run fortnightly calls, and work directly with your marketers and developers. We can also train your team, help with hiring, and plan a clean handover.",
   },
   {
     q: "Which industries do you work best in?",
-    a: "Direct-to-consumer mostly, though we have also shipped work in online education, SaaS, subscriptions, and tourism.",
+    a: "Direct-to-consumer e-commerce mostly, though we have also shipped work in online education, SaaS, subscriptions, and tourism. The process works in almost any industry and vertical.",
   },
   {
     q: "How do we start?",
@@ -51,7 +51,7 @@ export default function FAQ() {
       <div className="mx-auto max-w-4xl px-6">
         <div className="text-center">
           <h2 className="text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
-            The stuff you&apos;re actually wondering.
+            The questions people ask before we start.
           </h2>
         </div>
 
@@ -69,9 +69,11 @@ export default function FAQ() {
                   </svg>
                 </span>
               </summary>
-              <p className="mt-4 text-text-muted leading-relaxed">
-                {f.a}
-              </p>
+              <div className="faq-answer-grid">
+                <div className="overflow-hidden">
+                  <p className="pt-4 text-text-muted leading-relaxed">{f.a}</p>
+                </div>
+              </div>
             </details>
           ))}
         </div>

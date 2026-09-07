@@ -1,38 +1,5 @@
 import Reveal from "./motion/Reveal";
-import { StaggerGroup, StaggerItem } from "./motion/Stagger";
-import {
-  ResearchVisual,
-  PrioritiseVisual,
-  TestVisual,
-  CompoundVisual,
-} from "./HowVisuals";
-
-const steps = [
-  {
-    n: "01",
-    h: "Research",
-    p: "Before we touch your site, we dig into why people actually leave, using surveys, session recordings, heatmaps, and analytics side by side. The fixes come out of your customers’ own words rather than a best-practice blog.",
-    Visual: ResearchVisual,
-  },
-  {
-    n: "02",
-    h: "Prioritise",
-    p: "We rank every idea by how much revenue it can move and how likely it is to work, so the test slots go to the changes that matter most, not the ones that happen to be easy to ship.",
-    Visual: PrioritiseVisual,
-  },
-  {
-    n: "03",
-    h: "Test",
-    p: "Every change runs as a real A/B test against the live site, and we let enough of your traffic see it to know the result is real, so the decision rests on evidence rather than opinion.",
-    Visual: TestVisual,
-  },
-  {
-    n: "04",
-    h: "Compound",
-    p: "One test moves a single needle, but thirty tests move the business. Month after month the winners stack up, and the revenue curve bends in the right direction.",
-    Visual: CompoundVisual,
-  },
-];
+import MethodPlayer from "./MethodPlayer";
 
 export default function How() {
   return (
@@ -44,56 +11,15 @@ export default function How() {
             THE IMPACT CONVERSION METHOD
           </div>
           <h2 className="text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
-            Research the problem. Test the answer. Compound the wins.
+            Research the problem. Test the answer. Keep what works.
           </h2>
           <p className="mt-6 text-lg text-text-muted">
-            The same four stages run on every engagement, in the same order,
-            month after month. The discipline of never skipping a stage is what
-            turns one-off wins into revenue that compounds.
+            Every engagement follows the same four stages. Each one turns a
+            customer problem into a decision you can defend.
           </p>
         </Reveal>
 
-        <div className="relative mt-16">
-          {/* Connector line passing through the stage badges on desktop */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute left-0 right-0 hidden h-px lg:block"
-            style={{
-              top: "calc(2rem + 1rem)", // p-8 padding (32px) + half of h-8 badge (16px) = 48px
-              background:
-                "linear-gradient(90deg, transparent 0%, var(--color-purple) 18%, var(--color-purple) 82%, transparent 100%)",
-              opacity: 0.35,
-            }}
-          />
-          <StaggerGroup className="relative grid gap-6 md:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
-            {steps.map((s, i) => {
-              const V = s.Visual;
-              return (
-                <StaggerItem key={s.n}>
-                  <div className="group relative h-full overflow-hidden rounded-2xl border border-ink/10 bg-white p-8 transition-all hover:border-purple/30 hover:shadow-[0_20px_40px_-20px_rgba(124,90,236,0.3)]">
-                    <div className="flex items-center gap-3">
-                      <span className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-purple text-xs font-semibold text-white ring-4 ring-cream-2">
-                        {i + 1}
-                      </span>
-                      <span className="font-mono text-xs uppercase tracking-wider text-text-muted">
-                        Stage {s.n}
-                      </span>
-                    </div>
-                    <div className="mt-6">
-                      <V />
-                    </div>
-                    <h3 className="mt-6 text-xl font-semibold tracking-tight text-text">
-                      {s.h}
-                    </h3>
-                    <p className="mt-3 text-text-muted leading-relaxed">
-                      {s.p}
-                    </p>
-                  </div>
-                </StaggerItem>
-              );
-            })}
-          </StaggerGroup>
-        </div>
+        <MethodPlayer />
       </div>
     </section>
   );
