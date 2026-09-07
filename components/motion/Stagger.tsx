@@ -43,7 +43,7 @@ export function StaggerGroup({
 export function StaggerItem({
   children,
   className,
-  y = 28,
+  y = 18,
 }: {
   children: ReactNode;
   className?: string;
@@ -57,7 +57,7 @@ export function StaggerItem({
         visible: {
           opacity: 1,
           y: 0,
-          transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+          transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
         },
       }}
     >

@@ -15,7 +15,7 @@ type Props = {
 export default function Reveal({
   children,
   delay = 0,
-  y = 24,
+  y = 16,
   once = true,
   className,
   as = "div",
@@ -42,7 +42,7 @@ export default function Reveal({
       initial={{ opacity: 0, y }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y }}
       transition={{
-        duration: 0.8,
+        duration: 0.45,
         delay,
         ease: [0.16, 1, 0.3, 1], // expo out
       }}
