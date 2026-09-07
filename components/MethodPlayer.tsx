@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import {
   ResearchVisual,
@@ -81,8 +81,7 @@ export default function MethodPlayer() {
     return () => window.clearInterval(timer);
   }, [playing, reduce]);
 
-  const step = steps[active];
-  const Visual = step.Visual;
+  const Visual = steps[active].Visual;
 
   return (
     <div ref={playerRef} className="mt-14 overflow-hidden rounded-3xl border border-ink/10 bg-white shadow-[0_24px_70px_-45px_rgba(20,23,42,0.35)]">
@@ -116,7 +115,8 @@ export default function MethodPlayer() {
                 role="tab"
                 aria-label={`Stage ${item.n}: ${item.h}`}
                 aria-selected={active === index}
-                aria-controls="method-panel"
+                aria-controls={`method-panel-${item.n}`}
+                id={`method-tab-${item.n}`}
                 onClick={() => {
                   setActive(index);
                   setPlaying(false);
@@ -140,21 +140,35 @@ export default function MethodPlayer() {
         </div>
       </div>
 
-      <div id="method-panel" role="tabpanel" className="grid items-center gap-8 p-7 md:grid-cols-[0.9fr_1.1fr] md:p-12">
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={step.n}
-            initial={reduce ? false : { opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={reduce ? undefined : { opacity: 0, y: -6 }}
-            transition={{ duration: 0.3 }}
-          >
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-purple">Stage {step.n}</p>
-            <h3 className="mt-3 text-3xl font-semibold tracking-tight text-text">{step.h}</h3>
-            <p className="mt-4 text-lg leading-relaxed text-text-muted">{step.p}</p>
-            <p className="mt-5 rounded-xl bg-purple-soft p-4 text-sm font-medium leading-relaxed text-text">{step.example}</p>
-          </motion.div>
-        </AnimatePresence>
+      <div className="grid items-center gap-8 p-7 md:grid-cols-[0.9fr_1.1fr] md:p-12">
+        {/* All four panels stay mounted so their copy is in the server-rendered
+            HTML. They share one grid cell, so the container keeps the height of
+            the tallest and nothing shifts as stages change. */}
+        <div className="grid">
+          {steps.map((item, index) => (
+            <motion.div
+              key={item.n}
+              id={`method-panel-${item.n}`}
+              role="tabpanel"
+              aria-labelledby={`method-tab-${item.n}`}
+              aria-hidden={active !== index}
+              style={{ gridArea: "1 / 1" }}
+              className={active === index ? "" : "pointer-events-none"}
+              initial={false}
+              animate={
+                reduce
+                  ? { opacity: active === index ? 1 : 0 }
+                  : { opacity: active === index ? 1 : 0, y: active === index ? 0 : 8 }
+              }
+              transition={{ duration: reduce ? 0 : 0.3 }}
+            >
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-purple">Stage {item.n}</p>
+              <h3 className="mt-3 text-3xl font-semibold tracking-tight text-text">{item.h}</h3>
+              <p className="mt-4 text-lg leading-relaxed text-text-muted">{item.p}</p>
+              <p className="mt-5 rounded-xl bg-purple-soft p-4 text-sm font-medium leading-relaxed text-text">{item.example}</p>
+            </motion.div>
+          ))}
+        </div>
         <div className="rounded-2xl border border-ink/10 bg-cream-2 p-6 md:p-8">
           <Visual />
         </div>
