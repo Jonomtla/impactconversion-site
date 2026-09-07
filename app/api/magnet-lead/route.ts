@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { createHash } from "node:crypto";
 import { isFreemail } from "@/lib/freemail";
+import { isQualified } from "@/lib/revenue";
 
 export const runtime = "nodejs";
 
@@ -32,6 +33,8 @@ async function sendMetaEvent(opts: {
   url?: string;
   ip?: string;
   ua?: string;
+  revenue?: string;
+  qualified?: boolean;
 }) {
   const token = process.env.META_CAPI_TOKEN;
   if (!token) return;
@@ -49,7 +52,11 @@ async function sendMetaEvent(opts: {
           client_ip_address: opts.ip,
           client_user_agent: opts.ua,
         },
-        custom_data: { content_name: "free-money-playbook" },
+        custom_data: {
+          content_name: "free-money-playbook",
+          store_revenue: opts.revenue || undefined,
+          qualified: opts.qualified,
+        },
       },
     ],
   };
@@ -118,13 +125,16 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "kit_failed" }, { status: 502 });
   }
 
-  const qualified = Boolean(revenue) && revenue !== "Under $1M / year";
+  const qualified = isQualified(revenue);
+  // Always Lead, matching the browser pixel so the shared event_id dedupes.
   await sendMetaEvent({
-    name: qualified ? "Lead" : "CompleteRegistration",
+    name: "Lead",
     eventId: body.eventId,
     email,
     firstName: name,
     url: body.url,
+    revenue,
+    qualified,
     ip: req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || undefined,
     ua: req.headers.get("user-agent") || undefined,
   });

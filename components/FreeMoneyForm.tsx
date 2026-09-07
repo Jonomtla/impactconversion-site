@@ -4,18 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { track, metaEvent } from "@/lib/analytics";
 import { isFreemail } from "@/lib/freemail";
-
-export const REVENUE_OPTIONS = [
-  "Under $1M / year",
-  "$1M to $2M / year",
-  "$2M to $5M / year",
-  "$5M to $10M / year",
-  "$10M to $20M / year",
-  "Over $20M / year",
-];
-
-// Anything at or above $1M a year is a qualified lead for Meta optimisation.
-const QUALIFIED = new Set(REVENUE_OPTIONS.slice(1));
+import { REVENUE_OPTIONS, isQualified } from "@/lib/revenue";
 
 export default function FreeMoneyForm({ location }: { location: string }) {
   const router = useRouter();
@@ -56,11 +45,14 @@ export default function FreeMoneyForm({ location }: { location: string }) {
         return;
       }
       if (!res.ok) throw new Error("bad_status");
-      const qualified = QUALIFIED.has(String(data.revenue));
+      const revenue = String(data.revenue ?? "");
+      const qualified = isQualified(revenue);
       track("lead_submit", { location, qualified });
+      // Always Lead. Splitting the event name starved the ad set's optimisation
+      // signal; revenue rides along as custom data so reporting can still split.
       metaEvent(
-        qualified ? "Lead" : "CompleteRegistration",
-        { content_name: "free-money-playbook" },
+        "Lead",
+        { content_name: "free-money-playbook", store_revenue: revenue, qualified },
         eventId,
       );
       router.push("/thank-you-7ck");
@@ -96,7 +88,10 @@ export default function FreeMoneyForm({ location }: { location: string }) {
         </label>
         <label className="grid gap-1.5 text-sm font-medium text-text">
           Store revenue
-          <select name="revenue" defaultValue={REVENUE_OPTIONS[1]} className={`${input} bg-white`}>
+          <select name="revenue" required defaultValue="" className={`${input} bg-white`}>
+            <option value="" disabled>
+              Select revenue
+            </option>
             {REVENUE_OPTIONS.map((o) => (
               <option key={o}>{o}</option>
             ))}
