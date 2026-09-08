@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { sendMetaEvent } from "@/lib/meta-capi";
 
 // Runtime: Node so we can use the Resend SDK without edge constraints.
 export const runtime = "nodejs";
@@ -9,6 +10,8 @@ type Body = {
   email?: string;
   store?: string;
   adSpend?: string;
+  eventId?: string;
+  url?: string;
   website?: string; // honeypot
 };
 
@@ -37,6 +40,24 @@ export async function POST(req: Request) {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return NextResponse.json({ error: "invalid_email" }, { status: 400 });
   }
+
+  // Server-side twin of the browser pixel Lead in GamePlanForm. This funnel
+  // is what the service ads point at, so it has to reach Meta with fbc.
+  await sendMetaEvent(
+    {
+      name: "Lead",
+      eventId: body.eventId,
+      email,
+      firstName: name,
+      url: body.url,
+      customData: {
+        content_name: "leaky-funnel-game-plan",
+        store: store || undefined,
+        ad_spend: adSpend || undefined,
+      },
+    },
+    req,
+  );
 
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.RESEND_TO_EMAIL ?? "jono@impactconversion.com";

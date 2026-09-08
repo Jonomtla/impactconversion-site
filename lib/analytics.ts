@@ -23,6 +23,37 @@ export function metaEvent(
   else window.fbq("track", event, params);
 }
 
+// Fires a Meta conversion twice on purpose: once from the browser pixel and
+// once server-side via CAPI, sharing an event_id so Meta dedupes them. The
+// browser half carries fbc/fbp automatically; the server half survives ad
+// blockers and iOS. Never let a tracking failure surface to the visitor.
+export function metaConversion(
+  event: string,
+  params: GtagEventParams = {},
+  identity: { email?: string; firstName?: string } = {},
+) {
+  const eventId =
+    typeof crypto !== "undefined" && crypto.randomUUID
+      ? crypto.randomUUID()
+      : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  metaEvent(event, params, eventId);
+  if (typeof window === "undefined") return eventId;
+  void fetch("/api/meta-event", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: event,
+      eventId,
+      email: identity.email,
+      firstName: identity.firstName,
+      url: window.location.href,
+      customData: params,
+    }),
+    keepalive: true,
+  }).catch(() => {});
+  return eventId;
+}
+
 export function track(event: string, params: GtagEventParams = {}) {
   if (typeof window === "undefined") return;
   if (typeof window.gtag !== "function") return;
@@ -52,6 +83,9 @@ export const analytics = {
   callBooked: (location: string) => {
     track("call_booked", { location });
     adsConversion(ADS_BOOK_APPOINTMENT);
+    // Schedule is Meta's standard event for a booked appointment. This is the
+    // strongest intent signal on the site, so it has to reach the pixel.
+    metaConversion("Schedule", { content_name: "consult-call", location });
   },
   emailClick: (location: string) => track("email_click", { location }),
   caseStudyOpen: (slug: string) => track("case_study_open", { slug }),

@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { createHash } from "node:crypto";
 import { isFreemail } from "@/lib/freemail";
 import { isQualified } from "@/lib/revenue";
+import { sendMetaEvent } from "@/lib/meta-capi";
 
 export const runtime = "nodejs";
 
@@ -19,86 +19,6 @@ type Body = {
   url?: string;
   website?: string; // honeypot
 };
-
-const META_PIXEL_ID = "810167591458471";
-const sha256 = (v: string) => createHash("sha256").update(v.trim().toLowerCase()).digest("hex");
-
-function readCookie(header: string | null, name: string) {
-  if (!header) return undefined;
-  for (const part of header.split(";")) {
-    const [k, ...rest] = part.trim().split("=");
-    if (k === name) return rest.join("=") || undefined;
-  }
-  return undefined;
-}
-
-// fbc is the click identifier Meta uses to join a conversion to the ad click.
-// The pixel writes it to the _fbc cookie on landing; if that hasn't happened
-// yet (first hit, blocked pixel) rebuild it from the fbclid on the landing URL
-// in the format Meta expects: fb.1.<timestamp>.<fbclid>.
-function resolveFbc(cookieHeader: string | null, url: string | undefined) {
-  const fromCookie = readCookie(cookieHeader, "_fbc");
-  if (fromCookie) return fromCookie;
-  if (!url) return undefined;
-  try {
-    const fbclid = new URL(url).searchParams.get("fbclid");
-    return fbclid ? `fb.1.${Date.now()}.${fbclid}` : undefined;
-  } catch {
-    return undefined;
-  }
-}
-
-// Conversions API: same event name + event_id as the browser pixel call, so
-// Meta dedupes and still records the lead when the browser event is blocked.
-async function sendMetaEvent(opts: {
-  name: string;
-  eventId?: string;
-  email: string;
-  firstName: string;
-  url?: string;
-  ip?: string;
-  ua?: string;
-  revenue?: string;
-  qualified?: boolean;
-  fbc?: string;
-  fbp?: string;
-}) {
-  const token = process.env.META_CAPI_TOKEN;
-  if (!token) return;
-  const body = {
-    data: [
-      {
-        event_name: opts.name,
-        event_time: Math.floor(Date.now() / 1000),
-        event_id: opts.eventId,
-        action_source: "website",
-        event_source_url: opts.url,
-        user_data: {
-          em: [sha256(opts.email)],
-          fn: opts.firstName ? [sha256(opts.firstName)] : undefined,
-          client_ip_address: opts.ip,
-          client_user_agent: opts.ua,
-          fbc: opts.fbc,
-          fbp: opts.fbp,
-        },
-        custom_data: {
-          content_name: "free-money-playbook",
-          store_revenue: opts.revenue || undefined,
-          qualified: opts.qualified,
-        },
-      },
-    ],
-  };
-  try {
-    const res = await fetch(
-      `https://graph.facebook.com/v21.0/${META_PIXEL_ID}/events?access_token=${token}`,
-      { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) },
-    );
-    if (!res.ok) console.error("[magnet-lead] capi failed", res.status, await res.text());
-  } catch (err) {
-    console.error("[magnet-lead] capi error", err);
-  }
-}
 
 export async function POST(req: Request) {
   let body: Body;
@@ -155,24 +75,21 @@ export async function POST(req: Request) {
   }
 
   const qualified = isQualified(revenue);
-  // Always Lead, matching the browser pixel so the shared event_id dedupes.
-  await sendMetaEvent({
-    name: "Lead",
-    eventId: body.eventId,
-    email,
-    firstName: name,
-    url: body.url,
-    revenue,
-    qualified,
-    // Without fbc this event cannot be attributed to the ad click. The CAPI
-    // call always reaches Meta before the browser pixel (the form awaits this
-    // response first), so the server event wins the event_id dedupe — it has
-    // to carry the click identifiers itself.
-    fbc: resolveFbc(req.headers.get("cookie"), body.url),
-    fbp: readCookie(req.headers.get("cookie"), "_fbp"),
-    ip: req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || undefined,
-    ua: req.headers.get("user-agent") || undefined,
-  });
+  await sendMetaEvent(
+    {
+      name: "Lead",
+      eventId: body.eventId,
+      email,
+      firstName: name,
+      url: body.url,
+      customData: {
+        content_name: "free-money-playbook",
+        store_revenue: revenue || undefined,
+        qualified,
+      },
+    },
+    req,
+  );
 
   const apiKey = process.env.RESEND_API_KEY;
   if (apiKey && qualified) {

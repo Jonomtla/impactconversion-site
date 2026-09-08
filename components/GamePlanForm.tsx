@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { track } from "@/lib/analytics";
+import { track, metaEvent } from "@/lib/analytics";
 
 const SPEND_OPTIONS = [
   "Under $5k / month",
@@ -30,14 +30,21 @@ export default function GamePlanForm() {
     }
 
     setSubmitting(true);
+    // Shared with the CAPI call in /api/lead so Meta dedupes the pair.
+    const eventId = crypto.randomUUID();
     try {
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, eventId, url: window.location.href }),
       });
       if (!res.ok) throw new Error("bad_status");
       track("lead_submit", { location: "game_plan" });
+      metaEvent(
+        "Lead",
+        { content_name: "leaky-funnel-game-plan", location: "game_plan" },
+        eventId,
+      );
       router.push("/game-plan/schedule");
     } catch {
       setError("Something broke on our end. Try again, or email jono@impactconversion.com.");
