@@ -12,6 +12,8 @@ import Forecaster from './Forecaster';
 export default function RpvTool() {
   const searchParams = useSearchParams();
 
+  const [mode, setMode] = useState<'site' | 'pages'>('site');
+  const [pageTotals, setPageTotals] = useState({ sessions: 0, revenue: 0, example: false });
   const [sessions, setSessions] = useState(0);
   const [revenue, setRevenue] = useState(0);
   const [orders, setOrders] = useState(0);
@@ -31,7 +33,7 @@ export default function RpvTool() {
     const num = (key: string) => {
       const v = searchParams.get(key);
       const n = v ? parseFloat(v) : NaN;
-      return Number.isFinite(n) ? n : null;
+      return Number.isFinite(n) ? Math.max(0, n) : null;
     };
 
     const s = num('sessions');
@@ -66,22 +68,23 @@ export default function RpvTool() {
         onSessionsChange={setSessions}
         onRevenueChange={setRevenue}
         onOrdersChange={setOrders}
+        onModeChange={setMode}
+        onPageTotalsChange={setPageTotals}
       />
 
-      <div id="forecast" className="mt-16 scroll-mt-24">
-        <h2 className="text-2xl md:text-3xl font-black tracking-tight text-text">
-          What would lifting your RPV be worth?
-        </h2>
+      <details id="forecast" className="mt-8 border-t border-ink/10 pt-6 scroll-mt-24" open={searchParams.has('lift') ? true : undefined}>
+        <summary className="cursor-pointer text-lg font-semibold text-text">Estimate what an RPV lift could be worth</summary>
         <p className="mt-2 max-w-2xl text-text-muted">
           Set a target lift and the forecast shows the incremental revenue, profit, and
           break-even point of a CRO program using the numbers you entered above.
         </p>
+        {mode === 'pages' && <p className="mt-3 text-sm font-medium text-text-muted">{pageTotals.example ? 'Example forecast: ' : 'Forecast baseline: '}totals from the complete page rows below your comparison. Use one full month of landing-page data.</p>}
         <div className="mt-6">
           {hydrated && (
             <Forecaster
-              sessions={sessions}
-              revenue={revenue}
-              orders={orders}
+              sessions={mode === 'pages' ? pageTotals.sessions : sessions}
+              revenue={mode === 'pages' ? pageTotals.revenue : revenue}
+              orders={mode === 'pages' ? 0 : orders}
               initialLift={initial.lift}
               initialMargin={initial.margin}
               initialCac={initial.cac}
@@ -89,7 +92,7 @@ export default function RpvTool() {
             />
           )}
         </div>
-      </div>
+      </details>
     </div>
   );
 }

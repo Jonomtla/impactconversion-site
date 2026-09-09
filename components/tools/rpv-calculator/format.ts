@@ -1,4 +1,4 @@
-export const formatCurrency = (n: number) => "$" + Math.round(n).toLocaleString();
+export const formatCurrency = (n: number) => (n < 0 ? "-$" : "$") + Math.round(Math.abs(n)).toLocaleString();
 
 export const formatRPV = (n: number) => "$" + n.toFixed(2);
 

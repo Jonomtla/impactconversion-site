@@ -29,7 +29,7 @@ export default function InputField({
       <label htmlFor={id} className="flex items-center gap-2 mb-1.5 text-sm font-medium text-text">
         {label}
         {hint && (
-          <span className="font-normal text-purple text-xs px-2 py-0.5 bg-purple-soft rounded-full">
+          <span className="font-normal text-text-muted text-xs">
             {hint}
           </span>
         )}
@@ -45,7 +45,7 @@ export default function InputField({
           type="number"
           inputMode="decimal"
           value={value}
-          onChange={(e) => onChange(parseFloat(e.target.value) || 0)}
+          onChange={(e) => onChange(Math.max(0, parseFloat(e.target.value) || 0))}
           step={step}
           min={0}
           readOnly={readOnly}

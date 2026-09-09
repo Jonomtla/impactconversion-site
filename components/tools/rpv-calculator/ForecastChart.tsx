@@ -89,7 +89,7 @@ export default function ForecastChart({
     <div className="mt-6">
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
         <h4 className="text-sm font-semibold text-text">
-          Cumulative net {isRevenueMode ? 'revenue' : 'profit'} after investment
+          {isRevenueMode ? 'Cumulative additional revenue' : 'Cumulative net profit after investment'}
         </h4>
         <div className="flex items-center gap-4 text-xs">
           <div className="flex items-center gap-1.5">
@@ -102,7 +102,7 @@ export default function ForecastChart({
           </div>
           <div className="flex items-center gap-1.5">
             <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS.best }} />
-            <span className="text-text-muted">Best case</span>
+            <span className="text-text-muted">Higher</span>
           </div>
         </div>
       </div>
@@ -125,7 +125,7 @@ export default function ForecastChart({
               </linearGradient>
             </defs>
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(20, 23, 42, 0.08)" />
-            <ReferenceLine y={0} stroke="#5a5e77" strokeWidth={1.5} strokeDasharray="4 4" label={{ value: 'Break-even', position: 'right', fontSize: 10, fill: '#5a5e77' }} />
+            <ReferenceLine y={0} stroke="#5a5e77" strokeWidth={1.5} strokeDasharray="4 4" label={{ value: isRevenueMode ? 'Baseline' : 'Break-even', position: 'right', fontSize: 10, fill: '#5a5e77' }} />
             <XAxis
               dataKey="month"
               tick={{ fontSize: 11, fill: '#5a5e77' }}
@@ -147,7 +147,7 @@ export default function ForecastChart({
               strokeWidth={2}
               fillOpacity={1}
               fill="url(#colorConservative)"
-              name="Conservative (10%)"
+              name="Conservative"
             />
             <Area
               type="monotone"
@@ -156,7 +156,7 @@ export default function ForecastChart({
               strokeWidth={2.5}
               fillOpacity={1}
               fill="url(#colorTarget)"
-              name="Target (20%)"
+              name="Your target"
             />
             <Area
               type="monotone"
@@ -165,7 +165,7 @@ export default function ForecastChart({
               strokeWidth={2}
               fillOpacity={1}
               fill="url(#colorBest)"
-              name="Best case (40%)"
+              name="Higher"
             />
           </AreaChart>
         </ResponsiveContainer>

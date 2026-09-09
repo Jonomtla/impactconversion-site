@@ -3,16 +3,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { parseGa4Csv } from './parseGa4Csv';
 import { PAGE_TYPES, type PageType, detectPageType } from './pageType';
-import { formatRPV, formatCompact } from './format';
+import { formatRPV, formatCurrency } from './format';
 
 interface PageRpvProps {
-  /** Site-wide RPV from the Whole site tab; fallback baseline for singleton page types. */
-  siteRpv: number | null;
-  /**
-   * Called with summed sessions/revenue after a complete import. Returns true
-   * when the totals were used to fill the Whole site tab (so the note can say so).
-   */
-  onImportTotals?: (sessions: number, revenue: number) => boolean;
+  active: boolean;
+  onTotalsChange: (data: { sessions: number; revenue: number; example: boolean }) => void;
   /** Text pasted while another tab was showing; imported on mount. */
   pendingImport?: string | null;
   onPendingConsumed?: () => void;
@@ -29,6 +24,15 @@ interface Row {
 
 const EMPTY_ROW: Row = { page: '', sessions: 0, revenue: null };
 const COLLAPSED_COUNT = 12;
+const EXAMPLE_ROWS: Row[] = [
+  { page: '/collections/best-sellers', sessions: 12000, revenue: 30000 },
+  { page: '/collections/new-arrivals', sessions: 9000, revenue: 9000 },
+  { page: '/collections/accessories', sessions: 4000, revenue: 6000 },
+  { page: '/products/weekender-bag', sessions: 6000, revenue: 18000 },
+  { page: '/products/everyday-tote', sessions: 8000, revenue: 12000 },
+  { page: '/products/travel-pouch', sessions: 180, revenue: 90 },
+  { page: '/', sessions: 15000, revenue: 33000 },
+];
 
 // Store-agnostic deep links: admin.shopify.com redirects to the logged-in
 // user's own store and runs the prefilled query. Verified July 2026.
@@ -50,8 +54,10 @@ const normalizePath = (p: string): string => {
   return s;
 };
 
-export default function PageRpv({ siteRpv, onImportTotals, pendingImport, onPendingConsumed }: PageRpvProps) {
+export default function PageRpv({ active, onTotalsChange, pendingImport, onPendingConsumed }: PageRpvProps) {
   const [rows, setRows] = useState<Row[]>([{ ...EMPTY_ROW }, { ...EMPTY_ROW }, { ...EMPTY_ROW }]);
+  const [isExample, setIsExample] = useState(false);
+  const savedRows = useRef<Row[] | null>(null);
   const [importNote, setImportNote] = useState<string | null>(null);
   const [importError, setImportError] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
@@ -63,11 +69,11 @@ export default function PageRpv({ siteRpv, onImportTotals, pendingImport, onPend
     [rows]
   );
 
-  const overallAvg = useMemo(() => {
-    const totalSessions = validRows.reduce((s, r) => s + r.sessions, 0);
-    const totalRevenue = validRows.reduce((s, r) => s + (r.revenue ?? 0), 0);
-    return totalSessions > 0 ? totalRevenue / totalSessions : 0;
-  }, [validRows]);
+  const totalSessions = validRows.reduce((sum, row) => sum + row.sessions, 0);
+  const totalRevenue = validRows.reduce((sum, row) => sum + (row.revenue ?? 0), 0);
+  useEffect(() => {
+    onTotalsChange({ sessions: totalSessions, revenue: totalRevenue, example: isExample });
+  }, [totalSessions, totalRevenue, isExample, onTotalsChange]);
 
   // Sessions-weighted average RPV per page type across the user's own rows.
   // Pages are judged against their peers, not against PDPs.
@@ -88,21 +94,13 @@ export default function PageRpv({ siteRpv, onImportTotals, pendingImport, onPend
     return out;
   }, [validRows]);
 
-  // Baseline for one row: its type's average when there are peers to compare
-  // against, otherwise the site average (or the average of all rows).
+  // Only compare pages within their type; singleton types have no baseline.
   const baselineFor = (r: Row): { value: number; label: string } | null => {
     const t = rowType(r);
     const g = typeAverages.get(t);
     if (g && g.count >= 2) return { value: g.rpv, label: `your ${t.toLowerCase()} average` };
-    if (siteRpv && siteRpv > 0) return { value: siteRpv, label: 'your site average' };
-    if (overallAvg > 0) return { value: overallAvg, label: 'the average of these pages' };
     return null;
   };
-
-  const maxRpv = useMemo(
-    () => Math.max(0, ...validRows.map((r) => (r.sessions > 0 ? (r.revenue ?? 0) / r.sessions : 0))),
-    [validRows]
-  );
 
   const opportunities = useMemo(() => {
     return validRows
@@ -113,10 +111,9 @@ export default function PageRpv({ siteRpv, onImportTotals, pendingImport, onPend
         return { ...r, rpv, gain, baseline };
       })
       .filter((r) => r.gain > 0)
-      .sort((a, b) => b.gain - a.gain)
-      .slice(0, 3);
+      .sort((a, b) => b.gain - a.gain);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [validRows, typeAverages, siteRpv, overallAvg]);
+  }, [validRows, typeAverages]);
 
   const importText = (text: string, source: 'file' | 'paste') => {
     setImportError(null);
@@ -135,7 +132,7 @@ export default function PageRpv({ siteRpv, onImportTotals, pendingImport, onPend
       // Partial import (Shopify splits sessions and revenue across two
       // reports): merge into existing rows by normalised path.
       const map = new Map<string, Row>();
-      for (const r of rows) {
+      for (const r of (isExample ? [] : rows)) {
         if (r.page.trim() !== '') map.set(normalizePath(r.page), { ...r });
       }
       let matchedCount = 0;
@@ -154,20 +151,13 @@ export default function PageRpv({ siteRpv, onImportTotals, pendingImport, onPend
       if (matchedCount > 0) matchNote = ` (${matchedCount} matched pages you already had)`;
     }
 
+    setIsExample(false);
+    savedRows.current = null;
     setRows(merged.length > 0 ? merged : [{ ...EMPTY_ROW }]);
     setShowAll(false);
 
-    const complete = merged.filter((r) => r.sessions > 0 && r.revenue !== null);
     const missingRevenue = merged.filter((r) => r.sessions > 0 && r.revenue === null).length;
     const missingSessions = merged.filter((r) => r.sessions === 0 && r.revenue !== null).length;
-
-    let filledSite = false;
-    if (complete.length > 0 && onImportTotals) {
-      filledSite = onImportTotals(
-        complete.reduce((s, r) => s + r.sessions, 0),
-        complete.reduce((s, r) => s + (r.revenue ?? 0), 0)
-      );
-    }
 
     const what =
       result.kind === 'full'
@@ -190,7 +180,6 @@ export default function PageRpv({ siteRpv, onImportTotals, pendingImport, onPend
         (result.skipped > 0 ? `, skipped ${result.skipped} rows without usable numbers` : '') +
         '. Page types detected from the URLs.' +
         nextStep +
-        (filledSite ? ' The Whole site tab now has your totals too.' : '') +
         ' Everything stays in your browser.'
     );
   };
@@ -207,6 +196,8 @@ export default function PageRpv({ siteRpv, onImportTotals, pendingImport, onPend
   // Text pasted while the Whole site tab was showing lands here on mount.
   useEffect(() => {
     if (pendingImport) {
+      // Consume clipboard data passed across the tab boundary once.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       importText(pendingImport, 'paste');
       onPendingConsumed?.();
     }
@@ -215,6 +206,7 @@ export default function PageRpv({ siteRpv, onImportTotals, pendingImport, onPend
 
   // Copy rows in GA4 or Shopify, click this tab, hit paste. No download step at all.
   useEffect(() => {
+    if (!active) return;
     const onPaste = (e: ClipboardEvent) => {
       const target = e.target as HTMLElement | null;
       if (target && ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName)) return;
@@ -226,14 +218,14 @@ export default function PageRpv({ siteRpv, onImportTotals, pendingImport, onPend
     document.addEventListener('paste', onPaste);
     return () => document.removeEventListener('paste', onPaste);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [rows, onImportTotals]);
+  }, [rows, active, isExample]);
 
   const updateRow = (i: number, patch: Partial<Row>) => {
     setRows((prev) => prev.map((r, idx) => (idx === i ? { ...r, ...patch } : r)));
   };
 
   const visibleRows = showAll ? rows : rows.slice(0, COLLAPSED_COUNT);
-  const typesPresent = [...typeAverages.entries()].filter(([, g]) => g.count >= 1);
+
 
   return (
     <div>
@@ -250,19 +242,18 @@ export default function PageRpv({ siteRpv, onImportTotals, pendingImport, onPend
           const file = e.dataTransfer.files?.[0];
           if (file) handleFile(file);
         }}
-        className={`rounded-2xl border-2 border-dashed p-5 sm:p-6 text-center transition-colors ${
-          dragOver ? 'border-purple bg-purple-soft/50' : 'border-ink/15 bg-cream-2/50'
+        className={`border-b pb-5 text-left transition-colors ${
+          dragOver ? 'border-purple bg-purple-soft/50' : 'border-ink/10'
         }`}
       >
         <p className="text-sm font-semibold text-text">
-          Compare revenue per visitor across your landing pages
+          Find the pages worth investigating first
         </p>
         <p className="mt-1 text-sm text-text-muted">
-          Copy rows straight out of GA4 or Shopify and paste here (Cmd+V), drop a CSV, or fill in
-          the rows by hand. Each page is judged against your own average for its page type.
-          Nothing is uploaded; everything is read in your browser.
+          Paste landing-page rows from GA4 or Shopify, drop a CSV, or enter them below.
+          Use the same full month and currency for every row. Your data stays in your browser.
         </p>
-        <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
+        <div className="mt-3 flex flex-wrap items-center gap-2">
           <button
             onClick={() => fileRef.current?.click()}
             className="rounded-xl bg-ink px-5 py-2.5 text-sm font-semibold text-cream hover:bg-ink-2 transition-colors"
@@ -271,10 +262,15 @@ export default function PageRpv({ siteRpv, onImportTotals, pendingImport, onPend
           </button>
           <button
             onClick={() => setRows((prev) => [...prev, { ...EMPTY_ROW }])}
-            className="rounded-xl border border-ink/15 bg-white px-5 py-2.5 text-sm font-semibold text-text hover:border-ink/30 transition-colors"
+            className="rounded-lg px-4 py-2.5 text-sm font-medium text-text-muted hover:bg-ink/5 transition-colors"
           >
             Add a row
           </button>
+          <button className="rounded-lg px-4 py-2.5 text-sm font-medium text-text-muted underline underline-offset-4 hover:text-text" onClick={() => {
+            if (isExample) { setRows(savedRows.current ?? [{ ...EMPTY_ROW }, { ...EMPTY_ROW }, { ...EMPTY_ROW }]); savedRows.current = null; setIsExample(false); }
+            else { savedRows.current = rows; setRows(EXAMPLE_ROWS.map(row => ({ ...row }))); setIsExample(true); }
+            setImportNote(null); setImportError(null); setShowAll(false);
+          }}>{isExample ? 'Return to your data' : 'Try example data'}</button>
         </div>
         <input
           ref={fileRef}
@@ -288,19 +284,19 @@ export default function PageRpv({ siteRpv, onImportTotals, pendingImport, onPend
             e.target.value = '';
           }}
         />
-        <div className="mt-4 grid gap-2 text-left text-sm text-text-muted max-w-xl mx-auto">
+        <div className="mt-3 grid gap-2 text-left text-sm text-text-muted">
           <details>
-            <summary className="cursor-pointer font-medium text-text hover:text-purple transition-colors text-center">
+            <summary className="cursor-pointer font-medium text-text hover:text-purple transition-colors">
               Get it from GA4
             </summary>
             <ol className="mt-3 list-decimal space-y-1 pl-5">
-              <li>Go to Reports → Engagement → Landing page (or Pages and screens).</li>
+              <li>Go to Reports → Engagement → Landing page. Use landing-page data, not Pages and screens.</li>
               <li>Set your date range (a full month is ideal) and make sure Sessions and Total revenue are shown as columns. If Total revenue is missing, click the pencil (Customize report) and add it as a metric.</li>
               <li>Fastest: select the rows in the table, copy, then paste here with Cmd+V. Or click Share (top right) → Download file → CSV and drop the file here.</li>
             </ol>
           </details>
           <details>
-            <summary className="cursor-pointer font-medium text-text hover:text-purple transition-colors text-center">
+            <summary className="cursor-pointer font-medium text-text hover:text-purple transition-colors">
               Get it from Shopify
             </summary>
             <p className="mt-3">
@@ -350,52 +346,47 @@ export default function PageRpv({ siteRpv, onImportTotals, pendingImport, onPend
         </p>
       )}
 
-      {/* Type averages */}
-      {typesPresent.length >= 2 && (
-        <div className="mt-6 flex flex-wrap gap-2" aria-label="Average RPV by page type">
-          {typesPresent
-            .sort((a, b) => b[1].rpv - a[1].rpv)
-            .map(([t, g]) => (
-              <span key={t} className="rounded-full bg-cream-2 px-3 py-1.5 text-sm text-text-muted">
-                <span className="font-semibold text-text">{t}</span> avg{' '}
-                <span className="font-semibold text-text">{formatRPV(g.rpv)}</span>
-                <span className="text-xs"> · {g.count} {g.count === 1 ? 'page' : 'pages'}</span>
-              </span>
-            ))}
-        </div>
-      )}
+      {isExample && <p className="mt-4 border-l-2 border-purple pl-3 text-sm text-text-muted" role="status">Example data for a fictional accessories store. Your own rows are saved while you explore.</p>}
 
-      {/* Opportunity summary */}
       {opportunities.length > 0 && (
-        <div className="mt-6 rounded-2xl bg-purple-soft/60 border border-purple/20 p-5">
-          <h3 className="text-sm font-semibold text-text">
-            Biggest opportunities
-            <span className="ml-2 font-normal text-text-muted">
-              if each page caught up to its own page-type average
-            </span>
-          </h3>
-          <ul className="mt-3 space-y-2">
-            {opportunities.map((o) => (
-              <li key={o.page} className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 text-sm">
-                <span className="min-w-0 truncate font-medium text-text" title={o.page}>
-                  {o.page}
-                  {o.baseline && (
-                    <span className="ml-2 font-normal text-text-muted">
-                      {formatRPV(o.rpv)} vs {o.baseline.label} {formatRPV(o.baseline.value)}
-                    </span>
-                  )}
-                </span>
-                <span className="whitespace-nowrap font-bold text-purple">
-                  +{formatCompact(o.gain)}/period
-                </span>
+        <section className="relative mt-6 border-b border-ink/10 pb-6" aria-label="Ranked revenue opportunities">
+          <div aria-hidden="true" className="mb-4 h-1 w-12 rounded-full bg-gradient-to-r from-purple to-[#c4b5fd]" />
+          <p className="text-sm font-medium text-text-muted">Largest estimated monthly opportunity</p>
+          <p className="mt-1 text-4xl font-black tracking-tight text-purple sm:text-5xl">+{formatCurrency(opportunities[0].gain)}</p>
+          <p className="mt-2 break-all font-semibold text-text">{opportunities[0].page}</p>
+          <p className="mt-2 text-xs text-text-muted">Your averages use only the pages entered here: combined revenue ÷ combined sessions for each page type. They are not external benchmarks.</p>
+          <p className="mt-2 max-w-2xl text-sm text-text-muted">If this page reached your {rowType(opportunities[0]).toLowerCase()}-page average at the same traffic. This is an investigation priority, not a forecast: intent, product prices and traffic sources can explain the gap.</p>
+          <ol className="mt-5 divide-y divide-ink/10 sm:hidden">
+            {opportunities.map((row, index) => (
+              <li key={`${row.page}-${index}`} className={`py-4 ${index === 0 ? 'border-l-2 border-purple bg-purple/5 pl-3' : ''}`}>
+                <p className="break-all text-sm font-medium">{index + 1}. {row.page}</p>
+                <p className="mt-1 text-xs text-text-muted">{rowType(row)} · {row.sessions.toLocaleString()} sessions{row.sessions < 500 ? ' · Low data' : ''}</p>
+                <p className="mt-2 text-sm text-text-muted">{formatRPV(row.rpv)} RPV · {formatRPV(row.baseline!.value)} your {rowType(row).toLowerCase()}-page average</p>
+                <p className="mt-2 text-sm font-semibold">+{formatCurrency(row.gain)} / month</p>
               </li>
             ))}
-          </ul>
-        </div>
+          </ol>
+          <div className="mt-5 hidden overflow-x-auto sm:block" tabIndex={0} role="region" aria-label="Revenue opportunities table">
+            <table className="w-full min-w-[650px] text-left text-sm">
+              <caption className="sr-only">Pages ranked by estimated additional monthly revenue</caption>
+              <thead className="border-b border-ink/10 text-xs text-text-muted"><tr><th className="py-3 pr-4">Page</th><th className="pr-4">Current RPV</th><th className="pr-4">Your page-type average</th><th className="text-right">Opportunity / month</th></tr></thead>
+              <tbody>{opportunities.map((row, index) => <tr key={`${row.page}-${index}`} className={`border-b border-ink/5 ${index === 0 ? 'bg-purple/5' : ''}`}>
+                <td className="py-3 pr-4"><span className="mr-3 text-text-muted">{index + 1}.</span>{row.page}<span className="mt-1 block text-xs text-text-muted">{rowType(row)} · {row.sessions.toLocaleString()} sessions{row.sessions < 500 ? ' · Low data: under 500 sessions' : ''}</span></td>
+                <td className="pr-4 tabular-nums">{formatRPV(row.rpv)}</td><td className="pr-4 tabular-nums">{formatRPV(row.baseline!.value)}<span className="mt-1 block text-xs text-text-muted">Your {rowType(row).toLowerCase()}-page average</span></td><td className="text-right font-semibold tabular-nums">+{formatCurrency(row.gain)}</td>
+              </tr>)}</tbody>
+            </table>
+          </div>
+          <details className="mt-3 text-xs text-text-muted"><summary className="cursor-pointer">How these estimates work</summary><p className="mt-2">Opportunity = sessions × (page-type average RPV − page RPV), with negative gaps treated as zero. The average is total revenue divided by total sessions for all entered pages of that type, including this page. At least two pages of a type are required. Under 500 sessions is a review cue, not a statistical confidence threshold.</p></details>
+        </section>
       )}
+      {validRows.length > 0 && opportunities.length === 0 && <p className="mt-5 text-sm text-text-muted">No gaps to rank yet. Add at least two pages of the same type with different RPVs to compare them.</p>}
+      {validRows.some(row => !baselineFor(row)) && <p className="mt-3 text-xs text-text-muted">Pages without another page of the same type are excluded from the ranking. Add comparable pages to assess them.</p>}
 
+      <h3 className="mt-6 font-semibold text-text">Your page data</h3>
+      <p className="mt-1 text-xs text-text-muted">Edit your inputs here. The opportunity ranking above updates automatically.</p>
+      <p className="mt-2 text-xs text-text-muted sm:hidden">Swipe the input table sideways to edit all columns.</p>
       {/* Rows */}
-      <div className="mt-6 overflow-x-auto">
+      <div className="mt-6 overflow-x-auto" tabIndex={0} role="region" aria-label="Editable page data">
         <table className="w-full min-w-[700px] border-collapse text-sm">
           <thead>
             <tr className="text-left text-xs font-semibold uppercase tracking-wide text-text-muted">
@@ -405,14 +396,13 @@ export default function PageRpv({ siteRpv, onImportTotals, pendingImport, onPend
               <th className="pb-2 pr-3 font-semibold w-[15%]">Revenue</th>
               <th className="pb-2 pr-3 font-semibold w-[9%]">RPV</th>
               <th className="pb-2 font-semibold w-[18%]">
-                <span className="sr-only">Relative RPV</span>
+                Your page-type average
               </th>
             </tr>
           </thead>
           <tbody>
             {visibleRows.map((row, i) => {
               const rpv = row.sessions > 0 && row.revenue !== null ? row.revenue / row.sessions : null;
-              const barPct = rpv !== null && maxRpv > 0 ? Math.min(100, (rpv / maxRpv) * 100) : 0;
               const baseline = baselineFor(row);
               const belowBaseline = baseline !== null && rpv !== null && rpv < baseline.value;
               const detected = detectPageType(row.page);
@@ -452,7 +442,7 @@ export default function PageRpv({ siteRpv, onImportTotals, pendingImport, onPend
                       inputMode="numeric"
                       min={0}
                       value={row.sessions || ''}
-                      onChange={(e) => updateRow(i, { sessions: parseFloat(e.target.value) || 0 })}
+                      onChange={(e) => updateRow(i, { sessions: Math.max(0, parseFloat(e.target.value) || 0) })}
                       placeholder="12,000"
                       aria-label={`Page ${i + 1} sessions`}
                       className={cellInput}
@@ -465,7 +455,7 @@ export default function PageRpv({ siteRpv, onImportTotals, pendingImport, onPend
                       min={0}
                       value={row.revenue ?? ''}
                       onChange={(e) =>
-                        updateRow(i, { revenue: e.target.value === '' ? null : parseFloat(e.target.value) || 0 })
+                        updateRow(i, { revenue: e.target.value === '' ? null : Math.max(0, parseFloat(e.target.value) || 0) })
                       }
                       placeholder="9,500"
                       aria-label={`Page ${i + 1} revenue`}
@@ -476,14 +466,7 @@ export default function PageRpv({ siteRpv, onImportTotals, pendingImport, onPend
                     {rpv !== null ? formatRPV(rpv) : '—'}
                   </td>
                   <td className="py-1.5">
-                    {rpv !== null && (
-                      <div className="h-2 w-full rounded-full bg-cream-2">
-                        <div
-                          className={`h-2 rounded-full ${belowBaseline ? 'bg-accent-warm/70' : 'bg-purple/70'}`}
-                          style={{ width: `${barPct}%` }}
-                        />
-                      </div>
-                    )}
+                    {row.page.trim() && baseline ? formatRPV(baseline.value) : '—'}
                   </td>
                 </tr>
               );
@@ -503,10 +486,9 @@ export default function PageRpv({ siteRpv, onImportTotals, pendingImport, onPend
 
       {validRows.length > 0 && (
         <p className="mt-4 text-xs text-text-muted">
-          Types are detected from the URL; use the dropdown when a page is really something else
-          (a /pages/ URL acting as a PDP, say). Orange rows sit below the average for their page
-          type{siteRpv ? ' (or your site average when a type has only one page)' : ''}. High-traffic
-          pages below their line are usually where testing pays back fastest.
+          Types are detected from the URL; correct them with the dropdown if needed.
+          Use landing-page reports so each session is attributed to its entry page.
+          The forecast below uses the totals of your complete rows, which may cover only part of your site.
         </p>
       )}
     </div>

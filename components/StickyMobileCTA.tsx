@@ -22,6 +22,7 @@ export default function StickyMobileCTA({
   // Hide on the /contact page (already has the primary CTA above the fold)
   const hide =
     pathname === "/contact" ||
+    pathname === "/tools/rpv-calculator" ||
     pathname.startsWith("/terms-of-service") ||
     pathname.startsWith("/resources/free-money-playbook") ||
     pathname.startsWith("/thank-you-7ck") ||

@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import WavyLines from "@/components/WavyLines";
 import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RpvTool from "@/components/tools/rpv-calculator/RpvTool";
@@ -91,8 +90,11 @@ export default function RpvCalculatorPage() {
       />
       <Nav />
       <main id="main">
-        <section className="relative overflow-hidden bg-ink text-cream pt-32 pb-12 md:pt-40 md:pb-16">
-          <WavyLines />
+        <section className="relative isolate overflow-hidden bg-ink text-cream pt-32 pb-12 md:pt-40 md:pb-16">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+            <div className="absolute -right-24 -top-48 h-[560px] w-[640px] rounded-full bg-[radial-gradient(ellipse,rgba(106,72,215,0.38)_0%,rgba(106,72,215,0.12)_40%,transparent_70%)] blur-3xl" />
+            <div className="absolute -bottom-64 left-[15%] h-[440px] w-[600px] rounded-full bg-[radial-gradient(ellipse,rgba(139,112,233,0.24)_0%,transparent_70%)] blur-3xl" />
+          </div>
           <div className="relative mx-auto max-w-4xl px-6">
             <Breadcrumbs
               items={[
@@ -108,14 +110,14 @@ export default function RpvCalculatorPage() {
                 Revenue Per Visitor Calculator
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
-                Revenue ÷ sessions. Type in two numbers and see your RPV, how it compares
-                to Shopify benchmarks, and which pages are dragging it down.
+                Start with your overall RPV, then compare landing pages to find where
+                improvements could make the biggest difference.
               </p>
             </Reveal>
           </div>
         </section>
 
-        <section className="bg-cream py-12 md:py-16">
+        <section className="bg-white border-t border-ink/10 pt-8 pb-12 md:pt-10 md:pb-16">
           <div className="mx-auto max-w-7xl px-4 md:px-6">
             <Suspense fallback={<div className="text-center text-text-muted py-20">Loading calculator…</div>}>
               <RpvTool />
@@ -123,9 +125,9 @@ export default function RpvCalculatorPage() {
           </div>
         </section>
 
-        <section className="bg-cream pb-20 md:pb-28">
+        <section className="bg-[#f5f6f8] border-t border-ink/5 py-12 md:py-16">
           <div className="mx-auto max-w-3xl px-6">
-            <div className="rounded-2xl border border-ink/10 bg-white p-8">
+            <div className="py-2">
               <h2 className="text-xl font-semibold text-text">
                 Why revenue per visitor, not conversion rate?
               </h2>
@@ -148,7 +150,7 @@ export default function RpvCalculatorPage() {
           </div>
         </section>
 
-        <section className="bg-cream pb-20 md:pb-28">
+        <section className="bg-[#f5f6f8] border-t border-ink/5 py-12 md:py-16">
           <div className="mx-auto max-w-3xl px-6">
             <h2 className="text-2xl font-black tracking-tight text-text">
               Revenue per visitor calculator FAQ
@@ -156,7 +158,7 @@ export default function RpvCalculatorPage() {
             <dl className="mt-8 space-y-4">
               {faqs.map((f) => (
                 <Reveal key={f.q}>
-                  <div className="rounded-2xl border border-ink/10 bg-white p-6">
+                  <div className="border-b border-ink/10 py-5">
                     <dt className="text-lg font-semibold text-text">{f.q}</dt>
                     <dd className="mt-2 text-text-muted">{f.a}</dd>
                   </div>
