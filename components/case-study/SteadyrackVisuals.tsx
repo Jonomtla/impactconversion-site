@@ -1,10 +1,11 @@
 import type { CaseStudyVisual } from "@/lib/case-studies";
 
+/* Revenue per visitor by landing page, indexed to the Classic MTB PDP = 100. */
 const BASELINE_RPV = [
-  { page: "Collection (bike racks)", v: 5.63 },
-  { page: "Classic MTB PDP", v: 5.27 },
-  { page: "Homepage", v: 4.24 },
-  { page: "ProFlex PDP", v: 2.54, worst: true },
+  { page: "Collection (bike racks)", v: 107 },
+  { page: "Classic MTB PDP", v: 100 },
+  { page: "Homepage", v: 80 },
+  { page: "ProFlex PDP", v: 48, worst: true },
 ];
 
 const FUNNEL = [
@@ -159,15 +160,15 @@ function BaselineRpv() {
             <span
               className={`text-right text-sm tabular-nums ${d.worst ? "font-semibold text-text" : "text-text-muted"}`}
             >
-              ${d.v.toFixed(2)}
+              {d.v}
             </span>
           </li>
         ))}
       </ul>
       <Caption>
-        Revenue per visitor by landing page. GA4 North America, 24 Apr to 11 Aug 2025,
-        mid-June sale excluded. ProFlex, the premium rack, was the worst-earning page on
-        the site.
+        Revenue per visitor by landing page, indexed to the Classic MTB page at 100. GA4
+        North America, 24 Apr to 11 Aug 2025, mid-June sale excluded. ProFlex, the
+        premium rack, was the worst-earning page on the site.
       </Caption>
     </figure>
   );
@@ -187,28 +188,27 @@ function Funnel() {
           <thead>
             <tr className="border-b border-text/15 text-left">
               <th className="py-2 pr-4 font-semibold text-text">Stage</th>
-              <th className="py-2 pr-4 text-right font-semibold text-text-muted">2025</th>
-              <th className="py-2 pr-4 text-right font-semibold text-text">2026</th>
-              <th className="py-2 text-right font-semibold text-text-muted">Benchmark</th>
+              <th className="py-2 pr-4 text-right font-semibold text-text">Change, 2025 to 2026</th>
+              <th className="py-2 text-right font-semibold text-text-muted">Against benchmark</th>
             </tr>
           </thead>
           <tbody>
             {FUNNEL.map((r) => {
               const moved = r.after > r.before;
+              const change = ((r.after - r.before) / r.before) * 100;
+              const status = r.after >= r.bm ? "Above" : "Still below";
               return (
                 <tr key={r.stage} className="border-b border-text/10">
                   <td className="py-3 pr-4 text-text-muted">{r.stage}</td>
-                  <td className="py-3 pr-4 text-right tabular-nums text-text-muted">
-                    {r.before.toFixed(1)}%
-                  </td>
                   <td
                     className={`py-3 pr-4 text-right font-semibold tabular-nums ${
                       moved ? "text-purple" : "text-text-muted"
                     }`}
                   >
-                    {r.after.toFixed(1)}%
+                    {change > 0 ? "+" : ""}
+                    {change.toFixed(1)}%
                   </td>
-                  <td className="py-3 text-right tabular-nums text-text-muted">{r.bm}%</td>
+                  <td className="py-3 text-right text-text-muted">{status}</td>
                 </tr>
               );
             })}

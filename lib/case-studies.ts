@@ -351,15 +351,15 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "Why they brought us in",
         body: [
-          "Costs of sale were coming in over budget, especially in the US, and a large slice of revenue was going straight to Meta. Steadyrack is mostly a one-purchase brand, so every first order has to be profitable on its own.",
-          "In their words, the product was the other half of the problem. People can be very overwhelmed with a technical product, and the job is finding the line between giving the consumer too much and not giving them enough. Meanwhile the website changes themselves had no structure: no in-house developer, no testing framework, updates made on feel between busier jobs.",
-          "Three Shopify Plus stores converting at 1.2 to 2 percent. At that kind of volume, a single point of conversion pays for itself quickly. The brief was a proper testing program with the research to back it, not best-practice guesses.",
+          "Customer acquisition costs were rising, especially in the US. Most Steadyrack customers buy once, so every first order has to be profitable on its own.",
+          "In their words, the product was the other half of the problem. People can be very overwhelmed with a technical product, and the job is finding the line between giving the consumer too much and not giving them enough. Meanwhile there was no structured way to test website changes.",
+          "Three Shopify Plus stores, earning less per visitor than the category benchmark. At that kind of volume, a small lift in revenue per visitor pays for itself quickly. The brief was a proper testing program with the research to back it, not best-practice guesses.",
         ],
       },
       {
         heading: "The premium product was the problem",
         body: [
-          "Before the program, a visit to the ProFlex product page was worth $2.54. A visit to the cheaper Classic MTB page was worth $5.27. ProFlex converted at 0.86 percent against Classic&rsquo;s 2.07 percent, less than half the rate. The premium rack was the worst-earning page on the site.",
+          "Before the program, a visit to the ProFlex product page was worth less than half a visit to the cheaper Classic MTB page, and it converted at less than half the rate. The premium rack was the worst-earning page on the site.",
           "The funnel said the same thing. Steadyrack sat under benchmarks at every step except the cart.",
           "Product view to add-to-cart is the money step, and it was the furthest away from being at benchmark. People arrived, looked, and could not decide.",
         ],
@@ -369,7 +369,7 @@ export const caseStudies: CaseStudy[] = [
         heading: "The research.",
         body: [
           "Surveys, heatmaps, session recordings, support tickets, mined reviews and the funnel itself all converged on the same confusion: which rack do I need?",
-          "Seventeen percent of support tickets were sizing questions, people asking the business what the website should have answered. Eighty percent of returns traced to fit and space. Session recordings and user tests showed size buttons being ignored on the collection page, with add-to-cart possible without choosing a size at all.",
+          "Seventeen percent of support tickets were sizing questions, people asking the business what the website should have answered. Eighty percent of returns came from people who had been confused about sizing and space. Session recordings and user tests showed size buttons being ignored on the collection page, with add-to-cart possible without choosing a size at all.",
         ],
         visual: "sr-research",
       },
@@ -403,7 +403,7 @@ export const caseStudies: CaseStudy[] = [
         body: [
           "ProFlex&rsquo;s share of rack units went from 44.4 percent to 53.8 percent product share year on year, and its share of rack revenue from 50.6 percent to 60.4 percent.",
           "It has held for four months, since the first win shipped.",
-          "The page RPV moved with it. ProFlex revenue per visitor went from $2.54 to $4.42, up 74.5 percent, and conversion from 0.86 percent to 1.28 percent, up 48.7 percent. View-to-purchase went from 4.55 percent to 7.36 percent on flat views. Same eyeballs, 62% more buying.",
+          "The page moved with it. ProFlex revenue per visitor is up 74.5 percent and conversion up 48.7 percent. View-to-purchase is up 62 percent on flat views. Same eyeballs, 62 percent more buying.",
           "Sitewide, across every session including pages we never touched, conversion is up 12.4 percent and revenue per visitor up 26.6 percent. On the funnel, the two steps the program set out to fix both moved: product view to add-to-cart up 16 percent, checkout completion up 6.7 percent. Both are still under benchmark, which is the focus of the next 6 months.",
         ],
         visual: "sr-mix",
@@ -421,14 +421,14 @@ export const caseStudies: CaseStudy[] = [
         body: [
           "For our projections, we don&rsquo;t just annualise every test win and call it a day. If we did that it would sit at $1.5M uplift in six months.",
           "Every winning test is weighted by that page&rsquo;s share of site orders, annualised, then corrected for seasonality and for statistically lucky results. The overall uplift in six months was $470k, North America only.",
-          "The proposal&rsquo;s target scenario expected about $600k of added revenue across the full first year. Six months in, the program is pacing at $660k a year across the three markets, and at $470k in North America on its own. Either figure is ahead of a full-year target at the halfway mark, and it is a 10x to 14x return on fees.",
+          "Six months in, the program is pacing at $660k a year across the three markets, and at $470k in North America on its own. That is a 10x return on fees, conservatively.",
         ],
         visual: "sr-funnel",
       },
       {
         heading: "The same wins, different soil",
         body: [
-          "The North American wins were hardcoded onto the Australian and European stores at the same time. They didn&rsquo;t have the traffic to test in those markets, so we rolled out wins and measured.",
+          "The North American wins were hardcoded onto the Australian and European stores at the same time. Those are smaller markets, so we rolled out the proven wins and measured.",
           "Europe was the stand out: revenue per visitor up 23 percent on barely more traffic, add-to-cart up 34 percent, average order value up 15 percent, and ProFlex share of rack units up from 40.8 percent to 55.9 percent.",
         ],
       },
