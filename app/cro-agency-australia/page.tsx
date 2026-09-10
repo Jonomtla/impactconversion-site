@@ -54,7 +54,7 @@ const faqs = [
   },
   {
     q: "Which brands have you worked with?",
-    a: "D2C and online education brands doing 1,000+ orders a month or $1M+ a year in online revenue, up into the low tens of millions. Names like High Performance Academy, Animal Training Academy, and Kite Therapy. The full case studies are at /case-studies, including engagements that have run twelve months or longer.",
+    a: "Ecommerce, bookings and online education brands doing 1,000+ orders or bookings a month or $1M+ a year in online revenue, up into the low tens of millions. Names like High Performance Academy, Animal Training Academy, and Kite Therapy. The full case studies are at /case-studies, including engagements that have run twelve months or longer.",
   },
   {
     q: "What does it cost?",

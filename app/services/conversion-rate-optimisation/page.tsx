@@ -12,7 +12,7 @@ import VirtuousLoop from "@/components/VirtuousLoop";
 export const metadata = {
   title: "Conversion Rate Optimisation Services",
   description:
-    "Research-led conversion rate optimisation for direct-to-consumer brands. We find why visitors leave, ship the fixes, and compound the wins that move revenue.",
+    "Research-led conversion rate optimisation for businesses that sell online. We find why visitors leave, ship the fixes, and compound the wins that move revenue.",
   alternates: { canonical: "/services/conversion-rate-optimisation" },
 };
 
@@ -21,6 +21,7 @@ const surfaces = [
   { h: "Checkout", p: "Trust density at payment, shipping-threshold mechanics, post-purchase upsells. Shopify checkout has more headroom than most teams think, and Checkout Extensibility unlocks tests that were impossible eighteen months ago." },
   { h: "Webinar and launch funnels", p: "For online education brands: opt-in headline, urgency mechanics that don’t feel cheap, attendance-to-sale conversion in the replay window. The funnel between registration and purchase is where most of the revenue actually moves." },
   { h: "Collection and category pages for paid traffic", p: "If you run ads to a collection, it’s a landing page. Most teams treat it like a filing cabinet. Restate the promise, prime the category, put proof above the grid." },
+  { h: "Quote and booking flows", p: "Search widget to results to extras to payment. Most of the revenue leaks at the extras step, where insurance, add-ons and upgrades are sold, and most teams never test it." },
   { h: "The free trial or onboarding flow", p: "For subscription and education brands: the first three sessions after signup decide whether the customer ever pays again. Most teams optimise the signup form and ignore everything after it." },
 ];
 
@@ -34,8 +35,8 @@ const faqs = [
     a: "Us. Senior consultants and senior developers, start to finish. You don't get passed to a junior, and there is no account manager in the middle. You deal directly with the people designing and running your tests.",
   },
   {
-    q: "Do you work with brands outside D2C?",
-    a: "We focus on D2C. Sometimes the discipline travels, but that is where we are sharpest.",
+    q: "Do you work with brands outside ecommerce?",
+    a: "Ecommerce is where we are sharpest, and the same research-and-test loop has shipped wins in tourism and bookings, online education and subscriptions. If your customers buy or book on your website, it applies.",
   },
   {
     q: "Do you run paid media or SEO?",
@@ -80,7 +81,7 @@ const serviceSchema = {
     { "@type": "Country", name: "United Kingdom" },
   ],
   description:
-    "Research-led conversion rate optimisation for direct-to-consumer brands.",
+    "Research-led conversion rate optimisation for businesses that sell online.",
 };
 
 export default function CROServicePage() {
@@ -106,7 +107,7 @@ export default function CROServicePage() {
                 Services · Conversion rate optimisation
               </p>
               <h1 className="mt-4 text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.5vw,3.75rem)]">
-                Conversion rate optimisation for direct-to-consumer brands.
+                Conversion rate optimisation for businesses that sell online.
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
                 You already pay for the traffic. Most of it leaves without doing what you wanted. We find out why, test the changes that actually move your revenue, and compound those wins into growth over time.
@@ -135,7 +136,7 @@ export default function CROServicePage() {
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
               <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                For the head of growth at a direct-to-consumer brand.
+                For the head of growth who runs paid traffic at scale.
               </h2>
               <p className="mt-5 text-lg text-text-muted">
                 You run paid traffic at scale. You have a CRO tool installed, or could install one in an afternoon. You suspect your current testing program is making noise without moving the revenue line.
@@ -156,7 +157,7 @@ export default function CROServicePage() {
           <div className="mx-auto max-w-4xl px-6">
             <Reveal>
               <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                Five surfaces that account for most of the revenue we move.
+                Six surfaces that account for most of the revenue we move.
               </h2>
             </Reveal>
             <ol className="mt-10 space-y-5">
@@ -211,7 +212,7 @@ export default function CROServicePage() {
                 Verified results from clients running this loop.
               </h2>
               <p className="mt-5 text-lg text-text-muted">
-                One D2C client, eighteen months of the loop: $1.2M in added revenue across 180 tests, a sixty-nine percent lift on the homepage that compounded for the rest of the engagement, and a twenty-six percent take rate on a single post-purchase upsell.
+                One ecommerce client, eighteen months of the loop: $1.2M in added revenue across 180 tests, a sixty-nine percent lift on the homepage that compounded for the rest of the engagement, and a twenty-six percent take rate on a single post-purchase upsell.
               </p>
               <p className="mt-4 text-lg text-text-muted">
                 One membership-education client: membership up fifty-seven percent and recurring revenue up sixty-three percent over nine months. Year-on-year members up forty-three percent. Qualified leads up thirty percent.

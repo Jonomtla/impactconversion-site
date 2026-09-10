@@ -13,7 +13,7 @@ const pillars = [
   },
   {
     h: "The irony of conversion rate optimisation",
-    p: "Conversion rate optimisation has made people obsessed with their conversion rate. The reality is, increasing the average order value is just as important. Our process tests bumps, upsells, and cross sells to increase your margin each time you acquire a customer.",
+    p: "Conversion rate optimisation has made people obsessed with their conversion rate. The reality is, increasing the average transaction value is just as important. Our process tests bumps, upsells, and cross sells to increase your margin each time you acquire a customer.",
     Visual: VirtuousLoop,
   },
   {
@@ -36,7 +36,7 @@ export default function Problem() {
       <div className="relative mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
           <h2 className="text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
-            Donating more money to Zuck than ever, but{" "}
+            Paying more for every click than ever, but{" "}
             <span className="text-gradient-flow">
               not much more to show for it?
             </span>
@@ -53,14 +53,14 @@ export default function Problem() {
           </p>
           <p className="mt-4 text-lg text-text-muted">
             You could keep pushing up budgets, making more creative, or hire a
-            new Meta ads agency. But we all know how that typically goes. More
+            switch ad agencies. But we all know how that typically goes. More
             spending. Less margin. Volatile results. At the mercy of the
             algorithm and the platform.
           </p>
           <p className="mt-4 text-lg text-text-muted">
             Or, you could figure out what actually converts your customers. Why
-            do they land from an ad, and then leave? Why do they add to cart
-            and are never heard from again? And what makes your best customers
+            do they land from an ad, and then leave? Why do they add to cart,
+            or start a booking, and are never heard from again? And what makes your best customers
             buy again and again?
           </p>
           <p className="mt-4 text-lg font-medium text-text">

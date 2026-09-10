@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     q: "Do we have enough traffic to A/B test?",
-    a: "As a rough rule, $2M+ a year in online revenue, or around 1,000 orders a month, is enough to test. If you are not sure, book a call and we will tell you straight.",
+    a: "As a rough rule, $2M+ a year in online revenue, or around 1,000 orders or bookings a month, is enough to test. If you are not sure, book a call and we will tell you straight.",
   },
   {
     q: "Can you work alongside our in-house team?",
@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: "Which industries do you work best in?",
-    a: "Direct-to-consumer e-commerce mostly, though we have also shipped work in online education, SaaS, subscriptions, and tourism. The process works in almost any industry and vertical.",
+    a: "Ecommerce is where we are sharpest, and the same research-and-test loop has shipped wins in tourism and bookings, online education, SaaS and subscriptions. If your customers buy or book on your website, it applies.",
   },
   {
     q: "How do we start?",

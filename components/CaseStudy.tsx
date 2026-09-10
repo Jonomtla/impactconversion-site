@@ -11,28 +11,19 @@ export default function CaseStudy() {
           <Reveal className="lg:col-span-5">
             <h2 className="text-balance text-4xl font-semibold tracking-tight md:text-5xl">
               How we added{" "}
-              <span className="text-gradient-glow">seven figures</span> to High
-              Performance Academy.
+              <span className="text-gradient-glow">$660k a year</span> to
+              Steadyrack in six months.
             </h2>
             <p className="mt-6 text-lg text-text-inv-muted">
-              HPA was scaling ad spend, but every time they hit a ceiling. The
-              colder the traffic got, the more unprofitable it became. We came
-              in and found out the reasons why cold traffic wasn&apos;t
-              converting and tested over 100 different solutions. Eighteen
-              months in, the same ad spend produces seven figures more revenue.
+              Steadyrack sells wall-mounted bike racks to the world from Perth.
+              Ad costs were over budget, and their premium rack was the
+              worst-earning page on the site. Research found buyers could not
+              tell which rack fitted their bike. Twenty-seven tests later, the
+              premium rack is the majority of sales and revenue per visitor on
+              its page is up 74.5 percent, on the same traffic.
             </p>
-            <blockquote className="mt-10 border-l-2 border-purple-2 pl-6 text-lg italic text-cream">
-              &ldquo;We&apos;ve seen single wins that brought in six figures of
-              additional revenue. The ROI is a no-brainer. Beyond the numbers,
-              the testing process has made a culture of experimentation
-              that&apos;s removed assumptions and ego from our marketing
-              team&rdquo;
-              <footer className="mt-4 not-italic text-sm text-text-inv-muted">
-                Ben Silcock, Co-founder
-              </footer>
-            </blockquote>
             <Link
-              href="/case-studies/high-performance-academy"
+              href="/case-studies/steadyrack"
               className="mt-8 inline-flex items-center gap-2 rounded-xl border border-cream/20 bg-cream/5 px-5 py-2.5 text-sm font-semibold text-cream transition-all hover:bg-cream/10 hover:border-purple-2/40"
             >
               Read the full case study
@@ -51,18 +42,18 @@ export default function CaseStudy() {
           <div className="lg:col-span-7">
             <StaggerGroup className="grid grid-cols-1 gap-4 sm:grid-cols-2" stagger={0.1}>
               <StaggerItem className="sm:col-span-2">
-                <HeroMetric label="Extra revenue" sub="No extra ad spend">
-                  <CountUp to={1} prefix="$" suffix="M+" />
+                <HeroMetric label="Added annual run rate" sub="Same traffic, six months in">
+                  <CountUp to={660} prefix="$" suffix="k" />
                 </HeroMetric>
               </StaggerItem>
               <StaggerItem>
-                <Metric label="Tests shipped" sub="Research-led, properly called">
-                  <CountUp to={100} suffix="+" />
+                <Metric label="Return on fees" sub="Conservatively, before all markets">
+                  <CountUp to={10} suffix="x" />
                 </Metric>
               </StaggerItem>
               <StaggerItem>
-                <Metric label="Months of compounding" sub="And still running">
-                  <CountUp to={18} />
+                <Metric label="Tests completed" sub="11 wins, a 41% hit rate">
+                  <CountUp to={27} />
                 </Metric>
               </StaggerItem>
             </StaggerGroup>
@@ -73,15 +64,15 @@ export default function CaseStudy() {
               <ul className="mt-4 space-y-3 text-lg text-cream">
                 <li className="flex items-start gap-3">
                   <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-purple-2" />
-                  Messaging rewrite on the homepage drove 69% more new-visitor purchases.
+                  Naming the bike each rack fits, at the point of choice, lifted premium-rack orders 28%.
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-purple-2" />
-                  Post-cart upsells lifted AOV 15% at a 26% take rate.
+                  Premium rack went from 44% to 54% of units sold, and held for four months.
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-purple-2" />
-                  Logged-in cross-sells moved revenue per visitor up 30%.
+                  Sitewide revenue per visitor up 26.6%, including pages we never touched.
                 </li>
               </ul>
             </Reveal>

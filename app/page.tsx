@@ -2,7 +2,6 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Problem from "@/components/Problem";
 import CaseStudy from "@/components/CaseStudy";
-import GuaranteeBlock from "@/components/GuaranteeBlock";
 import How from "@/components/How";
 import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
@@ -24,7 +23,6 @@ export default function Home() {
         <CaseStudy />
         <How />
         <Testimonials />
-        <GuaranteeBlock />
         <About />
         <FAQ />
         <CTA />

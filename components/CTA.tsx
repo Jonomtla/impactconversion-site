@@ -28,12 +28,6 @@ export default function CTA() {
             </svg>
             No pressure to book
           </span>
-          <span className="inline-flex items-center gap-2 rounded-full border border-cream/15 bg-cream/5 px-4 py-1.5 text-xs text-text-inv-muted">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-purple-2">
-              <path d="M5 12l5 5L20 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            Revenue uplift, or 50% of the sprint fee back
-          </span>
         </div>
 
         <Link

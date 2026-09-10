@@ -11,7 +11,7 @@ import How from "@/components/How";
 export const metadata = {
   title: "CRO Services & Pricing",
   description:
-    "Conversion rate optimisation for direct-to-consumer brands. One research-led testing loop: research, prioritise, test, compound. Pricing starts at $5,000 per month.",
+    "Conversion rate optimisation for businesses that sell online. One research-led testing loop: research, prioritise, test, compound. Pricing starts at $5,000 per month.",
   alternates: { canonical: "/services" },
 };
 

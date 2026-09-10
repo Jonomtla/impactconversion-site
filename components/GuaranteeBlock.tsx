@@ -36,28 +36,6 @@ export default function GuaranteeBlock({
           }`}
         >
           <div className="flex flex-col items-start gap-8 md:flex-row md:items-center md:gap-10">
-            {/* Dashed circular badge */}
-            <div
-              aria-hidden
-              className={`flex h-32 w-32 flex-shrink-0 items-center justify-center rounded-full border-2 border-dashed ${
-                isDark ? "border-purple-2" : "border-purple"
-              }`}
-            >
-              <span
-                className={`px-4 text-center text-[11px] font-bold uppercase leading-tight tracking-wider ${
-                  isDark ? "text-purple-2" : "text-purple"
-                }`}
-              >
-                Revenue
-                <br />
-                uplift
-                <br />
-                or 50%
-                <br />
-                back
-              </span>
-            </div>
-
             {/* Headline + body */}
             <div className="flex-1">
               <h2
@@ -66,16 +44,17 @@ export default function GuaranteeBlock({
                   isDark ? "text-cream" : "text-text"
                 }`}
               >
-                You see a revenue uplift, or half the sprint fee comes back.
+                A written guarantee on every 90-day sprint.
               </h2>
               <p
                 className={`mt-4 max-w-2xl text-base leading-relaxed md:text-lg ${
                   isDark ? "text-text-inv-muted" : "text-text-muted"
                 }`}
               >
-                That is the deal on every 90-day sprint we run. If the program
-                does not produce a measurable revenue uplift by the end of the
-                quarter, we refund the final 50% of the 90-day fee.
+                If the sprint does not produce a measurable revenue uplift by the
+                end of the quarter, we refund the final 50% of the sprint fee.
+                The terms are written down before we start, and you can read
+                them now.
               </p>
             </div>
 

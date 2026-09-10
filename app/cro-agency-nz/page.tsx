@@ -58,7 +58,7 @@ const faqs = [
   },
   {
     q: "What size brand do you work with?",
-    a: "As a rough floor, 1,000+ orders a month or $1M+ a year in online revenue. Under that, the traffic-volume math doesn’t support a real testing program yet, so we’d tell you to put that budget into traffic until it does.",
+    a: "As a rough floor, 1,000+ orders or bookings a month or $1M+ a year in online revenue. Under that, the traffic-volume math doesn’t support a real testing program yet, so we’d tell you to put that budget into traffic until it does.",
   },
   {
     q: "What does it cost?",

@@ -55,12 +55,10 @@ export default function Testimonials() {
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
           <h2 className="text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
-            The <span className="text-gradient-flow">social proof</span>{" "}
-            section
+            What <span className="text-gradient-flow">clients say</span>
           </h2>
           <p className="mt-6 text-lg text-text-muted">
-            We usually test one of these sections for our clients. So we
-            should probably have one too.
+            Three engagements, in the clients&apos; own words.
           </p>
         </Reveal>
 

@@ -28,11 +28,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://impactconversion.com"),
   title: {
-    default: "CRO Agency for D2C & Online Education · Impact Conversion",
+    default: "Conversion Rate Optimisation Agency · Impact Conversion",
     template: "%s · Impact Conversion",
   },
   description:
-    "Conversion rate optimisation for direct-to-consumer brands. Research-led testing that compounds revenue on the same ad spend. $1M-$2M added on a single engagement.",
+    "A dedicated conversion rate optimisation agency. Research-led A/B testing that gets more revenue from the traffic you already pay for, across ecommerce, bookings and subscription businesses.",
   // No title/description/url here: each page's og tags then inherit that
   // page's own resolved title and description instead of the homepage's.
   openGraph: {
@@ -89,7 +89,7 @@ export default function RootLayout({
                   url: "https://impactconversion.com",
                   logo: "https://impactconversion.com/assets/logo.png",
                   description:
-                    "A conversion rate optimisation agency for D2C and online education brands. Research-led experimentation that turns existing traffic into revenue.",
+                    "A dedicated conversion rate optimisation agency. Research-led experimentation that turns existing traffic into revenue for ecommerce, bookings and subscription businesses.",
                   founder: {
                     "@type": "Person",
                     name: "Jono Matla",
@@ -104,7 +104,8 @@ export default function RootLayout({
                     "Conversion Rate Optimisation",
                     "A/B Testing",
                     "Shopify CRO",
-                    "D2C Optimisation",
+                    "Ecommerce Optimisation",
+                    "Booking Funnel Optimisation",
                     "Online Education Funnel Optimisation",
                     "Statistical Testing",
                   ],
