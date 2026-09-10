@@ -52,7 +52,7 @@ export default function Problem() {
             you&apos;re after.
           </p>
           <p className="mt-4 text-lg text-text-muted">
-            You could keep pushing up budgets, making more creative, or hire a
+            You could keep pushing up budgets, making more creative, or
             switch ad agencies. But we all know how that typically goes. More
             spending. Less margin. Volatile results. At the mercy of the
             algorithm and the platform.
