@@ -330,22 +330,22 @@ export const caseStudies: CaseStudy[] = [
     duration: "Ongoing CRO program",
     tagline:
       "27 tests, one insight, and the premium rack went from the worst page on the site to the majority of sales.",
-    headline: "$660k a year, added in six months.",
+    headline: "Revenue per visitor up 26.6% across the whole site, in six months.",
     summary:
-      "The premium rack was the worst page on the site. Now it outsells everything else. Steadyrack sells wall-mounted vertical bike racks across the world from Perth. They came to us with rising ad costs, customers getting confused when purchasing their premium product, and no testing in place. The results? A 10x return on our fee, $660k added in annual run rate after six months of working with us.",
+      "The premium rack was the worst page on the site. Now it outsells everything else. Steadyrack sells wall-mounted vertical bike racks across the world from Perth. They came to us with rising ad costs, customers getting confused when purchasing their premium product, and no testing in place. The results? Revenue per visitor up 26.6 percent sitewide, and a 10x return on our fee, six months in.",
     heroStats: [
-      { v: "$660k", l: "Added annual run rate", sub: "Reached inside six months" },
+      { v: "+26.6%", l: "Sitewide revenue per visitor", sub: "Every session, including pages we never touched" },
+      { v: "+74.5%", l: "ProFlex revenue per visitor", sub: "Year on year" },
       {
         v: "10x",
         l: "Return on investment",
         sub: "Conservatively, before taking into account all markets",
       },
-      { v: "+74.5%", l: "ProFlex revenue per visitor", sub: "Year on year" },
     ],
     stats: [
-      { v: "53.8%", l: "ProFlex share of units" },
+      { v: "+26.6%", l: "Sitewide revenue per visitor" },
       { v: "+74.5%", l: "ProFlex revenue per visitor" },
-      { v: "41%", l: "Test win rate" },
+      { v: "53.8%", l: "ProFlex share of units" },
     ],
     chapters: [
       {

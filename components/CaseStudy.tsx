@@ -10,9 +10,9 @@ export default function CaseStudy() {
         <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
           <Reveal className="lg:col-span-5">
             <h2 className="text-balance text-4xl font-semibold tracking-tight md:text-5xl">
-              How we added{" "}
-              <span className="text-gradient-glow">$660k a year</span> to
-              Steadyrack in six months.
+              How Steadyrack&apos;s revenue per visitor rose{" "}
+              <span className="text-gradient-glow">26.6% sitewide</span> in
+              six months.
             </h2>
             <p className="mt-6 text-lg text-text-inv-muted">
               Steadyrack sells wall-mounted bike racks to the world from Perth.
@@ -42,8 +42,8 @@ export default function CaseStudy() {
           <div className="lg:col-span-7">
             <StaggerGroup className="grid grid-cols-1 gap-4 sm:grid-cols-2" stagger={0.1}>
               <StaggerItem className="sm:col-span-2">
-                <HeroMetric label="Added annual run rate" sub="Same traffic, six months in">
-                  <CountUp to={660} prefix="$" suffix="k" />
+                <HeroMetric label="Sitewide revenue per visitor" sub="Same traffic, six months in">
+                  <CountUp to={26.6} decimals={1} prefix="+" suffix="%" />
                 </HeroMetric>
               </StaggerItem>
               <StaggerItem>
