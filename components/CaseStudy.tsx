@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import CountUp from "./CountUp";
 import Reveal from "./motion/Reveal";
 import { StaggerGroup, StaggerItem } from "./motion/Stagger";
@@ -25,10 +26,12 @@ export default function CaseStudy() {
             </p>
             <Link
               href="/case-studies/steadyrack"
-              className="mt-8 inline-flex items-center gap-2 rounded-xl border border-cream/20 bg-cream/5 px-5 py-2.5 text-sm font-semibold text-cream transition-all hover:bg-cream/10 hover:border-purple-2/40"
+              data-ga-event="case_study_click"
+              data-ga-location="homepage_results"
+              className="group mt-8 inline-flex items-center gap-2 rounded-xl bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
             >
-              Read the full case study
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              Read the Steadyrack case study
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="transition-transform group-hover:translate-x-1">
                 <path
                   d="M5 12h14M13 5l7 7-7 7"
                   stroke="currentColor"
@@ -41,12 +44,38 @@ export default function CaseStudy() {
           </Reveal>
 
           <div className="lg:col-span-7">
-            <StaggerGroup className="grid grid-cols-1 gap-4 sm:grid-cols-2" stagger={0.1}>
-              <StaggerItem className="sm:col-span-2">
-                <HeroMetric label="Sitewide revenue per visitor" sub="Same traffic, six months in">
-                  <CountUp to={26.6} decimals={1} prefix="+" suffix="%" />
-                </HeroMetric>
-              </StaggerItem>
+            <Reveal>
+              <Link
+                href="/case-studies/steadyrack"
+                aria-label="Read the Steadyrack case study"
+                className="group relative block overflow-hidden rounded-2xl border border-cream/10 bg-cream/5"
+              >
+                <Image
+                  src="/assets/case-studies/steadyrack/proflex-studio.jpg"
+                  alt="A gravel bike stored vertically on a wall-mounted Steadyrack ProFlex rack"
+                  width={1800}
+                  height={1012}
+                  sizes="(min-width: 1024px) 720px, 100vw"
+                  className="h-auto w-full transition-transform duration-700 group-hover:scale-[1.02]"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 p-6 md:p-8">
+                  <div>
+                    <div className="text-xs uppercase tracking-wider text-cream/70">
+                      Sitewide revenue per visitor
+                    </div>
+                    <div className="mt-1 text-6xl font-semibold tracking-tight text-cream md:text-7xl">
+                      <CountUp to={26.6} decimals={1} prefix="+" suffix="%" />
+                    </div>
+                    <div className="mt-1 text-sm text-cream/70">Same traffic, six months in</div>
+                  </div>
+                  <span className="hidden rounded-full border border-purple-2/40 bg-ink/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-purple-2 backdrop-blur sm:inline-block">
+                    Headline win
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
+            <StaggerGroup className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2" stagger={0.1}>
               <StaggerItem>
                 <Metric label="Return on fees" sub="Conservatively, before all markets">
                   <CountUp to={10} suffix="x" />
@@ -102,35 +131,6 @@ function Metric({
         {children}
       </div>
       <div className="mt-1 text-sm text-text-inv-muted">{sub}</div>
-    </div>
-  );
-}
-
-function HeroMetric({
-  label,
-  children,
-  sub,
-}: {
-  label: string;
-  children: React.ReactNode;
-  sub: string;
-}) {
-  return (
-    <div className="relative overflow-hidden rounded-2xl border border-purple-2/25 bg-purple/[0.06] p-8">
-      <div className="relative flex items-end justify-between gap-6">
-        <div>
-          <div className="text-xs uppercase tracking-wider text-text-inv-muted">
-            {label}
-          </div>
-          <div className="mt-2 text-6xl font-semibold tracking-tight text-cream md:text-7xl">
-            {children}
-          </div>
-          <div className="mt-2 text-sm text-text-inv-muted">{sub}</div>
-        </div>
-        <span className="hidden rounded-full border border-purple-2/40 bg-purple/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-purple-2 sm:inline-block">
-          Headline win
-        </span>
-      </div>
     </div>
   );
 }
