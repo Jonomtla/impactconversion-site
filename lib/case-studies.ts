@@ -620,14 +620,14 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "The Wānaka isite is the official visitor information centre for Wānaka. When it separated from Lake Wānaka Tourism it needed its own site, fast. Rather than a brochure, we built a single page around the two actions that matter: enquire, and get directions. Everything else on the page exists to make those two easier.",
     heroStats: [
+      { v: "10%", l: "Conversion rate", sub: "Enquiry, directions or booking click, first two months" },
       { v: "1", l: "Page", sub: "No brochure, no PDFs" },
       { v: "2", l: "Actions the page is built for", sub: "Enquire and get directions" },
-      { v: "Live", l: "July 2026", sub: "Instrumented from day one" },
     ],
     stats: [
+      { v: "10%", l: "Conversion rate" },
       { v: "1", l: "Page" },
       { v: "2", l: "Actions" },
-      { v: "Tracked", l: "Every enquiry" },
     ],
     chapters: [
       {
@@ -648,11 +648,13 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "The result",
         body: [
-          "The site went live in July 2026 with analytics, search console and enquiry tracking in place, so the centre can see what visitors ask for and where they come from. It is the same discipline we bring to a testing program: decide what the page is for, remove everything that gets in the way, and measure the outcome.",
+          "The site went live in July 2026 with analytics, search console and enquiry tracking in place, so the centre can see what visitors ask for and where they come from.",
+          "In its first two months, 10 percent of visits converted: an enquiry sent, directions requested, or a click through to book. Two thirds of that traffic arrived from organic search and referrals, on a site that did not exist in June. It is the same discipline we bring to a testing program: decide what the page is for, remove everything that gets in the way, and measure the outcome.",
         ],
       },
     ],
     wins: [
+      "10% of visits convert to an enquiry, a directions request or a booking click in the first two months.",
       "One page built around two actions: enquire and get directions.",
       "Hours, address, phone and email above the fold, no PDF map.",
       "Every enquiry tracked as a conversion event from launch.",
