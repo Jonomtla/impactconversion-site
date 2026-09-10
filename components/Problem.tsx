@@ -7,18 +7,18 @@ import TiltCard from "./motion/TiltCard";
 
 const pillars = [
   {
-    h: "Make your website work for more of the market",
-    p: "For every person who converts on your website, there are probably 3 others that would have, if they found the information they needed. They were in the market for your product, but the section of your website they saw didn’t help overcome their fears or concerns enough. We find out what stops people converting, and where they look, so these customers convert better.",
+    h: "Convert more of the people already visiting",
+    p: "For every person who buys or books, there are others who would have if the page had answered their question. They were in the market. The page they saw did not settle the doubt that stopped them. We find out what that doubt is and where they look for the answer, then put it there.",
     Visual: LeakyFunnel,
   },
   {
-    h: "The irony of conversion rate optimisation",
-    p: "Conversion rate optimisation has made people obsessed with their conversion rate. The reality is, increasing the average transaction value is just as important. Our process tests bumps, upsells, and cross sells to increase your margin each time you acquire a customer.",
+    h: "Earn more from every transaction",
+    p: "Conversion rate is only half of it. What each customer spends matters just as much. We test the add-ons, upgrades and bundles that lift the value of every order or booking, so each customer you pay to acquire is worth more.",
     Visual: VirtuousLoop,
   },
   {
-    h: "Get current customers to buy at a higher price",
-    p: "Most companies raise their prices when they’re forced to. COGS go up. The margins don't make sense. And they send some long winded email explaining why. The reality is pricing can be far more than just COGS and margin, and it can be tested to find the optimal price point for your customers (and your growth).",
+    h: "Find the price the market will actually pay",
+    p: "Most businesses change prices when they are forced to, and guess at the number. Pricing can be tested like anything else on the site, so you find the point that grows revenue without losing the customers you have.",
     Visual: ABTestBars,
   },
 ];
@@ -36,32 +36,32 @@ export default function Problem() {
       <div className="relative mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
           <h2 className="text-balance text-4xl font-semibold tracking-tight text-text md:text-5xl">
-            Paying more for every click than ever, but{" "}
+            Paying more for every customer than ever, but{" "}
             <span className="text-gradient-flow">
               not much more to show for it?
             </span>
           </h2>
           <p className="mt-6 text-lg text-text-muted">
-            Everyone says their ads are costing more than ever. They&apos;re
-            spending more, not only on ad budgets, but creative teams, media
-            buying, all to get more customers to their site.
+            Every channel costs more than it did. Google and Meta clicks,
+            commissions to marketplaces and booking platforms, creative,
+            agencies. All of it spent to get people to a website that most of
+            them leave.
           </p>
           <p className="mt-4 text-lg text-text-muted">
-            The problem is, if you&apos;re just pouring more water into a leaky
-            bucket, you&apos;re never going to actually get the growth that
-            you&apos;re after.
+            If the website converts two visitors in a hundred, every dollar of
+            that spend is working at two percent. Buying more traffic makes the
+            leak bigger, not smaller.
           </p>
           <p className="mt-4 text-lg text-text-muted">
-            You could keep pushing up budgets, making more creative, or
-            switch ad agencies. But we all know how that typically goes. More
-            spending. Less margin. Volatile results. At the mercy of the
-            algorithm and the platform.
+            You could keep pushing budgets up, make more creative, or switch
+            agencies. We all know how that goes. More spend, less margin,
+            results that swing with the platform.
           </p>
           <p className="mt-4 text-lg text-text-muted">
-            Or, you could figure out what actually converts your customers. Why
-            do they land from an ad, and then leave? Why do they add to cart,
-            or start a booking, and are never heard from again? And what makes your best customers
-            buy again and again?
+            Or you could find out what actually converts your customers. Why
+            do they land, look, and leave? Why do they start a booking or add
+            to cart and never finish? And what makes your best customers come
+            back?
           </p>
           <p className="mt-4 text-lg font-medium text-text">
             There are only 4 ways to get your business to grow.
@@ -75,8 +75,8 @@ export default function Problem() {
             ))}
           </ul>
           <p className="mt-4 text-lg text-text-muted">
-            Ads only really influence 2 of those 4 effectively. Our CRO
-            programs have been proven to address all four.
+            Traffic only really moves the first one. A conversion program
+            moves all four.
           </p>
           <p className="mt-4 text-lg font-medium text-text">
             Here&apos;s how:

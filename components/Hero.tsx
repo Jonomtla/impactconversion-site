@@ -46,9 +46,9 @@ export default function Hero() {
           </StaggerItem>
           <StaggerItem>
             <p className="mt-7 max-w-2xl text-pretty text-lg leading-relaxed text-ink/70 md:text-xl">
-              We find out why visitors leave without buying or booking, fix
-              it, and prove the lift with A/B tests. For ecommerce, bookings
-              and subscription businesses.
+              Most of the people who visit your website leave without buying
+              or booking. We find out why, fix it, and prove the lift with
+              A/B tests on your own traffic.
             </p>
           </StaggerItem>
           <StaggerItem>
