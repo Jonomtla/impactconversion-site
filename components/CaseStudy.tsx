@@ -16,13 +16,13 @@ export default function CaseStudy() {
               six months.
             </h2>
             <p className="mt-6 text-lg text-text-inv-muted">
-              Steadyrack sells wall-mounted bike racks to the world from Perth.
-              Ad costs were over budget, and their premium rack was the
+              $660k a year in added revenue, six months in, a 10x return on
+              fees. Steadyrack sells wall-mounted bike racks to the world from
+              Perth. Ad costs were over budget, and their premium rack was the
               worst-earning page on the site. Research found buyers could not
               tell which rack fitted their bike. Twenty-seven tests later, the
-              premium rack is the majority of sales, revenue per visitor on its
-              page is up 74.5 percent, and the program is pacing at $660k a
-              year in added revenue, a 10x return on fees.
+              premium rack is the majority of sales and revenue per visitor on
+              its page is up 74.5 percent.
             </p>
             <Link
               href="/case-studies/steadyrack"
@@ -82,8 +82,8 @@ export default function CaseStudy() {
                 </Metric>
               </StaggerItem>
               <StaggerItem>
-                <Metric label="Tests completed" sub="11 wins, a 41% hit rate">
-                  <CountUp to={27} />
+                <Metric label="Test win rate" sub="11 wins from 27 completed tests">
+                  <CountUp to={41} suffix="%" />
                 </Metric>
               </StaggerItem>
             </StaggerGroup>
