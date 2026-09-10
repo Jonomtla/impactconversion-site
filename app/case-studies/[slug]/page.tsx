@@ -6,9 +6,12 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import Reveal from "@/components/motion/Reveal";
 import WavyLines from "@/components/WavyLines";
+import ScrollProgress from "@/components/case-study/ScrollProgress";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import CountUp from "@/components/CountUp";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import WinsCarousel from "@/components/case-study/WinsCarousel";
+import SteadyrackVisual from "@/components/case-study/SteadyrackVisuals";
 import { caseStudies, getCaseStudy } from "@/lib/case-studies";
 
 export function generateStaticParams() {
@@ -85,14 +88,27 @@ export default async function CaseStudyPage({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
         />
+        <ScrollProgress />
         {/* Hero */}
-        <section className="relative overflow-hidden bg-ink text-cream pt-40 pb-20 md:pt-52 md:pb-28">
-          <WavyLines />
+        <section className="relative overflow-hidden bg-cream-2 text-ink pt-40 pb-20 md:pt-52 md:pb-28">
+          {/* Wavy fan, multiplied onto the cream so the lavender reads on a light ground */}
+          <div className="pointer-events-none absolute inset-0 opacity-60 mix-blend-multiply">
+            <WavyLines />
+          </div>
           <div
-            className="pointer-events-none absolute inset-0 opacity-40"
+            aria-hidden
+            className="pointer-events-none absolute -right-40 -top-72 h-[640px] w-[640px] rounded-full"
             style={{
               background:
-                "radial-gradient(ellipse at 30% 30%, var(--color-purple) 0%, transparent 55%)",
+                "radial-gradient(circle, rgba(124,90,236,0.16), transparent 65%)",
+            }}
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -bottom-80 -left-44 h-[700px] w-[700px] rounded-full"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(240,112,80,0.14), transparent 65%)",
             }}
           />
           <div className="relative mx-auto max-w-5xl px-6">
@@ -103,8 +119,8 @@ export default async function CaseStudyPage({
               ]}
             />
             <Reveal>
-              <div className="flex flex-wrap items-center gap-3 text-sm text-text-inv-muted">
-                <span className="rounded-full bg-purple/20 px-3 py-1 font-semibold uppercase tracking-wider text-purple-2">
+              <div className="flex flex-wrap items-center gap-3 text-sm text-text-muted">
+                <span className="rounded-full bg-purple-soft px-3 py-1 font-semibold uppercase tracking-wider text-purple">
                   {study.industry}
                 </span>
                 <span>·</span>
@@ -113,41 +129,25 @@ export default async function CaseStudyPage({
               <h1 className="mt-6 max-w-4xl text-balance font-black leading-[1.0] tracking-[-0.03em] text-[clamp(2.25rem,4.8vw,4rem)]">
                 {study.headline}
               </h1>
-              <p className="mt-8 max-w-3xl text-lg text-text-inv-muted md:text-xl">
+              <p className="mt-8 max-w-3xl text-lg text-text-muted md:text-xl">
                 {study.summary}
               </p>
             </Reveal>
 
-            {study.heroImage ? (
-              <Reveal className="mt-14">
-                <div className="relative overflow-hidden rounded-2xl border border-cream/10 bg-cream/5 p-2 md:p-3">
-                  <Image
-                    src={study.heroImage}
-                    alt={study.heroImageAlt ?? `${study.name} site`}
-                    width={1600}
-                    height={1000}
-                    sizes="(min-width: 1024px) 960px, 100vw"
-                    className="h-auto w-full rounded-xl"
-                    priority
-                  />
-                </div>
-              </Reveal>
-            ) : null}
-
             <StaggerGroup
-              className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4"
+              className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4"
               stagger={0.08}
             >
               {study.heroStats.map((s) => {
                 const isNumeric = /^[+-]?\$?\d[\d,.]*[%+kMB]*$/i.test(s.v) || /^[↑↓]$/.test(s.v);
                 return (
                   <StaggerItem key={s.l}>
-                    <div className="flex h-full flex-col rounded-2xl border border-cream/10 bg-cream/5 p-6">
-                      <div className="text-[11px] font-semibold uppercase tracking-[0.15em] text-text-inv-muted">
+                    <div className="flex h-full flex-col rounded-2xl border border-text/10 bg-cream p-6 shadow-[0_1px_2px_rgba(20,23,42,0.04)]">
+                      <div className="text-[11px] font-semibold uppercase tracking-[0.15em] text-text-muted">
                         {s.l}
                       </div>
                       <div
-                        className={`mt-3 font-semibold tracking-tight text-cream ${
+                        className={`mt-3 font-semibold tracking-tight text-text ${
                           isNumeric ? "text-4xl md:text-5xl" : "text-xl md:text-2xl"
                         }`}
                       >
@@ -162,7 +162,7 @@ export default async function CaseStudyPage({
                         )}
                       </div>
                       {s.sub ? (
-                        <div className="mt-auto pt-3 text-xs text-text-inv-muted">
+                        <div className="mt-auto pt-3 text-xs text-text-muted">
                           {s.sub}
                         </div>
                       ) : null}
@@ -171,6 +171,21 @@ export default async function CaseStudyPage({
                 );
               })}
             </StaggerGroup>
+            {study.heroImage ? (
+              <Reveal className="mt-12">
+                <div className="relative overflow-hidden rounded-2xl border border-text/10 bg-cream p-2 md:p-3">
+                  <Image
+                    src={study.heroImage}
+                    alt={study.heroImageAlt ?? `${study.name} site`}
+                    width={1600}
+                    height={1000}
+                    sizes="(min-width: 1024px) 960px, 100vw"
+                    className="h-auto w-full rounded-xl"
+                    priority
+                  />
+                </div>
+              </Reveal>
+            ) : null}
           </div>
         </section>
 
@@ -187,8 +202,38 @@ export default async function CaseStudyPage({
                     <p key={j} dangerouslySetInnerHTML={{ __html: p }} />
                   ))}
                 </div>
+                {ch.visual ? <SteadyrackVisual name={ch.visual} /> : null}
+                {ch.figure ? (
+                  <figure className="my-10">
+                    <div
+                      className={`overflow-hidden rounded-2xl border border-text/10 bg-cream-2/60 p-2 ${
+                        ch.figure.narrow ? "mx-auto max-w-sm" : ""
+                      }`}
+                    >
+                      <Image
+                        src={ch.figure.src}
+                        alt={ch.figure.alt}
+                        width={ch.figure.width}
+                        height={ch.figure.height}
+                        sizes="(min-width: 768px) 720px, 100vw"
+                        className="h-auto w-full rounded-xl"
+                      />
+                    </div>
+                    {ch.figure.caption ? (
+                      <figcaption className="mt-4 text-sm text-text-muted">
+                        {ch.figure.caption}
+                      </figcaption>
+                    ) : null}
+                  </figure>
+                ) : null}
               </Reveal>
             ))}
+
+            {study.winCards?.length ? (
+              <Reveal className="mt-16">
+                <WinsCarousel cards={study.winCards} label="The wins, side by side" />
+              </Reveal>
+            ) : null}
 
             {/* Wins pullout */}
             <Reveal className="mt-16">

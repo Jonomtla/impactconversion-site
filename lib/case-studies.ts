@@ -1,8 +1,37 @@
 export type Stat = { v: string; l: string; sub?: string };
 
+export type CaseStudyFigure = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption?: string;
+  /** Constrain width for tall/narrow crops so they don't dominate the column. */
+  narrow?: boolean;
+};
+
+/** Named data visuals recreated in markup, rendered by the case study page. */
+export type CaseStudyVisual =
+  | "sr-baseline-rpv"
+  | "sr-research"
+  | "sr-funnel"
+  | "sr-mix";
+
 export type CaseStudyChapter = {
   heading: string;
   body: string[];
+  figure?: CaseStudyFigure;
+  visual?: CaseStudyVisual;
+};
+
+/** A card in the wins carousel. Opens the control-vs-variation screenshot. */
+export type WinCard = {
+  id: string;
+  lift: string;
+  name: string;
+  image: string;
+  width: number;
+  height: number;
 };
 
 export type CaseStudy = {
@@ -16,6 +45,7 @@ export type CaseStudy = {
   stats: Stat[];
   heroStats: Stat[];
   chapters: CaseStudyChapter[];
+  winCards?: WinCard[];
   wins: string[];
   quote?: string;
   quoteBy?: string;
@@ -293,92 +323,229 @@ export const caseStudies: CaseStudy[] = [
     heroImage: "/assets/case-studies/kite-hero.png",
     heroImageAlt: "Kite Therapy homepage",
   },
-  // ─────────────────────────────────────────────────────────────────────────
-  // DRAFT — Steadyrack. draft:true keeps it out of sitemap + listing grid.
-  // PENDING LAUREN APPROVAL before draft:false / publish:
-  //   • 60,000 monthly visitors (traffic figure)
-  //   • 52.4% hero-product share, up from 44.6% (post-rollout)
-  //   • $7,000–$16,000/mo verified held revenue
-  //   • Google CPC CVR 2.48% → 3.07%
-  //   • A client quote from Lauren (none yet — quote field intentionally omitted)
-  // ─────────────────────────────────────────────────────────────────────────
   {
     slug: "steadyrack",
     name: "Steadyrack",
     industry: "D2C e-commerce",
     duration: "Ongoing CRO program",
     tagline:
-      "Comprehension, not trust: the testing program that lifted Steadyrack&rsquo;s hero product to majority share.",
-    headline: "Confident buyers were choosing the wrong rack. We fixed that.",
+      "27 tests, one insight, and the premium rack went from the worst page on the site to the majority of sales.",
+    headline: "$660k a year, added in six months.",
     summary:
-      "Steadyrack makes premium wall-mounted vertical bike racks, selling through three Shopify stores to roughly 60,000 monthly visitors. The site converted at 1.8 to 2.1 percent, and the obvious explanations were wrong. Research across 1,910 mined reviews, 116 on-site barrier responses, two email surveys, and six recorded user tests showed trust was not the problem. The real leak was comprehension. Buyers were confident they understood the range. They were not.",
+      "The premium rack was the worst page on the site. Now it outsells everything else. Steadyrack sells wall-mounted vertical bike racks across the world from Perth. They came to us with rising ad costs, customers getting confused when purchasing their premium product, and no testing in place. The results? A 10x return on our fee, $660k added in annual run rate after six months of working with us.",
     heroStats: [
-      { v: "52.4%", l: "Hero product share", sub: "Up from 44.6% post-rollout" },
-      { v: "+28%", l: "ProFlex orders", sub: "Observed during test, 98% confidence" },
-      { v: "$7-16k", l: "Held revenue/mo", sub: "Verified post-rollout" },
+      { v: "$660k", l: "Added annual run rate", sub: "Reached inside six months" },
+      {
+        v: "10x",
+        l: "Return on investment",
+        sub: "Conservatively, before taking into account all markets",
+      },
+      { v: "+74.5%", l: "ProFlex revenue per visitor", sub: "Year on year" },
     ],
     stats: [
-      { v: "52.4%", l: "Hero product share" },
-      { v: "+28%", l: "ProFlex orders (test)" },
-      { v: "$7-16k/mo", l: "Verified held revenue" },
+      { v: "53.8%", l: "ProFlex share of units" },
+      { v: "+74.5%", l: "ProFlex revenue per visitor" },
+      { v: "41%", l: "Test win rate" },
     ],
     chapters: [
       {
-        heading: "The problem",
+        heading: "Why they brought us in",
         body: [
-          "Steadyrack&rsquo;s site converted at 1.8 to 2.1 percent, and the obvious explanations were wrong. Research across 1,910 mined reviews, 116 on-site barrier responses, two email surveys (n=434 and n=97), and six recorded user tests showed trust was not the problem: trust scored 4.5/5 and accounted for 0.9 percent of stated barriers.",
-          "The real leak was comprehension. Seventeen percent of support tickets were sizing questions, 80 percent of returns traced to fit and space, and in user testing, zero of four participants selected the correct rack on the first attempt while reporting 4/5 confidence. Buyers were confident and wrong, and confident people do not click help tools.",
+          "Costs of sale were coming in over budget, especially in the US, and a large slice of revenue was going straight to Meta. Steadyrack is mostly a one-purchase brand, so every first order has to be profitable on its own.",
+          "In their words, the product was the other half of the problem. People can be very overwhelmed with a technical product, and the job is finding the line between giving the consumer too much and not giving them enough. Meanwhile the website changes themselves had no structure: no in-house developer, no testing framework, updates made on feel between busier jobs.",
+          "Three Shopify Plus stores converting at 1.2 to 2 percent. At that kind of volume, a single point of conversion pays for itself quickly. The brief was a proper testing program with the research to back it, not best-practice guesses.",
         ],
       },
       {
-        heading: "The rack range nobody could choose from",
+        heading: "The premium product was the problem",
         body: [
-          "Steadyrack&rsquo;s premium ProFlex range came in three variants named Narrow, Wide, and Fat. Internally, everyone knew what they meant. Buyers did not: the names describe the rack, not the bike. Support logged sizing questions as 17 percent of all tickets, and 80 percent of returns traced to fit.",
-          "User testing made it vivid. Four testers, zero to one correct rack selections, confidence 4/5. On-site surveys put product-selection confusion far ahead of price as the practical blocker.",
+          "Before the program, a visit to the ProFlex product page was worth $2.54. A visit to the cheaper Classic MTB page was worth $5.27. ProFlex converted at 0.86 percent against Classic&rsquo;s 2.07 percent, less than half the rate. The premium rack was the worst-earning page on the site.",
+          "The funnel said the same thing. Steadyrack sat under benchmarks at every step except the cart.",
+          "Product view to add-to-cart is the money step, and it was the furthest away from being at benchmark. People arrived, looked, and could not decide.",
+        ],
+        visual: "sr-baseline-rpv",
+      },
+      {
+        heading: "The research.",
+        body: [
+          "Surveys, heatmaps, session recordings, support tickets, mined reviews and the funnel itself all converged on the same confusion: which rack do I need?",
+          "Seventeen percent of support tickets were sizing questions, people asking the business what the website should have answered. Eighty percent of returns traced to fit and space. Session recordings and user tests showed size buttons being ignored on the collection page, with add-to-cart possible without choosing a size at all.",
+        ],
+        visual: "sr-research",
+      },
+      {
+        heading: "People shop by what’s in their garage",
+        body: [
+          "The ProFlex range came in three variants named Narrow, Wide and Fat. Those are brand names that describe the rack, not the bike. To find out which one fitted their bike, a buyer had to click through to a separate page, which only about 5% of users did.",
+          "Everything that followed put the answer in the buyer&rsquo;s own language, in the path, without asking them to do anything: which bike you ride, which rack you need. We tested that idea on the product page, the collection page, the cart drawer and the homepage, and it won every single time.",
+          "Splitting ProFlex into three bike-type products on the collection page observed a 28 percent increase in ProFlex orders. A &ldquo;best suited for&rdquo; line above the variant selector observed a 24 percent lift in ProFlex conversion. Bike-type filter buttons on the collection page observed 8 percent conversion and 10 percent revenue per visitor. Repeating the same line in the cart drawer observed an 8.7 percent lift. Splitting the racks out in the homepage best sellers observed 9.6 percent.",
+          "A comparison table putting the two ranges side by side answered the same question one step earlier. Measured on the visitors who actually saw it, we observed add-to-cart up 24 percent at 98 percent confidence.",
+        ],
+        figure: {
+          src: "/assets/case-studies/steadyrack/tests/sr009.jpg",
+          alt: "Control against variation on the ProFlex product page. The variation adds a Best suited for line naming the bike types each size fits.",
+          width: 1600,
+          height: 2207,
+          caption:
+            "Before and after. On the left, three sizes named Narrow, Wide and Fat with Best Suited For folded into an accordion further down the page. On the right, the bike types each size fits, named in the buyer’s own language, right where the choice is made.",
+        },
+      },
+      {
+        heading: "What turned out not to be a lever",
+        body: [
+          "Detail overwhelmed the customer. People exited buying mode, and went into analysis mode. A modal that asked buyers to measure their tyre lost, and lost badly. Have the detail available for anyone who goes looking, but keep it off the page where the decision happens.",
+          "Trust surprisingly turned out not to be a lever here. Steadyrack has sold 1.2 million racks and the brand carries that weight already. Repeated attempts to add trust signals did nothing, and sometimes did worse than nothing.",
+          "Eleven wins from 27 completed tests is a 41 percent win rate. Published benchmarks put advanced practitioners around 33 percent and a healthy program in the 20 to 30 percent band.",
         ],
       },
       {
-        heading: "What the failing tests taught us",
+        heading: "The product mix.",
         body: [
-          "The early tests that tried interactive help proved the thesis by failing. A sizing-guide modal near the variant selector ran 48 percent below control. USP tooltips near Add to Cart ran 22.8 percent below. Both were killed inside the early-stop rule.",
-          "Both became program doctrine: no interactive tools near the buy decision. Buyers who do not know they are confused will never opt into help.",
+          "ProFlex&rsquo;s share of rack units went from 44.4 percent to 53.8 percent product share year on year, and its share of rack revenue from 50.6 percent to 60.4 percent.",
+          "It has held for four months, since the first win shipped.",
+          "The page RPV moved with it. ProFlex revenue per visitor went from $2.54 to $4.42, up 74.5 percent, and conversion from 0.86 percent to 1.28 percent, up 48.7 percent. View-to-purchase went from 4.55 percent to 7.36 percent on flat views. Same eyeballs, 62% more buying.",
+          "Sitewide, across every session including pages we never touched, conversion is up 12.4 percent and revenue per visitor up 26.6 percent. On the funnel, the two steps the program set out to fix both moved: product view to add-to-cart up 16 percent, checkout completion up 6.7 percent. Both are still under benchmark, which is the focus of the next 6 months.",
+        ],
+        visual: "sr-mix",
+        figure: {
+          src: "/assets/case-studies/steadyrack/proflex-studio.jpg",
+          alt: "A gravel bike stored vertically on a wall-mounted Steadyrack ProFlex rack, studio shot",
+          width: 1800,
+          height: 1012,
+          caption:
+            "ProFlex, the premium rack. It was the page buyers hesitated on, and it is now the majority of what they buy.",
+        },
+      },
+      {
+        heading: "The overall result: revenue and profit",
+        body: [
+          "For our projections, we don&rsquo;t just annualise every test win and call it a day. If we did that it would sit at $1.5M uplift in six months.",
+          "Every winning test is weighted by that page&rsquo;s share of site orders, annualised, then corrected for seasonality and for statistically lucky results. The overall uplift in six months was $470k, North America only.",
+          "The proposal&rsquo;s target scenario expected about $600k of added revenue across the full first year. Six months in, the program is pacing at $660k a year across the three markets, and at $470k in North America on its own. Either figure is ahead of a full-year target at the halfway mark, and it is a 10x to 14x return on fees.",
+        ],
+        visual: "sr-funnel",
+      },
+      {
+        heading: "The same wins, different soil",
+        body: [
+          "The North American wins were hardcoded onto the Australian and European stores at the same time. They didn&rsquo;t have the traffic to test in those markets, so we rolled out wins and measured.",
+          "Europe was the stand out: revenue per visitor up 23 percent on barely more traffic, add-to-cart up 34 percent, average order value up 15 percent, and ProFlex share of rack units up from 40.8 percent to 55.9 percent.",
         ],
       },
       {
-        heading: "Passive answers, placed at the decision",
+        heading: "What’s next?",
         body: [
-          "Every subsequent test attacked comprehension passively: labelling, repositioning, static answers placed where the decision happens.",
-          "Category cards that translate the ProFlex range into the buyer&rsquo;s language: which bike you ride, which rack you need. Road and gravel here, mountain and eMTB here, fat bikes here. No quiz, no modal, no hover. The answer, standing in the path.",
-          "During the test we observed a 28 percent increase in ProFlex orders at 98 percent confidence. Shipped to 100 percent of traffic on April 24.",
+          "The biggest lever so far has been unblocking: making it easier to work out what to buy. That finding is tested and locked in, hardcoded across all three stores, and there are still more tests to come.",
+          "The next phase moves from unblocking buyers to motivating them. Pricing and elasticity, economics, bundling and order value, and the messaging that makes someone want the premium rack rather than merely understand it. That work compounds: the same answers feed the product pages, the ads, the landing pages, and the markets where comprehension was never the problem.",
+          "The endgame is a repeatable testing engine, so that every new product launch gets the same treatment the racks got.",
         ],
       },
+    ],
+    winCards: [
       {
-        heading: "Verification: the part most programs skip",
-        body: [
-          "Ten weeks after the category-card win shipped, we went back and checked whether it held in real revenue, against seasonality, on clean data. It held: ProFlex&rsquo;s share of rack units rose from 44.6 percent to 52.4 percent post-rollout, during the exact season that should have pushed the mix the other way, with no cannibalization of the other range.",
-          "Verified held value: $7,000 to $16,000 per month. The test-window projection had said $13-20k per month; the verified number landed in range, which is exactly what the verification habit is for.",
-        ],
+        id: "SR-006",
+        lift: "+28% ProFlex orders",
+        name: "Collection page split by bike type",
+        image: "/assets/case-studies/steadyrack/tests/sr006.jpg",
+        width: 1600,
+        height: 2607,
       },
       {
-        heading: "What the full program produced",
-        body: [
-          "Further tested wins included &ldquo;best suited for&rdquo; labelling on the ProFlex PDP (during the test we observed a 24 percent lift), a comparison table answering which rack the buyer needed (during the test we observed a 23 percent lift in add-to-cart among visitors who reached it), and warranty-specific CTA microcopy on mobile (during the test we observed a 16 percent lift).",
-          "Google CPC conversion moved from 2.48 percent to 3.07 percent on the cleanest cohort. Every loss became a rule the next test obeyed.",
-        ],
+        id: "SR-009",
+        lift: "+24% ProFlex conversion",
+        name: "“Best suited for” on the product page",
+        image: "/assets/case-studies/steadyrack/tests/sr009.jpg",
+        width: 1600,
+        height: 2207,
+      },
+      {
+        id: "SR-016",
+        lift: "+8% CVR, +10% RPV",
+        name: "Filter pills by bike type",
+        image: "/assets/case-studies/steadyrack/tests/sr016.jpg",
+        width: 1600,
+        height: 748,
+      },
+      {
+        id: "SR-022",
+        lift: "+8.7% conversion",
+        name: "Compatibility repeated in the cart drawer",
+        image: "/assets/case-studies/steadyrack/tests/sr022.jpg",
+        width: 1600,
+        height: 1618,
+      },
+      {
+        id: "SR-025",
+        lift: "+9.6% conversion",
+        name: "Homepage best sellers split out",
+        image: "/assets/case-studies/steadyrack/tests/sr025.jpg",
+        width: 1600,
+        height: 732,
+      },
+      {
+        id: "SR-013",
+        lift: "+24% add to cart",
+        name: "ProFlex vs Classic comparison table",
+        image: "/assets/case-studies/steadyrack/tests/sr013.jpg",
+        width: 1600,
+        height: 1905,
+      },
+      {
+        id: "SR-012",
+        lift: "+9% mobile conversion",
+        name: "USP cards on the product hero image",
+        image: "/assets/case-studies/steadyrack/tests/sr012.jpg",
+        width: 1600,
+        height: 1744,
+      },
+      {
+        id: "SR-017",
+        lift: "+16.2% mobile conversion",
+        name: "Install and wall-spacing answers in the FAQ",
+        image: "/assets/case-studies/steadyrack/tests/sr017.jpg",
+        width: 1600,
+        height: 915,
+      },
+      {
+        id: "SR-011",
+        lift: "+35% GearMate add to cart",
+        name: "GearMate upsell in the cart",
+        image: "/assets/case-studies/steadyrack/tests/sr011.jpg",
+        width: 1600,
+        height: 1239,
+      },
+      {
+        id: "SR-027",
+        lift: "+9% mobile product views",
+        name: "Two-up mobile collection grid",
+        image: "/assets/case-studies/steadyrack/tests/sr027.jpg",
+        width: 1600,
+        height: 1618,
+      },
+      {
+        id: "SR-031",
+        lift: "+9.6% revenue per visitor",
+        name: "Video widget removed from the buy box",
+        image: "/assets/case-studies/steadyrack/tests/sr031.jpg",
+        width: 1600,
+        height: 783,
       },
     ],
     wins: [
-      "Hero product lifted to majority share of rack units (44.6% to 52.4%), verified post-rollout.",
-      "$7,000 to $16,000 per month in verified held revenue from one shipped win.",
-      "Category-card test observed +28% ProFlex orders at 98% confidence.",
-      '"Best suited for" labelling observed +24% lift on the ProFlex PDP.',
-      "Google CPC conversion 2.48% to 3.07% on the cleanest cohort.",
-      "A documented learnings library where every loss became a rule the next test obeys.",
+      "ProFlex share of rack units 44.4% to 53.8%, and share of rack revenue 50.6% to 60.4%, held for four months.",
+      "ProFlex revenue per visitor up 74.5%, conversion up 48.7% year on year.",
+      "Sitewide conversion up 12.4% and revenue per visitor up 26.6%, including pages the program never touched.",
+      "Collection page bike-type split observed +28% ProFlex orders.",
+      '"Best suited for" labelling observed +24% ProFlex conversion.',
+      "ProFlex vs Classic comparison table observed +24% add-to-cart at 98% confidence among visitors who saw it.",
+      "41% win rate across 27 completed tests, against a 20-30% healthy-program benchmark.",
+      "$470k annualised run rate in North America after correcting the platform figure down from $1.5M, roughly 10x on fees.",
+      "Europe: revenue per visitor +23%, add-to-cart +34%, order value +15% on the transferred wins alone.",
     ],
     heroImage: "/assets/case-studies/steadyrack-hero.jpg",
-    heroImageAlt: "Steadyrack ProFlex racks mounted on a garage wall",
+    heroImageAlt:
+      "A workshop wall of mountain bikes stored vertically on Steadyrack racks, with two racks left empty",
     featured: false,
-    draft: true,
   },
 ];
 
