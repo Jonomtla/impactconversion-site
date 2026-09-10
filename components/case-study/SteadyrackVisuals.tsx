@@ -234,7 +234,7 @@ const MIX = [
 ];
 const MIX_SIDE = [
   { v: "50.6% \u2192 60.4%", l: "ProFlex share of rack revenue" },
-  { v: "+19.6%", l: "ProFlex units YoY, on flat total volume" },
+  { v: "+19.6%", l: "ProFlex units, year on year" },
   { v: "4 months", l: "and holding, since the first win shipped" },
 ];
 
