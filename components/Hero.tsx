@@ -32,7 +32,7 @@ export default function Hero() {
         <StaggerGroup className="max-w-4xl" stagger={0.1}>
           <StaggerItem>
             <h1 className="text-balance font-black leading-[0.95] tracking-[-0.035em] text-[clamp(2.6rem,7vw,5.5rem)]">
-              Make your website{" "}
+              More revenue from{" "}
               <span
                 className="bg-clip-text text-transparent"
                 style={{
@@ -40,14 +40,15 @@ export default function Hero() {
                     "linear-gradient(90deg, #7c5aec 0%, #b06090 55%, #f07050 100%)",
                 }}
               >
-                work as hard as your ads.
+                the traffic you already have.
               </span>
             </h1>
           </StaggerItem>
           <StaggerItem>
             <p className="mt-7 max-w-2xl text-pretty text-lg leading-relaxed text-ink/70 md:text-xl">
-              Spending more and more on ads every month, but less to show for
-              it? Let&apos;s fix that at the source.
+              We find out why visitors leave without buying or booking, fix
+              it, and prove the lift with A/B tests. For ecommerce, bookings
+              and subscription businesses.
             </p>
           </StaggerItem>
           <StaggerItem>

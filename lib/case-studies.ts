@@ -547,6 +547,120 @@ export const caseStudies: CaseStudy[] = [
       "A workshop wall of mountain bikes stored vertically on Steadyrack racks, with two racks left empty",
     featured: true,
   },
+  {
+    slug: "destination-queenstown",
+    name: "Destination Queenstown",
+    industry: "Tourism",
+    duration: "Research-led website rebuild",
+    tagline: "Giving a landmark tourism strategy the digital home it deserved.",
+    headline: "A regional tourism strategy, freed from a PDF.",
+    summary:
+      "Destination Queenstown is the regional tourism organisation for one of the world&rsquo;s best-known destinations. Its Regenerative Tourism plan is the blueprint for the region&rsquo;s future, and it lived inside a dense PDF on a microsite shoehorned into the main site. We rebuilt it as regenerativetourism.co.nz, designed around what each audience actually came to do.",
+    heroStats: [
+      { v: "1", l: "PDF retired as the front door", sub: "Strategy rewritten for the web" },
+      { v: "4", l: "Audiences, each with a path", sub: "Operators, partners, community, visitors" },
+      { v: "Own domain", l: "regenerativetourism.co.nz", sub: "Out of the parent site" },
+    ],
+    stats: [
+      { v: "1 PDF", l: "Retired as the front door" },
+      { v: "4", l: "Audience paths" },
+      { v: "Own", l: "Domain and CMS" },
+    ],
+    chapters: [
+      {
+        heading: "The brief",
+        body: [
+          "We usually advise against full rebuilds in favour of iterative optimisation. This was the exception. The Regenerative Tourism program had a restrictive microsite inside the main Destination Queenstown website, which forced every stakeholder down the same confusing path and buried the strategy itself inside a multi-page PDF.",
+          "The goal was not a redesign. It was to fix a broken conversion funnel: stop losing engaged visitors, make the strategy readable, and turn visitors into informed, supportive stakeholders.",
+        ],
+      },
+      {
+        heading: "What the research found",
+        body: [
+          "The PDF was where engagement went to die. Anyone who wanted to understand the plan had to download a file. The information existed, but it was inaccessible, and the drop-off showed it.",
+          "There was no path for anyone in particular. Local operators, council and government partners, and community members each had a different job to do, and all of them were pushed down one route that suited none of them. The constrained parent-site layout could not build a narrative or guide people to what mattered to them.",
+        ],
+      },
+      {
+        heading: "The approach",
+        body: [
+          "Before any design work, we rebuilt the information architecture using the jobs-to-be-done framework, mapping the primary task for each audience into its own clear path. Moving the program to its own domain was the first step that made those paths possible.",
+          "We treated the PDF as a conversion blocker and removed it. The strategic material was synthesised, rewritten for the web, and surfaced in short scannable sections, so a high-effort download became a low-effort read.",
+          "To de-risk the build, we produced a full clickable prototype in Figma and tested the new flows with stakeholders before a line of code was written. It caught the rework early and got everyone aligned on the answer.",
+        ],
+      },
+      {
+        heading: "The result",
+        body: [
+          "Engagement and time on page rose once visitors could find and read what they came for. Operators, partners and the community each got a clear route to their task.",
+          "The editor-friendly CMS lets the team publish progress updates, projects and stories without a developer, which is what keeps a strategy site alive after launch. Two years on, the site is still the program&rsquo;s home and we still maintain it.",
+        ],
+      },
+    ],
+    wins: [
+      "A dense strategy PDF replaced with scannable on-page content.",
+      "Dedicated paths for operators, partners, community and visitors, built from jobs-to-be-done research.",
+      "A standalone domain and CMS the DQ team publishes to without a developer.",
+      "Clickable Figma prototype validated with stakeholders before build.",
+    ],
+    quote:
+      "Impact were instrumental in bringing our vision for regenerativetourism.co.nz to life. Their expertise in web design and UX helped us transform our Destination Management Plan into an accessible, user-friendly digital platform. What stood out was their ability to translate complex strategic content into a clear, engaging website that serves diverse stakeholders, from local businesses to visitors.",
+    quoteBy: "Sherri Gibb",
+    quoteRole: "Digital Marketing Manager, Destination Queenstown",
+    heroImage: "/assets/case-studies/regen-hero.jpg",
+    heroImageAlt: "regenerativetourism.co.nz homepage: Travel to a Thriving Future",
+  },
+  {
+    slug: "wanaka-isite",
+    name: "Wānaka isite",
+    industry: "Tourism",
+    duration: "Conversion-led site build, 2026",
+    tagline: "One page, one job: get visitors to the counter.",
+    headline: "A visitor centre website built around the only two things visitors do.",
+    summary:
+      "The Wānaka isite is the official visitor information centre for Wānaka. When it separated from Lake Wānaka Tourism it needed its own site, fast. Rather than a brochure, we built a single page around the two actions that matter: enquire, and get directions. Everything else on the page exists to make those two easier.",
+    heroStats: [
+      { v: "1", l: "Page", sub: "No brochure, no PDFs" },
+      { v: "2", l: "Actions the page is built for", sub: "Enquire and get directions" },
+      { v: "Live", l: "July 2026", sub: "Instrumented from day one" },
+    ],
+    stats: [
+      { v: "1", l: "Page" },
+      { v: "2", l: "Actions" },
+      { v: "Tracked", l: "Every enquiry" },
+    ],
+    chapters: [
+      {
+        heading: "The brief",
+        body: [
+          "Visitor centre websites tend to become small brochures: a history, a list of services, a gallery, a PDF map. The person who lands on them has a simpler question. Where are you, when are you open, and can you help me plan and book my trip?",
+          "The isite was decoupling from the regional tourism site and had no web presence of its own. It needed one that answered those questions immediately and captured the enquiries that used to arrive through the parent site.",
+        ],
+      },
+      {
+        heading: "The approach",
+        body: [
+          "We built one page. The hero states what the centre does in one line, and the strip beneath it carries opening hours, the street address, phone and email before anyone scrolls. Two calls to action, enquire and get directions, repeat through the page. Nothing competes with them.",
+          "The contact form posts straight to the team&rsquo;s inbox and fires a tracked conversion event, so every enquiry is measured from the first day. Local business schema, geo metadata and a submitted sitemap give Google what it needs to show the centre for the searches visitors actually make.",
+          "The design is the isite brand done properly: the national lozenge, the Pākati motif, local photography, and the accreditation badges that tell an international visitor this is the official source.",
+        ],
+      },
+      {
+        heading: "The result",
+        body: [
+          "The site went live in July 2026 with analytics, search console and enquiry tracking in place, so the centre can see what visitors ask for and where they come from. It is the same discipline we bring to a testing program: decide what the page is for, remove everything that gets in the way, and measure the outcome.",
+        ],
+      },
+    ],
+    wins: [
+      "One page built around two actions: enquire and get directions.",
+      "Hours, address, phone and email above the fold, no PDF map.",
+      "Every enquiry tracked as a conversion event from launch.",
+      "Local business schema and search setup for the searches visitors make.",
+    ],
+    heroImage: "/assets/case-studies/wanaka-isite-hero.jpg",
+    heroImageAlt: "wanakaisite.co.nz homepage: Walk in a visitor. Leave an explorer.",
+  },
 ];
 
 export function getCaseStudy(slug: string): CaseStudy | undefined {
