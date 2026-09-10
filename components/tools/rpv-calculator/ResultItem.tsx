@@ -17,38 +17,27 @@ export default function ResultItem({
   subValue,
   animationDelay = 0,
 }: ResultItemProps) {
-  const variants = {
-    default: {
-      value: 'text-[#72ab7f]',
-    },
-    baseline: {
-      value: 'text-[#565656]',
-    },
-    highlight: {
-      value: 'text-[#72ab7f] font-extrabold text-xl',
-    },
-    muted: {
-      value: 'text-[#bfbfbf]',
-    },
-  };
+  const valueColor = {
+    default: 'text-text',
+    baseline: 'text-text-muted',
+    highlight: 'text-purple font-extrabold text-xl',
+    muted: 'text-text-muted/50',
+  }[variant];
 
   if (highlighted) {
     return (
       <div
-        className="relative overflow-hidden bg-gradient-to-r from-[#243e42]/10 to-[#72ab7f]/10 border-2 border-[#72ab7f]/30 rounded-xl p-4 my-3 hover-lift animate-scale-in"
+        className="bg-purple-soft/60 border border-purple/20 rounded-xl p-4 my-3 animate-scale-in"
         style={{ animationDelay: `${animationDelay}ms` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#72ab7f]/5 to-transparent" />
-        <div className="relative flex justify-between items-center">
-          <span className="font-medium text-[#243e42]">
-            {label}
-          </span>
+        <div className="flex justify-between items-center gap-4">
+          <span className="font-medium text-text">{label}</span>
           <div className="text-right">
-            <span className="text-2xl font-bold text-[#72ab7f] tracking-tight animate-count-up">
+            <span className="text-2xl font-bold text-purple tracking-tight">
               {value}
             </span>
             {subValue && (
-              <div className="text-xs text-[#4e7597] mt-0.5">{subValue}</div>
+              <div className="text-xs text-text-muted mt-0.5">{subValue}</div>
             )}
           </div>
         </div>
@@ -58,19 +47,13 @@ export default function ResultItem({
 
   return (
     <div
-      className="flex justify-between items-center py-3 border-b border-[#9abbd8]/20 last:border-b-0 animate-fade-in"
+      className="flex justify-between items-center gap-4 py-3 border-b border-ink/10 last:border-b-0 animate-fade-in"
       style={{ animationDelay: `${animationDelay}ms` }}
     >
-      <span className="font-medium text-[#565656]">
-        {label}
-      </span>
+      <span className="font-medium text-text-muted">{label}</span>
       <div className="text-right">
-        <span className={`text-lg font-semibold ${variants[variant].value}`}>
-          {value}
-        </span>
-        {subValue && (
-          <div className="text-xs text-[#4e7597]">{subValue}</div>
-        )}
+        <span className={`text-lg font-semibold ${valueColor}`}>{value}</span>
+        {subValue && <div className="text-xs text-text-muted">{subValue}</div>}
       </div>
     </div>
   );

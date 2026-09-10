@@ -46,6 +46,7 @@ export default function Footer() {
               <li><Link href="/blog" className="text-cream/90 hover:text-cream transition-colors">Blog</Link></li>
               <li><Link href="/about" className="text-cream/90 hover:text-cream transition-colors">About</Link></li>
               <li><Link href="/resources/conversion-killers" className="text-cream/90 hover:text-cream transition-colors">Free: 7 Conversion Killers PDF</Link></li>
+              <li><Link href="/resources/free-money-playbook" className="text-cream/90 hover:text-cream transition-colors">Free: Post-Purchase Upsell Playbook</Link></li>
               <li><Link href="/contact" className="text-cream/90 hover:text-cream transition-colors">Contact</Link></li>
             </ul>
           </div>

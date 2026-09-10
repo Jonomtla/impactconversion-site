@@ -6,12 +6,12 @@ export default function CTA() {
       <div className="relative mx-auto max-w-4xl px-6 text-center">
         <h2 className="text-balance text-4xl font-semibold tracking-tight md:text-6xl">
           Let&apos;s move your{" "}
-          <span className="text-gradient-glow">revenue.</span>
+          <span className="text-gradient-glow">revenue</span> with the Impact
+          Conversion Method.
         </h2>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-text-inv-muted">
-          Fifteen minutes on your funnel together, and we&apos;ll tell you
-          straight whether we are a fit, with no slide deck or sales script
-          in the way.
+          Give us fifteen minutes together, and we&apos;ll tell you straight
+          whether we are a fit, with no slide deck or sales script in the way.
         </p>
 
         {/* Risk reversal pills */}
@@ -32,7 +32,7 @@ export default function CTA() {
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-purple-2">
               <path d="M5 12l5 5L20 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            Revenue uplift, or you don&apos;t pay
+            Revenue uplift, or 50% of the sprint fee back
           </span>
         </div>
 

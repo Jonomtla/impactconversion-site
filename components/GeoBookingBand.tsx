@@ -20,11 +20,13 @@ export default function GeoBookingBand({ gaLocation, timezoneNote }: Props) {
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl">
-            Let&rsquo;s look at your funnel together.
+            Book your free Leaky Funnel Game Plan.
           </h2>
           <p className="mt-4 max-w-2xl text-lg text-text-inv-muted">
-            Fifteen minutes, your timezone, and a straight answer on whether a
-            program is worth running.
+            Fifteen minutes, on your funnel, live. We open your store together,
+            show you where it leaks most, and map the first tests we would run.
+            The plan is yours to keep, work with us or not. And if your traffic
+            is too low for testing to pay, we say so on the call.
           </p>
         </Reveal>
         <div className="mt-10 grid gap-6 lg:grid-cols-12">
@@ -61,7 +63,7 @@ export default function GeoBookingBand({ gaLocation, timezoneNote }: Props) {
                 </figcaption>
                 <div className="mt-6 flex gap-8 border-t border-cream/10 pt-5">
                   <div>
-                    <div className="text-2xl font-semibold text-purple-2">$1M+</div>
+                    <div className="text-2xl font-semibold text-purple-2">$1M-$2M</div>
                     <div className="text-xs uppercase tracking-wider text-text-inv-muted">
                       Extra revenue
                     </div>

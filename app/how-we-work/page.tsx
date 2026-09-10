@@ -38,7 +38,7 @@ const services: Service[] = [
     name: "90-Day Optimisation Sprint",
     featured: true,
     blurb:
-      "Twelve focused weeks with 8 to 12 tests in market, and you see a revenue uplift by the end of the sprint or you don’t pay. The fastest way to prove the loop works on your site.",
+      "Twelve focused weeks with 8 to 12 tests in market, and you see a revenue uplift by the end of the sprint, or we refund the final 50% of the sprint fee. The fastest way to prove the loop works on your site.",
     inclusions: [
       "Weeks 1-2 deep-dive research",
       "8-12 experiments in market",
@@ -100,8 +100,8 @@ export default function HowWeWorkPage() {
                 The same four-stage method runs on every engagement, in the
                 same order, month after month. Here is the loop and exactly
                 what you get out of it, with the guarantee sitting underneath
-                every engagement: you see a revenue uplift, or you don&apos;t
-                pay.
+                every 90-day sprint: you see a revenue uplift by the end, or
+                we refund the final 50% of the sprint fee.
               </p>
             </Reveal>
           </div>
@@ -120,9 +120,9 @@ export default function HowWeWorkPage() {
                 Most clients start with an audit or a sprint, and once the
                 loop is running and winning, they roll into the ongoing
                 program. Pricing starts at $5,000 per month and scales
-                with scope, confirmed on the intro call, and every engagement
-                carries the same guarantee: you see a revenue uplift, or you
-                don&apos;t pay.
+                with scope, confirmed on the intro call, and every 90-day sprint
+                carries the same guarantee: you see a revenue uplift by the
+                end, or we refund the final 50% of the sprint fee.
               </p>
             </Reveal>
 

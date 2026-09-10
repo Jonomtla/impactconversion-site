@@ -56,9 +56,9 @@ export default function ForD2CPage() {
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
                 We run research-led CRO for Shopify brands,
                 turning the traffic you&rsquo;re already paying for into
-                revenue with tests that hold up in the P&amp;L. Every
-                engagement runs the same promise. Revenue uplift, or you
-                don&rsquo;t pay.
+                revenue with tests that hold up in the P&amp;L. Every 90-day
+                sprint carries the same guarantee. Revenue uplift by the end,
+                or we refund the final 50% of the sprint fee.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link

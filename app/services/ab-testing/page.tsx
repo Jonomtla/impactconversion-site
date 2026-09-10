@@ -109,7 +109,7 @@ export default function ABTestingPage() {
         <section className="relative overflow-hidden bg-ink text-cream pt-32 pb-16 md:pt-40 md:pb-20">
           <WavyLines />
           <div className="relative mx-auto max-w-4xl px-6">
-            <Breadcrumbs items={[{ label: "Services" }, { label: "A/B testing" }]} />
+            <Breadcrumbs items={[{ label: "Services", href: "/services" }, { label: "A/B testing" }]} />
             <Reveal>
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-purple-2">
                 Services · A/B testing agency

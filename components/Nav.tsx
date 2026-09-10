@@ -14,7 +14,8 @@ const links = [
   { href: "/contact", label: "Contact" },
 ];
 
-export default function Nav() {
+export default function Nav({ variant = "dark" }: { variant?: "dark" | "light" } = {}) {
+  const light = variant === "light";
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
@@ -39,7 +40,9 @@ export default function Nav() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled || open
-          ? "border-b border-cream/10 bg-ink/80 backdrop-blur-xl"
+          ? light
+            ? "border-b border-ink/10 bg-cream-2/80 backdrop-blur-xl"
+            : "border-b border-cream/10 bg-ink/80 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
       }`}
     >
@@ -54,11 +57,11 @@ export default function Nav() {
             alt="Impact Conversion"
             width={150}
             height={36}
-            className="h-7 w-auto brightness-0 invert"
+            className={light ? "h-7 w-auto" : "h-7 w-auto brightness-0 invert"}
             priority
           />
         </Link>
-        <nav aria-label="Primary" className="hidden items-center gap-1 text-sm text-text-inv-muted md:flex">
+        <nav aria-label="Primary" className={`hidden items-center gap-1 text-sm md:flex ${light ? "text-ink/60" : "text-text-inv-muted"}`}>
           {links.map((l) => {
             const active = isActive(l.href);
             return (
@@ -67,8 +70,8 @@ export default function Nav() {
                 href={l.href}
                 className={`relative rounded-full px-4 py-1.5 transition-colors ${
                   active
-                    ? "text-cream"
-                    : "hover:text-cream hover:bg-cream/5"
+                    ? light ? "text-ink" : "text-cream"
+                    : light ? "hover:text-ink hover:bg-ink/5" : "hover:text-cream hover:bg-cream/5"
                 }`}
               >
                 {l.label}
@@ -109,7 +112,7 @@ export default function Nav() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-cream transition-colors hover:bg-cream/10 md:hidden"
+            className={`inline-flex h-10 w-10 items-center justify-center rounded-lg transition-colors md:hidden ${light ? "text-ink hover:bg-ink/10" : "text-cream hover:bg-cream/10"}`}
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
               {open ? (
@@ -126,7 +129,7 @@ export default function Nav() {
       <nav
         id="mobile-menu"
         aria-label="Mobile"
-        className={`md:hidden overflow-hidden border-t border-cream/10 transition-[max-height,opacity] duration-300 ${
+        className={`md:hidden overflow-hidden border-t ${light ? "border-ink/10" : "border-cream/10"} transition-[max-height,opacity] duration-300 ${
           open ? "max-h-[28rem] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
@@ -138,8 +141,8 @@ export default function Nav() {
                 tabIndex={open ? 0 : -1}
                 className={`block rounded-lg px-3 py-3 text-base transition-colors ${
                   isActive(l.href)
-                    ? "bg-cream/5 text-cream"
-                    : "text-text-inv-muted hover:bg-cream/5 hover:text-cream"
+                    ? light ? "bg-ink/5 text-ink" : "bg-cream/5 text-cream"
+                    : light ? "text-ink/60 hover:bg-ink/5 hover:text-ink" : "text-text-inv-muted hover:bg-cream/5 hover:text-cream"
                 }`}
               >
                 {l.label}

@@ -28,7 +28,7 @@ const expect = [
   {
     n: "03",
     h: "We’re straight about fit",
-    p: "If the traffic is not there or the budget is not aligned, we tell you, and if it lines up we send a proposal with the guarantee built in: you see a revenue uplift, or you don’t pay.",
+    p: "If the traffic is not there or the budget is not aligned, we tell you, and if it lines up we send a proposal with the guarantee built in: you see a revenue uplift by the end of the 90-day sprint, or we refund the final 50% of the sprint fee.",
   },
 ];
 

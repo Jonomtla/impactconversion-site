@@ -3,18 +3,22 @@ import Link from "next/link";
 type Props = {
   /** Light mode sits on cream/white pages; dark mode sits on ink/dark sections. */
   tone?: "light" | "dark";
+  /** Where the CTA points. Pages with an on-page booking embed pass "#book". */
+  ctaHref?: string;
 };
 
 /**
- * The "Revenue uplift, or you don't pay" guarantee block.
+ * The guarantee block: revenue uplift by the end of the 90-day sprint, or we
+ * refund the final 50% of the sprint fee.
  *
  * Use it near case studies, on /how-we-work, and anywhere trust friction is
  * high (ICP pages, final CTAs). The headline copy should not be reworded
  * without updating the inline mentions elsewhere so the promise stays
- * consistent across the site.
+ * consistent across the site, and it must always match the terms on /guarantee.
  */
 export default function GuaranteeBlock({
   tone = "light",
+  ctaHref = "/contact#book",
 }: Props) {
   const isDark = tone === "dark";
 
@@ -48,9 +52,9 @@ export default function GuaranteeBlock({
                 <br />
                 uplift
                 <br />
-                or you
+                or 50%
                 <br />
-                don&apos;t pay
+                back
               </span>
             </div>
 
@@ -62,7 +66,7 @@ export default function GuaranteeBlock({
                   isDark ? "text-cream" : "text-text"
                 }`}
               >
-                You see a revenue uplift, or you don&apos;t pay.
+                You see a revenue uplift, or half the sprint fee comes back.
               </h2>
               <p
                 className={`mt-4 max-w-2xl text-base leading-relaxed md:text-lg ${
@@ -71,17 +75,17 @@ export default function GuaranteeBlock({
               >
                 That is the deal on every 90-day sprint we run. If the program
                 does not produce a measurable revenue uplift by the end of the
-                quarter, we refund the final 50% of the sprint fee.
+                quarter, we refund the final 50% of the 90-day fee.
               </p>
             </div>
 
             {/* CTA */}
-            <div className="flex-shrink-0">
+            <div className="flex flex-shrink-0 flex-col items-start gap-3 md:items-center">
               <Link
-                href="/guarantee"
+                href={ctaHref}
                 className="inline-flex items-center gap-2 rounded-xl bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-2"
               >
-                See the terms
+                Get in touch
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M5 12h14M13 5l7 7-7 7"
@@ -91,6 +95,14 @@ export default function GuaranteeBlock({
                     strokeLinejoin="round"
                   />
                 </svg>
+              </Link>
+              <Link
+                href="/guarantee"
+                className={`text-sm font-medium underline underline-offset-4 ${
+                  isDark ? "text-text-inv-muted hover:text-cream" : "text-text-muted hover:text-text"
+                }`}
+              >
+                See the terms
               </Link>
             </div>
           </div>

@@ -1,20 +1,20 @@
 import { Suspense } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import WavyLines from "@/components/WavyLines";
 import Reveal from "@/components/motion/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import Calculator from "@/components/tools/rpv-calculator/Calculator";
+import RpvTool from "@/components/tools/rpv-calculator/RpvTool";
 
 export const metadata = {
   title: { absolute: "Revenue Per Visitor (RPV) Calculator · Impact Conversion" },
   description:
-    "Free revenue per visitor (RPV) calculator. Model the incremental revenue and profit a CRO program could unlock, with a 12-month forecast and break-even analysis.",
+    "Free RPV calculator: divide revenue by sessions to get your revenue per visitor, compare it against Shopify benchmarks, break it down by landing page (GA4 CSV import), and forecast what lifting it is worth.",
   alternates: { canonical: "/tools/rpv-calculator" },
   keywords: [
     "revenue per visitor calculator",
     "rpv calculator",
     "revenue per session calculator",
+    "revenue per visitor benchmark",
     "cro revenue calculator",
     "ecommerce revenue forecast calculator",
   ],
@@ -23,7 +23,15 @@ export const metadata = {
 const faqs = [
   {
     q: "What is revenue per visitor (RPV)?",
-    a: "Total revenue divided by total sessions. It folds conversion rate and average order value into one number, so it tracks profitability better than conversion rate on its own.",
+    a: "Total revenue divided by total sessions over the same period. It folds conversion rate and average order value into one number, so it tracks profitability better than conversion rate on its own.",
+  },
+  {
+    q: "How do I calculate revenue per visitor?",
+    a: "Divide revenue by sessions for the same period. If your store did $420,000 last month across 350,000 sessions, your RPV is $1.20. Both numbers come straight from GA4 or Shopify analytics.",
+  },
+  {
+    q: "What is a good revenue per visitor?",
+    a: "The Shopify average works out to roughly $1.19 per session, derived from Littledata's benchmarks of 2,800 stores (1.4% average conversion rate multiplied by an $85 average order value). A good RPV depends heavily on your AOV: a $300-AOV store should sit far above that line, and a $30-AOV store may be healthy below it. Trend against your own baseline first, benchmarks second.",
   },
   {
     q: "Why optimise for RPV instead of conversion rate?",
@@ -31,7 +39,7 @@ const faqs = [
   },
   {
     q: "How do I increase revenue per visitor?",
-    a: "Lift conversion rate, average order value, or both, through research-led testing on pricing, merchandising, and the path to purchase. This calculator forecasts the revenue impact of a given RPV lift across 12 months.",
+    a: "Lift conversion rate, average order value, or both, through research-led testing on pricing, merchandising, and the path to purchase. The forecaster on this page models the revenue impact of a given RPV lift across 12 months.",
   },
   {
     q: "How is the 12-month forecast calculated?",
@@ -56,7 +64,7 @@ const softwareSchema = {
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   description:
-    "Model the incremental revenue and profit a CRO program could unlock by lifting your revenue per visitor. 12-month forecast with break-even analysis.",
+    "Calculate revenue per visitor from sessions and revenue, compare against Shopify benchmarks, analyse RPV by landing page with GA4 CSV import, and forecast the revenue impact of lifting it.",
   offers: {
     "@type": "Offer",
     price: "0",
@@ -82,8 +90,11 @@ export default function RpvCalculatorPage() {
       />
       <Nav />
       <main id="main">
-        <section className="relative overflow-hidden bg-ink text-cream pt-32 pb-12 md:pt-40 md:pb-16">
-          <WavyLines />
+        <section className="relative isolate overflow-hidden bg-ink text-cream pt-32 pb-12 md:pt-40 md:pb-16">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+            <div className="absolute -right-24 -top-48 h-[560px] w-[640px] rounded-full bg-[radial-gradient(ellipse,rgba(106,72,215,0.38)_0%,rgba(106,72,215,0.12)_40%,transparent_70%)] blur-3xl" />
+            <div className="absolute -bottom-64 left-[15%] h-[440px] w-[600px] rounded-full bg-[radial-gradient(ellipse,rgba(139,112,233,0.24)_0%,transparent_70%)] blur-3xl" />
+          </div>
           <div className="relative mx-auto max-w-4xl px-6">
             <Breadcrumbs
               items={[
@@ -99,25 +110,24 @@ export default function RpvCalculatorPage() {
                 Revenue Per Visitor Calculator
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-text-inv-muted">
-                See how much revenue you could unlock by lifting your revenue per
-                visitor, the metric that actually tracks profitability, not just
-                conversion rate.
+                Start with your overall RPV, then compare landing pages to find where
+                improvements could make the biggest difference.
               </p>
             </Reveal>
           </div>
         </section>
 
-        <section className="bg-cream py-12 md:py-16">
+        <section className="bg-white border-t border-ink/10 pt-8 pb-12 md:pt-10 md:pb-16">
           <div className="mx-auto max-w-7xl px-4 md:px-6">
             <Suspense fallback={<div className="text-center text-text-muted py-20">Loading calculator…</div>}>
-              <Calculator />
+              <RpvTool />
             </Suspense>
           </div>
         </section>
 
-        <section className="bg-cream pb-20 md:pb-28">
+        <section className="bg-[#f5f6f8] border-t border-ink/5 py-12 md:py-16">
           <div className="mx-auto max-w-3xl px-6">
-            <div className="rounded-2xl border border-ink/10 bg-white p-8">
+            <div className="py-2">
               <h2 className="text-xl font-semibold text-text">
                 Why revenue per visitor, not conversion rate?
               </h2>
@@ -129,7 +139,7 @@ export default function RpvCalculatorPage() {
                 metrics into one number.
               </p>
               <p className="mt-4 text-text-muted">
-                This is the forecasting model we use inside{" "}
+                The forecaster above is the model we use inside{" "}
                 <a href="/services/conversion-rate-optimisation" className="font-medium text-purple underline-offset-2 hover:underline">client engagements</a>{" "}
                 to pressure-test whether a CRO program can pay for itself.
                 Running a live test? Use the{" "}
@@ -140,7 +150,7 @@ export default function RpvCalculatorPage() {
           </div>
         </section>
 
-        <section className="bg-cream pb-20 md:pb-28">
+        <section className="bg-[#f5f6f8] border-t border-ink/5 py-12 md:py-16">
           <div className="mx-auto max-w-3xl px-6">
             <h2 className="text-2xl font-black tracking-tight text-text">
               Revenue per visitor calculator FAQ
@@ -148,7 +158,7 @@ export default function RpvCalculatorPage() {
             <dl className="mt-8 space-y-4">
               {faqs.map((f) => (
                 <Reveal key={f.q}>
-                  <div className="rounded-2xl border border-ink/10 bg-white p-6">
+                  <div className="border-b border-ink/10 py-5">
                     <dt className="text-lg font-semibold text-text">{f.q}</dt>
                     <dd className="mt-2 text-text-muted">{f.a}</dd>
                   </div>

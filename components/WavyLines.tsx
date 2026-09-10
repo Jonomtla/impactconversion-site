@@ -18,7 +18,7 @@ export default function WavyLines() {
 
     lines.push({
       d: `M${pinchX},${pinchY} C${cp1X.toFixed(1)},${cp1Y.toFixed(1)} ${cp2X.toFixed(1)},${cp2Y.toFixed(1)} ${endX.toFixed(1)},${endY.toFixed(1)}`,
-      opacity: 0.14 + (i % 5) * 0.04,
+      opacity: (0.22 + (i % 5) * 0.05) * (1 - t * 0.65),
       width: i % 9 === 0 ? 1 : 0.6,
       delay: (i * 0.35) % 12,
     });
@@ -34,9 +34,9 @@ export default function WavyLines() {
       <defs>
         <linearGradient id="fan-grad" x1="0.2" y1="1" x2="1" y2="0.1">
           <stop offset="0%" stopColor="rgba(124,90,236,0)" />
-          <stop offset="30%" stopColor="rgba(155,140,232,1)" />
-          <stop offset="75%" stopColor="rgba(200,180,255,1)" />
-          <stop offset="100%" stopColor="rgba(255,122,89,0.7)" />
+          <stop offset="30%" stopColor="rgba(124,90,236,0.9)" />
+          <stop offset="75%" stopColor="rgba(176,96,144,0.85)" />
+          <stop offset="100%" stopColor="rgba(240,112,80,0.8)" />
         </linearGradient>
       </defs>
       <g fill="none" strokeLinecap="round">

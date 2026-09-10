@@ -40,19 +40,21 @@ body {
   border-radius: 4px;
 }
 
-/* Emphasis colors (impeccable pass): solid, no gradient-clip text.
+/* Brand signature gradient (see BRANDBOOK.md).
    *-glow / *-flow-light read on dark surfaces; *-purple / *-flow read on light. */
-.text-gradient-purple {
-  color: var(--color-purple);
-}
-.text-gradient-glow {
-  color: var(--color-purple-2);
-}
+.text-gradient-purple,
 .text-gradient-flow {
-  color: var(--color-purple);
+  background-image: linear-gradient(90deg, #7c5aec 0%, #b06090 55%, #f07050 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
+.text-gradient-glow,
 .text-gradient-flow-light {
-  color: var(--color-purple-2);
+  background-image: linear-gradient(90deg, #c9c2f2 0%, #f2b8ad 45%, #f07050 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 /* Hero grid: a soft band of light sweeps diagonally up-and-to-the-right,

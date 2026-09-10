@@ -15,16 +15,18 @@ export default function CaseStudy() {
               Performance Academy.
             </h2>
             <p className="mt-6 text-lg text-text-inv-muted">
-              HPA was scaling ad spend, but the site&apos;s conversion rate
-              would not follow. We embedded a research-led testing program and
-              shipped experiments week after week. Eighteen months in, the same
-              ad spend produces seven figures more revenue.
+              HPA was scaling ad spend, but every time they hit a ceiling. The
+              colder the traffic got, the more unprofitable it became. We came
+              in and found out the reasons why cold traffic wasn&apos;t
+              converting and tested over 100 different solutions. Eighteen
+              months in, the same ad spend produces seven figures more revenue.
             </p>
             <blockquote className="mt-10 border-l-2 border-purple-2 pl-6 text-lg italic text-cream">
               &ldquo;We&apos;ve seen single wins that brought in six figures of
               additional revenue. The ROI is a no-brainer. Beyond the numbers,
-              the testing process has instilled a culture of experimentation
-              that&apos;s removed assumptions from how we make decisions.&rdquo;
+              the testing process has made a culture of experimentation
+              that&apos;s removed assumptions and ego from our marketing
+              team&rdquo;
               <footer className="mt-4 not-italic text-sm text-text-inv-muted">
                 Ben Silcock, Co-founder
               </footer>
@@ -55,7 +57,7 @@ export default function CaseStudy() {
               </StaggerItem>
               <StaggerItem>
                 <Metric label="Tests shipped" sub="Research-led, properly called">
-                  <CountUp to={180} />
+                  <CountUp to={100} suffix="+" />
                 </Metric>
               </StaggerItem>
               <StaggerItem>

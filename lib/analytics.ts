@@ -7,7 +7,51 @@ declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
     dataLayer?: unknown[];
+    fbq?: (...args: unknown[]) => void;
   }
+}
+
+// Meta pixel standard event. No-ops if the pixel has not loaded.
+export function metaEvent(
+  event: string,
+  params: GtagEventParams = {},
+  eventId?: string,
+) {
+  if (typeof window === "undefined") return;
+  if (typeof window.fbq !== "function") return;
+  if (eventId) window.fbq("track", event, params, { eventID: eventId });
+  else window.fbq("track", event, params);
+}
+
+// Fires a Meta conversion twice on purpose: once from the browser pixel and
+// once server-side via CAPI, sharing an event_id so Meta dedupes them. The
+// browser half carries fbc/fbp automatically; the server half survives ad
+// blockers and iOS. Never let a tracking failure surface to the visitor.
+export function metaConversion(
+  event: string,
+  params: GtagEventParams = {},
+  identity: { email?: string; firstName?: string } = {},
+) {
+  const eventId =
+    typeof crypto !== "undefined" && crypto.randomUUID
+      ? crypto.randomUUID()
+      : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  metaEvent(event, params, eventId);
+  if (typeof window === "undefined") return eventId;
+  void fetch("/api/meta-event", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: event,
+      eventId,
+      email: identity.email,
+      firstName: identity.firstName,
+      url: window.location.href,
+      customData: params,
+    }),
+    keepalive: true,
+  }).catch(() => {});
+  return eventId;
 }
 
 export function track(event: string, params: GtagEventParams = {}) {
@@ -16,11 +60,33 @@ export function track(event: string, params: GtagEventParams = {}) {
   window.gtag("event", event, params);
 }
 
+// Google Ads conversion labels. Sent alongside the GA4 event so booked calls
+// are attributable in Ads without relying on a GA4 import.
+const ADS_BOOK_APPOINTMENT = "AW-17540678529/GW84CMC1p5gbEIGHhqxB";
+
+// Fires the Ads conversion. Safe to call more than once for the same booking:
+// the conversion action counts one per click, so Google dedupes.
+export function adsConversion(sendTo: string) {
+  if (typeof window === "undefined") return;
+  if (typeof window.gtag !== "function") return;
+  window.gtag("event", "conversion", { send_to: sendTo });
+}
+
+export const ADS_LABELS = {
+  bookAppointment: ADS_BOOK_APPOINTMENT,
+};
+
 // Pre-defined events — use these so event names stay consistent
 // and don't drift into free-form strings sprinkled through the codebase.
 export const analytics = {
   bookCall: (location: string) => track("book_call_click", { location }),
-  callBooked: (location: string) => track("call_booked", { location }),
+  callBooked: (location: string) => {
+    track("call_booked", { location });
+    adsConversion(ADS_BOOK_APPOINTMENT);
+    // Schedule is Meta's standard event for a booked appointment. This is the
+    // strongest intent signal on the site, so it has to reach the pixel.
+    metaConversion("Schedule", { content_name: "consult-call", location });
+  },
   emailClick: (location: string) => track("email_click", { location }),
   caseStudyOpen: (slug: string) => track("case_study_open", { slug }),
   toolUse: (tool: string, action: string) =>

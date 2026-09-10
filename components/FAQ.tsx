@@ -5,23 +5,23 @@ const faqs = [
   },
   {
     q: "How fast will I see ROI?",
-    a: "Most clients see their first winning test inside twelve weeks, though traffic volume and purchase cycle shift the timing. We go after the biggest, most likely wins first, so the program usually pays for itself well before it ends.",
+    a: "Most clients see their first winning test inside twelve weeks. We usually aim for at least a 10x ROI on our fee in the first year. We go after the biggest, most likely wins first, so the program usually pays for itself well before it ends.",
   },
   {
     q: "What makes you different from other agencies?",
-    a: "We only do CRO, so nobody on our team is quietly trying to sell you a rebrand. Strategy, dev, and design are in-house, so tests ship fast. And we refuse to report on vanity metrics, because every test has to map to revenue or we will not run it.",
+    a: "We only do CRO, so nobody on our team is quietly trying to sell you a rebrand or ads. We don’t have juniors to pass you to after three months. Our services are all run in-house, and inclusive in the retainer.",
   },
   {
     q: "Do we have enough traffic to A/B test?",
-    a: "As a rough rule, $1M+ a year in online revenue, or around 1,000 orders a month, is enough to test fast. If you are not sure, book a call and we will tell you straight.",
+    a: "As a rough rule, $2M+ a year in online revenue, or around 1,000 orders a month, is enough to test. If you are not sure, book a call and we will tell you straight.",
   },
   {
     q: "Can you work alongside our in-house team?",
-    a: "Yes, and most of our clients have one. We share the backlog, run fortnightly calls, and stay available between them, so our wins become your team’s wins. When the engagement ends, you keep the testing culture rather than inheriting a dependency.",
+    a: "Yes, and a lot of our clients have one. We share everything, run fortnightly calls, learnings, education and stay available at all times so our wins become your team’s wins. We can even train your team, help you with the right hire, and plan our own project hand off.",
   },
   {
     q: "Which industries do you work best in?",
-    a: "Direct-to-consumer mostly, though we have also shipped work in online education, SaaS, subscriptions, and tourism.",
+    a: "Direct-to-consumer e-commerce mostly, though we have also shipped work in online education, SaaS, subscriptions, and tourism. The process works in almost any industry and vertical.",
   },
   {
     q: "How do we start?",
