@@ -35,9 +35,8 @@ export async function POST(req: Request) {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return NextResponse.json({ error: "invalid_email" }, { status: 400 });
   }
-  if (isFreemail(email)) {
-    return NextResponse.json({ error: "freemail" }, { status: 400 });
-  }
+  // Recorded, not rejected: see FreeMoneyForm.
+  const freemail = isFreemail(email);
 
   const kitKey = process.env.KIT_API_KEY;
   if (!kitKey) {
@@ -55,7 +54,7 @@ export async function POST(req: Request) {
     body: JSON.stringify({
       email_address: email,
       first_name: name || undefined,
-      fields: { store_revenue: revenue || undefined },
+      fields: { store_revenue: revenue || undefined, freemail: String(freemail) },
     }),
   });
   if (!created.ok) {
@@ -86,6 +85,7 @@ export async function POST(req: Request) {
         content_name: "free-money-playbook",
         store_revenue: revenue || undefined,
         qualified,
+        freemail,
       },
     },
     req,

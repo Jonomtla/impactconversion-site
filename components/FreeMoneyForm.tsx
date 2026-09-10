@@ -20,11 +20,10 @@ export default function FreeMoneyForm({ location }: { location: string }) {
       setError("We need an email to send the guide to.");
       return;
     }
-    if (isFreemail(String(data.email))) {
-      track("lead_freemail_blocked", { location });
-      setError("Use your work email so we know which brand this is for.");
-      return;
-    }
+    // Freemail used to be a hard block. On a cold account it rejected more
+    // people than it let through, so it is now recorded, not refused.
+    const freemail = isFreemail(String(data.email));
+    if (freemail) track("lead_freemail", { location });
     setSubmitting(true);
     // Shared with the server-side Conversions API call so Meta dedupes the pair.
     const eventId = crypto.randomUUID();
@@ -35,24 +34,19 @@ export default function FreeMoneyForm({ location }: { location: string }) {
         body: JSON.stringify({ ...data, source: location, eventId, url: window.location.href }),
       });
       if (res.status === 400) {
-        const { error: code } = (await res.json().catch(() => ({}))) as { error?: string };
-        setError(
-          code === "freemail"
-            ? "Use your work email so we know which brand this is for."
-            : "That email address doesn't look right. Check it and try again.",
-        );
+        setError("That email address doesn't look right. Check it and try again.");
         setSubmitting(false);
         return;
       }
       if (!res.ok) throw new Error("bad_status");
       const revenue = String(data.revenue ?? "");
       const qualified = isQualified(revenue);
-      track("lead_submit", { location, qualified });
+      track("lead_submit", { location, qualified, freemail });
       // Always Lead. Splitting the event name starved the ad set's optimisation
       // signal; revenue rides along as custom data so reporting can still split.
       metaEvent(
         "Lead",
-        { content_name: "free-money-playbook", store_revenue: revenue, qualified },
+        { content_name: "free-money-playbook", store_revenue: revenue, qualified, freemail },
         eventId,
       );
       router.push("/thank-you-7ck");
@@ -79,7 +73,7 @@ export default function FreeMoneyForm({ location }: { location: string }) {
       <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
       <div className="mt-5 grid gap-4">
         <label className="grid gap-1.5 text-sm font-medium text-text">
-          Work email
+          Email
           <input name="email" type="email" required autoComplete="email" className={input} />
         </label>
         <label className="grid gap-1.5 text-sm font-medium text-text">
