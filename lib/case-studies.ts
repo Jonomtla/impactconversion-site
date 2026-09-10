@@ -330,22 +330,18 @@ export const caseStudies: CaseStudy[] = [
     duration: "Ongoing CRO program",
     tagline:
       "27 tests, one insight, and the premium rack went from the worst page on the site to the majority of sales.",
-    headline: "Revenue per visitor up 26.6% across the whole site, in six months.",
+    headline: "How Steadyrack’s revenue per visitor rose 26.6% sitewide in six months.",
     summary:
       "$660k a year in added revenue, six months in, a 10x return on our fee. Steadyrack sells wall-mounted vertical bike racks across the world from Perth. They came to us with rising ad costs, customers getting confused when purchasing their premium product, and no testing in place. The premium rack was the worst page on the site. Now it outsells everything else.",
     heroStats: [
-      { v: "+26.6%", l: "Sitewide revenue per visitor", sub: "Every session, including pages we never touched" },
-      { v: "+74.5%", l: "ProFlex revenue per visitor", sub: "Year on year" },
-      {
-        v: "10x",
-        l: "Return on investment",
-        sub: "Conservatively, before taking into account all markets",
-      },
+      { v: "+26.6%", l: "Sitewide revenue per visitor", sub: "Same traffic, six months in" },
+      { v: "10x", l: "Return on fees", sub: "Conservatively, before all markets" },
+      { v: "41%", l: "Test win rate", sub: "11 wins from 27 completed tests" },
     ],
     stats: [
       { v: "+26.6%", l: "Sitewide revenue per visitor" },
-      { v: "+74.5%", l: "ProFlex revenue per visitor" },
-      { v: "53.8%", l: "ProFlex share of units" },
+      { v: "10x", l: "Return on fees" },
+      { v: "41%", l: "Test win rate" },
     ],
     chapters: [
       {
