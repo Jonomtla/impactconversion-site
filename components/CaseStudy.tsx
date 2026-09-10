@@ -19,8 +19,9 @@ export default function CaseStudy() {
               Ad costs were over budget, and their premium rack was the
               worst-earning page on the site. Research found buyers could not
               tell which rack fitted their bike. Twenty-seven tests later, the
-              premium rack is the majority of sales and revenue per visitor on
-              its page is up 74.5 percent, on the same traffic.
+              premium rack is the majority of sales, revenue per visitor on its
+              page is up 74.5 percent, and the program is pacing at $660k a
+              year in added revenue, a 10x return on fees.
             </p>
             <Link
               href="/case-studies/steadyrack"
