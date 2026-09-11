@@ -439,7 +439,7 @@ export const caseStudies: CaseStudy[] = [
           "We do not annualise every winning test and call it a day. Each winner is weighted by that page&rsquo;s share of site orders, annualised, then corrected for seasonality and for results that got statistically lucky, using the standard winner&rsquo;s-curse correction.",
           "That correction is not cosmetic. The uncorrected platform total is roughly three times larger than the number we actually quote. We quote the corrected one.",
           "On that basis, the wins shipped in the first six months are worth a little over 10 percent of Steadyrack&rsquo;s annual North American revenue. That is a forward run rate rather than money already banked. The wins went live one at a time between late April and August, so only a part of that value fell inside the first six months, and the rest accrues over the next twelve as they keep running. The wins have since been hardcoded across all three stores.",
-          "One more read that does not depend on any of that modelling. In Steadyrack&rsquo;s own checkout data, completion rose from 46.3 percent to 50.1 percent across the same window. That stage was already above benchmark before we started, and it still moved.",
+          "One more read that does not depend on any of that modelling. In Steadyrack&rsquo;s own checkout data, filtered to real human sessions by Shopify itself, checkout completion rose from 49.0 percent to 52.3 percent across the same window. That stage was already above benchmark before we started, and it still moved.",
         ],
       },
       {
@@ -549,7 +549,7 @@ export const caseStudies: CaseStudy[] = [
       "Premium rack units up 19.6% and its revenue up 26.2%, on flat total rack volume.",
       "Premium rack share of the range up from 44.4% to 53.8% of units, and 50.6% to 60.4% of revenue.",
       "On the like-for-like cut that strips out the range and media changes, 43.9% to 48.0%, and every month after the first win above every month before it.",
-      "Checkout completion up from 46.3% to 50.1% in their own checkout data.",
+      "Checkout completion up from 49.0% to 52.3% in their own bot-filtered Shopify data.",
       "A documented learnings library where every loss became a rule the next test obeys.",
       "Shipped wins worth a little over 10% of annual North American revenue as a forward run rate, after a winner's-curse correction.",
     ],

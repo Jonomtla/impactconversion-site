@@ -9,8 +9,8 @@ const BASELINE_RPV = [
 ];
 
 const FUNNEL = [
-  { stage: "Landing to product view", before: 49.5, bm: 70 },
-  { stage: "Product view to add to cart", before: 8.6, bm: 12 },
+  { stage: "Landing to product view", before: 49.8, bm: 70 },
+  { stage: "Product view to add to cart", before: 7.2, bm: 12 },
   { stage: "Add to cart to checkout", before: 80.8, bm: 60 },
   { stage: "Checkout completion", before: 49.0, bm: 60 },
 ];
@@ -220,9 +220,10 @@ function Funnel() {
         </table>
       </div>
       <Caption>
-        North America, 24 Apr to 11 Aug 2025, the window before the program started. Landing
-        and product stages from GA4; cart and checkout from Shopify. Product view to
-        add-to-cart is the money step, and it was the furthest from benchmark.
+        North America, US and Canada, 24 Apr to 11 Aug 2025, the window before the program
+        started, mid-June sale excluded. Landing and product stages from GA4; cart and
+        checkout from Steadyrack&rsquo;s Shopify sessions with its bot classification applied.
+        Product view to add-to-cart is the money step, and it was the furthest from benchmark.
       </Caption>
     </figure>
   );
