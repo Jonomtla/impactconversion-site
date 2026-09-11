@@ -329,19 +329,20 @@ export const caseStudies: CaseStudy[] = [
     industry: "D2C e-commerce",
     duration: "Ongoing CRO program",
     tagline:
-      "27 tests, one insight, and the premium rack went from the worst page on the site to the majority of sales.",
-    headline: "How Steadyrack’s revenue per visitor rose 26.6% sitewide in six months.",
+      "27 tests, one insight, and the premium rack started taking share from the rack it competes with.",
+    headline:
+      "Buyers could not tell which rack fitted their bike. Fixing that won on five pages out of five.",
     summary:
-      "$660k a year in added revenue, six months in, a 10x return on our fee. Steadyrack sells wall-mounted vertical bike racks across the world from Perth. They came to us with rising ad costs, customers getting confused when purchasing their premium product, and no testing in place. The premium rack was the worst page on the site. Now it outsells everything else.",
+      "Steadyrack sells wall-mounted vertical bike racks across the world from Perth. They came to us with rising acquisition costs, customers getting confused when buying the premium product, and no structured way to test. Six months in: 11 wins from 27 completed tests, and one finding that won on every surface we applied it to.",
     heroStats: [
-      { v: "+26.6%", l: "Sitewide revenue per visitor", sub: "Same traffic, six months in" },
-      { v: "10x", l: "Return on fees", sub: "Conservatively, before all markets" },
+      { v: "+28%", l: "Premium rack orders", sub: "Collection page test, 98% confidence" },
       { v: "41%", l: "Test win rate", sub: "11 wins from 27 completed tests" },
+      { v: "5 of 5", l: "Surfaces where the same fix won", sub: "Collection, product page, filters, cart, homepage" },
     ],
     stats: [
-      { v: "+26.6%", l: "Sitewide revenue per visitor" },
-      { v: "10x", l: "Return on fees" },
+      { v: "+28%", l: "Premium rack orders" },
       { v: "41%", l: "Test win rate" },
+      { v: "5 of 5", l: "Surfaces where the fix won" },
     ],
     chapters: [
       {
@@ -373,9 +374,9 @@ export const caseStudies: CaseStudy[] = [
         heading: "People shop by what’s in their garage",
         body: [
           "The ProFlex range came in three variants named Narrow, Wide and Fat. Those are brand names that describe the rack, not the bike. To find out which one fitted their bike, a buyer had to click through to a separate page, which only about 5% of users did.",
-          "Everything that followed put the answer in the buyer&rsquo;s own language, in the path, without asking them to do anything: which bike you ride, which rack you need. We tested that idea on the product page, the collection page, the cart drawer and the homepage, and it won every single time.",
-          "Splitting ProFlex into three bike-type products on the collection page observed a 28 percent increase in ProFlex orders. A &ldquo;best suited for&rdquo; line above the variant selector observed a 24 percent lift in ProFlex conversion. Bike-type filter buttons on the collection page observed 8 percent conversion and 10 percent revenue per visitor. Repeating the same line in the cart drawer observed an 8.7 percent lift. Splitting the racks out in the homepage best sellers observed 9.6 percent.",
-          "A comparison table putting the two ranges side by side answered the same question one step earlier. Measured on the visitors who actually saw it, we observed add-to-cart up 24 percent at 98 percent confidence.",
+          "Everything that followed put the answer in the buyer&rsquo;s own language, in the path, without asking them to do anything: which bike you ride, which rack you need. We tested that idea on the collection page, the product page, the filters, the cart drawer and the homepage. It won all five times.",
+          "Splitting ProFlex into three bike-type products on the collection page lifted ProFlex orders 28 percent. A &ldquo;best suited for&rdquo; line above the variant selector lifted ProFlex conversion 24 percent. Bike-type filter buttons lifted conversion 8 percent and revenue per visitor 10 percent. Repeating the same line in the cart drawer lifted conversion 8.7 percent. Splitting the racks out in the homepage best sellers lifted it 9.6 percent.",
+          "Five surfaces, five wins, one idea. A single test can get lucky. Five in a row on the same mechanism is the finding.",
         ],
         figure: {
           src: "/assets/case-studies/steadyrack/tests/sr009.jpg",
@@ -390,17 +391,17 @@ export const caseStudies: CaseStudy[] = [
         heading: "What turned out not to be a lever",
         body: [
           "Detail overwhelmed the customer. People exited buying mode, and went into analysis mode. A modal that asked buyers to measure their tyre lost, and lost badly. Have the detail available for anyone who goes looking, but keep it off the page where the decision happens.",
-          "Trust surprisingly turned out not to be a lever here. Steadyrack has sold 1.2 million racks and the brand carries that weight already. Repeated attempts to add trust signals did nothing, and sometimes did worse than nothing.",
+          "Trust surprisingly turned out not to be a lever here. Steadyrack has sold over 1 million racks worldwide and the brand carries that weight already. Repeated attempts to add trust signals did nothing, and sometimes did worse than nothing.",
+          "Shipping was not a lever either. Three separate tests on thresholds and framing all came back flat. Neither was the navigation: two restructures lost, and only about 4 percent of visitors touch the nav at all.",
           "Eleven wins from 27 completed tests is a 41 percent win rate. Published benchmarks put advanced practitioners around 33 percent and a healthy program in the 20 to 30 percent band.",
         ],
       },
       {
-        heading: "The product mix.",
+        heading: "What changed in what people bought",
         body: [
-          "ProFlex&rsquo;s share of rack units went from 44.4 percent to 53.8 percent product share year on year, and its share of rack revenue from 50.6 percent to 60.4 percent.",
-          "It has held for four months, since the first win shipped.",
-          "The page moved with it. ProFlex revenue per visitor is up 74.5 percent and conversion up 48.7 percent. View-to-purchase is up 62 percent on flat views. Same eyeballs, 62 percent more buying.",
-          "Sitewide, across every session including pages we never touched, conversion is up 12.4 percent and revenue per visitor up 26.6 percent. On the funnel, the two steps the program set out to fix both moved: product view to add-to-cart up 16 percent, checkout completion up 6.7 percent. Both are still under benchmark, which is the focus of the next 6 months.",
+          "The clean way to read a mix shift is to compare two products that were both on sale for the whole period and were not touched by anything else. ProFlex Wide against Classic MTB is that comparison.",
+          "ProFlex Wide went from 42.7 percent of those two racks to 47.4 percent. Wide units rose 16 percent while Classic MTB fell 4 percent, and total rack volume was flat. Buyers were not buying more racks. They were choosing the premium one more often, which is exactly what the tests were designed to do.",
+          "Steadyrack&rsquo;s own team was straight with us about what else moved in the same window: two Classic models were phased out, and the ad creative shifted heavily toward ProFlex. Both would push the headline mix number up on their own. That is why the figure above compares only the two racks neither of those things touched.",
         ],
         visual: "sr-mix",
         figure: {
@@ -409,23 +410,23 @@ export const caseStudies: CaseStudy[] = [
           width: 1800,
           height: 1012,
           caption:
-            "ProFlex, the premium rack. It was the page buyers hesitated on, and it is now the majority of what they buy.",
+            "ProFlex, the premium rack. It was the page buyers hesitated on, and it is steadily becoming the one they choose.",
         },
       },
       {
-        heading: "The overall result: revenue and profit",
+        heading: "The number we will not quote",
         body: [
-          "For our projections, we don&rsquo;t just annualise every test win and call it a day. If we did that it would sit at $1.5M uplift in six months.",
-          "Every winning test is weighted by that page&rsquo;s share of site orders, annualised, then corrected for seasonality and for statistically lucky results. The overall uplift in six months was $470k, North America only.",
-          "Six months in, the program is pacing at $660k a year across the three markets, and at $470k in North America on its own. That is a 10x return on fees, conservatively.",
+          "Most case studies would put a sitewide conversion lift at the top of this page. We are not going to, and the reason is worth more than the number would have been.",
+          "Steadyrack&rsquo;s analytics captured 70 percent of their orders in one of the two years we were comparing and 97 percent in the other. Nothing about the business changed. The tracking got better. Any year-on-year rate built on top of that is measuring the tracking, not the work, and it would have flattered us by a wide margin.",
+          "Their marketing manager caught it, we checked it, and it came out of this page. A/B tests do not have that problem: both versions run at the same time, on the same tracking, so whatever the analytics miss, they miss equally. That is why every number above comes from a test rather than a year-on-year comparison.",
         ],
-        visual: "sr-funnel",
       },
       {
-        heading: "The same wins, different soil",
+        heading: "The overall result",
         body: [
-          "The North American wins were hardcoded onto the Australian and European stores at the same time. Those are smaller markets, so we rolled out the proven wins and measured.",
-          "Europe was the stand out: revenue per visitor up 23 percent on barely more traffic, add-to-cart up 34 percent, average order value up 15 percent, and ProFlex share of rack units up from 40.8 percent to 55.9 percent.",
+          "We do not annualise every winning test and call it a day. Each winner is weighted by that page&rsquo;s share of site orders, annualised, then corrected for seasonality and for results that got statistically lucky, using the standard winner&rsquo;s-curse correction.",
+          "That correction is not cosmetic. The uncorrected platform total is roughly three times larger than the number we actually quote. We quote the corrected one.",
+          "On that basis the program returns around eight to nine times its fee in the first year, on North America alone, six months in. The wins have since been hardcoded across all three stores.",
         ],
       },
       {
@@ -528,15 +529,13 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     wins: [
-      "ProFlex share of rack units 44.4% to 53.8%, and share of rack revenue 50.6% to 60.4%, held for four months.",
-      "ProFlex revenue per visitor up 74.5%, conversion up 48.7% year on year.",
-      "Sitewide conversion up 12.4% and revenue per visitor up 26.6%, including pages the program never touched.",
-      "Collection page bike-type split observed +28% ProFlex orders.",
-      '"Best suited for" labelling observed +24% ProFlex conversion.',
-      "ProFlex vs Classic comparison table observed +24% add-to-cart at 98% confidence among visitors who saw it.",
+      "The same fix tested on five separate surfaces and won all five times.",
+      "Collection page bike-type split lifted premium-rack orders 28% at 98% confidence.",
+      '"Best suited for" labelling lifted premium-rack conversion 24%.',
       "41% win rate across 27 completed tests, against a 20-30% healthy-program benchmark.",
-      "$470k annualised run rate in North America after correcting the platform figure down from $1.5M, roughly 10x on fees.",
-      "Europe: revenue per visitor +23%, add-to-cart +34%, order value +15% on the transferred wins alone.",
+      "Premium rack took share from the rack it competes with, 42.7% to 47.4%, on flat total volume.",
+      "A documented learnings library where every loss became a rule the next test obeys.",
+      "Around 8 to 9 times the fee returned in year one on North America alone, after a winner's-curse correction.",
     ],
     heroImage: "/assets/case-studies/steadyrack-hero.jpg",
     heroImageAlt:

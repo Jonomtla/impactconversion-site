@@ -9,10 +9,10 @@ const BASELINE_RPV = [
 ];
 
 const FUNNEL = [
-  { stage: "Landing to product view", before: 49.5, after: 40.5, bm: 70 },
-  { stage: "Product view to add to cart", before: 8.6, after: 10.0, bm: 12 },
-  { stage: "Add to cart to checkout", before: 80.8, after: 84.0, bm: 60 },
-  { stage: "Checkout completion", before: 49.0, after: 52.3, bm: 60 },
+  { stage: "Landing to product view", before: 49.5, bm: 70 },
+  { stage: "Product view to add to cart", before: 8.6, bm: 12 },
+  { stage: "Add to cart to checkout", before: 80.8, bm: 60 },
+  { stage: "Checkout completion", before: 49.0, bm: 60 },
 ];
 
 function Caption({ children }: { children: React.ReactNode }) {
@@ -178,37 +178,41 @@ function Funnel() {
   return (
     <figure className="my-10 rounded-2xl border border-text/10 bg-cream-2/60 p-6 md:p-8">
       <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-purple">
-        Before and after
+        Before the program
       </p>
       <h3 className="mt-2 text-xl font-semibold tracking-tight text-text">
-        The funnel against benchmarks
+        Where the funnel sat against benchmark
       </h3>
       <div className="mt-6 overflow-x-auto">
         <table className="w-full min-w-[30rem] border-collapse text-sm">
           <thead>
             <tr className="border-b border-text/15 text-left">
               <th className="py-2 pr-4 font-semibold text-text">Stage</th>
-              <th className="py-2 pr-4 text-right font-semibold text-text">Change, 2025 to 2026</th>
-              <th className="py-2 text-right font-semibold text-text-muted">Against benchmark</th>
+              <th className="py-2 pr-4 text-right font-semibold text-text">Steadyrack</th>
+              <th className="py-2 pr-4 text-right font-semibold text-text-muted">Benchmark</th>
+              <th className="py-2 text-right font-semibold text-text-muted">Gap</th>
             </tr>
           </thead>
           <tbody>
             {FUNNEL.map((r) => {
-              const moved = r.after > r.before;
-              const change = ((r.after - r.before) / r.before) * 100;
-              const status = r.after >= r.bm ? "Above" : "Still below";
+              const short = r.before < r.bm;
+              const gap = r.before - r.bm;
               return (
                 <tr key={r.stage} className="border-b border-text/10">
                   <td className="py-3 pr-4 text-text-muted">{r.stage}</td>
                   <td
                     className={`py-3 pr-4 text-right font-semibold tabular-nums ${
-                      moved ? "text-purple" : "text-text-muted"
+                      short ? "text-accent-warm" : "text-text"
                     }`}
                   >
-                    {change > 0 ? "+" : ""}
-                    {change.toFixed(1)}%
+                    {r.before.toFixed(1)}%
                   </td>
-                  <td className="py-3 text-right text-text-muted">{status}</td>
+                  <td className="py-3 pr-4 text-right tabular-nums text-text-muted">
+                    {r.bm}%
+                  </td>
+                  <td className="py-3 text-right tabular-nums text-text-muted">
+                    {short ? `${gap.toFixed(1)}pp` : "Above"}
+                  </td>
                 </tr>
               );
             })}
@@ -216,9 +220,9 @@ function Funnel() {
         </table>
       </div>
       <Caption>
-        North America, 24 Apr to 11 Aug each year, US and CA, bots excluded. Landing and
-        product stages from GA4; cart and checkout from Shopify. The two steps the program
-        set out to fix are the two that moved.
+        North America, 24 Apr to 11 Aug 2025, the window before the program started. Landing
+        and product stages from GA4; cart and checkout from Shopify. Product view to
+        add-to-cart is the money step, and it was the furthest from benchmark.
       </Caption>
     </figure>
   );
@@ -229,13 +233,13 @@ function Funnel() {
 const MIX_PURPLE = "#7C5AEC";
 const MIX_GREY = "#A8AEC9";
 const MIX = [
-  { year: "2025", label: "ProFlex share, 2025", v: 44.4 },
-  { year: "2026", label: "ProFlex share, 2026", v: 53.8 },
+  { year: "2025", label: "ProFlex Wide share, 2025", v: 42.7 },
+  { year: "2026", label: "ProFlex Wide share, 2026", v: 47.4 },
 ];
 const MIX_SIDE = [
-  { v: "50.6% \u2192 60.4%", l: "ProFlex share of rack revenue" },
-  { v: "+19.6%", l: "ProFlex units, year on year" },
-  { v: "4 months", l: "and holding, since the first win shipped" },
+  { v: "+16.0%", l: "ProFlex Wide units" },
+  { v: "-4.0%", l: "Classic MTB units" },
+  { v: "Flat", l: "total rack volume over the window" },
 ];
 
 function Doughnut({ v, after }: { v: number; after?: boolean }) {
@@ -243,7 +247,7 @@ function Doughnut({ v, after }: { v: number; after?: boolean }) {
   const C = 2 * Math.PI * R;
   return (
     <svg viewBox="0 0 140 140" className="h-32 w-32" role="img"
-      aria-label={`ProFlex ${v}% of rack units, the rest Classic and other racks`}>
+      aria-label={`ProFlex Wide ${v}% of the two comparable racks, Classic MTB the rest`}>
       <circle cx="70" cy="70" r={R} fill="none" stroke={MIX_GREY} strokeWidth="22" />
       <circle
         cx="70" cy="70" r={R} fill="none"
@@ -260,10 +264,10 @@ function Mix() {
   return (
     <figure className="my-10 rounded-2xl border border-purple/25 bg-purple-soft/40 p-6 md:p-8">
       <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-purple">
-        The clearest read
+        The cleanest comparison
       </p>
       <h3 className="mt-2 text-xl font-semibold tracking-tight text-text">
-        ProFlex went from minority to majority
+        The premium rack took share from its direct rival
       </h3>
 
       <div className="mt-7 flex flex-wrap items-center justify-center gap-6 sm:gap-8">
@@ -292,11 +296,11 @@ function Mix() {
       <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-text-muted">
         <span className="flex items-center gap-2">
           <span className="h-2.5 w-2.5 rounded-[2px]" style={{ background: MIX_PURPLE }} />
-          ProFlex
+          ProFlex Wide
         </span>
         <span className="flex items-center gap-2">
           <span className="h-2.5 w-2.5 rounded-[2px]" style={{ background: MIX_GREY }} />
-          Classic + other racks
+          Classic MTB
         </span>
       </div>
 
@@ -310,8 +314,10 @@ function Mix() {
       </div>
 
       <Caption>
-        Share of rack sales, Shopify, all channels, 24 Apr to 11 Aug, 2025 against 2026,
-        mid-June sale excluded.
+        ProFlex Wide as a share of ProFlex Wide plus Classic MTB units. Shopify, all
+        channels, 24 Apr to 11 Aug, 2025 against 2026. These two racks were chosen because
+        both were on sale for the whole of both windows and neither was affected by the
+        range changes elsewhere in the lineup.
       </Caption>
     </figure>
   );
