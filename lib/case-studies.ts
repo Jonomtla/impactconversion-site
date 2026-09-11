@@ -137,7 +137,7 @@ export const caseStudies: CaseStudy[] = [
     quoteRole: "Co-founder, High Performance Academy",
     heroImage: "/assets/case-studies/hpa-hero.png",
     heroImageAlt: "High Performance Academy homepage",
-    featured: false,
+    featured: true,
   },
   {
     slug: "hpa-loss-leader",
@@ -541,7 +541,8 @@ export const caseStudies: CaseStudy[] = [
     heroImage: "/assets/case-studies/steadyrack-hero.jpg",
     heroImageAlt:
       "A workshop wall of mountain bikes stored vertically on Steadyrack racks, with two racks left empty",
-    featured: true,
+    featured: false,
+    draft: true,
   },
   {
     slug: "destination-queenstown",
