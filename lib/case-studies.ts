@@ -358,7 +358,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "The premium product was the problem",
         body: [
-          "Before the program, a visit to the ProFlex product page was worth less than half a visit to the cheaper Classic MTB page, and it converted at less than half the rate. The premium rack was the worst-earning page on the site.",
+          "Before the program, a visit to the ProFlex product page was worth less than half a visit to the cheaper Classic MTB page, and it converted at less than half the rate. Of the six rack product pages on the site, the premium one earned the least per visit.",
           "The funnel said the same thing. Steadyrack sat under benchmarks at every step except the cart.",
           "Product view to add-to-cart is the money step, and it was the furthest away from being at benchmark. People arrived, looked, and could not decide.",
         ],

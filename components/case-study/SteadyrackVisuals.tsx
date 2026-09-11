@@ -2,10 +2,10 @@ import type { CaseStudyVisual } from "@/lib/case-studies";
 
 /* Revenue per visitor by landing page, indexed to the Classic MTB PDP = 100. */
 const BASELINE_RPV = [
-  { page: "Collection (bike racks)", v: 107 },
+  { page: "Collection (bike racks)", v: 102 },
   { page: "Classic MTB PDP", v: 100 },
-  { page: "Homepage", v: 80 },
-  { page: "ProFlex PDP", v: 48, worst: true },
+  { page: "Homepage", v: 69 },
+  { page: "ProFlex PDP", v: 49, worst: true },
 ];
 
 const FUNNEL = [
@@ -167,8 +167,8 @@ function BaselineRpv() {
       </ul>
       <Caption>
         Revenue per visitor by landing page, indexed to the Classic MTB page at 100. GA4
-        North America, 24 Apr to 11 Aug 2025, mid-June sale excluded. ProFlex, the
-        premium rack, was the worst-earning page on the site.
+        North America, 24 Apr to 11 Aug 2025, mid-June sale excluded. Of the six rack
+        product pages, ProFlex, the premium one, earned the least per visit.
       </Caption>
     </figure>
   );
