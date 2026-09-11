@@ -42,10 +42,11 @@ export default function CTA() {
           </svg>
         </Link>
         <p className="mt-6 text-sm text-text-inv-muted">
-          Prefer email?{" "}
-          <a href="mailto:jono@impactconversion.com" className="text-cream underline underline-offset-4">
-            jono@impactconversion.com
-          </a>
+          Not ready to book?{" "}
+          <Link href="/contact#book" className="text-cream underline underline-offset-4">
+            Send us your details
+          </Link>{" "}
+          and we&apos;ll come back by email.
         </p>
       </div>
     </section>

@@ -6,11 +6,12 @@ import Reveal from "@/components/motion/Reveal";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CalEmbed from "@/components/CalEmbed";
+import ContactForm from "@/components/ContactForm";
 
 export const metadata = {
-  title: "Contact · Book a 15-Minute CRO Intro Call",
+  title: "Contact · Book a Call or Send Us Your Funnel",
   description:
-    "Book a free 15-minute intro call to look at your funnel together. No pitch deck, no sales script. We tell you straight whether CRO is a fit for your traffic.",
+    "Book a free 15-minute intro call, or send us your details and we\u2019ll come back by email. No pitch deck, no sales script. We tell you straight whether CRO is a fit for your traffic.",
   alternates: { canonical: "/contact" },
 };
 
@@ -81,7 +82,11 @@ export default function ContactPage() {
                 </svg>
               </a>
               <p className="mt-6 text-sm text-text-inv-muted">
-                Or email{" "}
+                Rather not book a call?{" "}
+                <a href="#book" className="text-cream underline underline-offset-4">
+                  Send us the details instead
+                </a>
+                , or email{" "}
                 <a
                   href="mailto:jono@impactconversion.com"
                   className="text-cream underline underline-offset-4"
@@ -93,16 +98,34 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Cal.com embed */}
+        {/* Two ways in: book a time, or send the details. Both live inside
+            #book so every sitewide CTA lands on the choice, not the calendar. */}
         <section id="book" className="bg-cream py-16 md:py-24">
-          <div className="mx-auto max-w-5xl px-6">
-            <div className="mb-8 text-center">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="mb-10 text-center">
               <h2 className="text-balance text-3xl font-semibold tracking-tight text-text md:text-4xl">
-                Fifteen minutes, no prep needed.
+                Two ways to start.
               </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-text-muted">
+                Grab fifteen minutes in the calendar, or send us the details and
+                we&apos;ll come back to you by email. Both reach Jono directly.
+              </p>
             </div>
-            <div className="overflow-hidden rounded-2xl border border-ink/10 bg-white shadow-sm">
-              <CalEmbed />
+            <div className="grid items-start gap-8 lg:grid-cols-5">
+              <div className="lg:col-span-3">
+                <h3 className="mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-text-muted">
+                  Pick a time
+                </h3>
+                <div className="overflow-hidden rounded-2xl border border-ink/10 bg-white shadow-sm">
+                  <CalEmbed />
+                </div>
+              </div>
+              <div className="lg:col-span-2">
+                <h3 className="mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-text-muted">
+                  Rather not book yet?
+                </h3>
+                <ContactForm location="contact" />
+              </div>
             </div>
           </div>
         </section>
