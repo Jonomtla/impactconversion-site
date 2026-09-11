@@ -333,16 +333,17 @@ export const caseStudies: CaseStudy[] = [
     headline:
       "Buyers could not tell which rack fitted their bike. Fixing that won on five pages out of five.",
     summary:
-      "Steadyrack sells wall-mounted vertical bike racks across the world from Perth. They came to us with rising acquisition costs, customers getting confused when buying the premium product, and no structured way to test. Six months in: 11 wins from 27 completed tests, and one finding that won on every surface we applied it to.",
+      "Steadyrack sells wall-mounted vertical bike racks across the world from Perth. They came to us with rising acquisition costs, customers getting confused when buying the premium product, and no structured way to test. Six months in: 11 wins from 27 completed tests, premium rack units up 19.6% on flat total volume, and one finding that won on every surface we applied it to.",
     heroStats: [
       { v: "+28%", l: "Premium rack orders", sub: "Collection page test, 98% confidence" },
+      { v: "+19.6%", l: "Premium rack units sold", sub: "On flat total rack volume, Shopify" },
       { v: "41%", l: "Test win rate", sub: "11 wins from 27 completed tests" },
       { v: "5 of 5", l: "Surfaces where the same fix won", sub: "Collection, product page, filters, cart, homepage" },
     ],
     stats: [
       { v: "+28%", l: "Premium rack orders" },
+      { v: "+19.6%", l: "Premium rack units, flat volume" },
       { v: "41%", l: "Test win rate" },
-      { v: "5 of 5", l: "Surfaces where the fix won" },
     ],
     chapters: [
       {
@@ -399,9 +400,9 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "What changed in what people bought",
         body: [
-          "The clean way to read a mix shift is to compare two products that were both on sale for the whole period and were not touched by anything else. ProFlex Wide against Classic MTB is that comparison.",
-          "ProFlex Wide went from 42.7 percent of those two racks to 47.4 percent. Wide units rose 16 percent while Classic MTB fell 4 percent, and total rack volume was flat. Buyers were not buying more racks. They were choosing the premium one more often, which is exactly what the tests were designed to do.",
-          "Steadyrack&rsquo;s own team was straight with us about what else moved in the same window: two Classic models were phased out, and the ad creative shifted heavily toward ProFlex. Both would push the headline mix number up on their own. That is why the figure above compares only the two racks neither of those things touched.",
+          "In their own sales data, the premium rack sold 19.6 percent more units year on year and earned 26.2 percent more revenue, while total rack volume stayed flat. Buyers were not buying more racks. They were choosing the premium one more often, which is exactly what the tests were designed to do. Across the whole range, ProFlex went from 44.4 percent of rack units to 53.8 percent, and from 50.6 percent of rack revenue to 60.4 percent.",
+          "Steadyrack&rsquo;s own team was straight with us about what else moved in the same window: two Classic models were phased out, and the ad creative shifted heavily toward ProFlex. Both would push that range-wide number up on their own.",
+          "So here is the same shift with those effects removed. ProFlex Wide against Classic MTB, the two racks neither the phase-out nor the creative change touched, both on sale throughout. Wide went from 42.7 percent of the pair to 47.4 percent, its units up 16 percent while Classic MTB fell 4 percent. That is the part the pages can take credit for, and it moves in the same direction as everything else.",
         ],
         visual: "sr-mix",
         figure: {
@@ -427,6 +428,7 @@ export const caseStudies: CaseStudy[] = [
           "We do not annualise every winning test and call it a day. Each winner is weighted by that page&rsquo;s share of site orders, annualised, then corrected for seasonality and for results that got statistically lucky, using the standard winner&rsquo;s-curse correction.",
           "That correction is not cosmetic. The uncorrected platform total is roughly three times larger than the number we actually quote. We quote the corrected one.",
           "On that basis the program returns around eight to nine times its fee in the first year, on North America alone, six months in. The wins have since been hardcoded across all three stores.",
+          "One more read that does not depend on any of that modelling. In Steadyrack&rsquo;s own checkout data, completion rose from 46.3 percent to 50.1 percent across the same window. That stage was already above benchmark before we started, and it still moved.",
         ],
       },
       {
@@ -533,7 +535,10 @@ export const caseStudies: CaseStudy[] = [
       "Collection page bike-type split lifted premium-rack orders 28% at 98% confidence.",
       '"Best suited for" labelling lifted premium-rack conversion 24%.',
       "41% win rate across 27 completed tests, against a 20-30% healthy-program benchmark.",
-      "Premium rack took share from the rack it competes with, 42.7% to 47.4%, on flat total volume.",
+      "Premium rack units up 19.6% and its revenue up 26.2%, on flat total rack volume.",
+      "Premium rack share of the range up from 44.4% to 53.8% of units, and 50.6% to 60.4% of revenue.",
+      "On the like-for-like cut that strips out range and media changes, 42.7% to 47.4%.",
+      "Checkout completion up from 46.3% to 50.1% in their own checkout data.",
       "A documented learnings library where every loss became a rule the next test obeys.",
       "Around 8 to 9 times the fee returned in year one on North America alone, after a winner's-curse correction.",
     ],
