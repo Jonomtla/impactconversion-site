@@ -335,7 +335,7 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "Steadyrack sells wall-mounted vertical bike racks across the world from Perth. They came to us with rising acquisition costs, customers getting confused when buying the premium product, and no structured way to test. Six months in: 11 wins from 27 completed tests, premium rack units up 19.6% on flat total volume, and one finding that won on every surface we applied it to.",
     heroStats: [
-      { v: "+10%", l: "Of annual revenue", sub: "Shipped wins annualised, after a winner\u2019s-curse correction" },
+      { v: "+10%", l: "Of annual revenue", sub: "Shipped wins annualised, after a winner’s-curse correction" },
       { v: "+28%", l: "Premium rack orders", sub: "Collection page test, 98% confidence" },
       { v: "+19.6%", l: "Premium rack units sold", sub: "On flat total rack volume, Shopify" },
       { v: "41%", l: "Test win rate", sub: "11 wins from 27 completed tests" },
@@ -537,7 +537,7 @@ export const caseStudies: CaseStudy[] = [
       "41% win rate across 27 completed tests, against a 20-30% healthy-program benchmark.",
       "Premium rack units up 19.6% and its revenue up 26.2%, on flat total rack volume.",
       "Premium rack share of the range up from 44.4% to 53.8% of units, and 50.6% to 60.4% of revenue.",
-      "On the like-for-like cut that strips out range and media changes, 42.7% to 47.4%.",
+      "On the like-for-like cut that strips out the range and media changes, 43.9% to 48.0%, and every month after the first win above every month before it.",
       "Checkout completion up from 46.3% to 50.1% in their own checkout data.",
       "A documented learnings library where every loss became a rule the next test obeys.",
       "Shipped wins worth a little over 10% of annual North American revenue, annualised, after a winner's-curse correction.",
