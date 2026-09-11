@@ -332,7 +332,7 @@ export const caseStudies: CaseStudy[] = [
     tagline:
       "27 tests, one insight, and the premium rack started taking share from the rack it competes with.",
     headline:
-      "Buyers could not tell which rack fitted their bike. Fixing that won on five pages out of five.",
+      "Buyers could not tell which rack fitted their bike. Naming it worked on all five pages we tried.",
     summary:
       "Steadyrack sells wall-mounted vertical bike racks across the world from Perth. They came to us with rising acquisition costs, customers getting confused when buying the premium product, and no structured way to test. Six months in: 11 wins from 27 completed tests, premium rack units up 19.6% on flat total volume, and one finding that won on every surface we applied it to.",
     heroStats: [
@@ -376,9 +376,9 @@ export const caseStudies: CaseStudy[] = [
         heading: "People shop by what’s in their garage",
         body: [
           "The ProFlex range came in three variants named Narrow, Wide and Fat. Those are brand names that describe the rack, not the bike. To find out which one fitted their bike, a buyer had to click through to a separate page, which only about 5% of users did.",
-          "Everything that followed put the answer in the buyer&rsquo;s own language, in the path, without asking them to do anything: which bike you ride, which rack you need. We tested that idea on the collection page, the product page, the filters, the cart drawer and the homepage. It won all five times.",
+          "Everything that followed put the answer in the buyer&rsquo;s own language, in the path, without asking them to do anything: which bike you ride, which rack you need. We tested that idea on the collection page, the product page, the filters, the cart drawer and the homepage. All five came back positive.",
           "Splitting ProFlex into three bike-type products on the collection page lifted ProFlex orders 28 percent. A &ldquo;best suited for&rdquo; line above the variant selector lifted ProFlex conversion 24 percent. Bike-type filter buttons lifted conversion 8 percent and revenue per visitor 10 percent. Repeating the same line in the cart drawer lifted conversion 8.7 percent. Splitting the racks out in the homepage best sellers lifted it 9.6 percent.",
-          "Five surfaces, five wins, one idea. A single test can get lucky. Five in a row on the same mechanism is the finding.",
+          "Five surfaces, one idea, five positive reads. A single test can get lucky. The same mechanism pointing the same way five times running is the finding.",
         ],
         figure: {
           src: "/assets/case-studies/steadyrack/tests/sr009.jpg",
@@ -395,7 +395,7 @@ export const caseStudies: CaseStudy[] = [
           "Detail overwhelmed the customer. People exited buying mode, and went into analysis mode. A modal that asked buyers to measure their tyre lost, and lost badly. Have the detail available for anyone who goes looking, but keep it off the page where the decision happens.",
           "Trust surprisingly turned out not to be a lever here. Steadyrack has sold over 1 million racks worldwide and the brand carries that weight already. Repeated attempts to add trust signals did nothing, and sometimes did worse than nothing.",
           "Shipping was not a lever either. Three separate tests on thresholds and framing all came back flat. Neither was the navigation: two restructures lost, and only about 4 percent of visitors touch the nav at all.",
-          "Eleven wins from 27 completed tests is a 41 percent win rate. Published benchmarks put advanced practitioners around 33 percent and a healthy program in the 20 to 30 percent band.",
+          "Eleven of the 27 tests we completed produced a winner worth shipping. The other sixteen either lost or came back flat, and both are cheaper than shipping a guess and finding out later.",
         ],
       },
       {
@@ -542,10 +542,10 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     wins: [
-      "The same fix tested on five separate surfaces and won all five times.",
+      "The same fix tested on five separate surfaces and came back positive on all five.",
       "Collection page bike-type split lifted premium-rack orders 28% at 98% confidence.",
       '"Best suited for" labelling lifted premium-rack conversion 24%.',
-      "41% win rate across 27 completed tests, against a 20-30% healthy-program benchmark.",
+      "11 winners from 27 completed tests, with every loss written into the rules the next test obeys.",
       "Premium rack units up 19.6% and its revenue up 26.2%, on flat total rack volume.",
       "Premium rack share of the range up from 44.4% to 53.8% of units, and 50.6% to 60.4% of revenue.",
       "On the like-for-like cut that strips out the range and media changes, 43.9% to 48.0%, and every month after the first win above every month before it.",
