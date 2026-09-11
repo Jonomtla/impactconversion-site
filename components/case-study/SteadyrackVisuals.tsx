@@ -11,8 +11,8 @@ const BASELINE_RPV = [
 const FUNNEL = [
   { stage: "Landing to product view", before: 49.8, bm: 70 },
   { stage: "Product view to add to cart", before: 7.2, bm: 12 },
-  { stage: "Add to cart to checkout", before: 80.8, bm: 60 },
-  { stage: "Checkout completion", before: 49.0, bm: 60 },
+  { stage: "Add to cart to checkout", before: 78.0, bm: 60 },
+  { stage: "Checkout completion", before: 49.9, bm: 60 },
 ];
 
 function Caption({ children }: { children: React.ReactNode }) {
