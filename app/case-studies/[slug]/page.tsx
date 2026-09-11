@@ -226,10 +226,15 @@ export default async function CaseStudyPage({
                     ) : null}
                   </figure>
                 ) : null}
+                {ch.showWins && study.winCards?.length ? (
+                  <div className="mt-12">
+                    <WinsCarousel cards={study.winCards} label="The wins, side by side" />
+                  </div>
+                ) : null}
               </Reveal>
             ))}
 
-            {study.winCards?.length ? (
+            {study.winCards?.length && !study.chapters.some((c) => c.showWins) ? (
               <Reveal className="mt-16">
                 <WinsCarousel cards={study.winCards} label="The wins, side by side" />
               </Reveal>

@@ -22,6 +22,8 @@ export type CaseStudyChapter = {
   body: string[];
   figure?: CaseStudyFigure;
   visual?: CaseStudyVisual;
+  /** Render the wins carousel immediately after this chapter instead of at the end. */
+  showWins?: boolean;
 };
 
 /** A card in the wins carousel. Opens the control-vs-variation screenshot. */
@@ -347,7 +349,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     chapters: [
       {
-        heading: "Why they brought us in",
+        heading: "The problem they came with",
         body: [
           "Customer acquisition costs were rising, especially in the US. Most Steadyrack customers buy once, so every first order has to be profitable on its own.",
           "In their words, the product was the other half of the problem. People can be very overwhelmed with a technical product, and the job is finding the line between giving the consumer too much and not giving them enough. Meanwhile there was no structured way to test website changes.",
@@ -355,7 +357,7 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
       {
-        heading: "The premium product was the problem",
+        heading: "Where the money was leaking",
         body: [
           "Before the program, a visit that began on the ProFlex product page was worth less than half a visit that began on the cheaper Classic MTB page. In their own sales data, the premium rack&rsquo;s page was the weakest rack page on the site.",
           "The funnel said the same thing, and the shape of it was stark.",
@@ -364,7 +366,7 @@ export const caseStudies: CaseStudy[] = [
         visual: "sr-baseline-rpv",
       },
       {
-        heading: "The research.",
+        heading: "What the research showed",
         body: [
           "Surveys, heatmaps, session recordings, support tickets, mined reviews and the funnel itself all converged on the same confusion: which rack do I need?",
           "Seventeen percent of support tickets were sizing questions, people asking the business what the website should have answered. Eighty percent of returns came from people who had been confused about sizing and space. Session recordings and user tests showed size buttons being ignored on the collection page, with add-to-cart possible without choosing a size at all.",
@@ -372,13 +374,14 @@ export const caseStudies: CaseStudy[] = [
         visual: "sr-research",
       },
       {
-        heading: "People shop by what’s in their garage",
+        heading: "The solution: name the bike, not the rack",
         body: [
           "The ProFlex range came in three variants named Narrow, Wide and Fat. Those are brand names that describe the rack, not the bike. To find out which one fitted their bike, a buyer had to click through to a separate page, which only about 5% of users did.",
           "Everything that followed put the answer in the buyer&rsquo;s own language, in the path, without asking them to do anything: which bike you ride, which rack you need. We tested that idea on the collection page, the product page, the filters, the cart drawer and the homepage. All five came back positive.",
           "Splitting ProFlex into three bike-type products on the collection page lifted ProFlex orders 28 percent. A &ldquo;best suited for&rdquo; line above the variant selector lifted ProFlex conversion 24 percent. Bike-type filter buttons lifted conversion 8 percent and revenue per visitor 10 percent. Repeating the same line in the cart drawer lifted conversion 8.7 percent. Splitting the racks out in the homepage best sellers lifted it 9.6 percent.",
           "Five surfaces, one idea, five positive reads. A single test can get lucky. The same mechanism pointing the same way five times running is the finding.",
         ],
+        showWins: true,
         figure: {
           src: "/assets/case-studies/steadyrack/tests/sr009.jpg",
           alt: "Control against variation on the ProFlex product page. The variation adds a Best suited for line naming the bike types each size fits.",
@@ -389,7 +392,7 @@ export const caseStudies: CaseStudy[] = [
         },
       },
       {
-        heading: "What turned out not to be a lever",
+        heading: "What did not work, and why that matters",
         body: [
           "Detail overwhelmed the customer. People exited buying mode, and went into analysis mode. A modal that asked buyers to measure their tyre lost, and lost badly. Have the detail available for anyone who goes looking, but keep it off the page where the decision happens.",
           "Trust surprisingly turned out not to be a lever here. Steadyrack has sold over 1 million racks worldwide and the brand carries that weight already. Repeated attempts to add trust signals did nothing, and sometimes did worse than nothing.",
@@ -424,12 +427,11 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
       {
-        heading: "The overall result",
+        heading: "What the programme is worth",
         body: [
           "We do not annualise every winning test and call it a day. Each winner is weighted by that page&rsquo;s share of site orders, annualised, then corrected for seasonality and for results that got statistically lucky, using the standard winner&rsquo;s-curse correction.",
           "That correction is not cosmetic. The uncorrected platform total is roughly three times larger than the number we actually quote. We quote the corrected one.",
           "On that basis, the wins shipped in the first six months are worth a little over 10 percent of Steadyrack&rsquo;s annual North American revenue. That is a forward run rate rather than money already banked. The wins went live one at a time between late April and August, so only a part of that value fell inside the first six months, and the rest accrues over the next twelve as they keep running. The wins have since been hardcoded across all three stores.",
-          "One more read that does not depend on any of that modelling. In Steadyrack&rsquo;s own checkout data, filtered to real human sessions by Shopify itself, checkout completion rose from 49.9 percent to 52.2 percent year on year across the same six-week-plus window. That stage was already above benchmark before we started, and it still moved.",
         ],
       },
       {
@@ -538,7 +540,6 @@ export const caseStudies: CaseStudy[] = [
       "11 winners from 27 completed tests, with every loss written into the rules the next test obeys.",
       "Premium rack share against the rack it competes with, 42.9% to 48.0%, on the cut that strips out the range and media changes.",
       "Every month after the first win shipped sits above every month before it, bar the mid-year sale.",
-      "Checkout completion up from 49.9% to 52.2% year on year in their own bot-filtered Shopify data.",
       "A documented learnings library where every loss became a rule the next test obeys.",
       "Shipped wins worth a little over 10% of annual North American revenue as a forward run rate, after a winner's-curse correction.",
     ],
