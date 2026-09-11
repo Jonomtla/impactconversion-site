@@ -15,7 +15,8 @@ export type CaseStudyVisual =
   | "sr-baseline-rpv"
   | "sr-research"
   | "sr-funnel"
-  | "sr-mix";
+  | "sr-mix"
+  | "sr-rpv-yoy";
 
 export type CaseStudyChapter = {
   heading: string;
@@ -420,8 +421,17 @@ export const caseStudies: CaseStudy[] = [
         body: [
           "Most case studies would put a sitewide conversion lift at the top of this page. We are not going to, and the reason is worth more than the number would have been.",
           "Steadyrack&rsquo;s analytics captured 70 percent of their orders in one of the two years we were comparing and 97 percent in the other. Nothing about the business changed. The tracking got better. Any year-on-year rate built on top of that is measuring the tracking, not the work, and it would have flattered us by a wide margin.",
-          "Their marketing manager caught it, we checked it, and it came out of this page. A/B tests do not have that problem: both versions run at the same time, on the same tracking, so whatever the analytics miss, they miss equally. That is why every number above comes from a test rather than a year-on-year comparison.",
+          "Their marketing manager caught it, we checked it, and it came out of this page. A/B tests do not have that problem: both versions run at the same time, on the same tracking, so whatever the analytics miss, they miss equally. That is why the numbers above come from tests and from their own sales data rather than from a year-on-year rate.",
         ],
+      },
+      {
+        heading: "So what did a visit become worth",
+        body: [
+          "Which brings us back to the page the program was pointed at, measured properly this time. Same six months, both years, each year restated against Steadyrack&rsquo;s own Shopify totals so the capture problem above cancels out on both sides.",
+          "A visit to the premium page was worth $3.66 in 2025 and $4.38 in 2026, up 19.7 percent. Left uncorrected, the same two years read +84 percent, which is roughly the figure we nearly published and four times the real one.",
+          "The fair objection is that 2026 had a warmer audience, because far more paid traffic landed on this page the year before. So we checked inside the channel rather than across it. Among paid social visitors, the page&rsquo;s largest source in both years and 43,000 sessions of it in 2025, revenue per visit rose 20.5 percent. Same people, arriving the same way, worth a fifth more each. Two smaller channels move the other way, and we have left that on the chart rather than out of it.",
+        ],
+        visual: "sr-rpv-yoy",
       },
       {
         heading: "The overall result",

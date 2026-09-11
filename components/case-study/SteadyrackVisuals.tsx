@@ -349,10 +349,118 @@ function Mix() {
   );
 }
 
+/* Revenue per visit to the ProFlex page, same months both years, each year
+   restated against Shopify so the analytics capture change cancels out. */
+const RPV_MONTHS = ["Mar", "Apr", "May", "Jun", "Jul", "Aug"];
+const RPV_2025 = [2.43, 1.86, 3.54, 5.88, 3.82, 3.52];
+const RPV_2026 = [2.62, 3.97, 4.02, 6.34, 4.75, 4.37];
+const RPV_MAX = 7;
+
+function RpvYoY() {
+  const W = 720, H = 250, L = 40, R = 12, T = 22, B = 30;
+  const x = (i: number) => L + (i * (W - L - R)) / (RPV_MONTHS.length - 1);
+  const y = (v: number) => T + (1 - v / RPV_MAX) * (H - T - B);
+  const markX = (x(1) + x(2)) / 2 - (x(2) - x(1)) * 0.18;
+  const line = (d: number[]) => d.map((v, i) => `${x(i)},${y(v)}`).join(" ");
+  return (
+    <figure className="my-10 rounded-2xl border border-purple/25 bg-purple-soft/40 p-6 md:p-8">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-purple">
+        Year on year, measured the same way
+      </p>
+      <h3 className="mt-2 text-xl font-semibold tracking-tight text-text">
+        What a visit to the premium page was worth
+      </h3>
+      <div className="mt-6 overflow-x-auto">
+        <svg
+          viewBox={`0 0 ${W} ${H}`}
+          className="h-auto w-full min-w-[34rem]"
+          role="img"
+          aria-label="Revenue per visit to the ProFlex page by month, 2025 against 2026. 2026 is higher in every month."
+        >
+          {[0, 1, 2, 3, 4, 5, 6, 7].map((v) => (
+            <g key={v}>
+              <line x1={L} x2={W - R} y1={y(v)} y2={y(v)} stroke="currentColor" className="text-text/10" />
+              <text x={L - 7} y={y(v) + 4} textAnchor="end" fontSize="10" className="fill-text-muted">
+                ${v}
+              </text>
+            </g>
+          ))}
+          {RPV_MONTHS.map((m, i) => (
+            <text key={m} x={x(i)} y={H - 10} textAnchor="middle" fontSize="11" className="fill-text-muted">
+              {m}
+            </text>
+          ))}
+          <line
+            x1={markX} x2={markX} y1={T} y2={H - B}
+            stroke="currentColor" strokeWidth="2" strokeDasharray="5 4"
+            className="text-purple/60"
+          />
+          <polyline points={line(RPV_2025)} fill="none" strokeWidth="3" strokeLinejoin="round"
+            strokeLinecap="round" stroke="currentColor" className="text-text/30" />
+          <polyline points={line(RPV_2026)} fill="none" strokeWidth="3" strokeLinejoin="round"
+            strokeLinecap="round" stroke="currentColor" className="text-purple" />
+          {RPV_2025.map((v, i) => (
+            <g key={`a${i}`} className="text-text/40">
+              <circle cx={x(i)} cy={y(v)} r="4" fill="var(--color-cream-2, #f3efe9)" stroke="currentColor" strokeWidth="3" />
+              <text x={x(i)} y={y(v) + 19} textAnchor="middle" fontSize="10" fontWeight="700" className="fill-text-muted">
+                ${v.toFixed(2)}
+              </text>
+            </g>
+          ))}
+          {RPV_2026.map((v, i) => (
+            <g key={`b${i}`} className="text-purple">
+              <circle cx={x(i)} cy={y(v)} r="4" fill="var(--color-cream-2, #f3efe9)" stroke="currentColor" strokeWidth="3" />
+              <text x={x(i)} y={y(v) - 12} textAnchor="middle" fontSize="10" fontWeight="700" className="fill-purple">
+                ${v.toFixed(2)}
+              </text>
+            </g>
+          ))}
+        </svg>
+      </div>
+      <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-text-muted">
+        <span className="flex items-center gap-2">
+          <span className="h-[3px] w-4 rounded-full bg-text/30" />
+          2025, before the program
+        </span>
+        <span className="flex items-center gap-2">
+          <span className="h-[3px] w-4 rounded-full bg-purple" />
+          2026
+        </span>
+        <span className="flex items-center gap-2">
+          <span className="h-[3px] w-4 border-t-2 border-dashed border-purple/60" />
+          First winning test shipped, 24 April
+        </span>
+      </div>
+      <div className="mt-7 grid gap-3 sm:grid-cols-3">
+        {[
+          { v: "$3.66", l: "March to August 2025" },
+          { v: "$4.38", l: "March to August 2026" },
+          { v: "+19.7%", l: "with both years measured the same way" },
+        ].map((c) => (
+          <div key={c.l} className="rounded-xl bg-cream p-4 text-center">
+            <div className="text-lg font-semibold tracking-tight text-purple">{c.v}</div>
+            <div className="mt-1 text-xs leading-snug text-text-muted">{c.l}</div>
+          </div>
+        ))}
+      </div>
+      <Caption>
+        Revenue per session for visits landing on the ProFlex page, US and Canada, GA4, with each year
+        restated against Steadyrack&rsquo;s Shopify totals so the capture change described above cancels
+        out. Uncorrected, the same chart would read +84%, and that is the figure to ignore. The obvious
+        objection is that 2026 simply had a warmer audience, since far more paid traffic landed here in
+        2025. Inside paid social, the page&rsquo;s largest channel in both years and 43,000 sessions of it
+        in 2025, revenue per visit rose 20.5%, which is the same answer the blended line gives. Two smaller
+        channels disagree, direct most sharply, and direct is the least stable attribution on the page.
+      </Caption>
+    </figure>
+  );
+}
+
 export default function SteadyrackVisual({ name }: { name: CaseStudyVisual }) {
   if (name === "sr-baseline-rpv") return <BaselineRpv />;
   if (name === "sr-research") return <Research />;
   if (name === "sr-funnel") return <Funnel />;
   if (name === "sr-mix") return <Mix />;
+  if (name === "sr-rpv-yoy") return <RpvYoY />;
   return null;
 }
