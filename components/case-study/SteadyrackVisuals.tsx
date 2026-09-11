@@ -250,9 +250,9 @@ const MIX_FLOOR = 30;
 const MIX_CEIL = 60;
 const MIX_TICKS = [30, 40, 50, 60];
 const MIX_SIDE = [
-  { v: "43.9%", l: "average over the seven months before the first win" },
-  { v: "48.0%", l: "average over the four months after" },
-  { v: "+4.1pp", l: "and +7.5pp with the two promotional months removed" },
+  { v: "42.9%", l: "before their ad traffic was rerouted away from the page" },
+  { v: "40.5%", l: "after the reroute, before the winning test went live" },
+  { v: "48.0%", l: "after the test shipped" },
 ];
 
 function Mix() {
@@ -341,9 +341,9 @@ function Mix() {
         Steadyrack&rsquo;s own Shopify data. The dashed line is 24 April 2026, when the first
         winning test shipped to all traffic. These two racks were chosen because both were on
         sale throughout and neither was affected by the range changes elsewhere in the lineup.
-        Share is used rather than volume so the read is unaffected by traffic, seasonality or
-        bot sessions. Every month after the win sits above every month before it except the
-        mid-year sale.
+        Share is used rather than volume, so the read is unaffected by traffic, seasonality,
+        bot sessions or analytics tracking. Every month after the win sits above every month
+        before it except the mid-year sale.
       </Caption>
     </figure>
   );
