@@ -402,7 +402,7 @@ export const caseStudies: CaseStudy[] = [
         body: [
           "In their own sales data, the premium rack sold 19.6 percent more units year on year and earned 26.2 percent more revenue, while total rack volume stayed flat. Buyers were not buying more racks. They were choosing the premium one more often, which is exactly what the tests were designed to do. Across the whole range, ProFlex went from 44.4 percent of rack units to 53.8 percent, and from 50.6 percent of rack revenue to 60.4 percent.",
           "Steadyrack&rsquo;s own team was straight with us about what else moved in the same window: two Classic models were phased out, and the ad creative shifted heavily toward ProFlex. Both would push that range-wide number up on their own.",
-          "So here is the same shift with those effects removed. ProFlex Wide against Classic MTB, the two racks neither the phase-out nor the creative change touched, both on sale throughout. Wide went from 42.7 percent of the pair to 47.4 percent, its units up 16 percent while Classic MTB fell 4 percent. That is the part the pages can take credit for, and it moves in the same direction as everything else.",
+          "So here is the same shift with those effects removed, month by month. ProFlex Wide against Classic MTB, the two racks neither the phase-out nor the creative change touched, both on sale throughout. For the seven months before the first win shipped it sat at 43.9 percent and never once cleared 47. In the four months after it averaged 48 percent, and every month except the mid-year sale is higher than every month that came before. August, the most recent full month, is the highest in the series at 53.7 percent.",
         ],
         visual: "sr-mix",
         figure: {

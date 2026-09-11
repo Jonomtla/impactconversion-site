@@ -230,94 +230,120 @@ function Funnel() {
 
 /* Product mix, before against after. Mirrors the doughnut on the six-month
    review deck (slide 27); colours sampled from it. */
-const MIX_PURPLE = "#7C5AEC";
-const MIX_GREY = "#A8AEC9";
-const MIX = [
-  { year: "2025", label: "ProFlex Wide share, 2025", v: 42.7 },
-  { year: "2026", label: "ProFlex Wide share, 2026", v: 47.4 },
+/* ProFlex Wide as a share of Wide + Classic MTB units, by month, Shopify NA.
+   The two racks Steadyrack confirmed were unaffected by the range phase-out. */
+const MIX_MONTHS = [
+  { m: "Sep", y: "25", v: 46.0 },
+  { m: "Oct", y: "25", v: 41.9 },
+  { m: "Nov", y: "25", v: 44.8, promo: "Black Friday" },
+  { m: "Dec", y: "25", v: 41.7 },
+  { m: "Jan", y: "26", v: 43.4 },
+  { m: "Feb", y: "26", v: 46.3 },
+  { m: "Mar", y: "26", v: 42.3 },
+  { m: "Apr", y: "26", v: 41.5 },
+  { m: "May", y: "26", v: 49.6, after: true },
+  { m: "Jun", y: "26", v: 44.3, after: true, promo: "Mid-year sale" },
+  { m: "Jul", y: "26", v: 49.0, after: true },
+  { m: "Aug", y: "26", v: 53.7, after: true },
 ];
+const MIX_FLOOR = 30;
+const MIX_CEIL = 60;
+const MIX_TICKS = [30, 40, 50, 60];
 const MIX_SIDE = [
-  { v: "+16.0%", l: "ProFlex Wide units" },
-  { v: "-4.0%", l: "Classic MTB units" },
-  { v: "Flat", l: "total rack volume over the window" },
+  { v: "43.9%", l: "average over the seven months before the first win" },
+  { v: "48.0%", l: "average over the four months after" },
+  { v: "+4.1pp", l: "and +7.5pp with the two promotional months removed" },
 ];
-
-function Doughnut({ v, after }: { v: number; after?: boolean }) {
-  const R = 54;
-  const C = 2 * Math.PI * R;
-  return (
-    <svg viewBox="0 0 140 140" className="h-32 w-32" role="img"
-      aria-label={`ProFlex Wide ${v}% of the two comparable racks, Classic MTB the rest`}>
-      <circle cx="70" cy="70" r={R} fill="none" stroke={MIX_GREY} strokeWidth="22" />
-      <circle
-        cx="70" cy="70" r={R} fill="none"
-        stroke={MIX_PURPLE} strokeWidth="22"
-        strokeDasharray={`${(v / 100) * C} ${C}`}
-        transform="rotate(-90 70 70)"
-        style={after ? { transition: "stroke-dasharray .6s ease" } : undefined}
-      />
-    </svg>
-  );
-}
 
 function Mix() {
+  const span = MIX_CEIL - MIX_FLOOR;
+  const pct = (v: number) => ((v - MIX_FLOOR) / span) * 100;
   return (
     <figure className="my-10 rounded-2xl border border-purple/25 bg-purple-soft/40 p-6 md:p-8">
       <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-purple">
         The cleanest comparison
       </p>
       <h3 className="mt-2 text-xl font-semibold tracking-tight text-text">
-        The premium rack took share from its direct rival
+        The premium rack took share the month the first win shipped
       </h3>
 
-      <div className="mt-7 flex flex-wrap items-center justify-center gap-6 sm:gap-8">
-        {MIX.map((d, i) => (
-          <div key={d.year} className="contents">
-            {i === 1 ? (
-              <span aria-hidden className="text-2xl text-purple/50">&rarr;</span>
-            ) : null}
-            <figure className="m-0 text-center">
-              <Doughnut v={d.v} after={i === 1} />
-              <figcaption className="mt-3">
-                <span
-                  className={`block text-2xl font-semibold tracking-tight ${
-                    i === 1 ? "text-purple" : "text-text-muted"
-                  }`}
-                >
-                  {d.v}%
-                </span>
-                <span className="mt-0.5 block text-xs text-text-muted">{d.label}</span>
-              </figcaption>
-            </figure>
+      <div className="mt-7 flex gap-3">
+        <div className="flex h-56 flex-col justify-between pb-6 text-[10px] tabular-nums text-text-muted">
+          {[...MIX_TICKS].reverse().map((t) => (
+            <span key={t}>{t}%</span>
+          ))}
+        </div>
+        <div className="relative flex-1">
+          <div className="absolute inset-x-0 top-0 h-56 pb-6">
+            {MIX_TICKS.map((t) => (
+              <span
+                key={t}
+                aria-hidden
+                className="absolute inset-x-0 border-t border-text/10"
+                style={{ bottom: `${(pct(t) / 100) * 100}%` }}
+              />
+            ))}
           </div>
-        ))}
+          <ol className="relative flex h-56 items-end gap-1.5 sm:gap-2">
+            {MIX_MONTHS.map((d, i) => (
+              <li key={`${d.m}${d.y}`} className="relative flex h-full flex-1 flex-col justify-end">
+                {i === 8 ? (
+                  <span
+                    aria-hidden
+                    className="absolute -left-1 bottom-6 top-0 border-l-2 border-dashed border-purple/60"
+                  />
+                ) : null}
+                <span className="mb-1 block text-center text-[10px] font-semibold tabular-nums text-text">
+                  {d.v}
+                </span>
+                <span
+                  className={`block w-full rounded-t-[3px] ${
+                    d.after ? "bg-purple" : "bg-text/25"
+                  } ${d.promo ? "opacity-50" : ""}`}
+                  style={{ height: `${pct(d.v)}%` }}
+                  title={d.promo ? `${d.m} ${d.y}: ${d.promo}` : `${d.m} ${d.y}`}
+                />
+                <span className="mt-1.5 block text-center text-[10px] leading-none text-text-muted">
+                  {d.m}
+                </span>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
 
-      <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-text-muted">
+      <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-text-muted">
         <span className="flex items-center gap-2">
-          <span className="h-2.5 w-2.5 rounded-[2px]" style={{ background: MIX_PURPLE }} />
-          ProFlex Wide
+          <span className="h-2.5 w-2.5 rounded-[2px] bg-text/25" />
+          Before the first win
         </span>
         <span className="flex items-center gap-2">
-          <span className="h-2.5 w-2.5 rounded-[2px]" style={{ background: MIX_GREY }} />
-          Classic MTB
+          <span className="h-2.5 w-2.5 rounded-[2px] bg-purple" />
+          After
+        </span>
+        <span className="flex items-center gap-2">
+          <span className="h-2.5 w-2.5 rounded-[2px] bg-text/25 opacity-50" />
+          Promotional month
         </span>
       </div>
 
       <div className="mt-7 grid gap-3 sm:grid-cols-3">
-        {MIX_SIDE.map((s) => (
-          <div key={s.l} className="rounded-xl bg-cream p-4 text-center">
-            <div className="text-lg font-semibold tracking-tight text-purple">{s.v}</div>
-            <div className="mt-1 text-xs leading-snug text-text-muted">{s.l}</div>
+        {MIX_SIDE.map((s2) => (
+          <div key={s2.l} className="rounded-xl bg-cream p-4 text-center">
+            <div className="text-lg font-semibold tracking-tight text-purple">{s2.v}</div>
+            <div className="mt-1 text-xs leading-snug text-text-muted">{s2.l}</div>
           </div>
         ))}
       </div>
 
       <Caption>
-        ProFlex Wide as a share of ProFlex Wide plus Classic MTB units. Shopify, all
-        channels, 24 Apr to 11 Aug, 2025 against 2026. These two racks were chosen because
-        both were on sale for the whole of both windows and neither was affected by the
-        range changes elsewhere in the lineup.
+        ProFlex Wide as a share of ProFlex Wide plus Classic MTB units, by month, from
+        Steadyrack&rsquo;s own Shopify data. The dashed line is 24 April 2026, when the first
+        winning test shipped to all traffic. These two racks were chosen because both were on
+        sale throughout and neither was affected by the range changes elsewhere in the lineup.
+        Share is used rather than volume so the read is unaffected by traffic, seasonality or
+        bot sessions. Every month after the win sits above every month before it except the
+        mid-year sale.
       </Caption>
     </figure>
   );
