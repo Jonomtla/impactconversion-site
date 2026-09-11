@@ -333,11 +333,11 @@ export const caseStudies: CaseStudy[] = [
     headline:
       "Buyers could not tell which rack fitted their bike. Naming it worked on all five pages we tried.",
     summary:
-      "Steadyrack sells wall-mounted vertical bike racks across the world from Perth. They came to us with rising acquisition costs, customers getting confused when buying the premium product, and no structured way to test. Six months in: 11 wins from 27 completed tests, premium rack units up 19.6% on flat total volume, and one finding that won on every surface we applied it to.",
+      "Steadyrack sells wall-mounted vertical bike racks across the world from Perth. They came to us with rising acquisition costs, customers getting confused when buying the premium product, and no structured way to test. Six months in: 11 winners from 27 completed tests, and one finding that came back positive on every surface we applied it to.",
     heroStats: [
       { v: "+10%", l: "Added annual run rate", sub: "What the shipped wins are worth over a full year once all are live" },
       { v: "+28%", l: "Premium rack orders", sub: "Collection page test, 98% confidence" },
-      { v: "+19.6%", l: "Premium rack units sold", sub: "On flat total rack volume, Shopify" },
+      { v: "+5.1pp", l: "Premium rack share, like for like", sub: "Against the rack it competes with, after the test shipped" },
       { v: "41%", l: "Test win rate", sub: "11 wins from 27 completed tests" },
     ],
     stats: [
@@ -400,8 +400,8 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "What changed in what people bought",
         body: [
-          "In their own sales data, the premium rack sold 19.6 percent more units year on year and earned 26.2 percent more revenue, while total rack volume stayed flat. Buyers were not buying more racks. They were choosing the premium one more often, which is exactly what the tests were designed to do. Across the whole range, ProFlex went from 44.4 percent of rack units to 53.8 percent, and from 50.6 percent of rack revenue to 60.4 percent.",
-          "Steadyrack&rsquo;s own team was straight with us about what else moved in the same window: two Classic models were phased out, and the ad creative shifted heavily toward ProFlex. Both would push that range-wide number up on their own.",
+          "Total rack volume did not grow. It fell slightly. What changed was which rack people picked, and that is what the tests were built to do.",
+          "The obvious way to show that would be ProFlex&rsquo;s share of all racks, which rose sharply. We are not going to use it. Steadyrack&rsquo;s own team told us two Classic models were discontinued over the same window and the ad creative shifted heavily toward ProFlex. When we checked, the two discontinued racks alone account for about two thirds of ProFlex&rsquo;s unit gain. That is demand moving off a product that stopped being sold, not demand the work created.",
           "So here is the same shift with those effects removed, month by month. ProFlex Wide against Classic MTB, the two racks neither the phase-out nor the creative change touched, both on sale throughout. For the seven months before the first win shipped it sat at 43.9 percent and never once cleared 47. In the four months after it averaged 48 percent, and every month except the mid-year sale is higher than every month that came before. August, the most recent full month, is the highest in the series at 53.7 percent.",
           "The calendar then does something useful. In the first week of April, three weeks before our test went live, Steadyrack&rsquo;s media team rerouted most of their paid traffic away from the ProFlex page. If the mix shift were really about advertising, that is the moment it should have moved. Week by week, share over those three weeks went to 40.5 percent, slightly down on the 42.9 percent that came before. It rose to 48 percent only once the test shipped, and it has stayed there. For the rest of the year the two series pull against each other: the weeks with the least paid traffic on that page are among the strongest for premium share.",
         ],
@@ -536,9 +536,8 @@ export const caseStudies: CaseStudy[] = [
       "Collection page bike-type split lifted premium-rack orders 28% at 98% confidence.",
       '"Best suited for" labelling lifted premium-rack conversion 24%.',
       "11 winners from 27 completed tests, with every loss written into the rules the next test obeys.",
-      "Premium rack units up 19.6% and its revenue up 26.2%, on flat total rack volume.",
-      "Premium rack share of the range up from 44.4% to 53.8% of units, and 50.6% to 60.4% of revenue.",
-      "On the like-for-like cut that strips out the range and media changes, 43.9% to 48.0%, and every month after the first win above every month before it.",
+      "Premium rack share against the rack it competes with, 42.9% to 48.0%, on the cut that strips out the range and media changes.",
+      "Every month after the first win shipped sits above every month before it, bar the mid-year sale.",
       "Checkout completion up from 49.9% to 52.2% year on year in their own bot-filtered Shopify data.",
       "A documented learnings library where every loss became a rule the next test obeys.",
       "Shipped wins worth a little over 10% of annual North American revenue as a forward run rate, after a winner's-curse correction.",
