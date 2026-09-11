@@ -335,13 +335,13 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "Steadyrack sells wall-mounted vertical bike racks across the world from Perth. They came to us with rising acquisition costs, customers getting confused when buying the premium product, and no structured way to test. Six months in: 11 wins from 27 completed tests, premium rack units up 19.6% on flat total volume, and one finding that won on every surface we applied it to.",
     heroStats: [
-      { v: "+10%", l: "Of annual revenue", sub: "Shipped wins annualised, after a winner’s-curse correction" },
+      { v: "+10%", l: "Added annual run rate", sub: "What the shipped wins are worth over a full year once all are live" },
       { v: "+28%", l: "Premium rack orders", sub: "Collection page test, 98% confidence" },
       { v: "+19.6%", l: "Premium rack units sold", sub: "On flat total rack volume, Shopify" },
       { v: "41%", l: "Test win rate", sub: "11 wins from 27 completed tests" },
     ],
     stats: [
-      { v: "+10%", l: "Of annual revenue, annualised" },
+      { v: "+10%", l: "Added annual run rate" },
       { v: "+28%", l: "Premium rack orders" },
       { v: "41%", l: "Test win rate" },
     ],
@@ -428,7 +428,7 @@ export const caseStudies: CaseStudy[] = [
         body: [
           "We do not annualise every winning test and call it a day. Each winner is weighted by that page&rsquo;s share of site orders, annualised, then corrected for seasonality and for results that got statistically lucky, using the standard winner&rsquo;s-curse correction.",
           "That correction is not cosmetic. The uncorrected platform total is roughly three times larger than the number we actually quote. We quote the corrected one.",
-          "On that basis, and annualised at full rollout, the wins shipped in the first six months are worth a little over 10 percent of Steadyrack&rsquo;s annual North American revenue. The wins have since been hardcoded across all three stores.",
+          "On that basis, the wins shipped in the first six months are worth a little over 10 percent of Steadyrack&rsquo;s annual North American revenue. That is a forward run rate rather than money already banked. The wins went live one at a time between late April and August, so only a part of that value fell inside the first six months, and the rest accrues over the next twelve as they keep running. The wins have since been hardcoded across all three stores.",
           "One more read that does not depend on any of that modelling. In Steadyrack&rsquo;s own checkout data, completion rose from 46.3 percent to 50.1 percent across the same window. That stage was already above benchmark before we started, and it still moved.",
         ],
       },
@@ -541,7 +541,7 @@ export const caseStudies: CaseStudy[] = [
       "On the like-for-like cut that strips out the range and media changes, 43.9% to 48.0%, and every month after the first win above every month before it.",
       "Checkout completion up from 46.3% to 50.1% in their own checkout data.",
       "A documented learnings library where every loss became a rule the next test obeys.",
-      "Shipped wins worth a little over 10% of annual North American revenue, annualised, after a winner's-curse correction.",
+      "Shipped wins worth a little over 10% of annual North American revenue as a forward run rate, after a winner's-curse correction.",
     ],
     heroImage: "/assets/case-studies/steadyrack-hero.jpg",
     heroImageAlt:
